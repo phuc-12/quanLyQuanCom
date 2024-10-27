@@ -1,1 +1,2 @@
 # quanLyQuanCom
+#--- Lưu ý ---
