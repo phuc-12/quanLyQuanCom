@@ -3,10 +3,12 @@
 1. git clone https://github.com/phuc-12/quanLyQuanCom.git
 2. Mỗi người khi code sẽ push lên branch của mình, ko đc push bằng branch main vì sẽ gây xung đột
 3. Trước khi bắt đầu code thì hãy chuyển sang branch main để pull code về trước (git pull)
---- Lệnh ---
+   
+#Lệnh
 1. Kiểm tra branch: git branch
 2. Chuyển branch: git checkout Tenbranch   (vd: git checkout phuc)
-   -Sau khi code xong-
+   
+#Sau khi code xong
 1. git add .
 2. git commit -m "ghi chú"   (phần ghi chú thì ghi đã làm đc gì)
 3. git push
