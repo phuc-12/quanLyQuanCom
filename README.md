@@ -6,7 +6,7 @@
 --- Lệnh ---
 1. Kiểm tra branch: git branch
 2. Chuyển branch: git checkout Tenbranch   (vd: git checkout phuc)
-   <Sau khi code xong>
+   -Sau khi code xong-
 1. git add .
 2. git commit -m "ghi chú"   (phần ghi chú thì ghi đã làm đc gì)
 3. git push
