@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .top-bar {
+        background-color: #ffd700;
+        color: #000;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contact-info, .opening-hours {
+        display: flex;
+        align-items: center;
+    }
+    .main-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    .logo {
+        width: 150px;
+        height: 150px;
+        background-color: #40e0d0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sub-nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #d3d3d3;
+        padding: 10px 0;
+    }
+    .slider {
+        height: 300px;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .search-icon {
+        cursor: pointer;
+    }
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    .home-button {
+        background-color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+}
