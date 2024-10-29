@@ -2,7 +2,7 @@
 --- Lưu ý ---
 1. git clone https://github.com/phuc-12/quanLyQuanCom.git
 2. Mỗi người khi code sẽ push lên branch của mình, ko đc push bằng branch main vì sẽ gây xung đột
-3. Trước khi bắt đầu code thì hãy chuyển sang branch main để pull code về trước (git pull)
+3. Trước khi bắt đầu code thì hãy chuyển sang branch main để pull code về trước (git checkout main  -->  git pull)
    
 #Lệnh
 1. Kiểm tra branch: git branch
