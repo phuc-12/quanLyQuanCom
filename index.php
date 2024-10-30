@@ -76,7 +76,7 @@
             <h2>Món tặng kèm hôm nay</h2>
             <div class="mon">
                 <div class="mon_img">
-                    <img src="" alt="">
+                    <img src="IMG/1.jpg" alt="">
                 </div>
                 <div class="mon_info">
                     <p>sting</p>
