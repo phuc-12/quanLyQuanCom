@@ -1,6 +1,6 @@
 # quanLyQuanCom
 --- Lưu ý ---
-1. git clone https://github.com/phuc-12/quanLyQuanCom.git
+1. git clone https://github.com/phuc-12/quanLyQuanCom.git (lần đầu thì code)
 2. Mỗi người khi code sẽ push lên branch của mình, ko đc push bằng branch main vì sẽ gây xung đột
 3. Trước khi bắt đầu code thì hãy chuyển sang branch main để pull code về trước (git checkout main  -->  git pull)
    
