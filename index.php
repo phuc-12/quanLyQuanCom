@@ -21,19 +21,19 @@
 
     <!-- Main Navigation -->
     <nav class="main-nav">
-        <a href="#">Trang chủ</a>
-        <a href="#">Thực đơn</a>
+        <a href="index.php">Trang chủ</a>
+        <a href="intro-menu.php">Thực đơn</a>
         <div class="logo"></div>
-        <a href="#">Giới Thiệu</a>
-        <a href="#">Liên Hệ</a>
+        <a href="intro.php">Giới Thiệu</a>
+        <a href="contact.php">Liên Hệ</a>
     </nav>
 
     <!-- Category Navigation -->
     <div class="category-nav">
-        <a href="#">Món chay</a>
-        <a href="#">Món mặn</a>
-        <a href="#">Đồ uống</a>
-        <a href="#">Tráng Miệng</a>
+        <b><a href="#">Món chay</a></b>
+        <b><a href="#">Món mặn</a></b>
+        <b><a href="#">Đồ uống</a></b>
+        <b><a href="#">Tráng Miệng</a></b>
     </div>
 
     <!-- Banner -->
@@ -197,7 +197,22 @@
     </div>
     <!-- Footer -->
     <footer class="footer">
-        Footer
+    <div class="contain1">
+        <div class="doc1">
+            <h4>
+                QUÁN CƠM CHI PHÈO
+            </h4>
+            <p>
+                GIÁ RẺ - NGON - VỆ SINH - AN TOÀN
+            </p>
+            <img src="../assets/img/logo-white.png" alt="">
+            <ul>
+                <li><a href="https://zalo.me/0346021604" class="doc">Zalo: 0346021604</a></li>
+                <li>Địa chỉ: F4/9C tổ 14 ấp 6C, xã Vĩnh Lộc A, huyện Bình Chánh, TP.HCM</li>
+                <li>Giờ mở cửa: Thứ 2 - Chủ nhật: 6:00 - 20:00</li>
+            </ul>
+        </div>
+    </div>
     </footer>
 </body>
 </html>
