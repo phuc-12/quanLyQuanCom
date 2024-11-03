@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Thực Đơn</title>
-    <link rel="stylesheet" type="text/css" href="../../css/admin_css/admin_food.css">
+    <title>Quản Lý Chương ĐƠN HÀNG</title>
+    <link rel="stylesheet" type="text/css" href="../../css/admin_css/admin_order.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="management_food.php" style="background-color: #E5E5E5;">
+                        <a class="nav-link" href="management_food.php">
                             <i class="fa fa-spoon"></i>
                                 Quản lý thực đơn
                         </a>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="management_order.php">
+                        <a class="nav-link" href="management_order.php" style="background-color: #E5E5E5;">
                             <i class="fa fa-shopping-cart"></i>
                             Quản lý đơn hàng
                         </a>
@@ -64,7 +64,7 @@
             </div>
 
             <div class="section">
-                <h3 style="margin-bottom: 20px;"><b>QUẢN LÝ THỰC ĐƠN</b></h3>
+                <h3 style="margin-bottom: 20px;"><b>QUẢN LÝ ĐƠN HÀNG</b></h3>
 
                 <div>
                     ...
