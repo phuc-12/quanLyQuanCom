@@ -29,6 +29,8 @@
     float: left;
     padding-top: 20px;
     margin-left: 70px;
+    text-decoration: none;
+    color: black;
 }
 /* ---------------- */
 
@@ -79,41 +81,7 @@
     float: left;
 }
 
-#content .section .mger_option {
-    width: 100%;
-    padding: 20px;
-    height: 550px;
-    margin: 15px;
-}
 
-#content .section .mger_option .option {
-    width: 250px;
-    height: 250px;
-    float: left;
-    margin-right: 25px;
-    margin-bottom: 25px;
-}
-
-#content .section .mger_option .mger_food {
-    background-image: -webkit-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
-    border-radius: 10px;
-}
-#content .section .mger_option .mger_employ {
-    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
-    border-radius: 10px;
-}
-#content .section .mger_option .mger_customer {
-    background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-    border-radius: 10px;
-}
-#content .section .mger_option .mger_gift {
-    background-image: -webkit-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-    border-radius: 10px;
-}
-#content .section .mger_option .mger_order {
-    background-image: -webkit-linear-gradient(90deg, #FFCD29 0%, #cfcdcd 100%);
-    border-radius: 10px;
-}
 
     /* ---------------- */
 

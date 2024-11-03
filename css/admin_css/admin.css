@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    background-color: #E5E5E5;
+}
+/* HEADER */
+#ql_header {
+    width: 100%;
+    height: 70px;
+    background-color: #FFCD29;
+}
+
+.logo {
+    width: 70px;
+    height: 100%;
+    background-color: #AB6060;
+    float: left;
+    margin-left: 70px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.trangChu {
+    width: 200px;
+    height: 100%;
+    float: left;
+    padding-top: 20px;
+    margin-left: 70px;
+    text-decoration: none;
+    color: black;
+}
+
+.trangChu:hover {
+    color: black;
+}
+
+/* ---------------- */
+
+/* CONTENT */
+#content {
+    width: 100%;
+    height: 1000px;
+}
+
+    /* CONTENT - NAV */
+#content .nav {
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+
+#content .nav-item {
+    margin: 0;
+}
+
+#content .navbar-nav {
+    width: 100%;
+}
+
+#content .nav a {
+    color: black;
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    float: left;
+}
+
+#content .nav a i {
+    width: 30px;
+    text-align: center;
+}
+
+#content .nav a:hover {
+    background-color: #E5E5E5;
+}
+    /* ---------------- */
+
+    /* CONTENT-SECTION */
+#content .section {
+    width: 80%;
+    padding: 35px;
+    float: left;
+}
+
+#content .section .mger_option {
+    width: 100%;
+    padding: 20px;
+    height: 565px;
+    margin: 15px;
+}
+
+#content .section .mger_option .option {
+    width: 250px;
+    height: 250px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    transition: filter 0.4s ease;
+    padding: 35px;
+    text-decoration: none;
+    color: white;
+}
+
+#content .section .mger_option .option:hover {
+    filter: brightness(1.1);
+}
+
+#content .section .mger_option .mger_food {
+    background-image: -webkit-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
+    border-radius: 10px;
+}
+#content .section .mger_option .mger_employ {
+    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+    border-radius: 10px;
+}
+#content .section .mger_option .mger_customer {
+    background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #f89d5b 100%);
+    border-radius: 10px;
+}
+#content .section .mger_option .mger_gift {
+    background-image: -webkit-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
+    border-radius: 10px;
+}
+#content .section .mger_option .mger_order {
+    background-image: -webkit-linear-gradient(90deg, #FFCD29 0%, #f9b0b0 100%);
+    border-radius: 10px;
+}
+
+    /* ---------------- */
+
+/* ---------------- */
