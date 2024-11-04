@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <title>Trang chủ</title>
 </head>
+
 <body>
-<!-- Top Bar -->
-<div class="top-bar">
+    <!-- Top Bar -->
+    <div class="top-bar">
         <div class="contact-info">
             <span>1900-1900</span>
             <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
@@ -52,42 +54,11 @@
     </div>
 
     <!-- Vegetarian Menu Section -->
-    
+
 
     <!-- Bottom Section -->
     <div class="bottom-section">
-        <div class="menu-list">
-            <h2>MENU</h2>
-            <ul>
-                <li>Cơm sườn</li>
-                <li>Mì xào chay</li>
-                <li>Hủ tiếu</li>
-                <li>Nước ngọt</li>
-                <li>Cơm chay</li>
-                <li>Trái cây</li>
-                <li>Chè</li>
-            </ul>
-        </div>
-        <div class="daily-specials">
-            <h2 class="specials-title">Món tặng kèm hôm nay</h2>
-            <div class="specials-grid">
-                <div class="special-card">
-                    <div class="img-placeholder"></div>
-                    <h3>Tên món</h3>
-                    <p>Giá</p>
-                </div>
-                <div class="special-card">
-                    <div class="img-placeholder"></div>
-                    <h3>Tên món</h3>
-                    <p>Giá</p>
-                </div>
-                <div class="special-card">
-                    <div class="img-placeholder"></div>
-                    <h3>Tên món</h3>
-                    <p>Giá</p>
-                </div>
-            </div>
-        </div>
+        
     </div>
     <div class="menu">
         <h2 class="section-title">MÓN CHAY</h2>
@@ -193,26 +164,51 @@
             <div class="image-banner-item"></div>
             <div class="image-banner-item"></div>
             <div class="image-banner-item"></div>
+            <div class="image-banner-item"></div>
         </div>
     </div>
     <!-- Footer -->
     <footer class="footer">
-    <div class="contain1">
-        <div class="doc1">
-            <h4>
-                QUÁN CƠM CHI PHÈO
-            </h4>
-            <p>
-                GIÁ RẺ - NGON - VỆ SINH - AN TOÀN
-            </p>
-            <img src="../assets/img/logo-white.png" alt="">
-            <ul>
-                <li><a href="https://zalo.me/0346021604" class="doc">Zalo: 0346021604</a></li>
-                <li>Địa chỉ: F4/9C tổ 14 ấp 6C, xã Vĩnh Lộc A, huyện Bình Chánh, TP.HCM</li>
-                <li>Giờ mở cửa: Thứ 2 - Chủ nhật: 6:00 - 20:00</li>
-            </ul>
+        <div class="contain1">
+            <div class="doc1">
+                <h4>
+                    QUÁN CƠM CHÍ PHÈO
+                </h4>
+                <p>
+                    GIÁ RẺ - NGON - VỆ SINH - AN TOÀN
+                </p>
+                <img src="../assets/img/logo-white.png" alt="">
+                <P>
+                    Chúng tôi cam kết mang đến những sản phẩm chất lượng với số lượng lớn đáp ứng nhu cầu đa dạng của
+                    từng khách hàng
+                </P>
+            </div>
+            <div class="doc2">
+                <h4>CHÍNH SÁCH</h4>
+                <ul>
+                    <li><a href="#" class="doc">Cách Đặt Lịch Tại Website</a></li>
+                    <li><a href="#" class="doc">Chính Sách Bảo Mật</a></li>
+                    <li><a href="#" class="doc">Phương Thức Thanh Toán</a></li>
+                </ul>
+            </div>
+            <div class="doc3">
+                <h4>LIÊN HỆ ĐẶT HÀNG</h4>
+                <ul>
+                    <li><a href="https://zalo.me/0346021604" class="doc">Zalo: 0346021604</a></li>
+                    <li>Địa chỉ: F4/9C tổ 14 ấp 6C, xã Vĩnh Lộc A, huyện Bình Chánh, TP.HCM</li>
+                    <li>Giờ mở cửa: Thứ 2 - Chủ nhật: 6:00 - 20:00</li>
+                </ul>
+            </div>
+            <div class="doc4">
+                <h4>LIÊN KẾT NHANH</h4>
+                <ul>
+                    <li><a href="#" class="doc">Giới Thiệu</a></li>
+                    <li><a href="#" class="doc">Liên Hệ-Bản Đồ Đường Đi</a></li>
+                    <li><a href="#" class="doc">Facebook</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
     </footer>
 </body>
+
 </html>
