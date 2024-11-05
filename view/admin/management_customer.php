@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="management_food.php">
+                        <a class="nav-link" href="managementfood.php">
                             <i class="fa fa-spoon"></i>
                                 Quản lý thực đơn
                         </a>
