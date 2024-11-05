@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Khách Hàng</title>
+    <title>Theo dõi đơn hàng</title>
     <link rel="stylesheet" type="text/css" href="../../css/haucan_css/style.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -24,10 +24,9 @@
         </div>
     </header>
     <div id="content">
-            <button class="back-button">◀</button>
             <div class="container">
                 <div class="header-row">
-                    <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
+                    <h2>DANH SÁCH ĐƠN HÀNG</h2>
                     <div class="search-add">
                         <input type="text" placeholder="Tìm kiếm...">
                         <button class="search-button">🔍</button>
@@ -52,7 +51,7 @@
                             <td>Nguyễn Văn Bảo, Gò Vấp</td>
                             <td>20:00 05/11/2024</td>
                             <td>
-                                <button class="view-button">Xem chi tiết</button>
+                                <button class="view-button" onclick="window.location.href='haucan_chuanbidonhang.php';">Xem chi tiết</button>
                             </td>
                         </tr>
                         <!-- Add more rows as needed -->

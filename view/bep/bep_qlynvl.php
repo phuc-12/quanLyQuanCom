@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Khách Hàng</title>
+    <title>Quản Lý nguyên vật liệu</title>
     <link rel="stylesheet" type="text/css" href="../../css/nvbep_css/danhsachnvl.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -24,14 +24,13 @@
         </div>
     </header>
         <div id="content">
-            <button class="back-button">◀</button>
             <div class="container">
                 <div class="header-row">
                     <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
                     <div class="search-add">
                         <input type="text" placeholder="Tìm kiếm...">
                         <button class="search-button">🔍</button>
-                        <button class="add-button">THÊM MỚI</button>
+                        <button class="add-button" onclick="window.location.href='bep_themnvl.php';">THÊM MỚI</button>
                     </div>
                 </div>
                 <table>
@@ -53,8 +52,8 @@
                             <td>kg</td>
                             <td>Đủ</td>
                             <td>
-                                <button class="view-button">Xem</button>
-                                <button class="edit-button">Sửa</button>
+                                <button class="view-button" onclick="window.location.href='bep_xemnvl.php';">Xem</button>
+                                <button class="edit-button" onclick="window.location.href='bep_capnhatnvl.php';">Sửa</button>
                                 <button class="delete-button">Xóa</button>
                             </td>
                         </tr>

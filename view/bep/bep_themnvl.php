@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Khách Hàng</title>
+    <title>Thêm nguyên vật liệu</title>
     <link rel="stylesheet" type="text/css" href="../../css/nvbep_css/danhsachnvl.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -24,7 +24,7 @@
         </div>
     </header>
         <div id="content">
-        <button class="back-button">◀</button>
+        <button class="back-button" onclick="window.location.href='bep_qlynvl.php';">◀<a href="bep_qlynvl.php" style="font-size: 16px; color: black; text-decoration: none;"> Danh sách nguyên vật liệu</a></button>
         <div class="container-xem">
             <div class="header-row-xem">
                 <h2>THÊM NGUYÊN VẬT LIỆU</h2>
@@ -51,7 +51,7 @@
                 <label for="ngayhethan">Ngày hết hạn:</label>
                 <input type="text" id="ngayhethan" name="ngayhethan" value="01/10/2024"placeholder="DD/MM/YY">
 
-                <button type="submit" class="add-button">THÊM</button>
+                <button type="submit" class="add-button-1">THÊM</button>
         </div>
         </div>
     </div>
