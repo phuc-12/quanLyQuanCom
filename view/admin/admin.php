@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="management_food.php">
+                        <a class="nav-link" href="managementfood.php">
                             <i class="fa fa-spoon"></i>
                                 Quản lý thực đơn
                         </a>
@@ -67,7 +67,7 @@
                 <h3 style="margin-bottom: 20px;"><b>TỔNG QUÁT</b></h3>
 
                 <div class="mger_option">
-                    <a class="option mger_food" href="management_food.php">
+                    <a class="option mger_food" href="managementfood.php">
                         <i class="fa fa-spoon" style="font-size: 60px;"></i><br>
                         <p style="font-size: 20px; margin-top: 10px;">QUẢN LÝ THỰC ĐƠN</p>
                     </a>
