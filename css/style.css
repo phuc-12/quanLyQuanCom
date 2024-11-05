@@ -531,3 +531,10 @@
     font-size: 20px;
     padding-left: 10px;
 }
+.contact1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Để căn giữa theo chiều ngang dang ký đăng nhập*/
+}

@@ -17,8 +17,8 @@
             <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
         </div>
         <div class="auth-buttons">
-            <a href="#">Đăng ký</a>
-            <a href="#">Đăng nhập</a>
+            <a href="view/dangky.php">Đăng ký</a>
+            <a href="view/dangnhap.php">Đăng nhập</a>
         </div>
     </div>
 

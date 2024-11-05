@@ -18,8 +18,8 @@
         </div>
         <div class="auth-buttons">
             <input type="search" placeholder="Bạn cần tìm gì" autocomplete="off">
-            <a href="#">Đăng ký</a>
-            <a href="#">Đăng nhập</a>
+            <a href="view/dangky.php">Đăng ký</a>
+            <a href="view/dangnhap.php">Đăng nhập</a>
         </div>
     </div>
 
