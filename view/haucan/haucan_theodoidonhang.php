@@ -23,4 +23,42 @@
             </div>
         </div>
     </header>
+    <div id="content">
+            <button class="back-button">◀</button>
+            <div class="container">
+                <div class="header-row">
+                    <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
+                    <div class="search-add">
+                        <input type="text" placeholder="Tìm kiếm...">
+                        <button class="search-button">🔍</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Tên khách hàng</th>
+                            <th>Địa chỉ giao hàng</th>
+                            <th>Thời gian yêu cầu giao</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>DH01</td>
+                            <td>Nguyễn Thị Nga</td>
+                            <td>Nguyễn Văn Bảo, Gò Vấp</td>
+                            <td>20:00 05/11/2024</td>
+                            <td>
+                                <button class="view-button">Xem chi tiết</button>
+                            </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
