@@ -12,7 +12,8 @@
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="contact-info">
-            <span>1900-1900</span>
+            <span>0346021604</span>
+            <span> - </span>
             <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
         </div>
         <div class="auth-buttons">
@@ -51,8 +52,8 @@
             Với không gian gần gũi, ấm cúng và phong cách phục vụ thân thiện, Cơm Chí Phèo hy vọng sẽ là địa điểm yêu
             thích của bạn và gia đình, nơi lưu giữ và truyền tải hương vị của một vùng quê Việt Nam chân chất. Hãy đến
             và cảm nhận sự khác biệt trong từng món ăn của chúng tôi!
-            <br><br><b>Địa chỉ: Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, Thành phố Hồ Chí Minh</b>
-            <br><b>Giờ mở cửa: Từ 6h00 - 20h00 hàng ngày Hotline: 0346021604</b> <br>
+            <br><br><b>Địa chỉ: F4/9C tổ 14 ấp 6C, xã Vĩnh Lộc A, huyện Bình Chánh, TP.HCM</b>
+            <br><b>Giờ mở cửa: Thứ 2 - Chủ nhật: 6:00 - 20:00 Hotline: 0346021604</b> <br>
         </p><br>
     </div>
     <div class="user-grid">
