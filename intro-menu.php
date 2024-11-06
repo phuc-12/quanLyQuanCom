@@ -48,7 +48,7 @@
             <div class="menu-content">
                 <div class="daily-menu">
                     <p>T2: Gà Tẩm Bột Chiên Giòn, Cá Lóc Kho Tộ, Ba Rọi Kho Trứng Cút, Chả Chiên Sốt Cà, Bò Xào Ớt
-                        Chuông.</p>
+                        Chuông</p>
                     <p>T3: Vịt Kho Măng, Bò Xào Cải Chua, Heo Xiu Mai Sốt Cà, Cá Hú Kho Thơm, Sườn Non Ram Mặn</p>
                     <p>T4: Gà Kho Nấm Hương, Cá Diêu Hồng Sốt Cà, Bò Xào Khổ Qua, Ba Chỉ Kho Mắm Ruốc, Chả Cá Kho Trứng
                         Cút.</p>
