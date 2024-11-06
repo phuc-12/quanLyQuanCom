@@ -22,9 +22,17 @@
 
     <div class="container">
         <div class="content">
-            <h2>Danh sách đơn hàng</h2>
-            <button class="button new-order">Tạo đơn mới</button>
-
+            <center><h1>Danh sách đơn hàng</h1>
+            <table class="order-table1">
+                <tr>
+                    <th><a href="#">Đơn hàng chưa thanh toán</a></th>
+                    <th></th>
+                    <th>|</th>
+                    <th></th>
+                    <th><a href="#">Đơn hàng đã thanh toán</a></th>
+                </tr>
+            </table>
+            </center>
             <table class="order-table">
                 <thead>
                     <tr>
@@ -41,10 +49,18 @@
                         <td>1</td>
                         <td>0001</td>
                         <td>10:00 AM</td>
-                        <td>Đã thanh toán</td>
+                        <td>Chưa thanh toán</td>
                         <td>
-                            <button class="button view"><a href="http://localhost/quanLyQuanCom/view/NHANVIEN/Chitietdonhang.php">Xem</a></button>
-                            <button class="button update">Cập nhật</button>
+                            <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0002</td>
+                        <td>09:10 AM</td>
+                        <td>Chưa thanh toán</td>
+                        <td>
+                            <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
                         </td>
                     </tr>
                     <!-- Thêm.. -->
