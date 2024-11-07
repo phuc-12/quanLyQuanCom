@@ -32,6 +32,7 @@
     text-decoration: none;
     padding: 5px 10px;
 }
+
 /* Navigation Styles */
 .main-nav {
     display: flex;
@@ -58,20 +59,32 @@
     background-color: #ebc85f;
     border: 2px solid #ebc85f;
     border-radius: 30px;
-    padding: 10px;
+
 }
+/* Category-food */
 .category-nav {
     background: #ddd;
     display: flex;
     justify-content: space-around;
     padding: 15px;
+    font-weight: bold;
+    align-items: center;
 }
 
 .category-nav a {
+    color: #000;
     text-decoration: none;
-    color: #333;
+    height: 20px;
+    width: 100px;
+    text-align: center;
+    align-items: center;
 }
- 
+.category-nav > a:hover {
+    background-color: #ebc85f;
+    border-radius: 25px;
+}
+
+/* Slide show */
  .slideshow-container {
     position: relative;
     max-width: 1900px; /* Độ rộng tối đa của slideshow */
@@ -481,11 +494,11 @@
     margin-bottom: 20px;
 }
 
-.info-icon {
+/* .info-icon {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-}
+} */
 
 .info-content h3 {
     font-size: 16px;
@@ -537,4 +550,59 @@
     padding: 20px;
     display: flex;
     justify-content: center; /* Để căn giữa theo chiều ngang dang ký đăng nhập*/
+}
+
+/* Chi tiet mon an */
+.food-detail {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+.food-img img {
+    border-radius: 20px;
+    box-shadow: 10px 5px 30px;
+}
+
+.food-info {
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+}
+.detail-item{
+    /* display: flex; */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.detail-content h1 {
+    width: 100%;
+    height: 70px;
+    padding-top: 20px;
+    font-size: 27px;
+    text-align: center;
+}
+.detail-des ul{
+    padding-top: 10px;
+    padding-left: 30px;
+    float: left;
+}
+
+.detail-des h2{
+    padding-left: 10px;
+}
+.detail-content p {
+    color: #333;
+    line-height: 1.4;
+}
+.price {
+    max-width: 800px;
+    min-height: 30px;
+}
+.price p {
+    float: right;
+    font-size: 25px;
+    min-height: 30px;
+    font-weight: bold;
+    padding-right: 10px;
 }
