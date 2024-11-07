@@ -64,7 +64,7 @@
             <p>
                 GIÁ RẺ - NGON - VỆ SINH - AN TOÀN
             </p>
-            <img src="../assets/img/logo-white.png" alt="">
+            <img src="IMG/ChiPheologo.png" alt="">
             <ul>
                 <li><a href="https://zalo.me/0346021604" class="doc">Zalo: 0346021604</a></li>
                 <li>Địa chỉ: F4/9C tổ 14 ấp 6C, xã Vĩnh Lộc A, huyện Bình Chánh, TP.HCM</li>

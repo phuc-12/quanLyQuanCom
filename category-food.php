@@ -17,6 +17,8 @@
             <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
         </div>
         <div class="auth-buttons">
+        <input type="search" placeholder="Bạn cần tìm gì" autocomplete="off">
+        <input type="submit" name="btn" id="btn" value="Search">
             <a href="view/dangky.php">Đăng ký</a>
             <a href="view/dangnhap.php">Đăng nhập</a>
         </div>
@@ -41,69 +43,66 @@
         <a href="#">Tráng Miệng</a>
     </div>
 
-    <div class="info-menu">
-        <div class="menu-section">
-            <div class="menu-header">
-                <h2>MENU CỐ ĐỊNH HÀNG TUẦN</h2>
-                <span class="arrow"></span>
+    <!-- Menu dish by type  -->
+    <div class="menu">
+        <h2 class="section-title">MÓN CHAY</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <a href="#">
+                    <div class="sp-img">
+                        <img src="IMG/monchay/bokhochay.jpg" alt="">
+                    </div>
+                    <div class="sp-info">
+                        <h3>Bò kho chay</h3>
+                        <p>10.000đ</p>
+                    </div>
+                </a>
             </div>
-            <div class="menu-content">
-                <div class="daily-menu">
-                    <p>T2: Gà Tẩm Bột Chiên Giòn, Cá Lóc Kho Tộ, Ba Rọi Kho Trứng Cút, Chả Chiên Sốt Cà, Bò Xào Ớt
-                        Chuông</p>
-                    <p>T3: Vịt Kho Măng, Bò Xào Cải Chua, Heo Xiu Mai Sốt Cà, Cá Hú Kho Thơm, Sườn Non Ram Mặn</p>
-                    <p>T4: Gà Kho Nấm Hương, Cá Diêu Hồng Sốt Cà, Bò Xào Khổ Qua, Ba Chỉ Kho Mắm Ruốc, Chả Cá Kho Trứng
-                        Cút.</p>
-                    <p>T5: Bò Kho Lagu, Tàu Hủ Nhồi Thịt Sốt Cà, Cá Trê Chiên Mắm Gừng, Giò Heo Hầm Măng Khô, Gà Xào Xả
-                        Ớt</p>
-                    <p>T6: Thịt Heo Nấu Giả Cầy, Lòng Gà Xào Măng Khô, Bò Xào Bông Cải, Heo Xiu Mai Sốt Cà, Cá Basa
-                        Chiên Sả.</p>
-                    <p>T7: Ba Chỉ Kho Tiêu, Gà Kho Gừng, Trứng Chiên Thịt Bằm, Cá Nục Chiên Giòn,Sườn Kho Kho Cải Chua
-                    </p>
-                </div>
+            <div class="menu-item">
+                <a href="#">
+                    <div class="sp-img">
+                        <img src="IMG/monchay/suonnonchiengion.png" alt="">
+                    </div>
+                    <div class="sp-info">
+                        <h3>Sườn non chiên giòn</h3>
+                        <p>10.000đ</p>
+                    </div>
+                </a>
             </div>
-        </div>
+            <div class="menu-item">
+                <a href="#">
+                    <div class="sp-img">
+                        <img src="IMG/monchay/heoquaychay.png" alt="">
+                    </div>
+                    <div class="sp-info">
+                        <h3>Heo quay chay</h3>
+                        <p>10.000đ</p>
+                    </div>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#">
+                    <div class="sp-img">
+                        <img src="IMG/monchay/goiduduchay.png" alt="">
+                    </div>
+                    <div class="sp-info">
+                        <h3>Gỏi đu đủ chay</h3>
+                        <p>10.000đ</p>
+                    </div>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#">
+                    <div class="sp-img">
+                        <img src="IMG/monchay/dauhukhochay.png" alt="">
+                    </div>
+                    <div class="sp-info">
+                        <h3>Đậu hũ kho chay</h3>
+                        <p>10.000đ</p>
+                    </div>
+                </a>
+            </div>
 
-        <div class="menu-section">
-            <div class="menu-header">
-                <h2>MÓN CHAY</h2>
-                <span class="arrow"></span>
-            </div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-header">
-                <h2>MÓN MẶN</h2>
-                <span class="arrow"></span>
-            </div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-header">
-                <h2>MÓN KHÔ</h2>
-                <span class="arrow"></span>
-            </div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-header">
-                <h2>MÓN NƯỚC</h2>
-                <span class="arrow"></span>
-            </div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-header">
-                <h2>TRÁNG MIỆNG</h2>
-                <span class="arrow"></span>
-            </div>
-        </div>
-
-        <div class="menu-section">
-            <div class="menu-header">
-                <h2>NƯỚC GIẢI KHÁT</h2>
-                <span class="arrow"></span>
-            </div>
         </div>
     </div>
     <!-- Footer -->
@@ -148,18 +147,6 @@
             </div>
         </div>
     </footer>
-    <script>
-    document.querySelectorAll('.menu-header').forEach(header => {
-        header.addEventListener('click', () => {
-            const arrow = header.querySelector('.arrow');
-            arrow.classList.toggle('up');
-            const content = header.nextElementSibling;
-            if (content) {
-                content.style.display = content.style.display === 'none' ? 'block' : 'none';
-            }
-        });
-    });
-    </script>
 </body>
 
 </html>

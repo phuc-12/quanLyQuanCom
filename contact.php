@@ -26,17 +26,19 @@
     <nav class="main-nav">
         <a href="index.php">Trang chủ</a>
         <a href="intro-menu.php">Thực đơn</a>
-        <div class="logo"></div>
+        <div class="logo">
+            <img src="IMG/ChiPheologo.png" alt="">
+        </div>
         <a href="intro.php">Giới Thiệu</a>
         <a href="contact.php">Liên Hệ</a>
     </nav>
 
     <!-- Category Navigation -->
     <div class="category-nav">
-        <b><a href="#">Món chay</a></b>
-        <b><a href="#">Món mặn</a></b>
-        <b><a href="#">Đồ uống</a></b>
-        <b><a href="#">Tráng Miệng</a></b>
+        <a href="category-food.php">Món chay</a>
+        <a href="#">Món mặn</a>
+        <a href="#">Đồ uống</a>
+        <a href="#">Tráng Miệng</a>
     </div>
 
     <div class="contact">
@@ -97,7 +99,7 @@
                 <p>
                     GIÁ RẺ - NGON - VỆ SINH - AN TOÀN
                 </p>
-                <img src="../assets/img/logo-white.png" alt="">
+                <img src="IMG/ChiPheologo.png" alt="">
                 <P>
                     Chúng tôi cam kết mang đến những sản phẩm chất lượng với số lượng lớn đáp ứng nhu cầu đa dạng của
                     từng khách hàng
