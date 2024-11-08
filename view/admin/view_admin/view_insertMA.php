@@ -21,7 +21,7 @@
                 <p>logo</p>
             </div>
 
-            <a class="trangChu" href="../../index.php">
+            <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
         </div>

@@ -18,7 +18,7 @@
     </div>
     <div class="container01">
         <div class="buttons">
-            <div class="button01"><a href="http://localhost/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php">Quản lí đơn hàng</a></div>
+            <div class="button01"><a href="Quanlidonhang.php">Quản lí đơn hàng</a></div>
             <div class="button01">Theo dõi đơn hàng</div>
         </div>
     </div>

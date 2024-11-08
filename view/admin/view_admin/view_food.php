@@ -5,11 +5,11 @@
     $tblMA = $p->getAllMA();
     if(!$tblMA)
     {
-        echo 'Khong ket noi duoc';
+        echo 'Không kết nối được';
     }
     elseif($tblMA==-1)
     {
-        echo 'chua co du lieu';
+        echo 'Chưa có dữ liệu món ăn';
     }
     else
     {	
@@ -44,13 +44,9 @@
                         echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiMon'].'</a></td>';
                     }
                 }
-                // echo '<td>'.$r['maLoaiMon'].'</td>';
+                
                 echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
-                // echo '<td>
-                //         <button type="button" class="btn btn-outline-dark">Chi tiết</button>
-                //         <button type="button" class="btn btn-outline-dark">Cập nhật</button>
-                //         <button type="button" class="btn btn-outline-dark">Xóa món</button>
-                //     </td>';
+                
             echo '</tr>';
             $dem++;
         }
