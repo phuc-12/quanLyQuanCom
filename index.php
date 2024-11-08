@@ -31,7 +31,7 @@
         <a href="index.php">Trang chủ</a>
         <a href="intro-menu.php">Thực đơn</a>
         <div class="logo">
-            <img src="IMG/ChiPheologo.png" alt="">
+            <img src="IMG/ChiPheologo.png" alt=""> 
         </div>
         <a href="intro.php">Giới Thiệu</a>
         <a href="contact.php">Liên Hệ</a>
