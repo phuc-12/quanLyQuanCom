@@ -1,5 +1,6 @@
 <?php
-    class clsKetNoi {
+    class clsKetNoi 
+    {
         public function moketnoi(){
             $con = mysqli_connect('localhost', 'trieu', '123', 'db_quancomchipheo');
             if (!$con) {
@@ -11,5 +12,7 @@
         public function dongketnoi($con){
             mysqli_close($con);
         }
+
+        
     }
 ?>

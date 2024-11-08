@@ -1,6 +1,6 @@
 <?php
 
-    include("../../controler/cLoaiMon.php");
+    include("../../../controler/cLoaiMon.php");
     $p = new CLoaiMon();
     $tblLM = $p->GetLM();
     if(!$tblLM)
@@ -20,6 +20,7 @@
             echo '<option value="'.$r['maLoaiMon'].'">'.$r['tenLoaiMon'].'</option>';
         }
         echo '</select>';
+        
     }
 
 ?>

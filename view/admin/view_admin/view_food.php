@@ -32,25 +32,25 @@
         while($r=$tblMA->fetch_assoc())
         {	 
             echo '<tr style="text-align: center">';
-                echo '<td>'.$dem.'</td>';
-                echo '<td>'.$r['maMon'].'</td>';
-                echo '<td>'.$r['tenMon'].'</td>';
-                echo '<td>'.$r['soLuong'].'</td>';
-                echo '<td>'.$r['donViTinh'].'</td>';
-                echo '<td>'.$r['gia'].'</td>';
+                echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
+                echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$r['maMon'].'</a></td>';
+                echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$r['tenMon'].'</a></td>';
+                echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$r['soLuong'].'</a></td>';
+                echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$r['donViTinh'].'</a></td>';
+                echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$r['gia'].'</a></td>';
                 $rs = $p->GetTHByIDSP($r['maMon']);
                 if($rs->num_rows > 0) {
                     while($row = $rs->fetch_assoc()) {
-                        echo '<td>'.$row['tenLoaiMon'].'</td>';
+                        echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiMon'].'</a></td>';
                     }
                 }
                 // echo '<td>'.$r['maLoaiMon'].'</td>';
-                echo '<td>'.$r['trangThai'].'</td>';
-                echo '<td>
-                        <button type="button" class="btn btn-outline-dark">Chi tiết</button>
-                        <button type="button" class="btn btn-outline-dark">Cập nhật</button>
-                        <button type="button" class="btn btn-outline-dark">Xóa món</button>
-                    </td>';
+                echo '<td><a href="?id='.$r['maMon'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                // echo '<td>
+                //         <button type="button" class="btn btn-outline-dark">Chi tiết</button>
+                //         <button type="button" class="btn btn-outline-dark">Cập nhật</button>
+                //         <button type="button" class="btn btn-outline-dark">Xóa món</button>
+                //     </td>';
             echo '</tr>';
             $dem++;
         }

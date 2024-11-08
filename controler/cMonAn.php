@@ -36,19 +36,11 @@
 			}
 		}
 
-		public function themMA($maMon,$tenMon,$soLuong,$donViTinh,$gia,$moTa,$maLoaiMon,$hinhAnh)
-		{
-			$p = new MMonAn();
-			$result = $p->themMA($maMon,$tenMon,$soLuong,$donViTinh,$gia,$moTa,$maLoaiMon,$hinhAnh);
-			if($result)
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-
+		// public function DeleteMAByID($maMon)
+		// {
+		// 	$p = new MMonAn();
+        //     $result = $p->DeleteMon($maMon);
+        //     echo '<script>alert("Xóa thành công");</script>';
+		// }
     }
 ?>
