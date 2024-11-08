@@ -33,20 +33,5 @@
 			}
 		}
 
-        // public function DeleteMon($maMon) {
-        //     $p = new clsKetNoi();
-        //     $conn = $p->moketnoi();
-        //     $conn->set_charset('utf8');
-        //     if($conn){
-        //         // $str = "select * from ds_monan";
-        //         $str = "delete from ds_monan where ds_monan.maMon = '$maMon'";
-        //         //DELETE FROM `ds_monan` WHERE `ds_monan`.`maMon` = 'MChay001'
-        //         $result = $conn->query($str);
-        //         $p->dongketnoi($conn);
-        //         return $result;
-        //     }else{
-        //         return false;
-        //     }
-        // }
     }
 ?>

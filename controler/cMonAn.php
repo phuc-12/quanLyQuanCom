@@ -36,11 +36,6 @@
 			}
 		}
 
-		// public function DeleteMAByID($maMon)
-		// {
-		// 	$p = new MMonAn();
-        //     $result = $p->DeleteMon($maMon);
-        //     echo '<script>alert("Xóa thành công");</script>';
-		// }
+	
     }
 ?>

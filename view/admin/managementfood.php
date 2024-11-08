@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +12,10 @@
     <script src="../../js/popper.min.js"></script>
 </head>
 <body>
+    <?php
+        error_reporting(1);
+        $layid=$_REQUEST["id"];
+    ?>
     <div class="container-fluid p-0">
         <div id="ql_header">
             <div class="logo">
@@ -94,8 +97,9 @@
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
                         <p style="font-size: 20px; float: left;"><b>DANH SÁCH THỰC ĐƠN</b></p>
                         <form method="post" enctype="multipart/form-data" name="form1" id="form1">
-                            <a href="view_admin/view_insertMA.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin: 10px;">THÊM MÓN ĂN</a>
-                            <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin: 10px;">
+                            <a href="view_admin/view_insertMA.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin: 10px; font-weight: 700;">THÊM MÓN ĂN</a>
+                            <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin: 10px; font-weight: 700;">
+                            <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin: 10px; font-weight: 700;">CHI TIẾT MÓN</a>
                         </form>
                     </div>
                     <?php
@@ -107,40 +111,66 @@
                 </div>
                 <div>
                 <?php
-                    error_reporting(0);
+                    // error_reporting(0);
                     include('../../model/chucnangadmin.php');
-                    $p=new tmdt();
+                    $k=new tmdt();
                     switch ($_POST['btnxoa'])
                     {
                         case 'XÓA MÓN ĂN':
                         {
-                            $maXoa = $_REQUEST['id'];
-                            echo $maXoa;
-                            $hinh = $p->laycot("select hinhAnh from ds_monan where maMon = '$maXoa' limit 1");
-                            $maLoai = $p->laycot("select maLoaiMon from ds_monan where maMon = '$maXoa' limit 1");
-                            echo $hinh;
-                            echo $maLoai;
-                            // if($maXoa!='')
-                            // {
-                            //     if(unlink("../img/".$hinh))
-                            //     {
-                            //         if($p->themxoasua("delete from sanpham where idsp='$idxoa' limit 1")==1)
-                            //         {
-                            //             echo'<script language="javascript">
-                            //                 alert("Xóa sản phẩm thành công");	
-                            //                 </script>';
-                            //         }
-                            //     }
-                            // }
-                            // else
-                            // {
-                            //     echo'<script language="javascript">
-                            //         alert("Vui lòng chọn sản phẩm cần xóa");	
-                            //         </script>';
-                            // }
-                            // echo'<script language="javascript">
-                            //         window.location="../admin/admin.php";
-                            //         </script>';
+                            if(isset($_REQUEST['id']))
+                            {
+                                $maXoa = $_REQUEST['id'];
+                                // echo $maXoa."<br>";
+                                $hinh = $k->laycot("select hinhAnh from ds_monan where maMon = '$maXoa' limit 1");
+                                $maLoai = $k->laycot("select maLoaiMon from ds_monan where maMon = '$maXoa' limit 1");
+                                // echo $hinh."<br>";
+                                // echo $maLoai ."<br>";
+                                switch($maLoai)
+                                {
+                                    case 1: {$thucDon="monman";} break;
+                                    case 2: {$thucDon="monchay";} break;
+                                    case 3: {$thucDon="trangmieng";} break;
+                                    case 4: {$thucDon="douong";} break;
+                                }
+                                // echo $thucDon ."<br>";
+                                if($maXoa!='')
+                                {
+                                    if(unlink("../../img/".$thucDon."/".$hinh))
+                                    {
+                                        if($k->themxoasua("delete from ds_monan where maMon='$maXoa' limit 1")==1)
+                                        {
+                                            echo'<script language="javascript">
+                                                alert("Xóa món ăn thành công");	
+                                                </script>';
+                                        }
+                                    }
+                                    else 
+                                    {
+                                        if($k->themxoasua("delete from ds_monan where maMon='$maXoa' limit 1")==1)
+                                        {
+                                            echo'<script language="javascript">
+                                                alert("Xóa món ăn thành công");	
+                                                </script>';
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    echo'<script language="javascript">
+                                        alert("Vui lòng chọn món ăn cần xóa");	
+                                        </script>';
+                                }
+                                echo'<script language="javascript">
+                                        window.location="managementfood.php";
+                                        </script>';
+                            }
+                            else 
+                            {
+                                echo'<script language="javascript">
+                                    alert("Vui lòng chọn món ăn cần xóa");	
+                                    </script>';
+                            }
                             break;
                         }
                     }
@@ -157,16 +187,4 @@
         </div>
     </div>
 </body>
-<!-- <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const openModalBtn = document.getElementById("openModalBtn");
-    // Mở modal và thay đổi URL khi nhấn nút
-    openModalBtn.addEventListener("click", function() {    
-        // Thay đổi URL của trình duyệt mà không tải lại trang
-        history.pushState(null, "", "managementfood.php?ThemMonAn");
-        });
-
-    });
-
-</script> -->
 </html>
