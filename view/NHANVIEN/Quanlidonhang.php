@@ -10,13 +10,13 @@
 <body>
     <div class="header">
         <div class="logo">Logo</div>
-        <h1><a href="http://localhost/quanLyQuanCom/view/NHANVIEN/Quanli.php">Trang nhân viên</a></h1>
+        <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
         <div class="date">
             <span>📅</span>
             <span id="currentDate"></span>
         </div>
         <div class="user-icon">
-            <a href="http://localhost/quanLyQuanCom/view/NHANVIEN/ThongtinNhanVien.php">👤</a>
+            <a href="ThongtinNhanVien.php">👤</a>
         </div>
     </div>
 
@@ -43,7 +43,7 @@
                         <td>10:00 AM</td>
                         <td>Đã thanh toán</td>
                         <td>
-                            <button class="button view"><a href="http://localhost/quanLyQuanCom/view/NHANVIEN/Chitietdonhang.php">Xem</a></button>
+                            <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
                             <button class="button update">Cập nhật</button>
                         </td>
                     </tr>
