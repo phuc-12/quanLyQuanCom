@@ -33,5 +33,19 @@
 			}
 		}
 
+        public function SelectAllMAbyLoaiMon($comp){
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "select * from ds_monan where maLoaiMon = $comp";
+                $tblMA = $conn->query($str);
+                $p->dongketnoi($conn);
+                return $tblMA;
+            }else{
+                return false;
+            }
+        }
+
     }
 ?>
