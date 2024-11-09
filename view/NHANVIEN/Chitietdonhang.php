@@ -11,13 +11,13 @@
     <!-- Header -->
     <div class="header">
         <div class="logo">Logo</div>
-        <h1><a href="http://localhost/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php">Quản lý đơn hàng</a></h1>
+        <h1><a href="Quanlidonhang.php">Quản lý đơn hàng</a></h1>
         <div class="date">
             <span>📅</span>
             <span id="currentDate"></span>
         </div>
         <div class="user-icon">
-        <a href="http://localhost/quanLyQuanCom/view/NHANVIEN/ThongtinNhanVien.php">👤</a>
+        <a href="ThongtinNhanVien.php">👤</a>
         </div>
     </div>
 
