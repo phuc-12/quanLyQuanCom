@@ -36,6 +36,18 @@
 			}
 		}
 
-	
+		public function getAllMAbyLoaiMon($comp){
+            $p = new MMonAn();
+            $tbl = $p->SelectAllMAbyLoaiMon($comp);
+            if($tbl){
+                if($tbl->num_rows>0){
+                    return $tbl;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
     }
 ?>

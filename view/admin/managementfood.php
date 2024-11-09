@@ -11,6 +11,11 @@
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../../js/popper.min.js"></script>
 </head>
+<style>
+    #content .section #ds_food .navbar ul li:hover {
+        background-color: #E5E5E5;
+    }
+</style>
 <body>
     <?php
         error_reporting(1);
@@ -95,13 +100,35 @@
 
                 <div id="ds_food">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
-                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH THỰC ĐƠN</b></p>
-                        <form method="post" enctype="multipart/form-data" name="form1" id="form1">
-                            <a href="view_admin/view_insertMA.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin: 10px; font-weight: 700;">THÊM MÓN ĂN</a>
-                            <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin: 10px; font-weight: 700;">
-                            <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin: 10px; font-weight: 700;">CHI TIẾT MÓN</a>
-                        </form>
+                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH THỰC ĐƠN</b></p> 
                     </div>
+                    <div style="width: 100%; clear: both; height: 60px; background-color: white;">
+                                <nav class="navbar navbar-expand-sm bg-white navbar-white p-0" style="width: 50%; float: left; height: 60px;">
+                                    
+                                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
+                                        <a class="nav-link" href="managementfood.php?idLoai=1" style="color: black;">Món Mặn</a>
+                                        </li>
+                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
+                                        <a class="nav-link" href="managementfood.php?idLoai=2" style="color: black;">Món Chay</a>
+                                        </li>
+                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
+                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Tráng Miệng</a>
+                                        </li>  
+                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
+                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Đồ Uống</a>
+                                        </li>  
+                                    </ul>
+                                    </div>
+
+                            </nav>
+                            <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
+                                <a href="view_admin/view_insertMA.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM MÓN ĂN</a>
+                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
+                                <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT MÓN</a>
+                            </form>
+                        </div>
                     <?php
 
                         error_reporting(1);

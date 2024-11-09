@@ -3,6 +3,14 @@
     include("../../controler/cMonAn.php");
     $p = new CMonAn();
     $tblMA = $p->getAllMA();
+
+    if(isset($_GET["idLoai"])){
+        $tblMA = $p->getAllMAbyLoaiMon($_GET["idLoai"]);
+    }
+    else{
+        $tblMA = $p->getAllMA();
+    }
+
     if(!$tblMA)
     {
         echo 'Không kết nối được';
