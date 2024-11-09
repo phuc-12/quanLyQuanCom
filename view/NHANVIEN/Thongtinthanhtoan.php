@@ -11,7 +11,7 @@
     <!-- Header -->
     <div class="header">
         <div class="logo">Logo</div>
-        <h1><a href="NV_quanli.php">Quản lý đơn hàng</a></h1>
+        <h1><a href="Quanlidonhang.php">Quản lý đơn hàng</a></h1>
         <div class="date">
             <span>📅</span>
             <span id="currentDate"></span>
