@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2024 at 04:29 PM
+-- Generation Time: Nov 10, 2024 at 12:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -71,7 +71,7 @@ INSERT INTO `ctkm` (`tenKM`, `moTa`, `trangThai`, `chietKhau`, `thoiGianBatDau`,
 
 CREATE TABLE `hoadon` (
   `maHD` int(11) NOT NULL,
-  `tongTien` decimal(10,0) NOT NULL,
+  `tongTien` decimal(10,3) NOT NULL,
   `trangThai` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -80,9 +80,9 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`maHD`, `tongTien`, `trangThai`) VALUES
-(1, 130, 1),
-(2, 87, 0),
-(3, 113, 0);
+(1, 130.000, 1),
+(2, 87.000, 0),
+(3, 113.000, 0);
 
 -- --------------------------------------------------------
 
@@ -177,7 +177,7 @@ CREATE TABLE `monan` (
   `maLoaiMA` int(11) NOT NULL,
   `tenMA` varchar(50) NOT NULL,
   `soLuong` int(11) NOT NULL,
-  `donGia` decimal(10,0) NOT NULL DEFAULT 0,
+  `donGia` decimal(10,3) NOT NULL DEFAULT 0.000,
   `donViTinh` varchar(100) NOT NULL,
   `nguyenLieu` varchar(100) NOT NULL,
   `moTa` varchar(100) NOT NULL,
@@ -189,26 +189,26 @@ CREATE TABLE `monan` (
 --
 
 INSERT INTO `monan` (`maMA`, `maLoaiMA`, `tenMA`, `soLuong`, `donGia`, `donViTinh`, `nguyenLieu`, `moTa`, `trangThai`) VALUES
-(1, 1, 'Cơm - ba chỉ kho tiêu', 1, 37, 'VND', '', '', 1),
-(2, 1, 'Cơm - bò xào bông cải', 1, 40, 'VND', '', '', 1),
-(3, 1, 'Cơm - thịt kho đậu hủ', 1, 35, 'VND', '', '', 1),
-(4, 1, 'Cơm - mực xào chua ngọt', 1, 40, 'VND', '', '', 1),
-(5, 1, 'Cơm - trứng cuộn thịt băm', 1, 32, 'VND', '', '', 1),
-(6, 1, 'Cơm - mực xào thập cẩm', 1, 40, 'VND', '', '', 1),
-(7, 2, 'Cơm - đậu hủ kho tiêu', 1, 30, 'VND', '', '', 1),
-(8, 2, 'Cơm - đậu hủ cuộn rong biển', 1, 35, 'VND', '', '', 1),
-(9, 2, 'Cơm - chả trứng chay', 1, 35, 'VND', '', '', 1),
-(10, 2, 'Cơm - sườn non ram', 1, 30, 'VND', '', '', 1),
-(11, 4, 'YogurtOreo', 1, 35, 'VND', '', '', 1),
-(12, 4, 'Rau câu truyền thống', 1, 25, 'VND', '', '', 1),
-(13, 4, 'Bánh chuối hấp', 1, 30, 'VND', '', '', 1),
-(14, 4, 'Sữa chua trái cây', 1, 25, 'VND', '', '', 1),
-(15, 4, 'Chè vải hạt sen', 1, 30, 'VND', '', '', 1),
-(16, 3, 'Pepsi lon', 1, 15, 'VND', '', '', 1),
-(17, 3, 'Sting lon', 1, 15, 'VND', '', '', 1),
-(18, 3, 'Sprite lon', 1, 15, 'VND', '', '', 1),
-(19, 3, 'Dừa lạnh', 1, 20, 'VND', '', '', 1),
-(20, 3, 'Nước ép táo', 1, 25, 'VND', '', '', 1);
+(1, 1, 'Cơm - ba chỉ kho tiêu', 1, 37.000, 'VND', '', '', 1),
+(2, 1, 'Cơm - bò xào bông cải', 1, 40.000, 'VND', '', '', 1),
+(3, 1, 'Cơm - thịt kho đậu hủ', 1, 35.000, 'VND', '', '', 1),
+(4, 1, 'Cơm - mực xào chua ngọt', 1, 40.000, 'VND', '', '', 1),
+(5, 1, 'Cơm - trứng cuộn thịt băm', 1, 32.000, 'VND', '', '', 1),
+(6, 1, 'Cơm - mực xào thập cẩm', 1, 40.000, 'VND', '', '', 1),
+(7, 2, 'Cơm - đậu hủ kho tiêu', 1, 30.000, 'VND', '', '', 1),
+(8, 2, 'Cơm - đậu hủ cuộn rong biển', 1, 35.000, 'VND', '', '', 1),
+(9, 2, 'Cơm - chả trứng chay', 1, 35.000, 'VND', '', '', 1),
+(10, 2, 'Cơm - sườn non ram', 1, 30.000, 'VND', '', '', 1),
+(11, 4, 'YogurtOreo', 1, 35.000, 'VND', '', '', 1),
+(12, 4, 'Rau câu truyền thống', 1, 25.000, 'VND', '', '', 1),
+(13, 4, 'Bánh chuối hấp', 1, 30.000, 'VND', '', '', 1),
+(14, 4, 'Sữa chua trái cây', 1, 25.000, 'VND', '', '', 1),
+(15, 4, 'Chè vải hạt sen', 1, 30.000, 'VND', '', '', 1),
+(16, 3, 'Pepsi lon', 1, 15.000, 'VND', '', '', 1),
+(17, 3, 'Sting lon', 1, 15.000, 'VND', '', '', 1),
+(18, 3, 'Sprite lon', 1, 15.000, 'VND', '', '', 1),
+(19, 3, 'Dừa lạnh', 1, 20.000, 'VND', '', '', 1),
+(20, 3, 'Nước ép táo', 1, 25.000, 'VND', '', '', 1);
 
 -- --------------------------------------------------------
 
