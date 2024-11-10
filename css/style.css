@@ -606,3 +606,18 @@
     font-weight: bold;
     padding-right: 10px;
 }
+
+.contactv1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+    justify-content: center; /* Căn chỉnh nội dung theo chiều ngang */
+    align-items: center; /* Căn chỉnh nội dung theo chiều dọc */
+}
+
+.contact-formv1 {
+    margin: auto; /* Đảm bảo phần tử này được căn giữa hoàn toàn */
+    width: 50%;
+}

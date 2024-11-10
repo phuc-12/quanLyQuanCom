@@ -25,15 +25,22 @@
             <center><h1>Danh sách đơn hàng</h1>
             <table class="order-table1">
                 <tr>
-                    <th><a href="#">Đơn hàng chưa thanh toán</a></th>
+                    <th><a href="?chthanhtoan">Đơn hàng chưa thanh toán</a></th>
                     <th></th>
                     <th>|</th>
                     <th></th>
-                    <th><a href="#">Đơn hàng đã thanh toán</a></th>
+                    <th><a href="?dathanhtoan">Đơn hàng đã thanh toán</a></th>
                 </tr>
             </table>
             </center>
             <table class="order-table">
+            <?php
+                // if(isset($_REQUEST["chthanhtoan"])){
+                //     include_once("");
+                // }else if(isset($_REQUEST["dathanhtoan"])){
+                //     include_once("");
+                // }
+            ?>
                 <thead>
                     <tr>
                         <th>STT</th>
