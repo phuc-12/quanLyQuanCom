@@ -9,23 +9,23 @@
     <script src="../../js/dateTime.js" defer></script> 
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/thongtin.css">
+    <script src="../../js/thongtin.js" defer></script> 
 </head>
 
 <body>
     <div class="container-fluid p-0">
-        <div id="ql_header" style='display: flex'>
-            <div class="logo">
-                <p>logo</p>
-            </div>
-            <a class="trangChu" href="../../index.php" style =' flex: 3; margin-left: 20px'>
-                <h4>Trang Chủ</h4>
-            </a>
-                    <div class="right-section" >
-                        <div class="date" ><span>📅</span><span id="currentDate"></span></div>
-                        <div class="user-icon"><a href="ThongtinNhanVien.php" style='text-decoration: none'>👤</a></div>
-                    </div> 
-               
-        </div>
+    <div class="header">
+        <div class="logo" style="float:left;">Logo</div>
+        <h1><a href="../../index.php">Trang chủ</a></h1>
+        <div class="date" style="float:right; margin-right: 100px;"><span>📅</span><span id="currentDate"></span></div>
+        <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
+    </div>
+        <div class="sidebar" id="sidebar">
+        <button class="menu-item"><a href="ThongtinNhanVien.php">Thông tin cá nhân</a></button>
+        <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
+        <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+    </div>
 
         <div id="content">
             <div class="nav">
