@@ -28,7 +28,7 @@
             <button class="menu-item">Xem lịch sử mua hàng </button>
             <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
         </div>
-     <div class="container">
+     <div class="container" style="width:100%;">
         <div class="content">
             <h2 >Thông tin cá nhân</h2>
             <div class="form-container">
