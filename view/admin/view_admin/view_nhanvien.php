@@ -1,7 +1,7 @@
 <?php
 
-    include_once("../../controler/cMonAn.php");
-    $p = new CMonAn();
+    include_once("../../controler/cNhanVien.php");
+    $p = new CNhanVien();
     $countMA = $p->GetCountMA();
     if(isset($_GET["idLoai"])){
         $tblMA = $p->getAllMAbyLoaiMon($_GET["idLoai"]);

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../../js/popper.min.js"></script>
+    <script src="../../js/dateTime.js" defer></script> 
 </head>
 <style>
     #content .section #ds_food .navbar ul li:hover {
@@ -23,13 +24,22 @@
     ?>
     <div class="container-fluid p-0">
         <div id="ql_header">
-            <div class="logo">
-                <p>logo</p>
+            <div class="logo" style="padding: 0; border-radius: 100px;">
+                <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
 
             <a class="trangChu" href="../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
+                </ul>
+            </div>
         </div>
 
         <div id="content">
@@ -74,10 +84,10 @@
                 </ul>
             </div>
 
-            <div class="section">
+            <div class="section" style="background-color: #E5E5E5;">
                 <h3 style="margin-bottom: 30px;"><b>QUẢN LÝ THỰC ĐƠN</b></h3>
 
-                <div class="thongKe_food">
+                <div class="thongKe_food" style="border-radius: 10px;">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
                         <p style="font-size: 20px; float: left;">Thống kê số liệu</p>
                         <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a>
@@ -85,15 +95,39 @@
                     <div style="padding: 50px; width: 100%; height: 150px; border-bottom: 1px solid #E5E5E5;">
                         <div>
                             <i class="fa fa-spoon"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>TỔNG SỐ LƯỢNG</b> <br> <b style="color:red;">3 MÓN</b></h5>
+                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>TỔNG SỐ LƯỢNG</b> <br> <b style="color:red;">
+                                <?php
+                                    include_once("../../controler/cMonAn.php");
+                                    $p = new CMonAn();
+                                    $countMA = $p->GetCountMA();
+                                    echo $countMA;
+                                ?>
+                                MÓN
+                            </b></h5>
                         </div>
                         <div>
                             <i class="fa fa-smile-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN CÒN</b> <br> <b style="color:red;">2 MÓN</b></h5>
+                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN CÒN</b> <br> <b style="color:red;">
+                                <?php
+                                    include_once("../../controler/cMonAn.php");
+                                    $p = new CMonAn();
+                                    $countMA = $p->GetCountMACon();
+                                    echo $countMA;
+                                ?>
+                                MÓN
+                            </b></h5>
                         </div>
                         <div>
                             <i class="fa fa-frown-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN ĐÃ HẾT</b> <br> <b style="color:red;">1 MÓN</b></h5>
+                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN ĐÃ HẾT</b> <br> <b style="color:red;">
+                                <?php
+                                    include_once("../../controler/cMonAn.php");
+                                    $p = new CMonAn();
+                                    $countMA = $p->GetCountMAHet();
+                                    echo $countMA;
+                                ?>
+                                MÓN
+                            </b></h5>
                         </div>
                     </div>
                 </div>
@@ -114,10 +148,10 @@
                                         <a class="nav-link" href="managementfood.php?idLoai=2" style="color: black;">Món Chay</a>
                                         </li>
                                         <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Tráng Miệng</a>
+                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Nước Uống</a>
                                         </li>  
                                         <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Đồ Uống</a>
+                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Tráng Miệng</a>
                                         </li>  
                                     </ul>
                                     </div>
@@ -132,7 +166,7 @@
                     <?php
 
                         error_reporting(1);
-                        include_once ("view_admin/view_food.php");
+                        include("view_admin/view_food.php");
 
                     ?>
                 </div>
@@ -149,8 +183,8 @@
                             {
                                 $maXoa = $_REQUEST['id'];
                                 // echo $maXoa."<br>";
-                                $hinh = $k->laycot("select hinhAnh from ds_monan where maMon = '$maXoa' limit 1");
-                                $maLoai = $k->laycot("select maLoaiMon from ds_monan where maMon = '$maXoa' limit 1");
+                                $hinh = $k->laycot("select hinhAnh from monan where maMA = '$maXoa' limit 1");
+                                $maLoai = $k->laycot("select maLoaiMA from monan where maMA = '$maXoa' limit 1");
                                 // echo $hinh."<br>";
                                 // echo $maLoai ."<br>";
                                 switch($maLoai)
@@ -165,7 +199,7 @@
                                 {
                                     if(unlink("../../img/".$thucDon."/".$hinh))
                                     {
-                                        if($k->themxoasua("delete from ds_monan where maMon='$maXoa' limit 1")==1)
+                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
                                         {
                                             echo'<script language="javascript">
                                                 alert("Xóa món ăn thành công");	
@@ -174,7 +208,7 @@
                                     }
                                     else 
                                     {
-                                        if($k->themxoasua("delete from ds_monan where maMon='$maXoa' limit 1")==1)
+                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
                                         {
                                             echo'<script language="javascript">
                                                 alert("Xóa món ăn thành công");	

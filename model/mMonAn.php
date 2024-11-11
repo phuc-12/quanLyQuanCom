@@ -7,7 +7,35 @@
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');
             if($conn){
-                $str = "select * from ds_monan";
+                $str = "select * from monan";
+                $tblMA = $conn->query($str);
+                $p->dongketnoi($conn);
+                return $tblMA;
+            }else{
+                return false;
+            }
+        }
+
+        public function SelectAllMATop5() {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "select * from monan limit 5";
+                $tblMA = $conn->query($str);
+                $p->dongketnoi($conn);
+                return $tblMA;
+            }else{
+                return false;
+            }
+        }
+
+        public function SelectAllMATop5_1() {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "select * from monan order by tenMA asc limit 5";
                 $tblMA = $conn->query($str);
                 $p->dongketnoi($conn);
                 return $tblMA;
@@ -22,7 +50,7 @@
 			$con = $p->moketnoi();
 			if($con)
 			{
-                $str = "SELECT tenLoaiMon FROM `ds_monan` s JOIN ds_loaimon t on s.maLoaiMon=t.maLoaiMon WHERE maMon = '$txt'";
+                $str = "SELECT tenLoaiMA FROM `monan` s JOIN loaimonan t on s.maLoaiMA=t.maLoaiMA WHERE maMA = '$txt'";
 				$result = $con->query($str);
 				$p->dongketnoi($con);
 				return $result;
@@ -38,7 +66,7 @@
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');
             if($conn){
-                $str = "select * from ds_monan where maLoaiMon = $comp";
+                $str = "select * from monan where maLoaiMA = $comp";
                 $tblMA = $conn->query($str);
                 $p->dongketnoi($conn);
                 return $tblMA;
@@ -47,5 +75,52 @@
             }
         }
 
+        public function SelectCountMA()
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM monan";
+                $tblMA = $conn->query($str);
+                $result = $tblMA->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
+
+        public function SelectCountMACon()
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM monan WHERE trangThai = 1";
+                $tblMA = $conn->query($str);
+                $result = $tblMA->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
+
+        public function SelectCountMAHet()
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM monan WHERE trangThai = 0";
+                $tblMA = $conn->query($str);
+                $result = $tblMA->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
     }
 ?>

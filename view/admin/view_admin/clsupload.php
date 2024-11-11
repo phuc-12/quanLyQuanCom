@@ -1,7 +1,7 @@
 <?php
 
     class upload {
-        public function uploadfile($name, $tmp_name, $folder, $maMon, $maLoaiMon) {
+        public function uploadfile($name, $tmp_name, $folder, $maMA, $maLoaiMA) {
             if ($name != '') {
                 $des = $_SERVER['DOCUMENT_ROOT'] . "/" . $folder . "/" . $name;
     
