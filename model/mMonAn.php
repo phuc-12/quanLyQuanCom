@@ -122,5 +122,53 @@
                 return false;
             }
         }
+
+        public function SelectCountMAByLMA($idLoai)
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM monan WHERE maLoaiMA = $idLoai";
+                $tblMA = $conn->query($str);
+                $result = $tblMA->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
+        
+        public function SelectCountMAByLMACon($idLoai)
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM monan WHERE maLoaiMA = $idLoai AND trangThai = 1";
+                $tblMA = $conn->query($str);
+                $result = $tblMA->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
+
+        public function SelectCountMAByLMAHet($idLoai)
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM monan WHERE maLoaiMA = $idLoai AND trangThai = 0";
+                $tblMA = $conn->query($str);
+                $result = $tblMA->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
     }
 ?>

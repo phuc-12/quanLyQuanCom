@@ -119,6 +119,48 @@
                 return false;
             }
         }
+
+        public function GetCountMAByLMA($idLoai){
+            $p = new MMonAn();
+            $tblMA = $p->SelectCountMAByLMA($idLoai);
+            if($tblMA){ 
+                if($tblMA>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
+
+        public function GetCountMAByLMACon($idLoai){
+            $p = new MMonAn();
+            $tblMA = $p->SelectCountMAByLMACon($idLoai);
+            if($tblMA){ 
+                if($tblMA>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
+
+        public function GetCountMAByLMAHet($idLoai){
+            $p = new MMonAn();
+            $tblMA = $p->SelectCountMAByLMAHet($idLoai);
+            if($tblMA){ 
+                if($tblMA>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
     }
 
 ?>

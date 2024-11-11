@@ -116,7 +116,7 @@
                             <td style="width: 150px;"><label for="maLoaiMA">Loại Món Ăn</label></td>
                             <td width="318" align="left">
                                 <?php
-                                    $p->choncty("select * from loaimonan order by tenLoaiMA asc",$laymaloai);
+                                    $p->chonloai("select * from loaimonan order by tenLoaiMA asc",$laymaloai);
                                 ?> 
                             </td>
                         </tr>

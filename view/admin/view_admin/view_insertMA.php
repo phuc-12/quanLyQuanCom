@@ -93,7 +93,7 @@
                             <td><input type="input" class="form-control" size="200" id="donGia" placeholder="Nhập giá món ăn" name="donGia"></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="maLoaiMA">Loại Món Ăn</label></td>
+                            <td style="width: 150px;"><label for="maLoaiMA">Loại Món Ăn:</label></td>
                             <td>
                                 <select name="maLoaiMA" id="maLoaiMA">
                                     <option value="1">Món Mặn</option>

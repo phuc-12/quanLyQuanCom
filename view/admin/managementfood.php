@@ -99,7 +99,15 @@
                                 <?php
                                     include_once("../../controler/cMonAn.php");
                                     $p = new CMonAn();
-                                    $countMA = $p->GetCountMA();
+                                    if(isset($_REQUEST['idLoai']))
+                                    {
+                                        $idLoai = $_REQUEST['idLoai'];
+                                        $countMA = $p->GetCountMAByLMA($idLoai);
+                                    }
+                                    else 
+                                    {
+                                        $countMA = $p->GetCountMA();
+                                    }
                                     echo $countMA;
                                 ?>
                                 MÓN
@@ -111,7 +119,15 @@
                                 <?php
                                     include_once("../../controler/cMonAn.php");
                                     $p = new CMonAn();
-                                    $countMA = $p->GetCountMACon();
+                                    if(isset($_REQUEST['idLoai']))
+                                    {
+                                        $idLoai = $_REQUEST['idLoai'];
+                                        $countMA = $p->GetCountMAByLMACon($idLoai);
+                                    }
+                                    else 
+                                    {
+                                        $countMA = $p->GetCountMACon();
+                                    }
                                     echo $countMA;
                                 ?>
                                 MÓN
@@ -123,7 +139,15 @@
                                 <?php
                                     include_once("../../controler/cMonAn.php");
                                     $p = new CMonAn();
-                                    $countMA = $p->GetCountMAHet();
+                                    if(isset($_REQUEST['idLoai']))
+                                    {
+                                        $idLoai = $_REQUEST['idLoai'];
+                                        $countMA = $p->GetCountMAByLMAHet($idLoai);
+                                    }
+                                    else 
+                                    {
+                                        $countMA = $p->GetCountMAHet();
+                                    }
                                     echo $countMA;
                                 ?>
                                 MÓN
@@ -141,19 +165,74 @@
                                     
                                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                                     <ul class="navbar-nav">
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="managementfood.php?idLoai=1" style="color: black;">Món Mặn</a>
-                                        </li>
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="managementfood.php?idLoai=2" style="color: black;">Món Chay</a>
-                                        </li>
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Nước Uống</a>
-                                        </li>  
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Tráng Miệng</a>
-                                        </li>  
-                                    </ul>
+                                        <?php
+                                        
+                                            
+                                                $idLoai = $_REQUEST['idLoai'];
+                                                if($idLoai=='')
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                                    <a class="nav-link" href="managementfood.php" style="color: black;">Tất Cả Món</a>
+                                                    </li>';
+                                                }
+                                                elseif ($idLoai==1||$idLoai==2||$idLoai==3||$idLoai==4)
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                                    <a class="nav-link" href="managementfood.php" style="color: black;">Tất Cả Món</a>
+                                                    </li>';
+                                                }
+                                            //MÓN MẶN
+                                                if($idLoai==1)
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                                            <a class="nav-link" href="managementfood.php?idLoai=1" style="color: black;">Món Mặn</a>
+                                                        </li>';
+                                                }
+                                                else {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                                            <a class="nav-link" href="managementfood.php?idLoai=1" style="color: black;">Món Mặn</a>
+                                                        </li>';
+                                                }
+                                            //MÓN CHAY
+                                                if($idLoai==2)
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;background-color: #E5E5E5;">
+                                                        <a class="nav-link" href="managementfood.php?idLoai=2" style="color: black;">Món Chay</a>
+                                                        </li>';
+                                                }
+                                                else {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                                        <a class="nav-link" href="managementfood.php?idLoai=2" style="color: black;">Món Chay</a>
+                                                        </li>';
+                                                }
+                                            //ĐỒ UỐNG
+                                                if($idLoai==3)
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Nước Uống</a>
+                                                        </li> ';
+                                                }
+                                                else {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Nước Uống</a>
+                                                        </li> ';
+                                                }
+                                            //TRÁNG MIỆNG
+                                                if($idLoai==4)
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Tráng Miệng</a>
+                                                        </li>';
+                                                }
+                                                else {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Tráng Miệng</a>
+                                                        </li>';
+                                                }
+                            
+                                                
+                                        ?>
+                                        </ul>
                                     </div>
 
                             </nav>

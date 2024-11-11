@@ -2,19 +2,18 @@
 
     include_once("../../controler/cNhanVien.php");
     $p = new CNhanVien();
-    $countMA = $p->GetCountMA();
     if(isset($_GET["idLoai"])){
-        $tblMA = $p->getAllMAbyLoaiMon($_GET["idLoai"]);
+        $tblNV = $p->getAllNVbyLNV($_GET["idLoai"]);
     }
     else{
-        $tblMA = $p->getAllMA();
+        $tblNV = $p->getAllNV();
     }
 
-    if(!$tblMA)
+    if(!$tblNV)
     {
         echo 'Không kết nối được';
     }
-    elseif($tblMA==-1)
+    elseif($tblNV==-1)
     {
         echo 'Chưa có dữ liệu món ăn';
     }
@@ -25,34 +24,27 @@
                     <thead class="table-dark">
                         <tr style="text-align:center;">
                             <th>STT</th>
-                            <th>Mã Món</th>
-                            <th>Tên Món</th>
-                            <th>Số Lượng</th>
-                            <th>Đơn Vị Tính</th>
-                            <th>Giá Món</th>
-                            <th>Loại Món</th>
-                            <th>Trạng Thái</th>
-                            <th></th>
+                            <th>Mã Nhân Viên</th>
+                            <th>Tên Nhân Viên</th>
+                            <th>Ngày Sinh</th>
+                            <th>Loại Nhân Viên</th>
+                            
                         </tr>
                     </thead>
                     <tbody>';
-        while($r=$tblMA->fetch_assoc())
+        while($r=$tblNV->fetch_assoc())
         {	 
             echo '<tr style="text-align: center">';
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['maMA'].'</a></td>';
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['tenMA'].'</a></td>';
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['soLuong'].'</a></td>';
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['donViTinh'].'</a></td>';
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['donGia'].'</a></td>';
-                $rs = $p->GetTHByIDSP($r['maMA']);
+                echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
+                echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$r['maNV'].'</a></td>';
+                echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$r['hoTen'].'</a></td>';
+                echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$r['ngaySinh'].'</a></td>';
+                $rs = $p->GetLNVByIDNV($r['maNV']);
                 if($rs->num_rows > 0) {
                     while($row = $rs->fetch_assoc()) {
-                        echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiMA'].'</a></td>';
+                        echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiNV'].'</a></td>';
                     }
                 }
-                
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
                 
             echo '</tr>';
             $dem++;

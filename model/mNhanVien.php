@@ -37,7 +37,7 @@
 			$con = $p->moketnoi();
 			if($con)
 			{
-                $str = "SELECT tenLoaiNV FROM `nhanvien` s JOIN loainhanvien t on s.maLoaiNV=t.maLoaiNV WHERE maNV = '$txt'";
+                $str = "SELECT tenLoaiNV FROM `loainhanvien` s JOIN nhanvien t on s.maLoaiNV=t.maLoaiNV WHERE maNV = '$txt'";
 				$result = $con->query($str);
 				$p->dongketnoi($con);
 				return $result;
@@ -109,5 +109,21 @@
         //         return false;
         //     }
         // }
+
+        public function SelectCountNVByLNV($idLoai)
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM nhanvien WHERE maLoaiNV = $idLoai";
+                $tblNV = $conn->query($str);
+                $result = $tblNV->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
     }
 ?>
