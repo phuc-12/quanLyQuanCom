@@ -2,7 +2,6 @@
 
     include_once("../../controler/cMonAn.php");
     $p = new CMonAn();
-    $countMA = $p->GetCountMA();
     if(isset($_GET["idLoai"])){
         $tblMA = $p->getAllMAbyLoaiMon($_GET["idLoai"]);
     }

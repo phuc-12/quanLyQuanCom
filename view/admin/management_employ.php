@@ -92,41 +92,18 @@
                     </div>
                     <div style="padding: 50px; width: 100%; height: 150px; border-bottom: 1px solid #E5E5E5;">
                         <div>
-                            <i class="fa fa-spoon"></i>
+                            <i class="fa fa-address-card"></i>
                             <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>TỔNG SỐ LƯỢNG</b> <br> <b style="color:red;">
                                 <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    $countMA = $p->GetCountMA();
-                                    echo $countMA;
+                                    include_once("../../controler/cNhanVien.php");
+                                    $p = new CNhanVien();
+                                    $countNV = $p->GetCountNV();
+                                    echo $countNV;
                                 ?>
-                                MÓN
+                                NHÂN VIÊN
                             </b></h5>
                         </div>
-                        <div>
-                            <i class="fa fa-smile-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN CÒN</b> <br> <b style="color:red;">
-                                <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    $countMA = $p->GetCountMACon();
-                                    echo $countMA;
-                                ?>
-                                MÓN
-                            </b></h5>
-                        </div>
-                        <div>
-                            <i class="fa fa-frown-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN ĐÃ HẾT</b> <br> <b style="color:red;">
-                                <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    $countMA = $p->GetCountMAHet();
-                                    echo $countMA;
-                                ?>
-                                MÓN
-                            </b></h5>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -156,15 +133,15 @@
 
                             </nav>
                             <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
-                                <a href="view_admin/view_insertMA.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM MÓN ĂN</a>
-                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
-                                <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT MÓN</a>
+                                <a href="view_admin/view_insertNV.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM NHÂN VIÊN</a>
+                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA NHÂN VIÊN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
+                                <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
                             </form>
                         </div>
                     <?php
 
                         error_reporting(1);
-                        include("view_admin/view_food.php");
+                        include("view_admin/view_nhanvien.php");
 
                     ?>
                 </div>
@@ -175,41 +152,30 @@
                     $k=new tmdt();
                     switch ($_POST['btnxoa'])
                     {
-                        case 'XÓA MÓN ĂN':
+                        case 'XÓA NHÂN VIÊN':
                         {
                             if(isset($_REQUEST['id']))
                             {
                                 $maXoa = $_REQUEST['id'];
                                 // echo $maXoa."<br>";
-                                $hinh = $k->laycot("select hinhAnh from monan where maMA = '$maXoa' limit 1");
-                                $maLoai = $k->laycot("select maLoaiMA from monan where maMA = '$maXoa' limit 1");
+                                $maLoai = $k->laycot("select maLoaiNV from nhanvien where maNV = '$maXoa' limit 1");
                                 // echo $hinh."<br>";
                                 // echo $maLoai ."<br>";
-                                switch($maLoai)
-                                {
-                                    case 1: {$thucDon="monman";} break;
-                                    case 2: {$thucDon="monchay";} break;
-                                    case 3: {$thucDon="trangmieng";} break;
-                                    case 4: {$thucDon="douong";} break;
-                                }
                                 // echo $thucDon ."<br>";
                                 if($maXoa!='')
                                 {
-                                    if(unlink("../../img/".$thucDon."/".$hinh))
+                                    if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
                                     {
-                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa món ăn thành công");	
-                                                </script>';
-                                        }
+                                        echo'<script language="javascript">
+                                            alert("Xóa nhân viên thành công");	
+                                            </script>';
                                     }
                                     else 
                                     {
-                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
+                                        if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
                                         {
                                             echo'<script language="javascript">
-                                                alert("Xóa món ăn thành công");	
+                                                alert("Xóa nhân viên thành công");	
                                                 </script>';
                                         }
                                     }
@@ -217,17 +183,17 @@
                                 else
                                 {
                                     echo'<script language="javascript">
-                                        alert("Vui lòng chọn món ăn cần xóa");	
+                                        alert("Vui lòng chọn nhân viên cần xóa");	
                                         </script>';
                                 }
                                 echo'<script language="javascript">
-                                        window.location="managementfood.php";
+                                        window.location="management_employ.php";
                                         </script>';
                             }
                             else 
                             {
                                 echo'<script language="javascript">
-                                    alert("Vui lòng chọn món ăn cần xóa");	
+                                    alert("Vui lòng chọn nhân viên cần xóa");	
                                     </script>';
                             }
                             break;

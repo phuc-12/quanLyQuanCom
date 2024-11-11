@@ -9,7 +9,7 @@
                 if($tblNV->num_rows>0){
                     return $tblNV;
                 }else{
-                    return -1; //không có dữ liệu trong bảng
+                    return -1; //không có dữ liệu trong bảngS
                 }
             }else{
                 return false;
@@ -17,7 +17,7 @@
         }
 
         public function getAllNVTop5(){
-            $p = new MMonAn();
+            $p = new MNhanVien();
             $tblNV = $p->SelectAllNVTop5();
             if($tblNV){
                 if($tblNV->num_rows>0){
@@ -31,7 +31,7 @@
         }
 
         // public function getAllNVTop5_1(){
-        //     $p = new MMonAn();
+        //     $p = new MNhanVien();
         //     $tblNV = $p->SelectAllNVTop5_1();
         //     if($tblNV){
         //         if($tblNV->num_rows>0){
@@ -46,7 +46,7 @@
 
         public function GetLNVByIDNV($txt)
 		{
-			$p = new MMonAn();
+			$p = new MNhanVien();
 			$result = $p->SelectAllLNVByIDNV($txt);
 			if($result)
 			{
@@ -65,7 +65,7 @@
 		}
 
 		public function getAllNVbyLNV($comp){
-            $p = new MMonAn();
+            $p = new MNhanVien();
             $tbl = $p->SelectAllNVbyLNV($comp);
             if($tbl){
                 if($tbl->num_rows>0){
@@ -79,7 +79,7 @@
         }
 
         public function GetCountNV(){
-            $p = new MMonAn();
+            $p = new MNhanVien();
             $tblNV = $p->SelectCountNV();
             if($tblNV){ 
                 if($tblNV>0){
@@ -93,7 +93,7 @@
         }
 
         // public function GetCountNVCon(){
-        //     $p = new MMonAn();
+        //     $p = new MNhanVien();
         //     $tblNV = $p->SelectCountNVCon();
         //     if($tblNV){ 
         //         if($tblNV>0){
@@ -107,7 +107,7 @@
         // }
 
         // public function GetCountNVHet(){
-        //     $p = new MMonAn();
+        //     $p = new MNhanVien();
         //     $tblNV = $p->SelectCountNVHet();
         //     if($tblNV){ 
         //         if($tblNV>0){

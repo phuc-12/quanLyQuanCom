@@ -37,7 +37,7 @@
 			$con = $p->moketnoi();
 			if($con)
 			{
-                $str = "SELECT tenLoaiNV FROM `nhanvien` s JOIN loainhanvien t on s.maLoaiNV=t.maLoaiNV WHERE maNV = '$txt'";
+                $str = "SELECT tenLoaiNV FROM `loainhanvien` s JOIN nhanvien t on s.maLoaiNV=t.maLoaiNV WHERE maNV = '$txt'";
 				$result = $con->query($str);
 				$p->dongketnoi($con);
 				return $result;

@@ -160,14 +160,14 @@
                 <div style="width: 49%; float: right; background-color: white; padding: 20px; border-radius: 10px;">
                 <?php
                     error_reporting(0);
-                    include_once("../../controler/cMonAn.php");
-                    $p = new CMonAn();
-                    $tblMA = $p->getAllMATop5_1();
-                    if(!$tblMA)
+                    include_once("../../controler/cNhanVien.php");
+                    $p = new CNhanVien();
+                    $tblNV = $p->getAllNVTop5();
+                    if(!$tblNV)
                     {
                         echo 'Không kết nối được';
                     }
-                    elseif($tblMA==-1)
+                    elseif($tblNV==-1)
                     {
                         echo 'Chưa có dữ liệu món ăn';
                     }
@@ -178,30 +178,27 @@
                                     <thead class="table-dark">
                                         <tr style="text-align:center;">
                                             <th>STT</th>
-                                            <th>Tên Món</th>
-                                            <th>Giá Món</th>
-                                            <th>Loại Món</th>
-                                            <th>Trạng Thái</th>
+                                            
+                                            <th>Tên Nhân Viên</th>
+                                            <th>Ngày Sinh</th>
+                                            <th>Loại Nhân Viên</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>';
-                        while($r=$tblMA->fetch_assoc())
+                        while($r=$tblNV->fetch_assoc())
                         {	 
                             echo '<tr style="text-align: center">';
-                                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
-                                // echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['maMA'].'</a></td>';
-                                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['tenMA'].'</a></td>';
-                                // echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['soLuong'].'</a></td>';
-                                // echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['donViTinh'].'</a></td>';
-                                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['donGia'].'</a></td>';
-                                $rs = $p->GetTHByIDSP($r['maMA']);
+                                echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
+                                
+                                echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$r['hoTen'].'</a></td>';
+                                echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$r['ngaySinh'].'</a></td>';
+                                $rs = $p->GetLNVByIDNV($r['maNV']);
                                 if($rs->num_rows > 0) {
                                     while($row = $rs->fetch_assoc()) {
-                                        echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiMA'].'</a></td>';
+                                        echo '<td><a href="?id='.$r['maNV'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiNV'].'</a></td>';
                                     }
                                 }
-                                
-                                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
                                 
                             echo '</tr>';
                             $dem++;
