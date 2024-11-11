@@ -119,6 +119,20 @@
         //         return false;
         //     }
         // }
+
+        public function GetCountNVByLNV($idLoai){
+            $p = new MNhanVien();
+            $tblNV = $p->SelectCountNVByLNV($idLoai);
+            if($tblNV){ 
+                if($tblNV>0){
+                    return $tblNV;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
     }
 
 ?>

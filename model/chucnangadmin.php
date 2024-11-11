@@ -44,7 +44,7 @@
 			return $trave;
 		}
 		
-		public function choncty($sql, $maChon)
+		public function chonloai($sql, $maChon)
 		{
 			$link = $this->connect();
 			$ketqua = $link->query($sql); // Thay mysql_query bằng $link->query
@@ -62,6 +62,34 @@
 					else
 					{
 						echo '<option value="'.$maLoaiMA.'">'.$tenLoaiMA.'</option>';
+					}
+				}
+				echo '</select>';
+			}
+			else
+			{
+				echo 'Đang cập nhật dữ liệu';	
+			} 	
+		}
+
+		public function chonloaiNV($sql, $maChon)
+		{
+			$link = $this->connect();
+			$ketqua = $link->query($sql); // Thay mysql_query bằng $link->query
+			if($ketqua && $ketqua->num_rows > 0) // Thay mysql_num_rows bằng $ketqua->num_rows
+			{	
+				echo '<select name="maLoaiNV" id="maLoaiNV">';
+				while($row = $ketqua->fetch_array()) // Thay mysql_fetch_array bằng $ketqua->fetch_array()
+				{
+					$maLoaiNV = $row['maLoaiNV'];
+					$tenLoaiNV = $row['tenLoaiNV'];
+					if($maChon == $maLoaiNV)
+					{
+						echo '<option value="'.$maLoaiNV.'" selected>'.$tenLoaiNV.'</option>';
+					}
+					else
+					{
+						echo '<option value="'.$maLoaiNV.'">'.$tenLoaiNV.'</option>';
 					}
 				}
 				echo '</select>';

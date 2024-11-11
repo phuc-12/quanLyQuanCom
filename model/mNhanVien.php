@@ -109,5 +109,21 @@
         //         return false;
         //     }
         // }
+
+        public function SelectCountNVByLNV($idLoai)
+        {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "SELECT COUNT(*) as total FROM nhanvien WHERE maLoaiNV = $idLoai";
+                $tblNV = $conn->query($str);
+                $result = $tblNV->fetch_assoc(); // Lấy kết quả đếm
+                $p->dongketnoi($conn);
+                return $result['total']; // Trả về số lượng
+            } else {
+                return false;
+            }
+        }
     }
 ?>

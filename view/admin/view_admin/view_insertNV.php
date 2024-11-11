@@ -114,9 +114,8 @@
                                 $maNV=$_REQUEST['maNV'];
                                 $hoTen=$_REQUEST['hoTen'];
                                 $ngaySinh=$_REQUEST['ngaySinh'];
-                                
                                 $maLoaiNV=$_REQUEST['maLoaiNV'];
-                                
+                                $ngaySinhFormatted = date("Y-m-d", strtotime($ngaySinh));
                                 if($maNV !='' && $hoTen !='' && $ngaySinh!=''&& $maLoaiNV !='')
                                 {
                                     $conn = new mysqli('localhost','trieu','123','db_chipheo');
@@ -127,7 +126,7 @@
                                     if($conn)
                                     {
                                         // Chuyển định dạng ngày nếu cần thiết
-                                        $ngaySinhFormatted = date("Y-m-d", strtotime($ngaySinh));
+                                        
                                         $str = "INSERT INTO nhanvien (maNV,hoTen,ngaySinh,maLoaiNV) VALUES ('$maNV',N'$hoTen','$ngaySinhFormatted','$maLoaiNV')";
                                         
                                         if ($conn->query($str) === TRUE) {

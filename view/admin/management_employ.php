@@ -97,7 +97,15 @@
                                 <?php
                                     include_once("../../controler/cNhanVien.php");
                                     $p = new CNhanVien();
-                                    $countNV = $p->GetCountNV();
+                                    if(isset($_REQUEST['idLoai']))
+                                    {
+                                        $idLoai = $_REQUEST['idLoai'];
+                                        $countNV = $p->GetCountNVByLNV($idLoai);
+                                    }
+                                    else 
+                                    {
+                                        $countNV = $p->GetCountNV();
+                                    }
                                     echo $countNV;
                                 ?>
                                 NHÂN VIÊN
@@ -116,18 +124,63 @@
                                     
                                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                                     <ul class="navbar-nav">
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
+                                    <?php  
+                                        $idLoai = $_REQUEST['idLoai'];
+                                        if($idLoai=='')
+                                        {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                        <a class="nav-link" href="management_employ.php" style="color: black;">Tất Cả Nhân Viên</a>
+                                        </li>  ';
+                                        }
+                                        elseif ($idLoai==1||$idLoai==2||$idLoai==3||$idLoai==4)
+                                        {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                        <a class="nav-link" href="management_employ.php" style="color: black;">Tất Cả Nhân Viên</a>
+                                        </li>  ';
+                                        }
+                                    //BÁN HÀNG
+                                        if($idLoai==1)
+                                        {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
                                         <a class="nav-link" href="management_employ.php?idLoai=1" style="color: black;">Bán Hàng</a>
-                                        </li>
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="management_employ.php?idLoai=2" style="color: black;">Bếp</a>
-                                        </li>
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
+                                        </li>';
+                                        }
+                                        else {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                        <a class="nav-link" href="management_employ.php?idLoai=1" style="color: black;">Bán Hàng</a>
+                                        </li>';
+                                        }
+                                    //BẾP
+                                        if($idLoai==2)
+                                        {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                        <a class="nav-link" href="management_employ.php?idLoai=2" style="color: black;">Đứng Bếp</a>
+                                        </li> ';
+                                        }
+                                        else {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                        <a class="nav-link" href="management_employ.php?idLoai=2" style="color: black;">Đứng Bếp</a>
+                                        </li> ';
+                                        }
+                                    //HẬU CẦN
+                                        if($idLoai==3)
+                                        {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
                                         <a class="nav-link" href="management_employ.php?idLoai=3" style="color: black;">Hậu Cần</a>
-                                        <!-- </li>  
-                                        <li class="nav-item" style="height: 60px; padding-top: 10px;">
-                                        <a class="nav-link" href="management_employ.php?idLoai=4" style="color: black;">Tráng Miệng</a>
-                                        </li>   -->
+                                        </li> ';
+                                        }
+                                        else {
+                                            echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                        <a class="nav-link" href="management_employ.php?idLoai=3" style="color: black;">Hậu Cần</a>
+                                        </li> ';
+                                        }
+                    
+                                        
+                                ?>
+                                        
+                                        
+                                         
+                                        
                                     </ul>
                                     </div>
 
@@ -135,7 +188,7 @@
                             <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
                                 <a href="view_admin/view_insertNV.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM NHÂN VIÊN</a>
                                 <input type="submit" name="btnxoa" id="btnxoa" value="XÓA NHÂN VIÊN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
-                                <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
+                                <a href="view_admin/view_updateNV.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
                             </form>
                         </div>
                     <?php
