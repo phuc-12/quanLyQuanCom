@@ -73,12 +73,12 @@
                 <form method="post" enctype="multipart/form-data" name="form1" id="form1">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
-                            <td style="width: 150px;"><label for="maMon">Mã Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maMon" placeholder="Nhập mã món ăn" name="maMon"></td>
+                            <td style="width: 150px;"><label for="maMA">Mã Món Ăn:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="maMA" placeholder="Nhập mã món ăn" name="maMA"></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="tenMon">Tên Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="tenMon" placeholder="Nhập tên món ăn" name="tenMon"></td>
+                            <td style="width: 150px;"><label for="tenMA">Tên Món Ăn:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="tenMA" placeholder="Nhập tên món ăn" name="tenMA"></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="soLuong">Số Lượng:</label></td>
@@ -89,17 +89,17 @@
                             <td><input type="input" class="form-control" size="200" id="donViTinh" placeholder="Nhập đơn vị tính" name="donViTinh"></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="gia">Giá Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="gia" placeholder="Nhập giá món ăn" name="gia"></td>
+                            <td style="width: 150px;"><label for="donGia">Giá Món Ăn:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="donGia" placeholder="Nhập giá món ăn" name="donGia"></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="maLoaiMon">Loại Món Ăn</label></td>
+                            <td style="width: 150px;"><label for="maLoaiMA">Loại Món Ăn</label></td>
                             <td>
-                                <select name="maLoaiMon" id="maLoaiMon">
+                                <select name="maLoaiMA" id="maLoaiMA">
                                     <option value="1">Món Mặn</option>
                                     <option value="2">Món Chay</option>
-                                    <option value="3">Món Tráng Miệng</option>
-                                    <option value="4">Đồ Uống</option>
+                                    <option value="3">Nước Uống</option>
+                                    <option value="4">Tráng Miệng</option>
                                 </select>
                             </td>
                         </tr>
@@ -131,15 +131,15 @@
                         {
                             case 'Thêm':
                             {
-                                $maMon=$_REQUEST['maMon'];
-                                $tenMon=$_REQUEST['tenMon'];
+                                $maMA=$_REQUEST['maMA'];
+                                $tenMA=$_REQUEST['tenMA'];
                                 $soLuong=$_REQUEST['soLuong'];
                                 $donViTinh=$_REQUEST['donViTinh'];
-                                $gia=$_REQUEST['gia'];
-                                $maLoaiMon=$_REQUEST['maLoaiMon'];
+                                $donGia=$_REQUEST['donGia'];
+                                $maLoaiMA=$_REQUEST['maLoaiMA'];
                                 $nguyenLieu=$_REQUEST['nguyenLieu'];
                                 $moTa=$_REQUEST['moTa'];
-                                if($maMon !='' && $tenMon !='' && $soLuong!=''&& $donViTinh !='' && $gia !='' && $maLoaiMon !='' && $nguyenLieu!=''&& $moTa !='')
+                                if($maMA !='' && $tenMA !='' && $soLuong!=''&& $donViTinh !='' && $donGia !='' && $maLoaiMA !='' && $nguyenLieu!=''&& $moTa !='')
                                 {
                                     $name=$_FILES['myfile']['name'];
                                     $type=$_FILES['myfile']['type'];
@@ -147,9 +147,9 @@
                                     // echo $name ."<br>";
                                     // echo $type ."<br>";
                                     // echo $tmp_name ."<br>";
-                                    // echo $maMon ."<br>";
-                                    // echo $maLoaiMon ."<br>";
-                                    switch($maLoaiMon)
+                                    // echo $maMA ."<br>";
+                                    // echo $maLoaiMA ."<br>";
+                                    switch($maLoaiMA)
                                     {
                                         case 1: {$thucDon="monman";} break;
                                         case 2: {$thucDon="monchay";} break;
@@ -161,9 +161,9 @@
                                     {
                                         if ($type =='image/jpeg' || $type =='image/png' || $type =='image/jpg')
                                         {
-                                            if($p->uploadfile($name,$tmp_name,"quanLyQuanCom/img/$thucDon",$maMon,$maLoaiMon))
+                                            if($p->uploadfile($name,$tmp_name,"quanLyQuanCom/img/$thucDon",$maMA,$maLoaiMA))
                                             {	
-                                                $conn = new mysqli('localhost','trieu','123','db_quancomchipheo');
+                                                $conn = new mysqli('localhost','trieu','123','db_chipheo');
                                                 if ($conn->connect_error) {
                                                     die("Connection failed: " . $conn->connect_error);
                                                 }
@@ -171,7 +171,7 @@
                                                 if($conn)
                                                 {
                                                     $tenanh=$name;
-                                                    $str = "INSERT INTO ds_monan (maMon,tenMon,soLuong,donViTinh,gia,maLoaiMon,nguyenLieu,moTa,hinhAnh) VALUES ('$maMon',N'$tenMon','$soLuong',N'$donViTinh','$gia','$maLoaiMon',N'$nguyenLieu',N'$moTa','$tenanh')";
+                                                    $str = "INSERT INTO monan (maMA,tenMA,soLuong,donViTinh,donGia,maLoaiMA,nguyenLieu,moTa,hinhAnh) VALUES ('$maMA',N'$tenMA','$soLuong',N'$donViTinh','$donGia','$maLoaiMA',N'$nguyenLieu',N'$moTa','$tenanh')";
                                                     
                                                     if ($conn->query($str) === TRUE) {
                                                         if ($conn->affected_rows > 0) {

@@ -17,7 +17,7 @@
                 <option>Chọn loại món ăn</option>';
         while($r=$tblLM->fetch_assoc())
         {
-            echo '<option value="'.$r['maLoaiMon'].'">'.$r['tenLoaiMon'].'</option>';
+            echo '<option value="'.$r['maLoaiMA'].'">'.$r['tenLoaiMA'].'</option>';
         }
         echo '</select>';
         

@@ -81,6 +81,27 @@
     float: left;
 }
 
+#content .section .thongKe_food {
+    width: 1150px;
+    height: 260px;
+    background-color: white;
+}
+
+#content .section .thongKe_food i {
+    font-size: 60px; 
+    width: 70px; 
+    height: 70px; 
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 100px;
+    background-color: #FFCD29;
+    color: white;
+    float: left;
+}
+
+#content .section #ds_food {
+    margin-top: 30px;
+}
 
 
     /* ---------------- */

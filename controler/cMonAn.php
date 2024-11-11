@@ -16,6 +16,34 @@
             }
         }
 
+        public function getAllMATop5(){
+            $p = new MMonAn();
+            $tblMA = $p->SelectAllMATop5();
+            if($tblMA){
+                if($tblMA->num_rows>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
+
+        public function getAllMATop5_1(){
+            $p = new MMonAn();
+            $tblMA = $p->SelectAllMATop5_1();
+            if($tblMA){
+                if($tblMA->num_rows>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
+
         public function GetTHByIDSP($txt)
 		{
 			$p = new MMonAn();
@@ -49,5 +77,48 @@
                 return false;
             }
         }
+
+        public function GetCountMA(){
+            $p = new MMonAn();
+            $tblMA = $p->SelectCountMA();
+            if($tblMA){ 
+                if($tblMA>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
+
+        public function GetCountMACon(){
+            $p = new MMonAn();
+            $tblMA = $p->SelectCountMACon();
+            if($tblMA){ 
+                if($tblMA>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
+
+        public function GetCountMAHet(){
+            $p = new MMonAn();
+            $tblMA = $p->SelectCountMAHet();
+            if($tblMA){ 
+                if($tblMA>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
     }
+
 ?>

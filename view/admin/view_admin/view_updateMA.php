@@ -17,15 +17,15 @@
 <body>
     <?php
         $layid = $_REQUEST['id'];
-        $layten=$p->laycot("select tenMon from ds_monan where maMon = '$layid' limit 1");
-        $laysoluong=$p->laycot("select soLuong from ds_monan where maMon = '$layid' limit 1");
-        $laydonvitinh=$p->laycot("select donViTinh from ds_monan where maMon = '$layid' limit 1");
-		$laygia=$p->laycot("select gia from ds_monan where maMon = '$layid' limit 1");
-        $laymaloai=$p->laycot("select maLoaiMon from ds_monan where maMon = '$layid' limit 1");
-        $laytrangthai=$p->laycot("select trangThai from ds_monan where maMon = '$layid' limit 1");
-		$laymota=$p->laycot("select mota from ds_monan where maMon = '$layid' limit 1");
-		$laynguyenlieu=$p->laycot("select nguyenLieu from ds_monan where maMon = '$layid' limit 1");
-        $layhinhanh=$p->laycot("select hinhAnh from ds_monan where maMon = '$layid' limit 1");
+        $layten=$p->laycot("select tenMA from monan where maMA = '$layid' limit 1");
+        $laysoluong=$p->laycot("select soLuong from monan where maMA = '$layid' limit 1");
+        $laydonvitinh=$p->laycot("select donViTinh from monan where maMA = '$layid' limit 1");
+		$laydonGia=$p->laycot("select donGia from monan where maMA = '$layid' limit 1");
+        $laymaloai=$p->laycot("select maLoaiMA from monan where maMA = '$layid' limit 1");
+        $laytrangthai=$p->laycot("select trangThai from monan where maMA = '$layid' limit 1");
+		$laymota=$p->laycot("select mota from monan where maMA = '$layid' limit 1");
+		$laynguyenlieu=$p->laycot("select nguyenLieu from monan where maMA = '$layid' limit 1");
+        $layhinhanh=$p->laycot("select hinhAnh from monan where maMA = '$layid' limit 1");
         switch($laymaloai)
         {
             case 1: {$thucDon="monman";} break;
@@ -93,12 +93,12 @@
                 <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 100%;">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
-                            <td style="width: 150px;"><label for="maMon">Mã Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maMon" value="<?php echo $layid;?>" name="maMon"></td>
+                            <td style="width: 150px;"><label for="maMA">Mã Món Ăn:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="maMA" value="<?php echo $layid;?>" name="maMA"></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="tenMon">Tên Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="tenMon" value="<?php echo $layten;?>" name="tenMon"></td>
+                            <td style="width: 150px;"><label for="tenMA">Tên Món Ăn:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="tenMA" value="<?php echo $layten;?>" name="tenMA"></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="soLuong">Số Lượng:</label></td>
@@ -109,14 +109,14 @@
                             <td><input type="input" class="form-control" size="200" id="donViTinh" value="<?php echo $laydonvitinh;?>" name="donViTinh"></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="gia">Giá Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="gia" value="<?php echo $laygia;?>" name="gia"></td>
+                            <td style="width: 150px;"><label for="donGia">Giá Món Ăn:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="donGia" value="<?php echo $laydonGia;?>" name="donGia"></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="maLoaiMon">Loại Món Ăn</label></td>
+                            <td style="width: 150px;"><label for="maLoaiMA">Loại Món Ăn</label></td>
                             <td width="318" align="left">
                                 <?php
-                                    $p->choncty("select * from ds_loaimon order by tenLoaiMon asc",$laymaloai);
+                                    $p->choncty("select * from loaimonan order by tenLoaiMA asc",$laymaloai);
                                 ?> 
                             </td>
                         </tr>
@@ -153,25 +153,25 @@
                             {
                                 case 'Cập Nhật':
                                 {
-                                    $maMon=$_REQUEST['maMon'];
-                                    $tenMon=$_REQUEST['tenMon'];
+                                    $maMA=$_REQUEST['maMA'];
+                                    $tenMA=$_REQUEST['tenMA'];
                                     $soLuong=$_REQUEST['soLuong'];
                                     $donViTinh=$_REQUEST['donViTinh'];
-                                    $gia=$_REQUEST['gia'];
-                                    $maLoaiMon=$_REQUEST['maLoaiMon'];
+                                    $donGia=$_REQUEST['donGia'];
+                                    $maLoaiMA=$_REQUEST['maLoaiMA'];
                                     $trangThai=$_REQUEST['trangThai'];
                                     $nguyenLieu=$_REQUEST['nguyenLieu'];
                                     $moTa=$_REQUEST['moTa'];
-                                    if($maMon!='')
+                                    if($maMA!='')
                                     {
-                                        if($p->themxoasua("UPDATE ds_monan SET tenMon = '$tenMon',soLuong = '$soLuong',donViTinh = '$donViTinh',gia = '$gia',maLoaiMon = '$maLoaiMon',trangThai = '$trangThai',nguyenLieu = '$nguyenLieu',moTa = '$moTa' WHERE maMon = '$maMon' LIMIT 1")==1)
+                                        if($p->themxoasua("UPDATE monan SET tenMA = '$tenMA',soLuong = '$soLuong',donViTinh = '$donViTinh',donGia = '$donGia',maLoaiMA = '$maLoaiMA',trangThai = '$trangThai',nguyenLieu = '$nguyenLieu',moTa = '$moTa' WHERE maMA = '$maMA' LIMIT 1")==1)
                                         {
                                             echo'<script language="javascript">
                                             alert("Cập nhật thành công");	
                                             </script>';
                                         }
                                         echo'<script language="javascript">
-                                        window.location="view_updateMA.php?id='.$maMon.'";
+                                        window.location="view_updateMA.php?id='.$maMA.'";
                                         </script>';
                                         
                                     }

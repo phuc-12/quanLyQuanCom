@@ -4,7 +4,7 @@
 		private $host = 'localhost';
 		private $username = 'trieu';
 		private $password = '123';
-		private $database = 'db_quancomchipheo';
+		private $database = 'db_chipheo';
 
 		public function connect()
 		{
@@ -50,18 +50,18 @@
 			$ketqua = $link->query($sql); // Thay mysql_query bằng $link->query
 			if($ketqua && $ketqua->num_rows > 0) // Thay mysql_num_rows bằng $ketqua->num_rows
 			{	
-				echo '<select name="maLoaiMon" id="maLoaiMon">';
+				echo '<select name="maLoaiMA" id="maLoaiMA">';
 				while($row = $ketqua->fetch_array()) // Thay mysql_fetch_array bằng $ketqua->fetch_array()
 				{
-					$maLoaiMon = $row['maLoaiMon'];
-					$tenLoaiMon = $row['tenLoaiMon'];
-					if($maChon == $maLoaiMon)
+					$maLoaiMA = $row['maLoaiMA'];
+					$tenLoaiMA = $row['tenLoaiMA'];
+					if($maChon == $maLoaiMA)
 					{
-						echo '<option value="'.$maLoaiMon.'" selected>'.$tenLoaiMon.'</option>';
+						echo '<option value="'.$maLoaiMA.'" selected>'.$tenLoaiMA.'</option>';
 					}
 					else
 					{
-						echo '<option value="'.$maLoaiMon.'">'.$tenLoaiMon.'</option>';
+						echo '<option value="'.$maLoaiMA.'">'.$tenLoaiMA.'</option>';
 					}
 				}
 				echo '</select>';
