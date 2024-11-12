@@ -21,7 +21,7 @@
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
         <h1><a href="../../index.php">Trang chủ</a></h1>
-        <div class="date" style="float:right; margin-right: 100px;"><span>📅</span><span id="currentDate"></span></div>
+        <div class="date" style="float:right; margin-right: 50px; margin-top: -25px;"><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
         <div class="sidebar" id="sidebar">
