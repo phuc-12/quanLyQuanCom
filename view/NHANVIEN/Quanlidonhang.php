@@ -25,7 +25,7 @@
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
         <h1><a href="NV_quanli.php" style='text-decoration: none'>Trang nhân viên</a></h1>
-        <div class="date" style="float:right; margin-right: 100px; "><span>📅</span><span id="currentDate"></span></div>
+        <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
@@ -60,6 +60,7 @@
                         <td>
                             <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
                             <button class="button update">Cập nhật</button>
+                            <button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button>
                         </td>
                     </tr>
                     <!-- Thêm.. -->

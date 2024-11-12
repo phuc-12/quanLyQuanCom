@@ -26,7 +26,7 @@
             <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
         <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
-        <div class="date" style="float:right; margin-right: 100px; "><span>📅</span><span id="currentDate"></span></div>
+        <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
@@ -37,7 +37,7 @@
     </div>
     <div class="container" style="width:100%;">
         <div class="content">
-            <h2>Chi tiết đơn hàng</h2>
+            <center><h1>Chi tiết đơn hàng</h1></center>
             <div class="inform">
                 <p>Số hóa đơn: 001</p>
                 <p>Ngày: 21 tháng 10 năm 2024</p>
