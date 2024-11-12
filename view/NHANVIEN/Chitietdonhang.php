@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../js/dateTime.js" defer></script> 
     <script src="../../js/thongtin.js" defer></script> 
+    <style>
+        .header h1 {
+    margin-top: -40px;
+    margin-left: 100px;
+    }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -20,7 +26,7 @@
             <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
         <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
-        <div class="date" style="float:right; margin-right: 100px;"><span>📅</span><span id="currentDate"></span></div>
+        <div class="date" style="float:right; margin-right: 100px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
