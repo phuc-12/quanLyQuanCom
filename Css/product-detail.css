@@ -44,13 +44,10 @@ body {
 }
 
 .logo {
-    width: 150px;
-    height: 80px;
-    background: #5fd0d5;
+    width: 155px;
+    height: 155px;
+    float: left;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
 }
 
 .main-nav a {
