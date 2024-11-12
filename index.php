@@ -363,36 +363,28 @@
     <div class="services">
         <div class="services-box">
             <img src="IMG/service4.png" alt="">
-            <h3>Thực đơn cơm văn phòng</h3>
-            <p>Thực đơn cơm văn phòng được các đầu bếp có tay nghề, uyên thâm trong lĩnh vực cơm văn
-                phòng chế biến</p>
+            <h3>Thực đơn Đa Dạng</h3>
+            <p>Thực đơn cơm văn phòng được thay đổi hàng ngày với hàng trăm món ăn khác nhau</p>
         </div>
         <div class="services-box">
             <img src="IMG/service5.png" alt="">
-            <h3>Dịch vụ giao cơm tận nơi</h3>
-            <p>Giao cơm tận nơi là trách nhiệm của chúng tôi, mọi ưu tiên về quyền lợi và sự hài lòng
-                của khách hàng là
-                tiêu chí của chúng tôi</p>
+            <h3>Chất Lượng Hàng Đầu</h3>
+            <p>Chúng tôi luôn hướng đến việc đưa ra thị trường những món ăn có chất lượng cao về dinh dưỡng và thẩm mỹ, đó là kim chỉ nam của Cơm Nhà</p>
         </div>
         <div class="services-box">
             <img src="IMG/service6.png" alt="">
-            <h3>Chất lương nguyên liệu tươi sống</h3>
-            <p>TĐối với ẩm thực, chất lương nguyên liệu luôn luôn đứng đầu trong các lựa chọn để có một
-                món ăn ngon
-                miệng, sức khỏe</p>
+            <h3>Địa Chỉ Uy Tín</h3>
+            <p>Với chất lượng sản phẩm, sự chuyên nghiệp hóa và tận tâm, chúng tôi là địa chỉ uy tín cung cấp các sản phẩm dịch vụ cung cấp suất ăn văn phòng</p>
         </div>
         <div class="services-box">
             <img src="IMG/service7.png" alt="">
-            <h3>Thực đơn cơm văn phòng</h3>
-            <p>Thực đơn cơm văn phòng được các đầu bếp có tay nghề, uyên thâm trong lĩnh vực cơm văn
-                phòng chế biến</p>
+            <h3>Định Hướng Rõ Ràng</h3>
+            <p>Với định hướng rõ ràng, mục tiêu cụ thể, chúng tôi phấn đấu là đơn vị cung cấp suất ăn văn phòng, suất ăn công nghiệp uy tín nhất ở TP. Hồ Chí Minh</p>
         </div>
         <div class="services-box">
             <img src="IMG/service8.png" alt="">
-            <h3>Dịch vụ giao cơm tận nơi</h3>
-            <p>Giao cơm tận nơi là trách nhiệm của chúng tôi, mọi ưu tiên về quyền lợi và sự hài lòng
-                của khách hàng là
-                tiêu chí của chúng tôi</p>
+            <h3>Phát Triển Bền Vững</h3>
+            <p>Đội ngũ nhân viên trẻ, tài năng và tâm huyết, chúng tôi luôn mong muốn đồng hành và phát triển cùng khách hàng</p>
         </div>
     </div>
     <!-- Footer -->
