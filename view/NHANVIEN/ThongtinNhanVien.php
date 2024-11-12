@@ -13,9 +13,9 @@
     <script src="../../js/thongtin.js" defer></script> 
     <style>
         .header h1 {
-    margin-top: -40px;
-    margin-left: 100px;
-    }
+            margin-top: -40px;
+            margin-left: 100px;
+        }
     </style>
 </head>
 <body>
