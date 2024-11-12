@@ -46,7 +46,7 @@
                             <th>Tên khách hàng</th>
                             <th>Địa chỉ giao hàng</th>
                             <th>Thời gian yêu cầu giao</th>
-                            <th>Hành động</th>
+                            <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,9 +56,7 @@
                             <td>Nguyễn Thị Nga</td>
                             <td>Nguyễn Văn Bảo, Gò Vấp</td>
                             <td>20:00 05/11/2024</td>
-                            <td>
-                                <button class="view-button" onclick="window.location.href='../haucan/haucan_chuanbidonhang.php';">Xem chi tiết</button>
-                            </td>
+                            <td> Đã giao </td>
                         </tr>
                         <!-- Add more rows as needed -->
                     </tbody>
