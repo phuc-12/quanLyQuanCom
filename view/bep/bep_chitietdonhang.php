@@ -64,10 +64,6 @@
                     </div>
                     <div class="food-item">
                         <div class="soluong">Nước ngọt x2 </div>
-                    </div>   
-                    
-                    <div class="food-item">
-                        <div class="soluong">Bún đậu mắm tôm x2 </div>
                     </div>
                 </div>
 
