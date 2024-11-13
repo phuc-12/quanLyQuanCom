@@ -48,7 +48,7 @@
                 <h2>THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
             </div>
             <form class="detail-form">
-                <label for="tenkh">Mã đơn hàng</label>
+            <label for="tenkh">Mã đơn hàng</label>
                 <input type="text" id="madh" name="madh" value="DH001">
 
                 <label for="sdt">Thời gian đặt hàng</label>
@@ -64,10 +64,7 @@
                     </div>
                     <div class="food-item">
                         <div class="soluong">Nước ngọt x2 </div>
-                    </div>
-                    
+                    </div>                 
                 </div>
-
-            </form>
     </div>
 </body>
