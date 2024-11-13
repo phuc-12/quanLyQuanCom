@@ -67,8 +67,6 @@
                     </div>                 
                 </div>
 
-                <label for="sdt">Thời gian đặt hàng</label>
-                <input type="text" id="thoigian" name="thoigian" value="10:00 12/11/2024">
             </form>
     </div>
 </body>
