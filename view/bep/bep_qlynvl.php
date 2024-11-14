@@ -19,15 +19,11 @@
                 </div>
 
                 <a class="trangChu" href="../../index.php">
-                    <h4>Trang Chủ</h4>
-                </a>
-
-                <a class="trangChu" href="bep_trangchu.php">
-                    <h4>Trang quản lý</h4>
+                    <p>Trang Chủ</p>
                 </a>
 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
+                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
                         <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
@@ -40,6 +36,15 @@
             </div>
         </div>
     </header>
+    <div class="trangquanly">
+        <div class="containerr">
+            <div class="sidebar">
+                <div class="menu-item " onclick="window.location.href='bep_trangchu.php';">Trang tổng quan</div>
+                <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php';">Xem hóa đơn</div>
+                <div class="menu-item active" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
+            </div>
+        </div>
+
         <div id="content">
             <div class="container">
                 <div class="header-row">
@@ -74,12 +79,25 @@
                                 <button type="button" class="delete-button" onclick="openDeletePopup()" >Xóa</button>
                             </td>
                         </tr>
-                        <!-- Add more rows as needed -->
+
+                        <tr>
+                            <td>2</td>
+                            <td>Nguyên liệu B</td>
+                            <td>10</td>
+                            <td>kg</td>
+                            <td>Đủ</td>
+                            <td>
+                                <button class="view-button" onclick="window.location.href='bep_xemnvl.php';">Xem</button>
+                                <button class="edit-button" onclick="window.location.href='bep_capnhatnvl.php';">Sửa</button>
+                                <button type="button" class="delete-button" onclick="openDeletePopup()" >Xóa</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+        
     <!-- Thông Báo Hủy Đơn Hàng -->
     <!-- <div class="popup" id="deletePopup">
         <div class="popup-content">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xem nguyên vật liệu</title>
+    <title>Chi tiết hóa đơn</title>
     <link rel="stylesheet" type="text/css" href="../../css/nvbep_css/danhsachnvl.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -19,15 +19,11 @@
                 </div>
 
                 <a class="trangChu" href="../../index.php">
-                    <h4>Trang Chủ</h4>
-                </a>
-
-                <a class="trangChu" href="bep_trangchu.php">
-                    <h4>Trang quản lý</h4>
+                    <p>Trang Chủ</p>
                 </a>
                 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
+                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
                         <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
@@ -40,15 +36,22 @@
             </div>
         </div>
     </header>
-    
-    <div id="content">
-        <button class="back-button">◀ <a href="bep_trangdonhang.php" style="font-size: 16px; color: black; text-decoration: none;">Danh sách đơn hàng</a></button>
-        <div class="container-xem">
-            <div class="header-row-xem">
-                <h2>THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
+    <div class="trangquanly">
+        <div class="containerr">
+            <div class="sidebar">
+                <div class="menu-item " onclick="window.location.href='bep_trangchu.php';">Trang tổng quan</div>
+                <div class="menu-item active" onclick="window.location.href='bep_trangdonhang.php';">Xem hóa đơn</div>
+                <div class="menu-item " onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
             </div>
-            <form class="detail-form">
-            <label for="tenkh">Mã đơn hàng</label>
+        </div>
+        <div id="content">
+            <button class="back-button">◀ <a href="bep_trangdonhang.php" style="font-size: 16px; color: black; text-decoration: none;">Danh sách hóa đơn</a></button>
+            <div class="container-xem">
+                <div class="header-row-xem">
+                    <h2>THÔNG TIN CHI TIẾT HÓA ĐƠN</h2>
+                </div>
+                <form class="detail-form">
+                <label for="tenkh">Mã đơn hàng</label>
                 <input type="text" id="madh" name="madh" value="DH001">
 
                 <label for="sdt">Thời gian đặt hàng</label>
@@ -65,6 +68,8 @@
                     <div class="food-item">
                         <div class="soluong">Nước ngọt x2 </div>
                     </div>                 
-                </div>
+                </div>  
+            </div>
+        </div>
     </div>
 </body>

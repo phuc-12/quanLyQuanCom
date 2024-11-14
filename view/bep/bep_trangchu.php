@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cập nhật nguyên vật liệu</title>
+    <title>Trang tổng quá</title>
     <link rel="stylesheet" type="text/css" href="../../css/nvbep_css/bep_trangchu.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../js/dateTime.js" defer></script> 
+    </style>
 </head>
 <body>
         <div class="container-fluid p-0">
@@ -18,11 +19,11 @@
                 </div>
 
                 <a class="trangChu" href="../../index.php">
-                    <h4>Trang Chủ</h4>
+                    <p>Trang Chủ</p>
                 </a>
 
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
+                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
                         <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
@@ -35,9 +36,41 @@
             </div>
         </div>
         
-    <div class="container">
-        <a href="bep_qlynvl.php" class="button">Quản lý nguyên vật liệu</a>
-        <a href="bep_trangdonhang.php" class="button">Xem đơn hàng</a>
-    </div>
+        <div class="container">
+            <div class="sidebar">
+                <div class="menu-item active">Trang tổng quan</div>
+                <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php';">Xem hóa đơn</div>
+                <div class="menu-item" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
+            </div>
+
+            <div class="content">
+                <div class="overview">
+                    <h2>TỔNG QUAN</h2>
+                    <div class="card-container">
+                        <div class="cardd" onclick="window.location.href='bep_trangdonhang.php';">
+                           <div class="soluong">
+                                <p>5</p>
+                                <img src="../../img/invoice.png" alt="Invoice Icon">
+                           </div>
+                           <div class="title">
+                                <p>Hóa đơn</p>
+                                <img src="../../img/right-arrow.png" alt="Right arow Icon">
+                           </div>
+                            
+                        </div>
+                        <div class="cardd" onclick="window.location.href='bep_qlynvl.php';">
+                            <div class="soluong">
+                                <p>30</p>
+                                <img src="../../img/processing.png" alt="Materials Icon">
+                            </div>
+                            <div class="title">
+                                <p>Nguyên vật liệu</p>
+                                <img src="../../img/right-arrow.png" alt="Right arow Icon">
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </body>
