@@ -19,7 +19,7 @@
                 </div>
 
                 <a class="trangChu" href="../../index.php">
-                    <h4>Trang Chủ</h4>
+                    <p>Trang Chủ</p>
                 </a>
 
                 <div class="nav-item dropdown">
@@ -37,13 +37,16 @@
         </div>
     </header>
     <div id="content">
-        <button class="back-button" onclick="window.location.href='haucan_theodoidonhang.php';">◀ <a href="haucan_theodoidonhang.php" style="font-size: 16px; color: black; text-decoration: none;">Danh sách đơn hàng</a></button>
+        <button class="back-button" onclick="window.location.href='haucan_danhsachdonhang.php';">◀ <a href="haucan_danhsachdonhang.php" style="font-size: 16px; color: black; text-decoration: none;">Danh sách đơn hàng</a></button>
         <div class="container-xem">
             <div class="header-row-xem">
                 <h2>THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
             </div>
             <form class="detail-form">
-            <label for="tenkh">Tên khách hàng:</label>
+                <label for="tenkh">Mã đơn hàng:</label>
+                <input type="text" id="madh" name="madh" value="DH01">
+
+                <label for="tenkh">Tên khách hàng:</label>
                 <input type="text" id="tenkh" name="tenkh" value="Nguyễn Thị Nga">
 
                 <label for="sdt">Số điện thoại:</label>
@@ -70,61 +73,11 @@
 
                 <label for="soluong">Tổng tiền</label>
                 <input type="text" id="tongtien" name="tongtien" value="105000 đ ">
-            <!-- <div class="sub-button"> -->
-                <button type="button" class="error-button" onclick="openErrorPopup()">! Đơn hàng bị lỗi</button>
-                <button type="button" class="cancel-button" onclick="openCancelPopup()">Hủy đơn hàng</button>
-            <!-- </div> -->
-            <button type="button" class="prepare-button" onclick="window.location.href='haucan_giaohang.php';">Chuẩn bị đơn hàng</button>
-        </div>
-    </div>
-    
-    <!-- Thông Báo Hủy Đơn Hàng -->
-    <div class="popup" id="cancelPopup">
-        <div class="popup-content">
-            <h3>HỦY ĐƠN HÀNG</h3>
-            <form class="detail-form">
-                <label for="tinhtrang">Tình trạng:</label>
-                <select id="tinhtrang" name="tinhtrang">
-                    <option value="available">Khách không còn nhu cầu</option>
-                </select>
-                <div class="popup-buttons">
-                    <button class="back-button-huy" onclick="closeCancelPopup() ">Quay Lại</button>
-                    <button class="confirm-button">Xác nhận Hủy</button>
-                </div>
-            </form>
+
+                <label for="soluong">Trạng thái</label>
+                <input type="text" id="trangthai" name="trangthai" value="Chuẩn bị đơn hàng ">
         </div>
     </div>
 
-    <!-- Thông Báo Đơn Hàng Lỗi -->
-    <div class="popup" id="errorPopup">
-        <div class="popup-content-error">
-            <h3>Vui lòng điền lý do</h3>
-            <form class="detail-form">
-                <label for="lydo">Lý do:</label>
-                <textarea name="lydo" cols="50" rows="5" id="lydo"></textarea>
-                <!-- <div class="popup-buttons"> -->
-                    <button class="back-button-huy" onclick="closeCancelPopup() ">Quay Lại</button>
-                    <button class="confirm-button">Gửi</button>
-                <!-- </div> -->
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function openCancelPopup() {
-            document.getElementById("cancelPopup").style.display = "flex";
-        }
-        function openErrorPopup() {
-            document.getElementById("errorPopup").style.display = "flex";
-        }
-  
-        function closeCancelPopup() {
-            document.getElementById("cancelPopup").style.display = "none";
-        }
-        function closeErrorPopup() {
-            document.getElementById("errorPopup").style.display = "none";
-        }
-    </script>
-    
 </body>
  

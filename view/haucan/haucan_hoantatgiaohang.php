@@ -19,7 +19,7 @@
                 </div>
 
                 <a class="trangChu" href="../../index.php">
-                    <h4>Trang Chủ</h4>
+                    <p>Trang Chủ</p>
                 </a>
 
                 <div class="nav-item dropdown">
@@ -37,13 +37,16 @@
         </div>
     </header>
     <div id="content">
-        <button class="back-button">◀ <a href="haucan_theodoidonhang.php" style="font-size: 16px; color: black; text-decoration: none;">Danh sách đơn hàng</a></button>
+        <button class="back-button" onclick="window.location.href='haucan_DANHSACHDONHANG.php';">◀ <a href="haucan_danhsachdonhang.php" style="font-size: 16px; color: black; text-decoration: none;">Danh sách đơn hàng</a></button>
         <div class="container-xem">
             <div class="header-row-xem">
                 <h2>THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
             </div>
             <form class="detail-form">
-            <label for="tenkh">Tên khách hàng:</label>
+                <label for="tenkh">Mã đơn hàng:</label>
+                <input type="text" id="madh" name="madh" value="DH01">
+
+                <label for="tenkh">Tên khách hàng:</label>
                 <input type="text" id="tenkh" name="tenkh" value="Nguyễn Thị Nga">
 
                 <label for="sdt">Số điện thoại:</label>
@@ -76,7 +79,7 @@
             <!-- <div class="sub-button"> -->
                 <button type="button" class="cancel-button-1" onclick="openCancelPopup()">Hủy đơn hàng</button>
             <!-- </div> -->
-            <button type="button" class="complete-button" onclick="window.location.href='haucan_theodoidonhang.php';">Hoàn tất giao hàng</button>
+            <button type="button" class="complete-button" onclick="window.location.href='haucan_danhsachdonhang.php';">Hoàn tất giao hàng</button>
         </div>
     </div>
 

@@ -11,16 +11,28 @@
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
-    <header>
+<header>
         <div class="container-fluid p-0">
             <div id="ql_header">
-                <div class="logo">
-                    <p>logo</p>
+                <div class="logo" style="padding: 0; border-radius: 100px;">
+                    <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
                 <a class="trangChu" href="../../index.php">
-                    <h4>Trang Chủ</h4>
+                    <p>Trang Chủ</p>
                 </a>
+
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
+                    </ul>
+                </div>
+
+                <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+                    
             </div>
         </div>
     </header>
@@ -38,9 +50,10 @@
                         <tr>
                             <th>STT</th>
                             <th>Mã đơn hàng</th>
-                            <th>Tên khách hàng</th>
+                            <th>Tên người nhận</th>
                             <th>Địa chỉ giao hàng</th>
                             <th>Thời gian yêu cầu giao</th>
+                            <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
                     </thead>
@@ -51,8 +64,10 @@
                             <td>Nguyễn Thị Nga</td>
                             <td>Nguyễn Văn Bảo, Gò Vấp</td>
                             <td>20:00 05/11/2024</td>
+                            <td>Chuẩn bị đơn hàng</td>
                             <td>
-                                <button class="view-button" onclick="window.location.href='haucan_chuanbidonhang.php';">Xem chi tiết</button>
+                                <button class="view-button" onclick="window.location.href='haucan_chitietdonhang.php';">Xem chi tiết</button>
+                                <button class="view-button" onclick="window.location.href='haucan_giaohang.php';">Bắt đầu giao hàng</button>
                             </td>
                         </tr>
                         <!-- Add more rows as needed -->
