@@ -1,3 +1,8 @@
+<?php
+include ("../../model/chucnangbep.php");
+$p = new bep();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,45 +60,10 @@
                         <button type="button" class="add-button" onclick="window.location.href='bep_themnvl.php';">THÊM MỚI</button>
                     </div>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Tên nguyên vật liệu</th>
-                            <th>SL</th>
-                            <th>Đơn vị</th>
-                            <th>Trạng thái</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nguyên liệu A</td>
-                            <td>10</td>
-                            <td>kg</td>
-                            <td>Đủ</td>
-                            <td>
-                                <button class="view-button" onclick="window.location.href='bep_xemnvl.php';">Xem</button>
-                                <button class="edit-button" onclick="window.location.href='bep_capnhatnvl.php';">Sửa</button>
-                                <button type="button" class="delete-button" onclick="openDeletePopup()" >Xóa</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>Nguyên liệu B</td>
-                            <td>10</td>
-                            <td>kg</td>
-                            <td>Đủ</td>
-                            <td>
-                                <button class="view-button" onclick="window.location.href='bep_xemnvl.php';">Xem</button>
-                                <button class="edit-button" onclick="window.location.href='bep_capnhatnvl.php';">Sửa</button>
-                                <button type="button" class="delete-button" onclick="openDeletePopup()" >Xóa</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <?php
+                    $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
+                ?>
+                    
             </div>
         </div>
     </div>
