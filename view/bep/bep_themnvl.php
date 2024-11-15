@@ -61,11 +61,11 @@
                 <label for="soluong">Số lượng:</label>
                 <input type="number" id="soluong"  name="soluong">
 
-                <label for="tinhtrang">Tình trạng:</label>
+                <!-- <label for="tinhtrang">Tình trạng:</label>
                 <select id="tinhtrang" name="tinhtrang">
-                    <option value="available">Có sẵn</option>
-                    <option value="out">Hết</option>
-                </select>
+                    <option value="1">Còn hàng</option>
+                    <option value="2">Hết hàng</option>
+                </select> -->
 
                 <label for="ngaynhap">Ngày nhập:</label>
                 <input type="text" id="ngaynhap" name="ngaynhap" placeholder="DD/MM/YY">

@@ -1,3 +1,8 @@
+<?php
+include ("../../model/chucnangbep.php");
+$p = new bep();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,13 @@
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+$laymaNVL= $p->laycot("select maNVL from nguyenlieu where maNVL='$layid'");
+$laytenNVL= $p->laycot("select tenNVL from nguyenlieu where maNVL='$layid'");
+$layslTon= $p->laycot("select slTon from nguyenlieu where maNVL='$layid'");
+$laytrangThai= $p->laycot("select trangThai from nguyenlieu where maNVL='$layid'");
+?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
@@ -53,17 +65,20 @@
                 </div>
                 <form class="detail-form">
                     <label>Mã nguyên vật liệu:</label>
-                    <input type="text" value="NVL001" readonly>
+                    <input type="text" value="<?php echo $laymaNVL;?>" readonly>
 
                     <label>Tên nguyên vật liệu:</label>
-                    <input type="text" value="Đường" readonly>
+                    <input type="text" value="<?php echo $laytenNVL;?>" readonly>
 
                     <label>Số lượng:</label>
-                    <input type="text" value="50" readonly>
+                    <input type="text" value="<?php echo $layslTon;?>" readonly>
 
                     <label>Tình trạng:</label>
-                    <input type="text" value="Có sẵn" readonly>
-
+                    <input type="text" value="<?php if ($laytrangThai == 0) {
+                                                        echo "Hết NVL";
+                                                    } else {
+                                                        echo "Còn hàng";
+                                                    }?>" readonly>
                     <label>Ngày nhập:</label>
                     <input type="text" value="01/01/2024" readonly>
 

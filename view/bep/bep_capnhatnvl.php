@@ -1,3 +1,7 @@
+<?php
+include ("../../model/chucnangbep.php");
+$p = new bep();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,13 @@
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+$laymaNVL= $p->laycot("select maNVL from nguyenlieu where maNVL='$layid'");
+$laytenNVL= $p->laycot("select tenNVL from nguyenlieu where maNVL='$layid'");
+$layslTon= $p->laycot("select slTon from nguyenlieu where maNVL='$layid'");
+$laytrangThai= $p->laycot("select trangThai from nguyenlieu where maNVL='$layid'");
+?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
@@ -53,19 +64,23 @@
                 </div>
                 <form class="detail-form">
                 <label for="ma">Mã nguyên vật liệu:</label>
-                    <input type="text" id="ma" name="ma" value="NVL001" disabled>
+                    <input type="text" id="ma" name="ma" value="<?php echo $laymaNVL;?>" disabled>
 
                     <label for="ten">Tên nguyên vật liệu:</label>
-                    <input type="text" id="ten" name="ten" value="Đường" disabled>
+                    <input type="text" id="ten" name="ten" value="<?php echo $laytenNVL;?>" disabled>
 
                     <label for="soluong">Số lượng:</label>
-                    <input type="number" id="soluong" value="10" name="soluong">
+                    <input type="number" id="soluong" value="<?php echo $layslTon;?>" name="soluong">
 
-                    <label for="tinhtrang">Tình trạng:</label>
-                    <select id="tinhtrang" name="tinhtrang">
-                        <option value="available">Có sẵn</option>
-                        <option value="out">Hết</option>
-                    </select>
+                    <!-- <label for="tinhtrang">Tình trạng:</label>
+                    <select id="tinhtrang" name="tinhtrang"> 
+                    <option value="1" <?php if ($laytrangThai == 1) echo "selected"; ?>>Còn hàng</option>
+                    <option value="0" <?php if ($laytrangThai == 0) echo "selected"; ?>>Hết hàng</option>
+                    </select>  -->
+                    <!-- 
+                        $layidcty==$p->laycot("select idcty from sanpham where idsp='$layid' limit 1");
+                        $p->chontinhtrang("select trangThai from nguyenlieu",$layid);
+                    -->
 
                     <label for="ngaynhap">Ngày nhập:</label>
                     <input type="text" id="ngaynhap" name="ngaynhap" value="01/01/2024" placeholder="DD/MM/YY">
