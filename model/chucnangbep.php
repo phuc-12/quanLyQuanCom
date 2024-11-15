@@ -27,13 +27,19 @@ class bep extends tmdt{
 				$slTon=$row['slTon'];
 				$donViTinh=$row['donViTinh'];
                 $trangThai=$row['trangThai'];
+			
+				if ($trangThai == 0) {
+					$trangThaiText = "Hết hàng";
+				} else {
+					$trangThaiText = "Còn hàng";
+				}
                 echo '<tbody>
                         <tr>
                             <td>'.$dem.'</td>
                             <td>'.$tenNVL.'</td>
                             <td>'.$slTon.'</td>
                             <td>'.$donViTinh.'</td>
-                            <td>'.$trangThai.'</td>
+                            <td>'.$trangThaiText.'</td>
                             <td>
                                 <button class="view-button"><a href="bep_xemnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xem</a></button>
 								<button class="edit-button"><a href="bep_capnhatnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Sửa</a></button>
