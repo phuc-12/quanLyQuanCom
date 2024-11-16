@@ -1,3 +1,8 @@
+<?php
+include ("../../model/chucnangbep.php");
+$p = new bep();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,13 @@
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+$laymaHD= $p->laycot("select maHD from chitiethoadon where maHD='$layid'");
+$laytenMA= $p->laycot("select tenMA from chitiethoadon where maHD='$layid'");
+$laysoLuong= $p->laycot("select soLuong from chitiethoadon where maHD='$layid'");
+
+?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
@@ -52,7 +64,7 @@
                 </div>
                 <form class="detail-form">
                 <label for="tenkh">Mã đơn hàng</label>
-                <input type="text" id="madh" name="madh" value="DH001">
+                <input type="text" id="madh" name="madh" value="<?php echo $laymaHD;?>">
 
                 <label for="sdt">Thời gian đặt hàng</label>
                 <input type="text" id="thoigian" name="thoigian" value="10:00 12/11/2024">
@@ -60,14 +72,14 @@
                 <label>Danh sách món ăn:</label>
                 <div class="food-list">
                     <div class="food-item">
-                        <div class="soluong">Bún đậu mắm tôm x2 </div>
+                        <div class="soluong"><?php echo $laytenMA; ?> x<?php echo $laysoLuong;?></div>
                     </div>
-                    <div class="food-item">
+                    <!-- <div class="food-item">
                         <div class="soluong">Bún thêm x1 </div>
                     </div>
                     <div class="food-item">
                         <div class="soluong">Nước ngọt x2 </div>
-                    </div>                 
+                    </div>                  -->
                 </div>  
             </div>
         </div>
