@@ -1,3 +1,7 @@
+<?php
+include ("../../model/chucnanghaucan.php");
+$p = new haucan();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,8 +49,8 @@
                         <button class="search-button">🔍</button>
                     </div>
                 </div>
-                <table>
-                    <thead>
+                <!-- <table> -->
+                    <!-- <thead>
                         <tr>
                             <th>STT</th>
                             <th>Mã đơn hàng</th>
@@ -56,8 +60,8 @@
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                    </thead> -->
+                    <!-- <tbody>
                         <tr>
                             <td>1</td>
                             <td>DH01</td>
@@ -69,10 +73,13 @@
                                 <button class="view-button" onclick="window.location.href='haucan_chitietdonhang.php';">Xem chi tiết</button>
                                 <button class="view-button" onclick="window.location.href='haucan_giaohang.php';">Bắt đầu giao hàng</button>
                             </td>
-                        </tr>
+                        </tr> -->
                         <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
+                    <!-- </tbody>
+                </table> -->
+                <?php
+                    $p->xemdanhsachdonhang("select * from chitiethoadon order by maHD")
+                ?>
             </div>
         </div>
     </div>

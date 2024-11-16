@@ -74,8 +74,11 @@
                 <label for="soluong">Tổng tiền</label>
                 <input type="text" id="tongtien" name="tongtien" value="105000 đ ">
 
-                <label for="soluong">Trạng thái</label>
-                <input type="text" id="trangthai" name="trangthai" value="Chuẩn bị đơn hàng ">
+                <label for="soluong">Trạng thái đơn hàng</label>
+                <input type="text" id="trangthaiDH" name="trangthai" value="Đã thanh toán">
+
+                <label for="soluong">Trạng thái giao hàng</label>
+                <input type="text" id="trangthaiGH" name="trangthai" value="Chuẩn bị đơn hàng ">
         </div>
     </div>
 
