@@ -1,3 +1,8 @@
+<?php
+include ("../../model/chucnangbep.php");
+$p = new bep();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +59,7 @@
                         <button class="search-button">🔍</button>
                     </div>
                 </div>
-                <table>
+                <!-- <table>
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -63,8 +68,8 @@
                             <th>Món ăn</th>
                             <th>Hành động</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                    </thead> -->
+                    <!-- <tbody>
                         <tr>
                             <td>1</td>
                             <td>001</td>
@@ -73,10 +78,13 @@
                             <td>
                                 <button class="view-button" onclick="window.location.href='bep_chitietdonhang.php';">Xem chi tiết</button>
                             </td>
-                        </tr>
+                        </tr> -->
                         <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
+                    <!-- </tbody>
+                </table> -->
+                <?php
+                    $p->xemdanhsachhoadon("select * from chitiethoadon order by maHD");
+                ?>
             </div>
         </div>
     </div>

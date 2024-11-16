@@ -95,5 +95,51 @@ class bep extends tmdt{
 			echo 'Khong co du lieu';
 		}
 	}
+
+	public function xemdanhsachhoadon($sql)
+	{
+		$link=$this->connect();
+		$ketqua = mysql_query($sql,$link);
+		$i=mysql_num_rows($ketqua);
+		if($i>0)
+		{
+            echo '<table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã hóa đơn</th>
+                            <th>Giờ khởi tạo</th>
+                            <th>Món ăn</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>';
+			$dem=1;
+			while($row=mysql_fetch_array($ketqua))
+			{
+				$maHD=$row['maHD'];	
+				$tenMA=$row['tenMA'];
+			
+                echo '<tbody>
+                        <tr>
+                            <td>'.$dem.'</td>
+                            <td>'.$maHD.'</td>
+                            <td>10:00 AM </td> 
+                            <td>'.$tenMA.'</td>
+                            <td>
+                                <button class="view-button"><a href="bep_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>
+								</td>
+                        </tr>';
+				$dem++;
+				
+			}
+			echo '</tbody>
+				</table>';
+			
+		}
+		else
+		{
+			echo 'Khong co du lieu';
+		}
+	}
 }
 ?>
