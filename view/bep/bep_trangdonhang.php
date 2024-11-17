@@ -83,7 +83,7 @@ $p = new bep();
                     <!-- </tbody>
                 </table> -->
                 <?php
-                    $p->xemdanhsachhoadon("select * from chitiethoadon order by maHD");
+                    $p->xemdanhsachhoadon("select * from chitiethoadon group by maHD order by maHD");
                 ?>
             </div>
         </div>
