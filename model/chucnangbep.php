@@ -118,17 +118,44 @@ class bep extends tmdt{
 			{
 				$maHD=$row['maHD'];	
 				$tenMA=$row['tenMA'];
-			
                 echo '<tbody>
                         <tr>
                             <td>'.$dem.'</td>
                             <td>'.$maHD.'</td>
-                            <td>10:00 AM </td> 
-                            <td>'.$tenMA.'</td>
+                            <td>10:00 AM </td>
+                            <td>'.$tenMA.',..</td>
                             <td>
                                 <button class="view-button"><a href="bep_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>
 								</td>
                         </tr>';
+				$dem++;
+				
+			}
+			echo '</tbody>
+				</table>';
+			
+		}
+		else
+		{
+			echo 'Khong co du lieu';
+		}
+	}
+	
+	public function xemdanhsachmonan_chitiethoadon($sql)
+	{
+		$link=$this->connect();
+		$ketqua = mysql_query($sql,$link);
+		$i=mysql_num_rows($ketqua);
+		if($i>0)
+		{
+			$dem=1;
+			while($row=mysql_fetch_array($ketqua))
+			{
+				$tenMA=$row['tenMA'];	
+				$soLuong=$row['soLuong'];
+                echo '<div class="food-item">
+                        <div class="soluong">'.$tenMA.' x'.$soLuong.'</div>
+                    </div>';
 				$dem++;
 				
 			}

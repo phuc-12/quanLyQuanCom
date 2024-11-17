@@ -1,3 +1,7 @@
+<?php
+include ("../../model/chucnangbep.php");
+$p = new bep();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +53,12 @@
                     <div class="card-container">
                         <div class="cardd" onclick="window.location.href='bep_trangdonhang.php';">
                            <div class="soluong">
-                                <p>5</p>
+                                <p>
+                                <?php
+                                    $tonghoadon=$p->laycot("SELECT COUNT( DISTINCT maHD )FROM chitiethoadon");
+                                    echo $tonghoadon;
+                                ?>
+                                </p>
                                 <img src="../../img/invoice.png" alt="Invoice Icon">
                            </div>
                            <div class="title">
@@ -60,7 +69,12 @@
                         </div>
                         <div class="cardd" onclick="window.location.href='bep_qlynvl.php';">
                             <div class="soluong">
-                                <p>30</p>
+                                <p>
+                                <?php
+                                    $tongnvl=$p->laycot("SELECT COUNT( DISTINCT maNVL )FROM nguyenlieu");
+                                    echo $tongnvl;
+                                ?>
+                                </p>
                                 <img src="../../img/processing.png" alt="Materials Icon">
                             </div>
                             <div class="title">

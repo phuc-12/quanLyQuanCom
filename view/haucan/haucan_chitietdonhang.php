@@ -26,7 +26,7 @@ $sodienthoai=$p->laycot("select t.SDT FROM taikhoannguoidung t JOIN khachhang k 
 $diachi=$p->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
                         JOIN chitiethoadon c ON k.maKH = c.maKH
                         WHERE c.maKH = '$maKH';");
-$laytongtien=$p->laycot("SELECT SUM( soLuong * donGia )FROM chitiethoadon GROUP BY '$layid';");
+$laytongtien=$p->laycot("SELECT SUM( soLuong * donGia )FROM chitiethoadon WHERE maHD = '$layid' GROUP BY maHD;");
 $laytrangThaiGH= $p->laycot("select trangThaiGH from chitiethoadon where maHD='$layid'");
 $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$layid'");
 ?>
