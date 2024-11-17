@@ -24,11 +24,11 @@ class haucan extends tmdt{
 			while($row=mysql_fetch_array($ketqua))
 			{
 				$maHD=$row['maHD'];	
-				$maKH=$row['maKH'];
-                $hoTen=$this->laycot("select hoTen from khachhang where maKH='.$maKH.'");
+                $maKH=$this->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$maHD' LIMIT 1");
+                $hoTen=$this->laycot("select hoTen from khachhang where maKH='$maKH'");
                 $diachi=$this->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
                                         JOIN chitiethoadon c ON k.maKH = c.maKH
-                                        WHERE c.maKH = '.$maKH.';");
+                                        WHERE c.maKH = '$maKH';");
 
                 $trangThaiDH=$row['trangThaiDH'];
                 if ($trangThaiDH == 0) {
@@ -65,5 +65,38 @@ class haucan extends tmdt{
 		}
 	}
 
+    public function xemchitietmonan_donhang($sql)
+	{
+		$link=$this->connect();
+		$ketqua = mysql_query($sql,$link);
+		$i=mysql_num_rows($ketqua);
+		if($i>0)
+		{
+			$dem=1;
+			while($row=mysql_fetch_array($ketqua))
+			{
+				// $maHD=$row['maHD'];	
+                $maMA=$row['maMA'];
+                $tenMA=$row['tenMA'];
+                $soLuong=$row['soLuong'];
+                $donGia=$row['donGia'];
+                $tongtienmon= $soLuong * $donGia;
+                // $soLuong= $this->laycot("select soLuong from chitiethoadon where maHD='$maHD'");
+                // $donGia= $this->laycot("select donGia from chitiethoadon where maMA='$maMA'");
+
+		
+                echo '<div class="food-item">
+                        <div class="soluong">'.$tenMA.' x'.$soLuong.'</div>
+                        <div class="gia">'.$tongtienmon.'đ</div>  
+                    </div>';
+				
+			}
+           
+		}
+		else
+		{
+			echo 'Khong co du lieu';
+		}
+	}
 }
 ?>

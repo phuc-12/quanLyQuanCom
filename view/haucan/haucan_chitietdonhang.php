@@ -1,3 +1,7 @@
+<?php
+include ("../../model/chucnanghaucan.php");
+$p = new haucan();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,21 @@
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+$laymaMA= $p->laycot("select maMA from chitiethoadon where maHD='$layid'");
+$maKH=$p->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$layid' LIMIT 1");
+$layhoTen= $p->laycot("select hoTen from khachhang where maKH=  '$maKH'");
+$sodienthoai=$p->laycot("select t.SDT FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
+                        JOIN chitiethoadon c ON k.maKH = c.maKH
+                        WHERE c.maKH = '$maKH';");
+$diachi=$p->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
+                        JOIN chitiethoadon c ON k.maKH = c.maKH
+                        WHERE c.maKH = '$maKH';");
+$laytongtien=$p->laycot("SELECT SUM( soLuong * donGia )FROM chitiethoadon GROUP BY '$layid';");
+$laytrangThaiGH= $p->laycot("select trangThaiGH from chitiethoadon where maHD='$layid'");
+$laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$layid'");
+?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
@@ -44,41 +63,56 @@
             </div>
             <form class="detail-form">
                 <label for="tenkh">Mã đơn hàng:</label>
-                <input type="text" id="madh" name="madh" value="DH01">
+                <input type="text" id="madh" name="madh" value="<?php echo $layid;?>">
 
                 <label for="tenkh">Tên khách hàng:</label>
-                <input type="text" id="tenkh" name="tenkh" value="Nguyễn Thị Nga">
+                <input type="text" id="tenkh" name="tenkh" value="<?php echo $layhoTen;?>">
 
                 <label for="sdt">Số điện thoại:</label>
-                <input type="text" id="sdt" name="sdt" value="0362956809">
+                <input type="text" id="sdt" name="sdt" value="<?php echo $sodienthoai ?>">
 
                 <label for="soluong">Địa chỉ:</label>
-                <input type="text" id="diachi" name="diachi" value="Nguyễn Văn Bảo, Gò Vấp">
+                <input type="text" id="diachi" name="diachi" value="<?php echo $diachi;?>">
 
                 <label>Danh sách món ăn:</label>
                 <div class="food-list">
-                    <div class="food-item">
-                        <div class="soluong">Bún đậu mắm tôm x2 </div>
-                        <div class="gia">đ 100.000 </div>  
-                    </div>
-                    <div class="food-item">
+                    <!-- <div class="food-item">
+                        <div class="soluong"></div>
+                        <div class="gia"></div>  
+                    </div> -->
+                    <!-- <div class="food-item">
                         <div class="soluong">Bún thêm x1 </div>
                         <div class="gia">đ 30.000 </div>  
                     </div>
                     <div class="food-item">
                         <div class="soluong">Nước ngọt x2 </div>
                         <div class="gia">đ 25.000 </div>  
-                    </div>                 
+                    </div>                  -->
+                    <?php
+                        $p->xemchitietmonan_donhang("SELECT *
+                                                            FROM chitiethoadon
+                                                            WHERE maHD = '$layid'")
+                    ?>
                 </div>
 
                 <label for="soluong">Tổng tiền</label>
-                <input type="text" id="tongtien" name="tongtien" value="105000 đ ">
+                <input type="text" id="tongtien" name="tongtien" value="<?php echo $laytongtien;?>">
 
                 <label for="soluong">Trạng thái đơn hàng</label>
-                <input type="text" id="trangthaiDH" name="trangthai" value="Đã thanh toán">
+                <input type="text" id="trangthaiDH" name="trangthai" value="<?php if ($laytrangThaiDH == 0) {
+                                                        echo "Chưa thanh toán";
+                                                    } else {
+                                                        echo "Đã thanh toán";
+                                                    }?>">
 
                 <label for="soluong">Trạng thái giao hàng</label>
-                <input type="text" id="trangthaiGH" name="trangthai" value="Chuẩn bị đơn hàng ">
+                <input type="text" id="trangthaiGH" name="trangthai" value="<?php if ($laytrangThaiGH == 0) {
+                                                        echo "Chưa giao";
+                                                    } else if($laytrangThaiGH ==1) {
+                                                        echo "Đang giao";
+                                                    }else{
+                                                        echo "Đã hoàn thành";
+                                                    }?>">
         </div>
     </div>
 
