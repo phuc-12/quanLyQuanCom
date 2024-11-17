@@ -78,7 +78,7 @@ $p = new haucan();
                     <!-- </tbody>
                 </table> -->
                 <?php
-                    $p->xemdanhsachdonhang("select * from chitiethoadon order by maHD")
+                    $p->xemdanhsachdonhang("select * from chitiethoadon group by maHD")
                 ?>
             </div>
         </div>

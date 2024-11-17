@@ -223,6 +223,7 @@ tbody td {
     padding: 8px;
     border: 1px solid #d3d3d3;
     background-color: #e0e0e0;
+    width: 350px;
 }
 .header-row-xem {
     background-color: #d3d3d3;
@@ -254,7 +255,8 @@ tbody td {
 }
 .gia{
     position: relative;
-    left: 180px;
+    left: 250px;
+    width: 50px;
 }
 
 .sub-button{
