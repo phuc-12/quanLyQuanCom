@@ -53,110 +53,110 @@
     <div class="container" style="width:100%;">
         <div class="content" align="center">
         <h3>THÔNG TIN NHÂN VIÊN</h3>
-            <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 100%;">
-                <table style="margin:0; height: 500px; width: 500px;">
-                    <tr>
-                        <td style="width: 150px;"><label for="maLoaiNV">Loại Nhân Viên:</label></td>
-                        
-                            <?php
-                                switch($laymaloai)
-                                {
-                                    case 1:
-                                        {
-                                            echo '<td><input type="input" class="form-control" size="200" id="maLoaiNV" value="Nhân Viên Bán Hàng" name="maLoaiNV"></td>';
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            echo '<td><input type="input" class="form-control" size="200" id="maLoaiNV" value="Nhân Viên Bếp" name="maLoaiNV"></td>';
-                                            break;
-                                        }
-                                    case 3:
-                                        {
-                                            echo '<td><input type="input" class="form-control" size="200" id="maLoaiNV" value="Nhân Viên Hậu Cần" name="maLoaiNV"></td>';
-                                            break;
-                                        }
-                                }
-                            ?> 
-                        
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
-                        <td><input type="input" class="form-control" size="200" id="maNV" value="<?php echo $layid;?>" name="maNV"></td>
-                        <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;"><label for="hoTen">Họ và Tên:</label></td>
-                        <td><input type="input" class="form-control" size="200" id="hoTen" value="<?php echo $layten;?>" name="hoTen"></td>
-                        <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;"><label for="ngaySinh">Ngày Sinh:</label></td>
-                        <td><input type="input" class="form-control" size="200" id="ngaySinh" value="<?php echo $layngaysinh;?>" name="ngaySinh"></td>
-                        <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;"><label for="sdt">Số Điện Thoại:</label></td>
-                        <td><input type="input" class="form-control" size="200" id="sdt" value="<?php echo $laysdt;?>" name="sdt"></td>
-                        <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;"><label for="email">Email:</label></td>
-                        <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email"></td>
-                        <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
-                        <td><input type="input" class="form-control" size="200" id="trangThai" value="<?php echo $laytrangthai;?>" name="trangThai"></td>
-                        <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;"><label for="diaChi">Địa Chỉ:</label></td>
-                        <td><input type="input" class="form-control" size="200" id="diaChi" value="<?php echo $laydiachi;?>" name="diaChi"></td>
-                        <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
-                    </tr>
-                    
-
-                </table>
-            </form>
-            <!-- <h2>Thông tin cá nhân</h2>
             <div class="form-container">
-                <div class="form-group">
-                    <label>Loại nhân viên:</label>
-                    <input type="text" value="Nhân viên bán hàng" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Mã nhân viên:</label>
-                    <input type="text" value="0001" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Họ và tên:</label>
-                    <input type="text" value="Nguyễn Văn A" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Ngày sinh:</label>
-                    <input type="text" value="11/05/2003" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Số điện thoại:</label>
-                    <input type="text" value="0906666254" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" value="nguyenvanA123@hmail.com" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Trạng thái:</label>
-                    <input type="text" value="Đang làm việc" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Địa chỉ:</label>
-                    <input type="text" value="HCM" readonly>
-                </div>
-            </div> -->
-        </div>
-    </div>
-    </div>
+                <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 100%;">
+                    <table style="margin:0; height: 500px; width: 500px;">
+                        <tr>
+                            <td style="width: 150px;"><label for="maLoaiNV">Loại Nhân Viên:</label></td>
+                            
+                                <?php
+                                    switch($laymaloai)
+                                    {
+                                        case 1:
+                                            {
+                                                echo '<td><input type="input" class="form-control" size="200" id="maLoaiNV" value="Nhân Viên Bán Hàng" name="maLoaiNV"></td>';
+                                                break;
+                                            }
+                                        case 2:
+                                            {
+                                                echo '<td><input type="input" class="form-control" size="200" id="maLoaiNV" value="Nhân Viên Bếp" name="maLoaiNV"></td>';
+                                                break;
+                                            }
+                                        case 3:
+                                            {
+                                                echo '<td><input type="input" class="form-control" size="200" id="maLoaiNV" value="Nhân Viên Hậu Cần" name="maLoaiNV"></td>';
+                                                break;
+                                            }
+                                    }
+                                ?> 
+                            
+                        </tr>
+                        <tr>
+                            <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="maNV" value="<?php echo $layid;?>" name="maNV"></td>
+                            <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
+                        </tr>
+                        <tr>
+                            <td style="width: 150px;"><label for="hoTen">Họ và Tên:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="hoTen" value="<?php echo $layten;?>" name="hoTen"></td>
+                            <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
+                        </tr>
+                        <tr>
+                            <td style="width: 150px;"><label for="ngaySinh">Ngày Sinh:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="ngaySinh" value="<?php echo $layngaysinh;?>" name="ngaySinh"></td>
+                            <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
+                        </tr>
+                        <tr>
+                            <td style="width: 150px;"><label for="sdt">Số Điện Thoại:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="sdt" value="<?php echo $laysdt;?>" name="sdt"></td>
+                            <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
+                        </tr>
+                        <tr>
+                            <td style="width: 150px;"><label for="email">Email:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email"></td>
+                            <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
+                        </tr>
+                        <tr>
+                            <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="trangThai" value="<?php echo $laytrangthai;?>" name="trangThai"></td>
+                            <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
+                        </tr>
+                        <tr>
+                            <td style="width: 150px;"><label for="diaChi">Địa Chỉ:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="diaChi" value="<?php echo $laydiachi;?>" name="diaChi"></td>
+                            <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
+                        </tr>
+                        
+
+                    </table>
+                </form>
+                <!-- <h2>Thông tin cá nhân</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Loại nhân viên:</label>
+                        <input type="text" value="Nhân viên bán hàng" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Mã nhân viên:</label>
+                        <input type="text" value="0001" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Họ và tên:</label>
+                        <input type="text" value="Nguyễn Văn A" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày sinh:</label>
+                        <input type="text" value="11/05/2003" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại:</label>
+                        <input type="text" value="0906666254" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" value="nguyenvanA123@hmail.com" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Trạng thái:</label>
+                        <input type="text" value="Đang làm việc" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ:</label>
+                        <input type="text" value="HCM" readonly>
+                    </div>
+                </div> -->
+            </div>
+    </div>        
 
 
 </body>

@@ -1,3 +1,7 @@
+<?php
+include ("../../model/chucnangtheodoi_NV.php");
+$p = new nhanvien();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +41,11 @@
                         <input type="text" placeholder="Tìm kiếm...">
                         <button class="search-button">🔍</button>
                     </div>
-                </div>
-                <table>
+            </div>
+            <?php
+                    $p->xemdanhsachdonhang("select * from chitiethoadon group by maHD")
+            ?>
+                <!-- <table>
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -58,9 +65,8 @@
                             <td>20:00 05/11/2024</td>
                             <td> Đã giao </td>
                         </tr>
-                        <!-- Add more rows as needed -->
                     </tbody>
-                </table>
+                </table> -->
             </div>
         </div>
     </div>
