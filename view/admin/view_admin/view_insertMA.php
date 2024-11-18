@@ -9,18 +9,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm Món Ăn</title>
-    <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_customer.css">
-    <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
-    <script src="../../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="../../../js/dateTime.js" defer></script> 
-
     <script src="../../../js/fontawesome.js"></script>
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script src="../../../js/popper.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
     <script src="../../../js/themmonan.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../../css/admin_css/adminfood.css">
+    <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <script src="../../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../../js/dateTime.js" defer></script> 
+
+    
 </head>
+<style>
+    .fa-angle-left:hover
+    {
+        background-color: white;
+        border-radius: 10px;
+    }
+
+</style>
 <body>
     <div class="container-fluid p-0">
         <div id="ql_header">
@@ -47,7 +57,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="../admin.php">
-                            <i class="fa fa-tachometer"></i>
+                            <i class="fa fa-tachometer text-body"></i>
                                 Tổng quát
                         </a>
                     </li>
@@ -85,8 +95,9 @@
             </div>
 
             <div class="section">
+            <a href="../managementfood.php" class="fa fa-angle-left" style="text-decoration: none; color: black;font-size: 30px;width: 40px; height:40px; text-align: center; padding-top: 5px;"></a>
                 <h3>THÊM MÓN ĂN</h3>   
-                <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 80%; float: left;">
+                <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 80%;">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maMA">Mã Món Ăn:</label></td>
@@ -178,8 +189,8 @@
                                     {
                                         case 1: {$thucDon="monman";} break;
                                         case 2: {$thucDon="monchay";} break;
-                                        case 3: {$thucDon="trangmieng";} break;
-                                        case 4: {$thucDon="douong";} break;
+                                        case 3: {$thucDon="douong";} break;
+                                        case 4: {$thucDon="trangmieng";} break;
                                     }
                                     // echo $thucDon;
                                     if($name!='')

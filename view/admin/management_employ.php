@@ -187,7 +187,7 @@
                             </nav>
                             <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
                                 <a href="view_admin/view_insertNV.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM NHÂN VIÊN</a>
-                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA NHÂN VIÊN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
+                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA NHÂN VIÊN" onclick="return confirmDelete(<?php echo $layid; ?>)" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
                                 <a href="view_admin/view_updateNV.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
                             </form>
                         </div>
@@ -263,4 +263,10 @@
         </div>
     </div>
 </body>
+<script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa món ăn này?");
+    }
+
+</script>
 </html>

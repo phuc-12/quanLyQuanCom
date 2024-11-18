@@ -11,6 +11,7 @@
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../../js/popper.min.js"></script>
     <script src="../../js/dateTime.js" defer></script> 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 </head>
 <style>
     #content .section #ds_food .navbar ul li:hover {
@@ -238,7 +239,7 @@
                             </nav>
                             <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
                                 <a href="view_admin/view_insertMA.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM MÓN ĂN</a>
-                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
+                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN" onclick="return confirmDelete(<?php echo $layid; ?>)"  style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
                                 <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT MÓN</a>
                             </form>
                         </div>
@@ -317,7 +318,17 @@
 
                 ?>
                 </div>
-                
+                <!-- Modal Xác Nhận -->
+<div id="confirmModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background-color: white; padding: 20px; border-radius: 8px; width: 400px; text-align: center;">
+        <h3>Bạn có chắc chắn muốn xóa món ăn này?</h3>
+        <div style="margin-top: 20px;">
+            <button id="confirmDeleteBtn" style="padding: 10px 20px; background-color: #FF5733; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Xóa</button>
+            <button id="cancelDeleteBtn" style="padding: 10px 20px; background-color: #aaa; color: white; border: none; border-radius: 5px; cursor: pointer;">Hủy</button>
+        </div>
+    </div>
+</div>
+
 
             </div>
 
@@ -327,4 +338,10 @@
         </div>
     </div>
 </body>
+<script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa món ăn này?");
+    }
+
+</script>
 </html>
