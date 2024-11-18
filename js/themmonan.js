@@ -1,7 +1,7 @@
 $(document).ready(function(){
     function ktTenMA() {
         let tenMA = $("#tenMA").val().trim();
-        let btcq = /^[a-zA-ZÀ-ỹ\s]+$/;
+        let btcq = /^[A-Za-z0-9\sÀ-ỹà-ỹ-]+(?:\s-\s[A-Za-z0-9\sÀ-ỹà-ỹ-]+)*$/;
         if(tenMA.length == 0) {
             $("#errTen").html("Tên món không được để trống");
             $("#tenMA").focus();
