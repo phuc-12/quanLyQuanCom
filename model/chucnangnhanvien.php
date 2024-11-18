@@ -18,6 +18,7 @@
 			return $con;
 		}
 		
+		
 		public function themxoasua($sql)
 		{
 			$link = $this->connect();
@@ -99,6 +100,8 @@
 				echo 'Đang cập nhật dữ liệu';	
 			} 	
 		}
+	
+	
 
 	}
 

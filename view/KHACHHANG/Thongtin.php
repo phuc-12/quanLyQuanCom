@@ -1,3 +1,7 @@
+<?php
+    include_once("../../model/chucnangnhanvien.php");
+    $p=new tmdt();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +23,23 @@
     </style> 
 </head>
 <body>
+<?php
+        $layid = $_REQUEST['id'];
+        $layten=$p->laycot("select hoTen from khachhang where maKH = '$layid' limit 1");
+        $laymakh=$p->laycot("select maKH from khachhang where maKH = '$layid' limit 1");
+        $laytenloaikh=$p->laycot("select t.tenLoaiKH from khachhang n join loaikhachhang t on n.maLoaiKH = t.maLoaiKH where maKH = '$layid' limit 1");
+        $laydiemtichluy=$p->laycot("select diemTichLuy from khachhang where maKH = '$layid' limit 1");
+        $layemail=$p->laycot("select t.email from khachhang n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maKH = '$layid' limit 1");
+        // $layusername=$p->laycot("select username from khachhang where maKH = '$layid' limit 1");
+        $layusername = $p->laycot("SELECT t.username FROM taikhoannguoidung t 
+                           JOIN khachhang n ON n.idNguoiDung = t.idNguoiDung 
+                           WHERE maKH = '$layid' LIMIT 1");
+        $laysdt=$p->laycot("select t.SDT from khachhang n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maKH = '$layid' limit 1");
+        $laypassword=$p->laycot("select t.pass from khachhang n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maKH = '$layid' limit 1");
+        $laytrangthai=$p->laycot("select t.trangThai from khachhang n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maKH = '$layid' limit 1");
+        $laydiachi=$p->laycot("select t.diaChi from khachhang n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maKH = '$layid' limit 1");
+
+    ?>
 <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
@@ -29,51 +50,67 @@
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
         <div class="sidebar" id="sidebar">
-        <button class="menu-item"><a href="Thongtin.php">Thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
-            <button class="menu-item">Theo dõi trạng thái đơn hàng</button>
-            <button class="menu-item">Xem ưu đãi</button>
-            <button class="menu-item">Xem lịch sử mua hàng </button>
-            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+            <button class="menu-item"><a href="Thongtin.php">Thông tin cá nhân</a></button>
+                <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
+                <button class="menu-item">Theo dõi trạng thái đơn hàng</button>
+                <button class="menu-item">Xem ưu đãi</button>
+                <button class="menu-item">Xem lịch sử mua hàng </button>
+                <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
         </div>
      <div class="container" style="width:100%;">
-        <div class="content">
+        <div class="content" align="center">
             <h2 >Thông tin cá nhân</h2>
             <div class="form-container">
-            <div class="form-group">
-                <label>Loại khách hàng:</label>
-                <input type="text" value="Vàng" readonly>
-            </div>
-            <div class="form-group">
-                <label>Mã khách hàng:</label>
-                <input type="text" value="0001" readonly>
-            </div>
-            <div class="form-group">
-                <label>Họ và tên:</label>
-                <input type="text" value="Nguyễn Văn A" readonly>
-            </div>
-            <div class="form-group">
-                <label>Điểm tích lũy:</label>
-                <input type="number" value="2000" readonly>
-            </div>
-            <div class="form-group">
-                <label>Số điện thoại:</label>
-                <input type="number" value="0914251325" readonly>
-            </div>
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" value="nguyenvanA123@gmail.com" readonly>
-            </div>
-            <div class="form-group">
-                <label>Trạng thái:</label>
-                <input type="text" value="Đang hoạt động" readonly>
-            </div>
-            <div class="form-group">
-                <label>Địa chỉ:</label>
-                <input type="text" value="HCM" readonly>
+                <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 100%; height: 100px;">
+                        <table style="margin:0; width: 500px; height:500px">
+                            <tr>
+                                <td style="width: 150px;"><label for="tenLoaiKH">Loại Khách Hàng:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="tenLoaiKH" value="<?php echo $laytenloaikh;?>" name="tenLoaiKH"></td> 
+                                
+                                
+                            </tr>
+                            <tr>
+                                <td style="width: 150px;"><label for="maKH">Mã Khách hàng:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="maKH" value="<?php echo $laymakh;?>" name="maKH"></td>
+                                <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
+                            </tr>
+                            <tr>
+                                <td style="width: 150px;"><label for="hoTen">Họ và Tên:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="hoTen" value="<?php echo $layten;?>" name="hoTen"></td>
+                                <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
+                            </tr>
+                            <tr>
+                                <td style="width: 150px;"><label for="diemTichLuy">Điểm Tích Lũy:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="diemTichLuy" value="<?php echo $laydiemtichluy;?>" name="diemTichLuy"></td>
+                                <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
+                            </tr>
+                            <tr>
+                                <td style="width: 150px;"><label for="sdt">Số Điện Thoại:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="sdt" value="<?php echo $laysdt;?>" name="sdt" ></td>
+                                <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
+                            </tr>
+                            <tr>
+                                <td style="width: 150px;"><label for="email">Email:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email" ></td>
+                                <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
+                            </tr>
+                            <tr>
+                                <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="trangThai" value="<?php echo $laytrangthai;?>" name="trangThai"></td>
+                                <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
+                            </tr>
+                            <tr>
+                                <td style="width: 150px;"><label for="diaChi">Địa Chỉ:</label></td>
+                                <td><input type="input" class="form-control" size="200" id="diaChi" value="<?php echo $laydiachi;?>" name="diaChi"></td>
+                                <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
+                            </tr>
+
+                        </table>
+                    </form>
             </div>
         </div>
     </div>
-    </div>
+
+</div>
 </body>
 </html>
