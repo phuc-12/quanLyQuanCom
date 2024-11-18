@@ -104,9 +104,10 @@
                                 <td><input type="input" class="form-control" size="200" id="diaChi" value="<?php echo $laydiachi;?>" name="diaChi"></td>
                                 <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
                             </tr>
-
+                            
                         </table>
                     </form>
+                    <div></div>
             </div>
         </div>
     </div>
