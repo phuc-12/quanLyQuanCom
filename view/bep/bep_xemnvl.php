@@ -22,6 +22,9 @@ $laymaNVL= $p->laycot("select maNVL from nguyenlieu where maNVL='$layid'");
 $laytenNVL= $p->laycot("select tenNVL from nguyenlieu where maNVL='$layid'");
 $layslTon= $p->laycot("select slTon from nguyenlieu where maNVL='$layid'");
 $laytrangThai= $p->laycot("select trangThai from nguyenlieu where maNVL='$layid'");
+$layngayNhap= $p->laycot("select ngayNhap from nguyenlieu where maNVL='$layid'");
+$layngayHetHan= $p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid'");
+$laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
@@ -80,10 +83,13 @@ $laytrangThai= $p->laycot("select trangThai from nguyenlieu where maNVL='$layid'
                                                         echo "Còn hàng";
                                                     }?>" readonly>
                     <label>Ngày nhập:</label>
-                    <input type="text" value="01/01/2024" readonly>
+                    <input type="text" value="<?php echo $layngayNhap;?>" readonly>
 
                     <label>Ngày hết hạn:</label>
-                    <input type="text" value="01/07/2024" readonly>
+                    <input type="text" value="<?php echo $layngayHetHan;?>" readonly>
+
+                    <label>Mô tả:</label>
+                    <input type="text" value="<?php echo $laymoTa;?>" readonly>
                 </form>
             </div>
         </div>
