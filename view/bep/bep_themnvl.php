@@ -1,3 +1,7 @@
+<?php
+include ("../../model/chucnangbep.php");
+$p = new bep();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,9 @@
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../../js/dateTime.js" defer></script> 
+    <script src="../../js/themnvl.js"> </script>
 </head>
 <body>
     <header>
@@ -44,37 +50,94 @@
                 <div class="menu-item active" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
             </div>
         </div>
-
+        
         <div id="content">
         <button class="back-button" onclick="window.location.href='bep_qlynvl.php';">◀<a href="bep_qlynvl.php" style="font-size: 16px; color: black; text-decoration: none;"> Danh sách nguyên vật liệu</a></button>
+        
         <div class="container-xem">
             <div class="header-row-xem">
+                
                 <h2>THÊM NGUYÊN VẬT LIỆU</h2>
             </div>
-            <form class="detail-form">
-            <label for="ma">Mã nguyên vật liệu:</label>
-                <input type="text" id="ma" name="ma">
+            <form class="detail-form" method="post" enctype="multipart/form-data" name="form1" id="form1">
 
                 <label for="ten">Tên nguyên vật liệu:</label>
-                <input type="text" id="ten" name="ten">
+                <input type="text" id="txttenNVL" name="txttenNVL">
+                <span class="text-danger" id="tbtenNVL"></span>
 
                 <label for="soluong">Số lượng:</label>
-                <input type="number" id="soluong"  name="soluong">
+                <input type="text" id="txtsoluong"  name="txtsoluong">
+                <span class="text-danger" id="tbsoluong"></span>
 
-                <!-- <label for="tinhtrang">Tình trạng:</label>
-                <select id="tinhtrang" name="tinhtrang">
+                 <label for="donViTinh">Đơn vị tính:</label>
+                 <input type="text" id="txtdonViTinh"  name="txtdonViTinh">
+                 <span class="text-danger" id="tbdonViTinh"></span>
+                <!--<select id="donViTinh" name="donViTinh">
                     <option value="1">Còn hàng</option>
                     <option value="2">Hết hàng</option>
                 </select> -->
+                
+                    <!-- $laytrangThai=$p->laycot("select donViTinh from nguyenlieu ");
+                	$p->chondonViTinh("select * from nguyenlieu group by donViTinh",$laydonViTinh); -->
+		        
 
                 <label for="ngaynhap">Ngày nhập:</label>
-                <input type="text" id="ngaynhap" name="ngaynhap" placeholder="DD/MM/YY">
-
+                <input type="date" id="txtngayNhap" name="txtngayNhap" placeholder="DD/MM/YY" class="form-control">
+                <span class="text-danger" id="tbngayNhap"></span>
+                <script>
+                    // Lấy input element
+                    const inputNgayNhap = document.getElementById('txtngayNhap');
+                                        
+                    // Lấy ngày hiện tại
+                    const today = new Date();
+                                        
+                    // Định dạng ngày theo chuẩn yyyy-mm-dd
+                    const formattedDate = today.toISOString().split('T')[0];
+                                        
+                    // Gán giá trị ngày hiện tại vào input
+                    document.getElementById('txtngayNhap').value = formattedDate;
+                </script>
                 <label for="ngayhethan">Ngày hết hạn:</label>
-                <input type="text" id="ngayhethan" name="ngayhethan" placeholder="DD/MM/YY">
+                <input type="date" id="txtngayHetHan" name="txtngayHetHan" placeholder="DD/MM/YY" class="form-control">
+                <span class="text-danger" id="tbngayHetHan"></span>
 
-                <button type="button" class="add-button-1" onclick="window.location.href='bep_qlynvl.php';">THÊM</button>
-        </div>
+                <label for="ten">Ghi chú:</label>
+                <input type="text" id="txtmota" name="txtmota">
+                
+                <button type="submit" class="add-button-1" name="nut" id="nut" value="Thêm sản phẩm">THÊM</button>
+            <?php
+                switch($_POST['nut']){
+                    case 'Thêm sản phẩm':{
+                        $tenNVL = $_REQUEST['txttenNVL'];
+                        $soluong = $_REQUEST['txtsoluong'];
+                        $donvitinh = $_REQUEST['txtdonViTinh'];
+                        $ngaynhap = $_REQUEST['txtngayNhap'];
+                        $ngayhethan = $_REQUEST['txtngayHetHan'];
+                        $mota = $_REQUEST['txtmota'];
+                        $tenNVLdb=$p->laycot("select tenNVL from nguyenlieu where tenNVL='$tenNVL'");
+                        
+                        if($p->themxoasua("INSERT INTO `quancomchipheo`.`nguyenlieu` (`tenNVL`, `slTon`, `donViTinh`, `moTa`, `trangThai`, `ngaynhap`, `ngayhethan`)
+        VALUES ('$tenNVL', '$soluong', '$donvitinh', '$mota', '1', '$ngaynhap', '$ngayhethan')")==1){
+                            echo '<script language="javascript">alert("Them nguyen lieu thanh cong");</script>';
+                        }else{
+                            echo '<script language="javascript">alert("Them nguyen lieu khong thanh cong");
+                            </script>';
+                        }
+                        if($tenNVLdb){
+                            echo '<script language="javascript">alert("Tên nguyên liệu đã tồn tại!");</script>';
+                        
+                        }
+                    echo '<script language="javascript">
+                            window.location="bep_qlynvl.php";
+                            </script>';
+                    break;
+                    }
+                
+            }
+            
+            ?>
+               </form> 
+            </div>
         </div>
     </div>
 </body>

@@ -1,3 +1,7 @@
+<?php
+include ("../../model/chucnanghaucan.php");
+$p = new haucan();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,20 @@
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+$laymaMA= $p->laycot("select maMA from chitiethoadon where maHD='$layid'");
+$maKH=$p->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$layid' LIMIT 1");
+$layhoTen= $p->laycot("select hoTen from khachhang where maKH=  '$maKH'");
+$sodienthoai=$p->laycot("select t.SDT FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
+                        JOIN chitiethoadon c ON k.maKH = c.maKH
+                        WHERE c.maKH = '$maKH';");
+$diachi=$p->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
+                        JOIN chitiethoadon c ON k.maKH = c.maKH
+                        WHERE c.maKH = '$maKH';");
+$laytongtien=$p->laycot("SELECT SUM( soLuong * donGia )FROM chitiethoadon WHERE maHD = '$layid' GROUP BY maHD;");
+$laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$layid'");
+?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
@@ -44,20 +62,20 @@
             </div>
             <form class="detail-form">
                 <label for="tenkh">Mã đơn hàng:</label>
-                <input type="text" id="madh" name="madh" value="Nguyễn Thị Nga">
+                <input type="text" id="madh" name="madh" value="<?php echo $layid;?>">
 
                 <label for="tenkh">Tên khách hàng:</label>
-                <input type="text" id="tenkh" name="tenkh" value="Nguyễn Thị Nga">
+                <input type="text" id="tenkh" name="tenkh" value="<?php echo $layhoTen;?>">
 
                 <label for="sdt">Số điện thoại:</label>
-                <input type="text" id="sdt" name="sdt" value="0362956809">
+                <input type="text" id="sdt" name="sdt" value="<?php echo $sodienthoai ?>">
 
                 <label for="soluong">Địa chỉ:</label>
-                <input type="text" id="diachi" name="diachi" value="Nguyễn Văn Bảo, Gò Vấp">
+                <input type="text" id="diachi" name="diachi" value="<?php echo $diachi;?>">
 
                 <label>Danh sách món ăn:</label>
                 <div class="food-list">
-                    <div class="food-item">
+                    <!-- <div class="food-item">
                         <div class="soluong">Bún đậu mắm tôm x2 </div>
                         <div class="gia">đ 100.000 </div>  
                     </div>
@@ -68,15 +86,30 @@
                     <div class="food-item">
                         <div class="soluong">Nước ngọt x2 </div>
                         <div class="gia">đ 25.000 </div>  
-                    </div>                 
+                    </div>                  -->
+                    <?php
+                        $p->xemchitietmonan_donhang("SELECT *
+                                                            FROM chitiethoadon
+                                                            WHERE maHD = '$layid'")
+                    ?>
                 </div>
 
-                <label for="soluong">Tổng tiền</label>
-                <input type="text" id="tongtien" name="tongtien" value="105000 đ ">
+                <label for="tongtien">Tổng tiền</label>
+                <input type="text" id="tongtien" name="tongtien" value="<?php echo $laytongtien;?>">
+
+                <label for="trangthaiDH">Trạng thái đơn hàng</label>
+                <input type="text" id="trangthaiDH" name="trangthaiDH" value="<?php if ($laytrangThaiDH == 0) {
+                                                                                        echo "Chưa thanh toán";
+                                                                                    } else {
+                                                                                        echo "Đã thanh toán";
+                                                                                    }?>">
+
             <!-- <div class="sub-button"> -->
                 <button type="button" class="cancel-button-1" onclick="openCancelPopup()">Hủy đơn hàng</button>
             <!-- </div> -->
-            <button type="button" class="prepare-button" onclick="window.location.href='haucan_hoantatgiaohang.php';">Giao hàng</button>        </div>
+                <button type="button" class="prepare-button"><a href="haucan_hoantatgiaohang.php?id=<?php echo $layid; ?>" style="text-decoration: none;color:#000">Giao hàng</a></button>
+            </form>
+        </div>
     </div>
 
     <!-- Thông Báo Hủy Đơn Hàng -->

@@ -59,32 +59,27 @@ class bep extends tmdt{
 		}
 	}
 
-	public function chontinhtrang($sql,$idchon)
+	public function chondonViTinh($sql,$idchon)
 	{
 		$link=$this->connect();
 		$ketqua = mysql_query($sql,$link);
 		$i=mysql_num_rows($ketqua);
 		if($i>0)
 		{
-			echo'<select id="tinhtrang" name="tinhtrang">';
+			echo'<select id="donViTinh" name="donViTinh">';
 			while($row=mysql_fetch_array($ketqua))
 			{
-				$maNVL=$row['maNVL'];	
-				$trangThai=$row['trangThai'];
-				if ($laytrangThai == 0) {
-					echo "Hết NVL";
-				} else {
-					echo "Còn hàng";
+				$donViTinh=$row['donViTinh'];
+				if($idchon==$donViTinh){
+					echo '<option value="'.$donViTinh.'" >'.$donViTinh.'</option>';
 				}
-				if($idchon==$maNVL){
-					echo '<option value="'.$trangThai.'" >if ($laytrangThai == 0) {
-                                                        echo "Hết NVL";
-                                                    } else {
-                                                        echo "Còn hàng";
-                                                    }</option>';
-				}
+				// if ($donViTinh == 0) {
+				// 	echo "Hết NVL";
+				// } else {
+				// 	echo "Còn hàng";
+				// }
 				else{
-					echo '<option value="'.$trangThai.'">'.$trangThai.'</option>';
+					echo '<option value="'.$donViTinh.'">'.$donViTinh.'</option>';
 				}
 				
 			}
@@ -95,6 +90,8 @@ class bep extends tmdt{
 			echo 'Khong co du lieu';
 		}
 	}
+
+
 
 	public function xemdanhsachhoadon($sql)
 	{
