@@ -73,26 +73,29 @@
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['tongTien'].'</a></td>';
-                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
-                        // switch($trangThai)
-                        // {
-                        //     case 0:
-                        //         {
-                        //             echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
-                        //             break;
-                        //         }
-                        //     case 1:
-                        //         {
-                        //             echo '<td><input type="input" class="form-control" size="200" id='.$r['maHD'].' value="Đã thanh toán" name=""></td>';
-                        //             break;
-                        //         }
-                        
-                        // }
+                        // echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                        switch($r['trangThai'])
+                        {
+                            case 0: 
+                                {
+                                    echo '<td>Chưa thanh toán</td>';
+                                    break;
+                                }
+                            case 1: 
+                                {
+                                    echo '<td>Đã thanh toán</td>';
+                                    break;
+                                }
+                        }
+                        // 
                         echo '<td>
                             <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
-                            <button class="button update">Cập nhật</button>
-                            <button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> 
-                        </td>';
+                            <button class="button update">Cập nhật</button>';
+                            if($r['trangThai'] == 0)
+                            {
+                                echo '<button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> ';
+                            }
+                        echo '</td>';
                         echo '</tr>';
                         $dem++;
                     }

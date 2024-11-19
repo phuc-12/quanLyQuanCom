@@ -96,18 +96,30 @@
                             </tr>
                             <tr>
                                 <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
-                                <td><input type="input" class="form-control" size="200" id="trangThai" value="<?php echo $laytrangthai;?>" name="trangThai"></td>
-                                <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
+                                <?php
+                                switch($laytrangthai)
+                                {
+                                    case 0: 
+                                        {
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Ngừng hoạt động" name="trangThai"></td>';
+                                            break;
+                                        }
+                                    case 1: 
+                                        {
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Đang hoạt động" name="trangThai"></td>';
+                                            break;
+                                        }
+                                }
+                             ?>
                             </tr>
                             <tr>
                                 <td style="width: 150px;"><label for="diaChi">Địa Chỉ:</label></td>
                                 <td><input type="input" class="form-control" size="200" id="diaChi" value="<?php echo $laydiachi;?>" name="diaChi"></td>
                                 <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
                             </tr>
-                            
+
                         </table>
                     </form>
-                    <div></div>
             </div>
         </div>
     </div>
