@@ -122,7 +122,7 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
                     <option value="available">Khách không còn nhu cầu</option>
                 </select>
                 <div class="popup-buttons">
-                    <button class="back-button-huy" onclick="closeCancelPopup() ">Quay Lại</button>
+                    <button class="back-button-huy" onclick="closeCancelPopup()">Quay Lại</button>
                     <button class="confirm-button">Xác nhận Hủy</button>
                 </div>
             </form>

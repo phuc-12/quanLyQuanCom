@@ -118,13 +118,13 @@ $p = new bep();
                         
                         if($p->themxoasua("INSERT INTO `quancomchipheo`.`nguyenlieu` (`tenNVL`, `slTon`, `donViTinh`, `moTa`, `trangThai`, `ngaynhap`, `ngayhethan`)
         VALUES ('$tenNVL', '$soluong', '$donvitinh', '$mota', '1', '$ngaynhap', '$ngayhethan')")==1){
-                            echo '<script language="javascript">alert("Them nguyen lieu thanh cong");</script>';
+                            echo '<script language="javascript">alert("Thêm nguyên vật liệu thành công");</script>';
                         }else{
-                            echo '<script language="javascript">alert("Them nguyen lieu khong thanh cong");
+                            echo '<script language="javascript">alert("Thêm nguyên vật liệu không thành công. Vui lòng thử lại!");
                             </script>';
                         }
                         if($tenNVLdb){
-                            echo '<script language="javascript">alert("Tên nguyên liệu đã tồn tại!");</script>';
+                            echo '<script language="javascript">alert("Tên nguyên vật liệu đã tồn tại!");</script>';
                         
                         }
                     echo '<script language="javascript">

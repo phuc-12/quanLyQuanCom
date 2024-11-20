@@ -3,25 +3,6 @@
 $(document).ready(function(){
     var i=1;
 
-    var txttenNVL = $("#txttenNVL");
-    var tbtenNVL = $("#tbtenNVL");
-    function kiemtratenNVL() {
-        var rg = /^[^\d]*$/;
-
-
-        if(txttenNVL.val()==""){
-            tbtenNVL.html("Vui lòng nhập tên nguyên vật liệu");
-            return false;
-        }
-        if(!rg.test(txttenNVL.val())){
-            tbtenNVL.html("Không chứa số");
-            return false;
-        }
-        tbtenNVL.html("");
-        return true;
-    }
-    txttenNVL.blur(kiemtratenNVL);
-
     var txtsoluong = $("#txtsoluong");
     var tbsoluong = $("#tbsoluong");
     function kiemtrasoluong() {
@@ -68,19 +49,25 @@ $(document).ready(function(){
 
     var txtngayNhap = $("#txtngayNhap");
     var tbngayNhap = $("#tbngayNhap");
+    const ngayNhap = document.getElementById("txtngayNhap");
+    const layngayNhap = ngayNhap.value;
 
     function kiemtrangaynhap() {
         var today = new Date(); // Lấy ngày hiện tại
         today.setHours(0, 0, 0, 0); // Đặt giờ, phút, giây về 0 để chỉ so sánh ngày
-
+        var inputValue = txtngayNhap.val(); 
         var inputDate = new Date(txtngayNhap.val()); // Ngày người dùng nhập
-
+        
+        if (inputValue === layngayNhap) {
+            tbngayNhap.html(""); // Không hiển thị lỗi
+            return true;
+        }
         if (txtngayNhap.val() == "") {
             tbngayNhap.html("Vui lòng nhập ngày.");
             return false;
         }
 
-        if (inputDate <= today) {
+        if (inputDate <= today ) {
             tbngayNhap.html("Ngày nhập phải sau ngày hiện tại.");
             return false;
         }
@@ -119,7 +106,7 @@ $(document).ready(function(){
     txtngayHetHan.blur(kiemtrangayHetHan);
 
     $("#nut").click(function(){
-        if(!kiemtratenNVL() || !kiemtrasoluong() || !kiemtradonViTinh()|| !kiemtrangaynhap()|| !kiemtrangayHetHan()){
+        if(!kiemtrasoluong() || !kiemtradonViTinh()|| !kiemtrangaynhap()|| !kiemtrangayHetHan()){
             alert("Bạn phải nhập đầy đủ thông tin")
             return false;
         }

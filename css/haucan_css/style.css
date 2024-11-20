@@ -196,11 +196,13 @@ tbody td {
     border: none;
     font-size: 0.9em;
     cursor: pointer;
+    
 }
 
 .view-button {
     background-color: #FFD700;
     color: #333;
+    margin-left:10px;
 }
 
 /*chuan bi don hang*/

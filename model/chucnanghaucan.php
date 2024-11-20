@@ -29,14 +29,16 @@ class haucan extends tmdt{
                 $diachi=$this->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
                                         JOIN chitiethoadon c ON k.maKH = c.maKH
                                         WHERE c.maKH = '$maKH';");
-
+                $ngayNhapDon=$row['ngayNhapDon'];	
                 $trangThaiDH=$row['trangThaiDH'];
-                if ($trangThaiDH == 0) {
-					$trangThaiDHText = "Chưa giao";
-				} else if($trangThaiDH == 1) {
-					$trangThaiDHText = "Đang giao";
+                $trangThaiGH=$row['trangThaiGH'];
+                
+                if($trangThaiGH == 0) {
+					$trangThaiGHText = "Chưa giao";
+				} else if($trangThaiGH == 1) {
+					$trangThaiGHText = "Đang giao";
 				}else {
-					$trangThaiDHText = "Đã hoàn thành";
+					$trangThaiGHText = "Đã hoàn thành";
 				}
 		
                 echo '<tbody>
@@ -45,12 +47,18 @@ class haucan extends tmdt{
                             <td>'.$maHD.'</td>
                             <td>'.$hoTen.'</td>
                             <td>'.$diachi.'</td>
-                            <td>20:00 05/11/2024</td>
-                            <td>'.$trangThaiDHText.'</td>
+                            <td>'.$ngayNhapDon.'</td>
+                            <td>'.$trangThaiGHText.'</td>
                             <td>
-                                <button class="view-button"><a href="haucan_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>
-                                <button class="view-button"><a href="haucan_giaohang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Bắt đầu giao hàng</a></button>
-                            </td>
+                                <button class="view-button"><a href="haucan_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>';
+                                if ($trangThaiGH == 0) {
+                                echo '<button class="view-button"><a href="haucan_giaohang.php?id=' . $maHD . '" style="text-decoration: none;color:#000"> Bắt đầu giao hàng</a></button>';
+                                }
+                                if($trangThaiGH == 1){
+                                echo '<button class="view-button" style="background-color: #3dae3f;"><a href="haucan_hoantatgiaohang.php?id=' . $maHD . '" style="text-decoration: none;color:#000"> Hoàn thành đơn hàng</a></button>';
+                                }
+                                
+                            echo'</td>
                         </tr>';
 				$dem++;
 				
