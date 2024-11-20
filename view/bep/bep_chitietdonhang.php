@@ -18,7 +18,7 @@ $p = new bep();
 <body>
 <?php
 $layid=$_REQUEST['id'];
-
+$layngayNhapDon=$p->laycot("select ngayNhapDon from chitiethoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
@@ -64,7 +64,7 @@ $layid=$_REQUEST['id'];
                 <input type="text" id="madh" name="madh" value="<?php echo $layid;?>">
 
                 <label for="sdt">Thời gian đặt hàng</label>
-                <input type="text" id="thoigian" name="thoigian" value="10:00 12/11/2024">
+                <input type="text" id="thoigian" name="thoigian" value="<?php echo $layngayNhapDon;?>">
 
                 <label>Danh sách món ăn:</label>
                 <div class="food-list">
@@ -73,7 +73,8 @@ $layid=$_REQUEST['id'];
                     </div> -->
                     <?php 
                         $p->xemdanhsachmonan_chitiethoadon("select * from chitiethoadon where maHD='$layid'")
-                    ?> 
+                    ?>
+                <button type="submit" class="add-button-1" name="nut" id="nut" value="Thêm sản phẩm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa sản phẩm này không?\')>THÊM</button> 
                 </div>  
             </div>
         </div>

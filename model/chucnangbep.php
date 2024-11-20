@@ -42,8 +42,8 @@ class bep extends tmdt{
                             <td>'.$trangThaiText.'</td>
                             <td>
                                 <button class="view-button"><a href="bep_xemnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xem</a></button>
-								<button class="edit-button"><a href="bep_capnhatnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Sửa</a></button>
-                                <button type="button" class="delete-button" onclick="openDeletePopup()" >Xóa</button>
+								<button class="edit-button" name="nut" id="nut" value="Sua"><a href="bep_capnhatnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Sửa</a></button>
+								<button class="delete-button""><a href="bep_xoanvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xóa</a></button>
                             </td>
                         </tr>';
 				$dem++;
@@ -115,11 +115,12 @@ class bep extends tmdt{
 			{
 				$maHD=$row['maHD'];	
 				$tenMA=$row['tenMA'];
+				$ngayNhapDon=$row['ngayNhapDon'];
                 echo '<tbody>
                         <tr>
                             <td>'.$dem.'</td>
                             <td>'.$maHD.'</td>
-                            <td>10:00 AM </td>
+                            <td>'.$ngayNhapDon.' </td>
                             <td>'.$tenMA.',..</td>
                             <td>
                                 <button class="view-button"><a href="bep_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>

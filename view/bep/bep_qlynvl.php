@@ -49,38 +49,24 @@ $p = new bep();
                 <div class="menu-item active" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
             </div>
         </div>
-
-        <div id="content">
-            <div class="container">
-                <div class="header-row">
-                    <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
-                    <div class="search-add">
-                        <input type="text" placeholder="Tìm kiếm...">
-                        <button class="search-button">🔍</button>
-                        <button type="button" class="add-button" onclick="window.location.href='bep_themnvl.php';">THÊM MỚI</button>
+        
+            <div id="content">
+                <div class="container">
+                    <div class="header-row">
+                        <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
+                        
+                            <div class="search-add">
+                                <input type="text" placeholder="Tìm kiếm...">
+                                <button class="search-button">🔍</button>
+                                <button type="button" class="add-button" onclick="window.location.href='bep_themnvl.php';">THÊM MỚI</button>
+                            </div>
                     </div>
-                </div>
-                <?php
-                    $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
-                ?>
+                    <?php
+                        $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
+                    ?>
                     
-            </div>
-        </div>
-    </div>
-        
-    <!-- Thông Báo Hủy Đơn Hàng -->
-    <!-- <div class="popup" id="deletePopup">
-        <div class="popup-content">
-            <h3>Bạn có chắc chắn xóa?</h3>
-            <form class="detail-form">
-                <div class="popup-buttons">
-                    <button class="back-button-huy" onclick="closeDeletePopup() ">Hủy</button>
-                    <button class="confirm-button">Xác nhận</button>
                 </div>
-            </form>
-        </div>
-    </div> -->
-    <!-- <script src="script.js">
-        
-    </script> -->
+            </div>
+    </div>
+   
 </body>
