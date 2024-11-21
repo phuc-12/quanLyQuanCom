@@ -1,3 +1,22 @@
+<?php
+error_reporting(0);
+    include_once("../../controler/cHoaDon.php");
+
+    if (isset($_GET['id'])) {
+        $maHD = $_GET['id'];
+        $p = new CHoaDon();
+        $tblCTHD = $p->getDetailHD($maHD); // Lấy chi tiết hóa đơn từ controller
+
+        if (!$tblCTHD) {
+            echo 'Không thể kết nối dữ liệu chi tiết hóa đơn';
+        } elseif ($tblCTHD == -1) {
+            echo 'Chưa có dữ liệu chi tiết hóa đơn';
+        }
+    } else {
+        echo 'Vui lòng nhập id!';
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +38,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    
 <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
@@ -58,28 +77,53 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Dữ liệu mẫu -->
-                    <tr>
-                        <td>1</td>
-                        <td>Cà phê sữa</td>
-                        <td>2</td>
-                        <td>Ly</td>
-                        <td>20,000</td>
-                        <td>40,000</td>
-                    </tr>
                     
-                    <!-- Thêm ..-->
+                    <?php
+                        error_reporting(0);
+                        $stt = 1;
+                        $tongTien = 0;
+                        while ($row = $tblCTHD->fetch_assoc()) {
+                            $thanhTien = $row['soLuong'] * $row['donGia']*1000;
+                            $tongTien += $thanhTien;
+                            $chietKhau = 0;
+                            switch ($maLoaiKhachHang) {
+                                case 1:
+                                    $chietKhau = 0.10; // 10% chiết khấu
+                                    break;
+                                case 2:
+                                    $chietKhau = 0.20; // 20% chiết khấu
+                                    break;
+                                case 3:
+                                    $chietKhau = 0.30; // 30% chiết khấu
+                                    break;
+                                default:
+                                    $chietKhau = 0; // Không có chiết khấu nếu không thuộc loại khách hàng hợp lệ
+                            }
+                            $tienChietKhau = $tongTien * $chietKhau; // Tổng tiền cần tính chiết khấu
+                            $tongTienSauCK = $tongTien - $tienChietKhau; 
+                            echo "<tr>";
+                            echo "<td>{$stt}</td>";
+                            echo "<td>{$row['tenMA']}</td>";
+                            echo "<td>{$row['soLuong']}</td>";
+                            echo "<td>{$row['donViTinh']}</td>";
+                            echo "<td>{$row['donGia']}</td>";
+                            echo "<td>" . number_format($thanhTien, 0, ',', '.') . " VNĐ</td>";
+                            echo "</tr>";
+                            $stt++;
+                        }
+                    ?>
                 </tbody>
             </table>
 
             <div class="summary">
-                <p>Tổng cộng: 40,000</p>
-                <p>Chiết khấu: 0</p>
-                <p>Thanh toán: 40,000</p>
+                <p><strong>Tổng cộng:</strong> <?= number_format($tongTien, 0, ',', '.') ?> VNĐ</p>
+                <p><strong>Chiết khấu:</strong> <?= number_format($tienChietKhau, 0, ',', '.') ?> VNĐ</p>
+                <p><strong>Thanh toán:</strong> <?= number_format($tongTienSauCK, 0, ',', '.') ?> VNĐ</p>
             </div>
         </div>
     </div>
 </div>
 
 </body>
-</html>
+</html> 
+
