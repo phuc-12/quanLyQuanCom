@@ -15,6 +15,18 @@
                 return false;
             }
         }
-
+        // //
+       public function getDetailHD($maHD) {
+            $p = new MHoaDon();
+            $tblCTHD = $p->SelectDetailHD($maHD);
+            if ($tblCTHD instanceof mysqli_result) {
+                return $tblCTHD; // Trả về đối tượng mysqli_result
+            } elseif ($tblCTHD === false) {
+                return false; // Lỗi kết nối
+            } else {
+                return -1; // Không có dữ liệu
+            }
+        }
+        
     }
 ?>
