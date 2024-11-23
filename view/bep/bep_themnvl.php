@@ -124,7 +124,7 @@ $p = new bep();
                             </script>';
                         }
                         if($tenNVLdb){
-                            echo '<script language="javascript">alert("Tên nguyên vật liệu đã tồn tại!");</script>';
+                            echo '<script language="javascript">alert("Tên nguyên vật liệu đã tồn tại!");window.location="bep_themnvl.php"</script>';
                         
                         }
                     echo '<script language="javascript">

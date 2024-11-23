@@ -60,7 +60,7 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
             <div class="header-row-xem">
                 <h2>THÔNG TIN CHI TIẾT ĐƠN HÀNG</h2>
             </div>
-            <form class="detail-form">
+            <form class="detail-form" method="post" enctype="multipart/form-data" name="form1" id="form1">
                 <label for="tenkh">Mã đơn hàng:</label>
                 <input type="text" id="madh" name="madh" value="<?php echo $layid;?>">
 
@@ -105,24 +105,46 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
                                                                                     }?>">
 
             <!-- <div class="sub-button"> -->
-                <button type="button" class="cancel-button-1" onclick="openCancelPopup()">Hủy đơn hàng</button>
+                <button type="submit" class="cancel-button-1" onclick="return confirmDelete()">Hủy đơn hàng</button>
+                <script>
+                        function confirmDelete() {
+                            return confirm("Bạn có chắc chắn muốn Hủy đơn hàng này không?");
+                        }
+                    </script>
             <!-- </div> -->
-                <button type="button" class="prepare-button"><a href="haucan_hoantatgiaohang.php?id=<?php echo $layid; ?>" style="text-decoration: none;color:#000">Giao hàng</a></button>
+                <button type="submit" class="prepare-button" name="nut" id="nut" value="Giao hàng">Giao hàng</button>
+                <?php 
+                    switch($_POST['nut']){
+                        case 'Giao hàng':{ 
+                            if($p->themxoasua("UPDATE `quancomchipheo`.`chitiethoadon` SET `trangThaiGH` = '1'
+                                          WHERE `chitiethoadon`.`maHD` = '$layid';")==1){
+                                echo '<script language="javascript">alert("Chuyển sang trạng thái Đang giao hàng");
+                                                                    window.location = "haucan_hoantatgiaohang.php?id='.$layid.'";</script>
+                                        </script>';
+
+                            }else{
+                                echo '<script language="javascript">alert("Chuyển trạng thái không thành công. Vui lòng thử lại!");
+                                window.location = "haucan_danhsachdonhang.php";
+                                </script>';
+                            }
+                        }
+                    }
+                ?>
             </form>
         </div>
     </div>
 
     <!-- Thông Báo Hủy Đơn Hàng -->
-    <div class="popup" id="cancelPopup">
+    <!-- <div class="popup" id="cancelPopup">
         <div class="popup-content">
             <h3>HỦY ĐƠN HÀNG</h3>
-            <form class="detail-form">
+            <form class="form">
                 <label for="tinhtrang">Tình trạng:</label>
-                <select id="tinhtrang" name="tinhtrang">
+                <select id="tinhtrang" name="tinhtrang" style="padding:10px; margin-left:30px;width:250px;">
                     <option value="available">Khách không còn nhu cầu</option>
                 </select>
                 <div class="popup-buttons">
-                    <button class="back-button-huy" onclick="closeCancelPopup()">Quay Lại</button>
+                    <button class="back-button-huy">Hủy</button>
                     <button class="confirm-button">Xác nhận Hủy</button>
                 </div>
             </form>
@@ -133,11 +155,7 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
         function openCancelPopup() {
             document.getElementById("cancelPopup").style.display = "flex";
         }
-  
-        function closeCancelPopup() {
-            document.getElementById("cancelPopup").style.display = "none";
-        }
-    </script>
+    </script> -->
     
 </body>
  

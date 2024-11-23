@@ -348,7 +348,7 @@ tbody td {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    width: 530px;
+    width: 500px;
     height: 250px;
     text-align: center;
   }
@@ -368,13 +368,15 @@ tbody td {
   }
   
   .popup-buttons{
-    margin-top:30px
+    margin-top:30px;
+    margin-left:55px;
+    display:flex;
   }
   .popup-buttons button {
     background-color: #D3D3D3;
     border: none;
-    padding: 10px;
-    margin: 5px 30px;
+    /* padding: 10px; */
+    /* margin: 5px 30px; */
     cursor: pointer;
   }
   .popup-buttons .back-button-huy {
@@ -386,8 +388,6 @@ tbody td {
     font-weight: bold;
     margin-top: 20px;
     width:150px;
-    /* position: relative;
-    left:10px; */
 }
 .back-button-huy {
     padding: 10px;
