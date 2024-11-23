@@ -66,7 +66,7 @@ $p = new bep();
                 <span class="text-danger" id="tbtenNVL"></span>
 
                 <label for="soluong">Số lượng:</label>
-                <input type="text" id="txtsoluong"  name="txtsoluong">
+                <input type="number" id="txtsoluong"  name="txtsoluong">
                 <span class="text-danger" id="tbsoluong"></span>
 
                  <label for="donViTinh">Đơn vị tính:</label>

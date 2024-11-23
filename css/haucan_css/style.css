@@ -192,10 +192,12 @@ tbody td {
 }
 
 .view-button, .edit-button, .delete-button {
-    padding: 5px 10px;
+    padding: 10px 10px;
     border: none;
     font-size: 0.9em;
     cursor: pointer;
+    margin-left:5px;
+    border-radius: 5px;
     
 }
 
