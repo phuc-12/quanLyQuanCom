@@ -76,7 +76,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                     <input type="text" id="ten" name="ten" value="<?php echo $laytenNVL;?>" disabled>
 
                     <label for="soluong">Số lượng:</label>
-                    <input type="text" id="txtsoluong" value="<?php echo $layslTon;?>" name="txtsoluong">
+                    <input type="number" id="txtsoluong" value="<?php echo $layslTon;?>" name="txtsoluong">
                     <span class="text-danger" id="tbsoluong"></span>
 
                     <label for="ngaynhap">Ngày nhập:</label>
@@ -109,20 +109,39 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                         case 'Sua':{
                             $soluong = $_REQUEST['txtsoluong'];
                             $ngayNhap = $_REQUEST['txtngayNhap'];
-                            $mota = $_REQUEST['txtmota'];
+                            $mota = $_REQUEST['mota'];
                             $ngayHetHan = $_REQUEST['txtngayHetHan'];
-                
-                                if($p->themxoasua("UPDATE `quancomchipheo`.`nguyenlieu` SET `slTon` = '$soluong',`ngayNhap` = '$ngayNhap',`ngayHetHan` = '$ngayHetHan', `moTa` = 'moTa'
-                                                    WHERE `nguyenlieu`.`maNVL` = '$layid' LIMIT 1 ;")==1)
-                                {
-                                    echo '<script language="javascript">alert("Cập nhật nguyên vật liệu thành công");</script>';
-                                    echo '<script language="javascript">
-                                    window.location="bep_qlynvl.php";
-                                    </script>';
-                                }
-                        
-        
-                            
+                    
+                            // Kiểm tra số lượng
+                            if ($soluong == 0) {
+                                $sql = "UPDATE `quancomchipheo`.`nguyenlieu` 
+                                          SET `slTon` = '$soluong', 
+                                              `ngayNhap` = '$ngayNhap', 
+                                              `ngayHetHan` = '$ngayHetHan', 
+                                              `moTa` = '$mota', 
+                                              `trangThai` = '0'
+                                          WHERE `nguyenlieu`.`maNVL` = '$layid' 
+                                          LIMIT 1;";
+                            } else {
+                                $sql = "UPDATE `quancomchipheo`.`nguyenlieu` 
+                                          SET `slTon` = '$soluong', 
+                                              `ngayNhap` = '$ngayNhap', 
+                                              `ngayHetHan` = '$ngayHetHan', 
+                                              `moTa` = '$mota'
+                                          WHERE `nguyenlieu`.`maNVL` = '$layid' 
+                                          LIMIT 1;";
+                            }
+                    
+                            // Thực hiện truy vấn
+                            if ($p->themxoasua($sql) == 1) {
+                                echo '<script language="javascript">alert("Cập nhật nguyên vật liệu thành công");</script>';
+                                echo '<script language="javascript">
+                                        window.location="bep_qlynvl.php";
+                                      </script>';
+                            } else {
+                                echo '<script language="javascript">alert("Cập nhật thất bại. Vui lòng thử lại!");</script>';
+                            }
+                            break;
                         }
                     }
 

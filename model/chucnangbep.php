@@ -43,7 +43,7 @@ class bep extends tmdt{
                             <td>
                                 <button class="view-button"><a href="bep_xemnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xem</a></button>
 								<button class="edit-button" name="nut" id="nut" value="Sua"><a href="bep_capnhatnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Sửa</a></button>
-								<button class="delete-button""><a href="bep_xoanvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xóa</a></button>
+								<button class="delete-button"><a href="bep_xoanvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xóa</a></button>
                             </td>
                         </tr>';
 				$dem++;

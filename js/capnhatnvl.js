@@ -96,10 +96,10 @@ $(document).ready(function(){
             tbngayHetHan.html("Ngày hết hạn phải sau ngày nhập.");
             return false;
         }
-        if (ngayHetHan <= today) {
-            tbngayHetHan.html("Ngày hết hạn phải sau ngày hiện tại.");
-            return false;
-        }
+        // if (ngayHetHan <= today) {
+        //     tbngayHetHan.html("Ngày hết hạn phải sau ngày hiện tại.");
+        //     return false;
+        // }
         tbngayHetHan.html("");
         return true;
     }

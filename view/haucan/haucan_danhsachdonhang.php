@@ -44,10 +44,10 @@ $p = new haucan();
             <div class="container">
                 <div class="header-row">
                     <h2>DANH SÁCH ĐƠN HÀNG</h2>
-                    <div class="search-add">
+                    <!-- <div class="search-add">
                         <input type="text" placeholder="Tìm kiếm...">
                         <button class="search-button">🔍</button>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- <table> -->
                     <!-- <thead>

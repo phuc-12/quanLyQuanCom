@@ -49,24 +49,31 @@ $p = new bep();
                 <div class="menu-item active" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
             </div>
         </div>
-        
+        <form id="form1" name="form1" method="post">
             <div id="content">
                 <div class="container">
                     <div class="header-row">
                         <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
                         
                             <div class="search-add">
-                                <input type="text" placeholder="Tìm kiếm...">
-                                <button class="search-button">🔍</button>
+                                <div class="tim">
+                                    <input type="text" name="txttim" id="txttim" placeholder="Nhập tên NVL cần tìm">
+                                    <input type="submit" name="submit" id="submit" value="Tìm kiếm" style="padding: 7px 10px;background-color: #FFD700;border-radius: 5px;border: none;">
+                                </div>
                                 <button type="button" class="add-button" onclick="window.location.href='bep_themnvl.php';">THÊM MỚI</button>
                             </div>
                     </div>
                     <?php
-                        $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
+                        $tentim=$_REQUEST['txttim'];
+                        if($_POST['submit']=="Tìm kiếm"){
+                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu where tenNVL like '%$tentim%'");
+                        }else{
+                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
+                        }
                     ?>
-                    
                 </div>
             </div>
+        </form>
     </div>
    
 </body>
