@@ -45,15 +45,12 @@
         WHERE hd.maHD = '$layid'
         ");
          $layid = $_REQUEST['id'];
-        // $laysoluong=$p->laycot("select soLuong from chitiethoadon where maHD = '$layid' limit 1");
-        // $laytenmonan=$p->laycot("select n.tenMA from monan n join chitiethoadon t on n.maMA = t.maMA where maHD = '$layid' limit 1");
-        // $laydonvitinh=$p->laycot("select n.donViTinh from monan n join chitiethoadon t on n.maMA = t.maMA where maHD = '$layid' limit 1");
-        // $laydongia=$p->laycot("select n.donGia from monan n join chitiethoadon t on n.maMA = t.maMA where maHD = '$layid' limit 1");
         $laysohd = $p->laycot("SELECT maHD FROM hoadon WHERE maHD = '$layid' LIMIT 1");
         $laytennv=$p->laycot("select n.hoTen from nhanvien n join chitiethoadon t on n.maNV = t.maNV where maHD = '$layid' limit 1");
         $laytrangthai = $p->laycot("SELECT trangThai FROM hoadon WHERE maHD = '$layid' LIMIT 1");
         $laytenkh=$p->laycot("select n.hoTen from khachhang n join chitiethoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
         $layngaythang = $p->laycot("SELECT ngayThang FROM hoadon WHERE maHD = '$layid' LIMIT 1");
+        $laymaloaikh=$p->laycot("select n.maLoaiKH from khachhang n join hoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
 
     ?>
 <div class="container-fluid p-0">
@@ -114,15 +111,12 @@
                     //
                     error_reporting(0);
                     $stt = 1;
-                    $tongTien = 0; // Tổng tiền hóa đơn
+                    $tongTien = 0; 
             
                     foreach ($layThongTinDonHang as $dong) {
                         $thanhTien = $dong['soLuong'] * $dong['donGia'] * 1000; // Thành tiền
                         $dongia = $dong['donGia'] * 1000;
-            
-                        // Tính tổng tiền
                         $tongTien += $thanhTien;
-            
                         echo "<tr>";
                         echo "<td>{$stt}</td>";
                         echo "<td>{$dong['tenMA']}</td>";
@@ -134,50 +128,30 @@
             
                         $stt++;
                     }
-                    //
-                        // error_reporting(0);
-                        // $stt = 1;
-                        // $thanhTien = $laysoluong*$laydongia*1000;
-                        // $dongia=$laydongia*1000;
-                        // $tongTien = 0;
-                        // while ($row = $tblCTHD->fetch_assoc()) {
-                        //     $thanhTien = $row['soLuong'] * $row['donGia']*1000;
-                        //     $tongTien += $thanhTien;
-                        //     $chietKhau = 0;
-                        //     switch ($maLoaiKH) {
-                        //         case 1:
-                        //             $chietKhau = 0.10; // 10% chiết khấu
-                        //             break;
-                        //         case 2:
-                        //             $chietKhau = 0.20; // 20% chiết khấu
-                        //             break;
-                        //         case 3:
-                        //             $chietKhau = 0.30; // 30% chiết khấu
-                        //             break;
-                        //         default:
-                        //             $chietKhau = 0; // Không có chiết khấu nếu không thuộc loại khách hàng hợp lệ
-                        //     }
-                        //     $tienChietKhau = $tongTien * $chietKhau; // Tổng tiền cần tính chiết khấu
-                        //     $tongTienSauCK = $tongTien - $tienChietKhau; 
-                            // echo "<tr>";
-                            // echo "<td>{$stt}</td>";
-                            // echo "<td>$laytenmonan</td>";
-                            // echo "<td>$laysoluong</td>";
-                            // echo "<td>$laydonvitinh</td>";
-                            // //echo "<td>$laydongia</td>";
-                            // echo "<td>" . number_format($dongia, 0, ',', '.') . " VNĐ</td>";
-                            // echo "<td>" . number_format($thanhTien, 0, ',', '.') . " VNĐ</td>";
-                            // echo "</tr>";
-                            // $stt++;
-                        //}
+                            $chietKhau = 0;
+                            switch ($laymaloaikh) {
+                                case 1:
+                                    $chietKhau = 0.10; // 10% chiết khấu
+                                    break;
+                                case 2:
+                                    $chietKhau = 0.20; // 20% chiết khấu
+                                    break;
+                                case 3:
+                                    $chietKhau = 0.30; // 30% chiết khấu
+                                    break;
+                                default:
+                                    $chietKhau = 0; // Không có chiết khấu nếu không thuộc loại khách hàng hợp lệ
+                            }
+                            $tienChietKhau = $tongTien * $chietKhau; // Tổng tiền cần tính chiết khấu
+                            $tongTienSauCK = $tongTien - $tienChietKhau; 
                     ?>
                 </tbody>
             </table>
 
             <div class="summary">
-                <!-- <p><strong>Tổng cộng:</strong> <?= number_format($tongTien, 0, ',', '.') ?> VNĐ</p>
+                <p><strong>Tổng cộng:</strong> <?= number_format($tongTien, 0, ',', '.') ?> VNĐ</p>
                 <p><strong>Chiết khấu:</strong> <?= number_format($tienChietKhau, 0, ',', '.') ?> VNĐ</p>
-                <p><strong>Thanh toán:</strong> <?= number_format($tongTienSauCK, 0, ',', '.') ?> VNĐ</p> -->
+                <p><strong>Thanh toán:</strong> <?= number_format($tongTienSauCK, 0, ',', '.') ?> VNĐ</p> 
             </div>
         </div>
     </div>
