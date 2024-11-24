@@ -19,6 +19,7 @@
     </style>
 </head>
 <body>
+    
     <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
@@ -61,7 +62,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Mã hóa đơn</th>
-                                <th>Tổng tiền</th>
+                                <th>Khách hàng</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -72,7 +73,7 @@
                         echo '<tr style="text-align: center">';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
-                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['tongTien'].'</a></td>';
+                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['hoTen'].'</a></td>';
                         // echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
                         switch($r['trangThai'])
                         {

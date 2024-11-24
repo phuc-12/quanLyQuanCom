@@ -29,13 +29,13 @@
                                             JOIN chitiethoadon c ON k.maKH = c.maKH
                                             WHERE c.maKH = '$maKH';");
     
-                    $trangThaiDH=$row['trangThaiDH'];
-                    if ($trangThaiDH == 0) {
-                        $trangThaiDHText = "Chưa giao";
-                    } else if($trangThaiDH == 1) {
-                        $trangThaiDHText = "Đang giao";
+                    $trangThaiGH=$row['trangThaiGH'];
+                    if ($trangThaiGH == 0) {
+                        $trangThaiGHText = "Chưa giao";
+                    } else if($trangThaiGH == 1) {
+                        $trangThaiGHText = "Đang giao";
                     }else {
-                        $trangThaiDHText = "Đã hoàn thành";
+                        $trangThaiGHText = "Đã hoàn thành";
                     }
             
                     echo '<tbody>
@@ -44,7 +44,7 @@
                                 <td>'.$maHD.'</td>
                                 <td>'.$hoTen.'</td>
                                 <td>'.$diachi.'</td>
-                                <td>'.$trangThaiDHText.'</td>
+                                <td>'.$trangThaiGHText.'</td>
                                 
                             </tr>';
                     $dem++;
