@@ -115,13 +115,6 @@
                                             break;
                                         }
                                 }
-                            ?>
-                                <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
-
-                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Đang hoạt động" name="trangThai"></td>';
-                                            break;
-                                        }
-                                }
                              ?>
 
                             </tr>

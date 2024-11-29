@@ -73,14 +73,8 @@
                         echo '<tr style="text-align: center">';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
-
-                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['tongTien'].'</a></td>';
-                        
-                        switch($r['trangThai'])
-                        {
-                            case 0:
-
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['hoTen'].'</a></td>';
+                        
                         // echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
                         switch($r['trangThai'])
                         {
@@ -92,8 +86,6 @@
                                 }
 
                             case 1:
-
-                            case 1: 
 
                                 {
                                     echo '<td>Đã thanh toán</td>';
