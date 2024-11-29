@@ -124,6 +124,11 @@
     width: 250px;
 }
 
+.search-add .tim{
+    margin-right:200px;
+}
+
+
 .search-button, .add-button {
     padding: 8px 15px;
     border: none;
@@ -166,10 +171,12 @@ tbody td {
 }
 
 .view-button, .edit-button, .delete-button {
-    padding: 5px 10px;
+    padding: 10px;
     border: none;
     font-size: 0.9em;
     cursor: pointer;
+    margin-left:10px;
+    border-radius: 5px;
 }
 
 .view-button {
@@ -208,6 +215,7 @@ tbody td {
     padding: 8px;
     border: 1px solid #d3d3d3;
     background-color: #e0e0e0;
+    border-radius: 5px;
 }
 .header-row-xem {
     background-color: #d3d3d3;

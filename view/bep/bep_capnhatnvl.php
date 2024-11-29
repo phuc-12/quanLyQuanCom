@@ -13,6 +13,8 @@ $p = new bep();
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../js/dateTime.js" defer></script> 
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/capnhatnvl.js"> </script>
 </head>
 <body>
 <?php
@@ -21,6 +23,10 @@ $laymaNVL= $p->laycot("select maNVL from nguyenlieu where maNVL='$layid'");
 $laytenNVL= $p->laycot("select tenNVL from nguyenlieu where maNVL='$layid'");
 $layslTon= $p->laycot("select slTon from nguyenlieu where maNVL='$layid'");
 $laytrangThai= $p->laycot("select trangThai from nguyenlieu where maNVL='$layid'");
+$laymota= $p->laycot("select mota from nguyenlieu where maNVL='$layid'");
+$layngayNhap=$p->laycot("select ngayNhap from nguyenlieu where maNVL='$layid'");
+$layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid'");
+
 ?>
     <header>
         <div class="container-fluid p-0">
@@ -62,7 +68,7 @@ $laytrangThai= $p->laycot("select trangThai from nguyenlieu where maNVL='$layid'
                 <div class="header-row-xem">
                     <h2>CẬP NHẬT NGUYÊN VẬT LIỆU</h2>
                 </div>
-                <form class="detail-form">
+                <form class="detail-form" method="post">
                 <label for="ma">Mã nguyên vật liệu:</label>
                     <input type="text" id="ma" name="ma" value="<?php echo $laymaNVL;?>" disabled>
 
@@ -70,25 +76,76 @@ $laytrangThai= $p->laycot("select trangThai from nguyenlieu where maNVL='$layid'
                     <input type="text" id="ten" name="ten" value="<?php echo $laytenNVL;?>" disabled>
 
                     <label for="soluong">Số lượng:</label>
-                    <input type="number" id="soluong" value="<?php echo $layslTon;?>" name="soluong">
-
-                    <!-- <label for="tinhtrang">Tình trạng:</label>
-                    <select id="tinhtrang" name="tinhtrang"> 
-                    <option value="1" <?php if ($laytrangThai == 1) echo "selected"; ?>>Còn hàng</option>
-                    <option value="0" <?php if ($laytrangThai == 0) echo "selected"; ?>>Hết hàng</option>
-                    </select>  -->
-                    <!-- 
-                        $layidcty==$p->laycot("select idcty from sanpham where idsp='$layid' limit 1");
-                        $p->chontinhtrang("select trangThai from nguyenlieu",$layid);
-                    -->
+                    <input type="number" id="txtsoluong" value="<?php echo $layslTon;?>" name="txtsoluong">
+                    <span class="text-danger" id="tbsoluong"></span>
 
                     <label for="ngaynhap">Ngày nhập:</label>
-                    <input type="text" id="ngaynhap" name="ngaynhap" value="01/01/2024" placeholder="DD/MM/YY">
-
+                    <input type="date" id="txtngayNhap" name="txtngayNhap" placeholder="DD/MM/YY" class="form-control" style="padding:10px 0" value="<?php echo $layngayNhap;?>">
+                    <span class="text-danger" id="tbngayNhap"></span>
+                    <!-- <script>
+                        // Lấy input element
+                        const inputNgayNhap = document.getElementById('txtngayNhap');
+                                            
+                        // Lấy ngày hiện tại
+                        const today = new Date();
+                                            
+                        // Định dạng ngày theo chuẩn yyyy-mm-dd
+                        const formattedDate = today.toISOString().split('T')[0];
+                                            
+                        // Gán giá trị ngày hiện tại vào input
+                        document.getElementById('txtngayNhap').value = formattedDate;
+                    </script> -->
                     <label for="ngayhethan">Ngày hết hạn:</label>
-                    <input type="text" id="ngayhethan" name="ngayhethan" value="01/10/2024"placeholder="DD/MM/YY">
+                    <input type="date" id="txtngayHetHan" name="txtngayHetHan" placeholder="DD/MM/YY" class="form-control"style="padding:10px 0" value="<?php echo $layngayHetHan;?>">
+                    <span class="text-danger" id="tbngayHetHan"></span>
 
-                    <button type="button" class="update-button" onclick="window.location.href='bep_qlynvl.php';">Cập nhật</button>
+                    <label for="soluong">Mô tả:</label>
+                    <input type="text" id="mota" value="<?php echo $laymota;?>" name="mota">
+
+
+                    <button type="submit" class="update-button" name="nut" id="nut" value="Sua">Cập nhật</button>
+                    <?php
+                    switch($_POST['nut']){
+                        case 'Sua':{
+                            $soluong = $_REQUEST['txtsoluong'];
+                            $ngayNhap = $_REQUEST['txtngayNhap'];
+                            $mota = $_REQUEST['mota'];
+                            $ngayHetHan = $_REQUEST['txtngayHetHan'];
+                    
+                            // Kiểm tra số lượng
+                            if ($soluong == 0) {
+                                $sql = "UPDATE `quancomchipheo`.`nguyenlieu` 
+                                          SET `slTon` = '$soluong', 
+                                              `ngayNhap` = '$ngayNhap', 
+                                              `ngayHetHan` = '$ngayHetHan', 
+                                              `moTa` = '$mota', 
+                                              `trangThai` = '0'
+                                          WHERE `nguyenlieu`.`maNVL` = '$layid' 
+                                          LIMIT 1;";
+                            } else {
+                                $sql = "UPDATE `quancomchipheo`.`nguyenlieu` 
+                                          SET `slTon` = '$soluong', 
+                                              `ngayNhap` = '$ngayNhap', 
+                                              `ngayHetHan` = '$ngayHetHan', 
+                                              `moTa` = '$mota'
+                                          WHERE `nguyenlieu`.`maNVL` = '$layid' 
+                                          LIMIT 1;";
+                            }
+                    
+                            // Thực hiện truy vấn
+                            if ($p->themxoasua($sql) == 1) {
+                                echo '<script language="javascript">alert("Cập nhật nguyên vật liệu thành công");</script>';
+                                echo '<script language="javascript">
+                                        window.location="bep_qlynvl.php";
+                                      </script>';
+                            } else {
+                                echo '<script language="javascript">alert("Cập nhật thất bại. Vui lòng thử lại!");</script>';
+                            }
+                            break;
+                        }
+                    }
+
+                    ?>
                 </form>
             </div>
         </div>

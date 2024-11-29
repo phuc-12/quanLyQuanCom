@@ -19,6 +19,7 @@
     </style>
 </head>
 <body>
+    
     <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
@@ -61,7 +62,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Mã hóa đơn</th>
-                                <th>Tổng tiền</th>
+                                <th>Khách hàng</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -72,26 +73,44 @@
                         echo '<tr style="text-align: center">';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
+
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['tongTien'].'</a></td>';
                         
                         switch($r['trangThai'])
                         {
                             case 0:
+
+                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['hoTen'].'</a></td>';
+                        // echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                        switch($r['trangThai'])
+                        {
+                            case 0: 
+
                                 {
                                     echo '<td>Chưa thanh toán</td>';
                                     break;
                                 }
+
                             case 1:
+
+                            case 1: 
+
                                 {
                                     echo '<td>Đã thanh toán</td>';
                                     break;
                                 }
                         }
+
+                        // 
+
                         echo '<td>
-                            <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
-                            <button class="button update">Cập nhật</button>
-                            <button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> 
-                        </td>';
+                            <button class="button view"><a href="Chitietdonhang.php?id='.$r['maHD'].'">Xem</a></button>
+                            <button class="button update">Cập nhật</button>';
+                            if($r['trangThai'] == 0)
+                            {
+                                echo '<button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> ';
+                            }
+                        echo '</td>';
                         echo '</tr>';
                         $dem++;
                     }

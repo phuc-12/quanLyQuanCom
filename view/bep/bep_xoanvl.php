@@ -8,7 +8,7 @@ $p = new bep();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xem nguyên vật liệu</title>
+    <title>Xóa nguyên vật liệu</title>
     <link rel="stylesheet" type="text/css" href="../../css/nvbep_css/danhsachnvl.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -66,9 +66,9 @@ $laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
                 <div class="header-row-xem">
                     <h2>THÔNG TIN CHI TIẾT NGUYÊN VẬT LIỆU</h2>
                 </div>
-                <form class="detail-form">
+                <form class="detail-form" method="post" enctype="multipart/form-data" name="form1" id="form1">
                     <label>Mã nguyên vật liệu:</label>
-                    <input type="text" value="<?php echo $laymaNVL;?>" readonly>
+                    <input name="txtid" id="txtid" type="text" value="<?php echo $laymaNVL;?>" readonly>
 
                     <label>Tên nguyên vật liệu:</label>
                     <input type="text" value="<?php echo $laytenNVL;?>" readonly>
@@ -90,8 +90,35 @@ $laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
 
                     <label>Mô tả:</label>
                     <input type="text" value="<?php echo $laymoTa;?>" readonly>
+                    
+                    <button type="submit" class="add-button-1" name="nut" id="nut" value="Xoa" onclick="return confirmDelete()";>Xóa</button>
+                    <script>
+                        function confirmDelete() {
+                            return confirm("Bạn có chắc chắn muốn xóa nguyên vật liệu này không?");
+                        }
+                    </script>
+
+                    
+                    <?php
+                        switch($_POST['nut']){
+                            case 'Xoa':{ 
+                                if ($p->themxoasua("DELETE FROM nguyenlieu WHERE maNVL = '$laymaNVL'") == 1) {
+                                    echo '<script language="javascript">alert("Xóa nguyên vật liệu thành công");
+                                    window.location = "bep_qlynvl.php";</script>';
+                                }else{
+                                    echo '<script language="javascript">alert("Xóa nguyên vật liệu không thành công. Vui lòng thử lại!");
+                                    window.location = "bep_qlynvl.php";
+                                    </script>';
+                                }
+                            }
+                        }    
+                    ?>
+                
                 </form>
             </div>
         </div>
     </div>
 </body>
+<?php
+            
+            

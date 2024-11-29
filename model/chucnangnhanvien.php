@@ -44,6 +44,20 @@
 
 			return $trave;
 		}
+		public function laydanhsach($sql)
+		{
+			$link = $this->connect();
+			$ketqua = $link->query($sql);
+			$danhsach = [];
+
+			if ($ketqua && $ketqua->num_rows > 0) {
+				while ($row = $ketqua->fetch_assoc()) {
+					$danhsach[] = $row; // Thêm từng dòng vào mảng kết quả
+				}
+			}
+
+			return $danhsach; // Trả về danh sách
+		}
 		
 		public function chonloai($sql, $maChon)
 		{

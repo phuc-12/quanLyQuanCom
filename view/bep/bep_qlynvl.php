@@ -49,38 +49,31 @@ $p = new bep();
                 <div class="menu-item active" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
             </div>
         </div>
-
-        <div id="content">
-            <div class="container">
-                <div class="header-row">
-                    <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
-                    <div class="search-add">
-                        <input type="text" placeholder="Tìm kiếm...">
-                        <button class="search-button">🔍</button>
-                        <button type="button" class="add-button" onclick="window.location.href='bep_themnvl.php';">THÊM MỚI</button>
+        <form id="form1" name="form1" method="post">
+            <div id="content">
+                <div class="container">
+                    <div class="header-row">
+                        <h2>DANH SÁCH NGUYÊN VẬT LIỆU</h2>
+                        
+                            <div class="search-add">
+                                <div class="tim">
+                                    <input type="text" name="txttim" id="txttim" placeholder="Nhập tên NVL cần tìm">
+                                    <input type="submit" name="submit" id="submit" value="Tìm kiếm" style="padding: 7px 10px;background-color: #FFD700;border-radius: 5px;border: none;">
+                                </div>
+                                <button type="button" class="add-button" onclick="window.location.href='bep_themnvl.php';">THÊM MỚI</button>
+                            </div>
                     </div>
+                    <?php
+                        $tentim=$_REQUEST['txttim'];
+                        if($_POST['submit']=="Tìm kiếm"){
+                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu where tenNVL like '%$tentim%'");
+                        }else{
+                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
+                        }
+                    ?>
                 </div>
-                <?php
-                    $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
-                ?>
-                    
             </div>
-        </div>
+        </form>
     </div>
-        
-    <!-- Thông Báo Hủy Đơn Hàng -->
-    <!-- <div class="popup" id="deletePopup">
-        <div class="popup-content">
-            <h3>Bạn có chắc chắn xóa?</h3>
-            <form class="detail-form">
-                <div class="popup-buttons">
-                    <button class="back-button-huy" onclick="closeDeletePopup() ">Hủy</button>
-                    <button class="confirm-button">Xác nhận</button>
-                </div>
-            </form>
-        </div>
-    </div> -->
-    <!-- <script src="script.js">
-        
-    </script> -->
+   
 </body>

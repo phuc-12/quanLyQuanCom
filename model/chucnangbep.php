@@ -42,8 +42,8 @@ class bep extends tmdt{
                             <td>'.$trangThaiText.'</td>
                             <td>
                                 <button class="view-button"><a href="bep_xemnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xem</a></button>
-								<button class="edit-button"><a href="bep_capnhatnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Sửa</a></button>
-                                <button type="button" class="delete-button" onclick="openDeletePopup()" >Xóa</button>
+								<button class="edit-button" name="nut" id="nut" value="Sua"><a href="bep_capnhatnvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Sửa</a></button>
+								<button class="delete-button"><a href="bep_xoanvl.php?id='.$maNVL.'" style="text-decoration: none;color:#000">Xóa</a></button>
                             </td>
                         </tr>';
 				$dem++;
@@ -59,32 +59,27 @@ class bep extends tmdt{
 		}
 	}
 
-	public function chontinhtrang($sql,$idchon)
+	public function chondonViTinh($sql,$idchon)
 	{
 		$link=$this->connect();
 		$ketqua = mysql_query($sql,$link);
 		$i=mysql_num_rows($ketqua);
 		if($i>0)
 		{
-			echo'<select id="tinhtrang" name="tinhtrang">';
+			echo'<select id="donViTinh" name="donViTinh">';
 			while($row=mysql_fetch_array($ketqua))
 			{
-				$maNVL=$row['maNVL'];	
-				$trangThai=$row['trangThai'];
-				if ($laytrangThai == 0) {
-					echo "Hết NVL";
-				} else {
-					echo "Còn hàng";
+				$donViTinh=$row['donViTinh'];
+				if($idchon==$donViTinh){
+					echo '<option value="'.$donViTinh.'" >'.$donViTinh.'</option>';
 				}
-				if($idchon==$maNVL){
-					echo '<option value="'.$trangThai.'" >if ($laytrangThai == 0) {
-                                                        echo "Hết NVL";
-                                                    } else {
-                                                        echo "Còn hàng";
-                                                    }</option>';
-				}
+				// if ($donViTinh == 0) {
+				// 	echo "Hết NVL";
+				// } else {
+				// 	echo "Còn hàng";
+				// }
 				else{
-					echo '<option value="'.$trangThai.'">'.$trangThai.'</option>';
+					echo '<option value="'.$donViTinh.'">'.$donViTinh.'</option>';
 				}
 				
 			}
@@ -95,6 +90,8 @@ class bep extends tmdt{
 			echo 'Khong co du lieu';
 		}
 	}
+
+
 
 	public function xemdanhsachhoadon($sql)
 	{
@@ -118,11 +115,12 @@ class bep extends tmdt{
 			{
 				$maHD=$row['maHD'];	
 				$tenMA=$row['tenMA'];
+				$ngayNhapDon=$row['ngayNhapDon'];
                 echo '<tbody>
                         <tr>
                             <td>'.$dem.'</td>
                             <td>'.$maHD.'</td>
-                            <td>10:00 AM </td>
+                            <td>'.$ngayNhapDon.' </td>
                             <td>'.$tenMA.',..</td>
                             <td>
                                 <button class="view-button"><a href="bep_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>

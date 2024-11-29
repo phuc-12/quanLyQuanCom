@@ -54,10 +54,10 @@ $p = new bep();
             <div class="container">
                 <div class="header-row">
                     <h2>DANH SÁCH HÓA ĐƠN</h2>
-                    <div class="search-add">
+                    <!-- <div class="search-add">
                         <input type="text" placeholder="Tìm kiếm...">
                         <button class="search-button">🔍</button>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- <table>
                     <thead>
@@ -83,7 +83,7 @@ $p = new bep();
                     <!-- </tbody>
                 </table> -->
                 <?php
-                    $p->xemdanhsachhoadon("select * from chitiethoadon group by maHD order by maHD");
+                    $p->xemdanhsachhoadon("select * from chitiethoadon group by maHD ");
                 ?>
             </div>
         </div>
