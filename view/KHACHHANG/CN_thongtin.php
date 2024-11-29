@@ -112,17 +112,28 @@
                                 switch($laytrangthai)
                                 {
                                     case 0: 
-                                        {
+            
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Hết hoạt động" name="trangThai"></td>';
+
                                             echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Ngừng hoạt động" name="trangThai"></td>';
+
                                             break;
                                         }
                                     case 1: 
                                         {
+
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Còn hoạt động" name="trangThai"></td>';
+                                            break;
+                                        }
+                                }
+                            ?>
+
                                             echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Đang hoạt động" name="trangThai"></td>';
                                             break;
                                         }
                                 }
                              ?>
+
                             <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>

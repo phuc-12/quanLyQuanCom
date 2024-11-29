@@ -125,16 +125,28 @@
                                 {
                                     case 0: 
                                         {
+
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Hết làm việc" name="trangThai"></td>';
+
                                             echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Đã nghỉ việc" name="trangThai"></td>';
+
                                             break;
                                         }
                                     case 1: 
                                         {
+
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Còn làm việc" name="trangThai"></td>';
+                                            break;
+                                        }
+                                }
+                            ?>
+
                                             echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Đang làm" name="trangThai"></td>';
                                             break;
                                         }
                                 }
                              ?>
+
                             <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
