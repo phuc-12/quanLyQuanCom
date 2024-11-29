@@ -134,7 +134,6 @@
                                 }
                              ?>
 
-                            <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="diaChi">Địa Chỉ:</label></td>
