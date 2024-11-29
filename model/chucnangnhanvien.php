@@ -2,7 +2,7 @@
     class tmdt
 	{
 		private $host = 'localhost';
-		private $username = 'tran';
+		private $username = 'trieu';
 		private $password = '123';
 		private $database = 'db_chipheo';
 
@@ -58,7 +58,18 @@
 
 			return $danhsach; // Trả về danh sách
 		}
+		public function layTatCaSanPham($maLoaiMA = null)
+	{
+		$sql = "SELECT maMA, tenMA, donGia, hinhAnh FROM monan";
 		
+		if ($maLoaiMA) {
+			$sql .= " WHERE maLoaiMA = " . intval($maLoaiMA); // Lọc theo mã loại món ăn
+		}
+		
+		return $this->laydanhsach($sql); // Trả về danh sách sản phẩm đã lọc
+	}
+
+				
 		public function chonloai($sql, $maChon)
 		{
 			$link = $this->connect();
