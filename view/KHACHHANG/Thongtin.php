@@ -96,7 +96,21 @@
                             </tr>
                             <tr>
                                 <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
-                                <td><input type="input" class="form-control" size="200" id="trangThai" value="<?php echo $laytrangthai;?>" name="trangThai"></td>
+                                <?php
+                                switch($laytrangthai)
+                                {
+                                    case 0: 
+                                        {
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Hết hoạt động" name="trangThai"></td>';
+                                            break;
+                                        }
+                                    case 1: 
+                                        {
+                                            echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Còn hoạt động" name="trangThai"></td>';
+                                            break;
+                                        }
+                                }
+                            ?>
                                 <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
                             </tr>
                             <tr>
