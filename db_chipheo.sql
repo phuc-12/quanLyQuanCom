@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2024 at 09:01 AM
+-- Generation Time: Nov 28, 2024 at 08:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -183,34 +183,35 @@ CREATE TABLE `monan` (
   `donViTinh` varchar(100) NOT NULL,
   `nguyenLieu` varchar(100) NOT NULL,
   `hinhAnh` varchar(100) NOT NULL,
-  `trangThai` tinyint(4) NOT NULL
+  `trangThai` tinyint(4) NOT NULL,
+  `mota` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `monan`
 --
 
-INSERT INTO `monan` (`maMA`, `maLoaiMA`, `tenMA`, `soLuong`, `donGia`, `donViTinh`, `nguyenLieu`, `hinhAnh`, `trangThai`) VALUES
-(1, 1, 'Cơm - ba chỉ kho tiêu', 1, 37.000, 'VND', '', 'bachikhotieu.png', 1),
-(2, 1, 'Cơm - bò xào bông cải', 1, 40.000, 'VND', '', 'boxaobongcai.png', 1),
-(3, 1, 'Cơm - thịt kho đậu hủ', 1, 35.000, 'VND', '', 'thitkhodauhu.png', 1),
-(4, 1, 'Cơm - mực xào chua ngọt', 1, 40.000, 'VND', '', 'mucxaochuangot.png', 1),
-(5, 1, 'Cơm - trứng cuộn thịt băm', 1, 32.000, 'VND', '', 'trungcuonthitbam.png', 1),
-(6, 1, 'Cơm - mực xào thập cẩm', 1, 40.000, 'VND', '', 'mucxaothapcam.png', 1),
-(7, 2, 'Cơm - đậu hủ kho tiêu', 1, 30.000, 'VND', '', 'dauhukhotieu.png', 1),
-(8, 2, 'Cơm - đậu hủ cuộn rong biển', 1, 35.000, 'VND', '', 'dauhucuonrongbien.png', 1),
-(9, 2, 'Cơm - chả trứng chay', 1, 35.000, 'VND', '', 'chatrungchay.png', 1),
-(10, 2, 'Cơm - sườn non ram', 1, 30.000, 'VND', '', 'suonchayram.png', 1),
-(11, 4, 'YogurtOreo', 1, 35.000, 'VND', '', 'yogurtoreo.png', 1),
-(12, 4, 'Rau câu truyền thống', 1, 25.000, 'VND', '', 'raucauduatruyenthong.png', 1),
-(13, 4, 'Bánh chuối hấp', 1, 30.000, 'VND', '', 'banhchuoihap.png', 1),
-(14, 4, 'Sữa chua trái cây', 1, 25.000, 'VND', '', 'suachuatraicay.png', 1),
-(15, 4, 'Chè vải hạt sen', 1, 30.000, 'VND', '', 'chevaihatsen.png', 1),
-(16, 3, 'Pepsi lon', 1, 15.000, 'VND', '', 'pepsi.png', 1),
-(17, 3, 'Sting lon', 1, 15.000, 'VND', '', 'sting.png', 1),
-(18, 3, 'Sprite lon', 1, 15.000, 'VND', '', 'sprite.png', 1),
-(19, 3, 'Dừa lạnh', 1, 20.000, 'VND', '', 'dualanh.png', 1),
-(20, 3, 'Nước ép táo', 1, 25.000, 'VND', '', 'eptao.png', 1);
+INSERT INTO `monan` (`maMA`, `maLoaiMA`, `tenMA`, `soLuong`, `donGia`, `donViTinh`, `nguyenLieu`, `hinhAnh`, `trangThai`, `mota`) VALUES
+(1, 1, 'Cơm - ba chỉ kho tiêu', 1, 37.000, 'VND', '', 'bachikhotieu.png', 1, ''),
+(2, 1, 'Cơm - bò xào bông cải', 1, 40.000, 'VND', '', 'boxaobongcai.png', 1, ''),
+(3, 1, 'Cơm - thịt kho đậu hủ', 1, 35.000, 'VND', '', 'thitkhodauhu.png', 1, ''),
+(4, 1, 'Cơm - mực xào chua ngọt', 1, 40.000, 'VND', '', 'mucxaochuangot.png', 1, ''),
+(5, 1, 'Cơm - trứng cuộn thịt băm', 1, 32.000, 'VND', '', 'trungcuonthitbam.png', 1, ''),
+(6, 1, 'Cơm - mực xào thập cẩm', 1, 40.000, 'VND', '', 'mucxaothapcam.png', 1, ''),
+(7, 2, 'Cơm - đậu hủ kho tiêu', 1, 30.000, 'VND', '', 'dauhukhotieu.png', 1, ''),
+(8, 2, 'Cơm - đậu hủ cuộn rong biển', 1, 35.000, 'VND', '', 'dauhucuonrongbien.png', 1, ''),
+(9, 2, 'Cơm - chả trứng chay', 1, 35.000, 'VND', '', 'chatrungchay.png', 1, ''),
+(10, 2, 'Cơm - sườn non ram', 1, 30.000, 'VND', '', 'suonchayram.png', 1, ''),
+(11, 4, 'YogurtOreo', 1, 35.000, 'VND', '', 'yogurtoreo.png', 1, ''),
+(12, 4, 'Rau câu truyền thống', 1, 25.000, 'VND', '', 'raucauduatruyenthong.png', 1, ''),
+(13, 4, 'Bánh chuối hấp', 1, 30.000, 'VND', '', 'banhchuoihap.png', 1, ''),
+(14, 4, 'Sữa chua trái cây', 1, 25.000, 'VND', '', 'suachuatraicay.png', 1, ''),
+(15, 4, 'Chè vải hạt sen', 1, 30.000, 'VND', '', 'chevaihatsen.png', 1, ''),
+(16, 3, 'Pepsi lon', 1, 15.000, 'VND', '', 'pepsi.png', 1, ''),
+(17, 3, 'Sting lon', 1, 15.000, 'VND', '', 'sting.png', 1, ''),
+(18, 3, 'Sprite lon', 1, 15.000, 'VND', '', 'sprite.png', 1, ''),
+(19, 3, 'Dừa lạnh', 1, 20.000, 'VND', '', 'dualanh.png', 1, ''),
+(20, 3, 'Nước ép táo', 1, 25.000, 'VND', '', 'eptao.png', 1, '');
 
 -- --------------------------------------------------------
 
@@ -287,13 +288,33 @@ CREATE TABLE `taikhoannguoidung` (
 --
 
 INSERT INTO `taikhoannguoidung` (`idNguoiDung`, `username`, `password`, `hoTen`, `email`, `trangThai`, `loaiNguoiDung`, `diaChi`, `SDT`) VALUES
-(1, 'nga', 'nga', 'Nguyễn Thị Nga', 'nga123@gmail.com', 1, 0, '', '0948620217'),
-(2, 'phuc', 'phuc', 'Nguyễn Đăng Hồng Phúc', 'phuc123@gmail.com', 1, 1, '', '0824670123'),
-(3, 'phuoc', 'phuoc', 'Ngô Thành Phước', 'phuoc123@gmai.com', 1, 2, '', '0386691284'),
-(4, 'tran', 'tran', 'Lâm Thị Huyền Trân', 'tran123@gmail.com', 1, 1, '', '0679346849'),
-(5, 'trieu', 'trieu', 'Lương Công Triều', 'trieu123@gmail.com', 1, 2, '', '0475521852'),
-(6, 'tuyen', 'tuyen', 'Phạm Văn Tuyên', 'tuyen123@gmail.com', 1, 0, '', '0365782513'),
-(7, 'vinh', 'vinh', 'Lê Văn Vinh', 'vinh123@gmail.com', 1, 0, '', '0956264833');
+(1, 'phuc123', '202cb962ac59075b964b07152d234b70', 'hongphuc', 'phuc123@gmail.com', 1, 1, 'dfdfd', '656464'),
+(2, 'nga123', '202cb962ac59075b964b07152d234b70', 'thịnga', 'dhdsgdhg@gmail.com', 1, 2, 'dggfgfdgdf', '454544'),
+(3, 'vinh123', '202cb962ac59075b964b07152d234b70', 'vanvinh', 'dhdsgdhg@gmail.com', 1, 3, 'áhdjhasjd', '65665'),
+(4, 'trieu123', '202cb962ac59075b964b07152d234b70', 'congtrieu', 'dhdsgdhg@gmail.com', 2, 4, 'dhjfhjxhf', '4464'),
+(5, 'phuoc123', '202cb962ac59075b964b07152d234b70', 'phuoc', 'dhdsgdhg@gmail.com', 1, 5, 'dfcmndszbxcmzxb', '464');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vaitro`
+--
+
+CREATE TABLE `vaitro` (
+  `loainguoidung` tinyint(11) NOT NULL,
+  `tennguoidung` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vaitro`
+--
+
+INSERT INTO `vaitro` (`loainguoidung`, `tennguoidung`) VALUES
+(1, 'admin'),
+(2, 'nhanvien'),
+(3, 'hậu cần'),
+(4, 'bếp'),
+(5, 'Khách hàng');
 
 --
 -- Indexes for dumped tables
@@ -367,7 +388,14 @@ ALTER TABLE `nhanvien`
 -- Indexes for table `taikhoannguoidung`
 --
 ALTER TABLE `taikhoannguoidung`
-  ADD PRIMARY KEY (`idNguoiDung`);
+  ADD PRIMARY KEY (`idNguoiDung`),
+  ADD UNIQUE KEY `loaiNguoiDung` (`loaiNguoiDung`);
+
+--
+-- Indexes for table `vaitro`
+--
+ALTER TABLE `vaitro`
+  ADD PRIMARY KEY (`loainguoidung`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -422,10 +450,10 @@ ALTER TABLE `nhanvien`
   MODIFY `maNV` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `taikhoannguoidung`
+-- AUTO_INCREMENT for table `vaitro`
 --
-ALTER TABLE `taikhoannguoidung`
-  MODIFY `idNguoiDung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `vaitro`
+  MODIFY `loainguoidung` tinyint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -442,6 +470,12 @@ ALTER TABLE `khachhang`
 --
 ALTER TABLE `nhanvien`
   ADD CONSTRAINT `nhanvien_ibfk_1` FOREIGN KEY (`maLoaiNV`) REFERENCES `loainhanvien` (`maLoaiNV`);
+
+--
+-- Constraints for table `taikhoannguoidung`
+--
+ALTER TABLE `taikhoannguoidung`
+  ADD CONSTRAINT `taikhoannguoidung_ibfk_1` FOREIGN KEY (`loaiNguoiDung`) REFERENCES `vaitro` (`loainguoidung`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

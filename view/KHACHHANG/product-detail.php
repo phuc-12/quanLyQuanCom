@@ -34,16 +34,16 @@
         <!-- Banner -->
         <div class="slideshow-container">
             <div class="mySlides fade">
-                <img src="../../IMG/banner1.jpg" style="width:100% height:800px">
+                <img src="../../IMG/banner1.jpg" style="width:100%; height:800px">
             </div>
             <div class="mySlides fade">
-                <img src="../../IMG/banner2.jpg" style="width:100% height:800px">
+                <img src="../../IMG/banner2.jpg" style="width:100%; height:800px">
             </div>
             <div class="mySlides fade">
-                <img src="../../IMG/banner3.jpg" style="width:100% height:800px">
+                <img src="../../IMG/banner3.jpg" style="width:100%; height:800px">
             </div>
             <div class="mySlides fade">
-                <img src="../../IMG/banner4.jpg" style="width:100% height:800px">
+                <img src="../../IMG/banner4.jpg" style="width:100%; height:800px">
             </div>
 
             <!-- Chấm điểm điều hướng (dots) -->
