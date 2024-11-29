@@ -11,8 +11,6 @@
 
         public function dongketnoi($con){
             mysqli_close($con);
-        }
-
-        
+        } 
     }
 ?>
