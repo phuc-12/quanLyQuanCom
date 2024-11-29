@@ -1,6 +1,6 @@
 <?php
 include ("../../model/chucnanghaucan.php");
-$p = new haucan();
+$p = new tmdt();
 ?>
 <!DOCTYPE html>
 <html lang="en">

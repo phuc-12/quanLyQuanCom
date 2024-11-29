@@ -1,6 +1,6 @@
 <?php
 include ("../../model/chucnangbep.php");
-$p = new bep();
+$p = new tmdt();
 ?>
 
 <!DOCTYPE html>
