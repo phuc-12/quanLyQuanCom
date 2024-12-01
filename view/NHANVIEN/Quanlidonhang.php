@@ -39,7 +39,7 @@
     <div class="container" style="width:100%;">
         <div class="content">
             <h2>Danh sách đơn hàng</h2>
-            <button class="button new-order">Tạo đơn mới</button>
+            <button class="button new-order"><a href="Themdonmoi.php">Tạo đơn mới</a></button>
 
             <?php
                 error_reporting(0);
@@ -62,7 +62,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Mã hóa đơn</th>
-                                <th>Khách hàng</th>
+                                
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -73,7 +73,7 @@
                         echo '<tr style="text-align: center">';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
-                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['hoTen'].'</a></td>';
+                        
                         
                         // echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
                         switch($r['trangThai'])

@@ -17,6 +17,7 @@ $sanphamList = $tmdt->layTatCaSanPham($maLoaiMA);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../js/dateTime.js" defer></script> 
     <script src="../../js/thongtin.js" defer></script> 
+    <script src="../../js/hoadon.js" defer></script> 
     <style>
         .header h1 {
             margin-top: -40px;
@@ -76,16 +77,14 @@ $sanphamList = $tmdt->layTatCaSanPham($maLoaiMA);
                             if (!empty($sanphamList)) {
                                 // Duyệt qua danh sách sản phẩm và hiển thị
                                 foreach ($sanphamList as $sanpham) {
-                                    echo "<tr>";
+                                    echo "<tr data-id='" . $sanpham['maMA'] . "'>";
                                     echo "<td>" . $sanpham['maMA'] . "</td>";
-                                    echo "<td>" . $sanpham['tenMA'] . "</td>";
-                                    echo "<td>" . $sanpham['donGia']. " VND</td>";  // Định dạng giá tiền
-                                    
-                                    // Ảnh sản phẩm, cần đường dẫn ảnh
+                                    echo "<td>" . $sanpham['tenMA'] . "</td>"; // Product name
+                                    echo "<td>" . $sanpham['donGia'] . " VND</td>"; // Price
                                     echo "<td><img src='" . $sanpham['hinhAnh'] . "' width='50' height='50'></td>";
-
-                                    // Nút thêm vào giỏ hàng (đặt hành động cho nút này, ví dụ là thêm sản phẩm vào giỏ hàng)
-                                    echo "<td class='add-btn'><button onclick='addToCart(" . $sanpham['maMA'] . ")'> + </button></td>";
+                                    echo "<td class='add-btn'>
+                                                <button onclick='addToCart(" . $sanpham['maMA'] . ")'> + </button>
+                                            </td>";
                                     echo "</tr>";
                                 }
                             } else {
@@ -107,15 +106,17 @@ $sanphamList = $tmdt->layTatCaSanPham($maLoaiMA);
                             <label for="invoice-code">Mã hóa đơn</label>
                             <input id="invoice-code" type="text" value="1" readonly>
 
-                            <label for="customer-phone">Số điện thoại</label>
+                            <!-- <label for="customer-phone">Số điện thoại</label>
                             <input id="customer-phone" type="text">
+                            <button id="search-button" onclick="searchDiscount()">🔍</button> -->
+                            
                         </div>
                         <div class="invoice-field">
-                            <label for="promotion">Nhân viên</label>
-                            <input id="promotion" type="text">
-
-                            <label for="employee">Khuyến mãi</label>
+                            <label for="employee">Nhân viên</label>
                             <input id="employee" type="text">
+
+                            <!-- <label for="">Khuyến mãi</label>
+                            <input id="employee" type="text"> -->
                         </div>
                     </div>
                     <div class="table-container">
@@ -130,50 +131,8 @@ $sanphamList = $tmdt->layTatCaSanPham($maLoaiMA);
                                         <th>Bỏ</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>cơm tấm</td>
-                                        <td>1</td>
-                                        <td>20,000</td>
-                                        <td class="huy-btn"><button> - </button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>coca</td>
-                                        <td>1</td>
-                                        <td>20,000</td>
-                                        <td class="huy-btn"><button> - </button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>cơm sườn</td>
-                                        <td>1</td>
-                                        <td>20,000</td>
-                                        <td class="huy-btn"><button> - </button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>cơm sườn</td>
-                                        <td>1</td>
-                                        <td>20,000</td>
-                                        <td class="huy-btn"><button> - </button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>cơm sườn</td>
-                                        <td>1</td>
-                                        <td>20,000</td>
-                                        <td class="huy-btn"><button> - </button></td> 
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>cơm sườn</td>
-                                        <td>1</td>
-                                        <td>20,000</td>
-                                        <td class="huy-btn"><button> - </button></td> 
-                                    </tr>
-    
+                                <tbody id="invoiceBody">
+                                    
                                 </tbody>
                             </table>
                         </div>

@@ -48,9 +48,9 @@
         $laysohd = $p->laycot("SELECT maHD FROM hoadon WHERE maHD = '$layid' LIMIT 1");
         $laytennv=$p->laycot("select n.hoTen from nhanvien n join chitiethoadon t on n.maNV = t.maNV where maHD = '$layid' limit 1");
         $laytrangthai = $p->laycot("SELECT trangThai FROM hoadon WHERE maHD = '$layid' LIMIT 1");
-        $laytenkh=$p->laycot("select n.hoTen from khachhang n join chitiethoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
+        // $laytenkh=$p->laycot("select n.hoTen from khachhang n join chitiethoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
         $layngaythang = $p->laycot("SELECT ngayThang FROM hoadon WHERE maHD = '$layid' LIMIT 1");
-        $laymaloaikh=$p->laycot("select n.maLoaiKH from khachhang n join hoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
+        // $laymaloaikh=$p->laycot("select n.maLoaiKH from khachhang n join hoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
 
     ?>
 <div class="container-fluid p-0">
@@ -90,7 +90,7 @@
                                     break;
                                 }
                         } ?></p>
-                <p>Thông tin khách hàng: <?php echo" $laytenkh"; ?></p>
+                <!-- <p>Thông tin khách hàng: <?php echo" $laytenkh"; ?></p> -->
                
             </div>
 
@@ -128,30 +128,30 @@
             
                         $stt++;
                     }
-                            $chietKhau = 0;
-                            switch ($laymaloaikh) {
-                                case 1:
-                                    $chietKhau = 0.10; // 10% chiết khấu
-                                    break;
-                                case 2:
-                                    $chietKhau = 0.20; // 20% chiết khấu
-                                    break;
-                                case 3:
-                                    $chietKhau = 0.30; // 30% chiết khấu
-                                    break;
-                                default:
-                                    $chietKhau = 0; // Không có chiết khấu nếu không thuộc loại khách hàng hợp lệ
-                            }
-                            $tienChietKhau = $tongTien * $chietKhau; // Tổng tiền cần tính chiết khấu
-                            $tongTienSauCK = $tongTien - $tienChietKhau; 
+                            // $chietKhau = 0;
+                            // switch ($laymaloaikh) {
+                            //     case 1:
+                            //         $chietKhau = 0.10; // 10% chiết khấu
+                            //         break;
+                            //     case 2:
+                            //         $chietKhau = 0.20; // 20% chiết khấu
+                            //         break;
+                            //     case 3:
+                            //         $chietKhau = 0.30; // 30% chiết khấu
+                            //         break;
+                            //     default:
+                            //         $chietKhau = 0; // Không có chiết khấu nếu không thuộc loại khách hàng hợp lệ
+                            // }
+                            // $tienChietKhau = $tongTien * $chietKhau; // Tổng tiền cần tính chiết khấu
+                            // $tongTienSauCK = $tongTien - $tienChietKhau; 
                     ?>
                 </tbody>
             </table>
 
             <div class="summary">
                 <p><strong>Tổng cộng:</strong> <?= number_format($tongTien, 0, ',', '.') ?> VNĐ</p>
-                <p><strong>Chiết khấu:</strong> <?= number_format($tienChietKhau, 0, ',', '.') ?> VNĐ</p>
-                <p><strong>Thanh toán:</strong> <?= number_format($tongTienSauCK, 0, ',', '.') ?> VNĐ</p> 
+                <!-- <p><strong>Chiết khấu:</strong> <?= number_format($tienChietKhau, 0, ',', '.') ?> VNĐ</p>
+                <p><strong>Thanh toán:</strong> <?= number_format($tongTienSauCK, 0, ',', '.') ?> VNĐ</p>  -->
             </div>
         </div>
     </div>
