@@ -3,6 +3,18 @@ include_once("../../model/chucnangnhanvien.php");
 $tmdt = new tmdt();
 $maLoaiMA = isset($_GET['product-group']) ? $_GET['product-group'] : null;
 $sanphamList = $tmdt->layTatCaSanPham($maLoaiMA);
+$conn = $tmdt->connect();
+// Truy vấn lấy mã hóa đơn lớn nhất hiện tại
+$query = "SELECT MAX(maHD) as maxMaHoaDon FROM hoadon";
+$result = $conn->query($query);
+
+$newInvoiceCode = 1; // Giá trị mặc định nếu không có hóa đơn nào trong cơ sở dữ liệu
+if ($result && $row = $result->fetch_assoc()) {
+    $maxMaHoaDon = $row['maxMaHoaDon'];
+    $newInvoiceCode = $maxMaHoaDon + 1; // Tăng mã hóa đơn lên 1
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +116,7 @@ $sanphamList = $tmdt->layTatCaSanPham($maLoaiMA);
                         <h2>HÓA ĐƠN</h2>
                         <div class="invoice-field">
                             <label for="invoice-code">Mã hóa đơn</label>
-                            <input id="invoice-code" type="text" value="1" readonly>
+                            <input id="invoice-code" type="text" value="<?php echo $newInvoiceCode; ?>" readonly>
 
                             <!-- <label for="customer-phone">Số điện thoại</label>
                             <input id="customer-phone" type="text">
@@ -128,6 +140,7 @@ $sanphamList = $tmdt->layTatCaSanPham($maLoaiMA);
                                         <th>Tên Sản Phẩm</th>
                                         <th>Số lượng</th>
                                         <th>Thành tiền</th>
+                                        <th>Khuyến mãi</th>
                                         <th>Bỏ</th>
                                     </tr>
                                 </thead>
