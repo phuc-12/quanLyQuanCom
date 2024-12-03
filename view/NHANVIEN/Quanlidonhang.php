@@ -97,9 +97,10 @@
 
                         echo '<td>
                             <button class="button view"><a href="Chitietdonhang.php?id='.$r['maHD'].'">Xem</a></button>
-                            <button class="button update">Cập nhật</button>';
+                            ';
                             if($r['trangThai'] == 0)
                             {
+                                echo'<button class="button update">Cập nhật</button>';
                                 echo '<button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> ';
                             }
                         echo '</td>';

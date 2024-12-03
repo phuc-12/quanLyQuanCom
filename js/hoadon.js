@@ -86,6 +86,7 @@ function renderInvoiceTable() {
     });
 
     document.getElementById('total').textContent = `Tổng cộng: ${total.toFixed(2)} VND`;
+    
 }
 
 
@@ -129,12 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // Hàm hủy hóa đơn và quay lại trang quản lý đơn hàng
 function cancelInvoice() {
-    // Xóa giỏ hàng khỏi localStorage
-    localStorage.removeItem('invoiceItems');
-    
-    // Quay lại trang quản lý đơn hàng
-    window.location.href = "quanlidonhang.php"; // Điều hướng về trang quản lý đơn hàng
+    if (confirm('Bạn có chắc chắn muốn hủy hóa đơn này không?')) {
+        localStorage.removeItem('invoiceItems');
+        window.location.href = "quanlidonhang.php";
+    }
 }
 
 // Thêm sự kiện cho nút "Hủy"
 document.querySelector('.actions button:nth-child(2)').addEventListener('click', cancelInvoice);
+////////
