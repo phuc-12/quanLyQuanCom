@@ -117,11 +117,9 @@ if ($result && $row = $result->fetch_assoc()) {
                         <div class="invoice-field">
                             <label for="invoice-code">Mã hóa đơn</label>
                             <input id="invoice-code" type="text" value="<?php echo $newInvoiceCode; ?>" readonly>
-
                             <!-- <label for="customer-phone">Số điện thoại</label>
                             <input id="customer-phone" type="text">
-                            <button id="search-button" onclick="searchDiscount()">🔍</button> -->
-                            
+                            <button id="search-button" onclick="searchDiscount()">🔍</button> -->         
                         </div>
                         <div class="invoice-field">
                             <label for="employee">Nhân viên</label>
