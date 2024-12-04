@@ -4,7 +4,7 @@
         public function select01NguoiDung($user,$pw){
             $p = new clsKetNoi();
             $con = $p -> moKetNoi();
-            $sql = "SELECT * FROM nguoidung where TenNguoiDung='$user' and MatKhau = '$pw'";
+            $sql = "select * from taikhoannguoidung where username = '$user' and password = '$pw'";
             $kq = mysqli_query($con,$sql);
             $p -> dongKetNoi($con);
             return $kq;
@@ -12,16 +12,16 @@
         public function selectAllNguoiDung(){
             $p = new clsKetNoi();
             $con = $p -> moKetNoi();
-            $sql = "SELECT * FROM nguoidung n join phanquyen p on n.id_quyen=p.id_quyen";
+            $sql = "SELECT * FROM taikhoannguoidung n join vaitro p on n.loainguoidung=p.loainguoidung";
             $kq = mysqli_query($con,$sql);
             $p -> dongKetNoi($con);
             return $kq;
         }
-        public function insertND($tenND, $mk, $hoTen, $diaChi, $sdt, $email, $role)
+        public function insertND($user, $pw, $hoTen, $email, $trangthai, $loainguoidung, $dc, $sdt)
         {
             $p=new clsKetNoi();
             $con = $p->moKetNoi();
-            $truyvan="INSERT INTO nguoidung(TenNguoiDung,MatKhau,HoTen,DiaChi,SoDienThoai,id_quyen) VALUES('$tenND', '$mk', '$hoTen', '$diaChi', '$sdt','$email', '$role')";
+            $truyvan="INSERT INTO taikhoannguoidung(username,password,hoTen,email,trangThai,loaiNguoiDung,diaChi,SDT) VALUES('$user', '$pw', '$hoTen', '$email', '$trangthai', '$loainguoidung', '$dc', '$sdt')";
             $kq=mysqli_query($con,$truyvan);
             $p->dongKetNoi($con);
             return $kq;
