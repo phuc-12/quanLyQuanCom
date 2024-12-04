@@ -117,7 +117,7 @@
 
                 <div id="ds_food">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
-                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH THỰC ĐƠN</b></p> 
+                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH NHÂN VIÊN</b></p> 
                     </div>
                     <div style="width: 100%; clear: both; height: 60px; background-color: white;">
                                 <nav class="navbar navbar-expand-sm bg-white navbar-white p-0" style="width: 50%; float: left; height: 60px;">
