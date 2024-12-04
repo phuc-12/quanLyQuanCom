@@ -29,6 +29,7 @@ $diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhan
 $laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
 $laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
 $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'");
+$layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
@@ -110,9 +111,13 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'"
                                                         echo "Chưa giao";
                                                     } else if($laytrangThaiGH ==1) {
                                                         echo "Đang giao";
-                                                    }else{
+                                                    }else if($laytrangThaiGH ==2) {
                                                         echo "Đã hoàn thành";
+                                                    }else{
+                                                        echo "Đơn hàng đã hủy";
                                                     }?>">
+                <label for="soluong">Hình ảnh giao hàng</label>
+                <img src="../../img/giaohang/<?php echo "$layimgGHTC" ?>" alt="" style="width:350px">
         </div>
     </div>
 

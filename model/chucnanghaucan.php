@@ -86,8 +86,10 @@ class tmdt{
 					$trangThaiGHText = "Chưa giao";
 				} else if($trangThaiGH == 1) {
 					$trangThaiGHText = "Đang giao";
-				}else {
+				}else if($trangThaiGH == 2) {
 					$trangThaiGHText = "Đã hoàn thành";
+				}else {
+					$trangThaiGHText = "Đơn hàng đã hủy";
 				}
 		
                 echo '<tbody>
