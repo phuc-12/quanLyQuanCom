@@ -106,12 +106,12 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'"
                                                                                     }?>">
 
             <!-- <div class="sub-button"> -->
-                <button type="submit" class="cancel-button-1" onclick="return confirmDelete()">Hủy đơn hàng</button>
+                <button type="submit" class="cancel-button-1" name="nut" id="nut" value="Huy don hang" onclick="return confirmDelete()">Hủy đơn hàng</button>
                 <script>
-                        function confirmDelete() {
-                            return confirm("Bạn có chắc chắn muốn Hủy đơn hàng này không?");
-                        }
-                    </script>
+                    function confirmDelete() {
+                        return confirm("Bạn có chắc chắn muốn Hủy đơn hàng này không?");
+                    }
+                </script>
             <!-- </div> -->
                 <button type="submit" class="prepare-button" name="nut" id="nut" value="Giao hàng">Giao hàng</button>
                 <?php 
@@ -128,34 +128,24 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'"
                                 </script>';
                             }
                         }
+
+                        case 'Huy don hang':
+                        {
+                            if($p->themxoasua("UPDATE `db_chipheo`.`hoadon` SET `trangThaiGH` = '3' WHERE `hoadon`.`maHD` ='$layid' ;")==1){
+                                echo '<script language="javascript">alert("Hủy đơn hàng thành công");
+                                                                    window.location = "haucan_danhsachdonhang.php";</script>
+                                        </script>';
+
+                            }else{
+                                echo '<script language="javascript">alert("Hủy đơn hàng không thành công. Vui lòng thử lại!");
+                                window.location = "haucan_giaohang.php?id='.$layid.'";
+                                </script>';
+                            }
+                        }
                     }
                 ?>
             </form>
         </div>
     </div>
-
-    <!-- Thông Báo Hủy Đơn Hàng -->
-    <!-- <div class="popup" id="cancelPopup">
-        <div class="popup-content">
-            <h3>HỦY ĐƠN HÀNG</h3>
-            <form class="form">
-                <label for="tinhtrang">Tình trạng:</label>
-                <select id="tinhtrang" name="tinhtrang" style="padding:10px; margin-left:30px;width:250px;">
-                    <option value="available">Khách không còn nhu cầu</option>
-                </select>
-                <div class="popup-buttons">
-                    <button class="back-button-huy">Hủy</button>
-                    <button class="confirm-button">Xác nhận Hủy</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function openCancelPopup() {
-            document.getElementById("cancelPopup").style.display = "flex";
-        }
-    </script> -->
-    
 </body>
  
