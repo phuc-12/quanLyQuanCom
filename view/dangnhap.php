@@ -54,6 +54,13 @@
                     </tr>
                     <tr>
                         <td>
+                            <button type="reset" class="submit-btn">Nhập lại</button>
+                            <button type="submit" class="submit-btn" name="btn_DangNhap">Đăng Nhập</button>
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <a href="dangky.php">Đăng ký tài khoản</a>
                         </td>
                     </tr>
@@ -62,6 +69,7 @@
             </div>
             
         </div>
+        <!-- Footer -->
         <!-- Footer -->
         <footer class="footer">
             <div class="contain1">
