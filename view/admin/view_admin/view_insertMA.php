@@ -199,7 +199,7 @@
                                         {
                                             if($p->uploadfile($name,$tmp_name,"quanLyQuanCom/img/$thucDon",$maMA,$maLoaiMA))
                                             {	
-                                                $conn = new mysqli('localhost','trieu','123','db_chipheo');
+                                                $conn = new mysqli('localhost','root','','db_chipheo');
                                                 if ($conn->connect_error) {
                                                     die("Connection failed: " . $conn->connect_error);
                                                 }
