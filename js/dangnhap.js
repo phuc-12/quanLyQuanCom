@@ -1,23 +1,23 @@
 $(document).ready(function(){
-    function ktSDT () {
-        let sdt = $("#txtSDT").val();
-        let btcq = /^(03|09|08|07)[0-9]{8}$/;
-        if (sdt == "") {
-            $("#errSDT").html("Số điện thoại không được trống");
+    function ktTDN () {
+        let TDN = $("#txtTND").val();
+        let btcq = /^[a-zA-Z0-9]{6,}$/;
+        if (TDN == "") {
+            $("#errTDN").html("Tài Khoản không được trống");
             return false;
-        } else if (btcq.test(sdt)) {
+        } else if (btcq.test(TDN)) {
             return true;
         } else {
-            $("#errSDT").html("Số điện thoại không tồn tại!");
+            $("#errTDN").html("Tài khoản tồn tại không tồn tại!");
             return false;
         }
     }
-    $("#txtSDT").blur(function(e){
-        ktSDT();
+    $("#txtTDN").blur(function(e){
+        ktTDN();
     });
 
     function ktpw() {
-        let pw = $("#txtPW").val();
+        let pw = $("#txtMK").val();
         if(pw == "") {
             $("#errPW").html("Chưa nhập mật khẩu!");
             return false;
@@ -25,25 +25,24 @@ $(document).ready(function(){
             return true;
         } 
     }
-    $("#txtPW").blur(function(){
+    $("#txtMK").blur(function(){
         ktpw();
     });
 });
 
 function login() {
-    var sdtDK = localStorage.getItem('soDienThoai');
+    var TKDK = localStorage.getItem('username');
     var pwDK = localStorage.getItem('pw');
 
-    var sdtDN = document.getElementById('txtSDTDN').value;
+    var TKDN = document.getElementById('txtTKDN').value;
     var pwDN = document.getElementById('txtPWDN').value;
 
     // Kiểm tra thông tin đăng nhập
-    if (sdtDN === sdtDK && pwDN === pwDK) {
+    if (TKDN === TKDK && pwDN === pwDK) {
         alert("Đăng nhập thành công!");
-        window.location.href = "home.html";
         return false;
     } else {
-        alert("Tên người dùng hoặc mật khẩu không đúng.");
+        alert("Tài khoản người dùng hoặc mật khẩu không đúng.");
         return false;
     }
 }
