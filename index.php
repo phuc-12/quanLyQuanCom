@@ -113,251 +113,45 @@
             </div>
         </div>
         <!-- Menu Section -->
-        <!-- Món chay  -->
-        <h1 class="section-title">CÁC MÓN BÁN CHẠY TẠI QUÁN</h1>
-        <div class="menu">
-            <h2 class="section-title">MÓN CHAY</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <a href="food-detail.php">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/bokhochay.jpg" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Bò kho chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/suonnonchiengion.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Sườn non chiên giòn</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/heoquaychay.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Heo quay chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/goiduduchay.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Gỏi đu đủ chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/dauhukhochay.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Đậu hũ kho chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </div>
         <!-- Món mặn  -->
+        <h1 class="section-title">CÁC MÓN BÁN CHẠY TẠI QUÁN</h1>
         <div class="menu">
             <h2 class="section-title">MÓN MẶN</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monman/comchien.jpg" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Cơm chiên</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monman/thitkho.jpg" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Thịt kho</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monman/boxaoxaot.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Bò xào xã ớt</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monman/cabasakho.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Cá ba sa kho</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monman/trungcuonthitbam.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Trứng cuộn thịt bò</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
+                <?php
+                    error_reporting(0);
+                    include("view/view_trangchu/view_monMan.php");
+                ?>
+            </div>
+        </div>
+        <!-- Món chạy  -->
+        <div class="menu">
+            <h2 class="section-title">MÓN CHAY</h2>
+            <div class="menu-grid">
+                <?php
+                    error_reporting(0);
+                    include("view/view_trangchu/view_monChay.php");
+                ?>
             </div>
         </div>
         <!-- Tráng miệng  -->
         <div class="menu">
-            <h2 class="section-title">TRÁNG MIỆNG</h2>
+            <h2 class="section-title">MÓN TRÁNG MIỆN</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/trangmieng/banhchuoihap.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Bánh chuối hấp</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/trangmieng/chevaihatsen.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Chè vải hạt sen</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/trangmieng/raucauduatruyenthong.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Rau câu dừa</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/trangmieng/suachuatraicay.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Sữa chua trái cây</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/trangmieng/yogurtoreo.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Yogurt oreo</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-
+                <?php
+                    error_reporting(0);
+                    include("view/view_trangchu/view_monTrangMieng.php");
+                ?>
             </div>
         </div>
         <!-- Nước giải khát -->
         <div class="menu">
             <h2 class="section-title">NƯỚC GIẢI KHÁT</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/douong/sting.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Sting</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/douong/cameptuoi.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Nước cam ép</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/douong/dualanh.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Dừa lạnh</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/douong/eptao.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Nước ép táo</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/douong/dendakhongduong.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Cafe đá</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
+                <?php
+                    error_reporting(0);
+                    include("view/view_trangchu/view_DoUong.php");
+                ?>
             </div>
         </div>
         <!--Menu Section -->
