@@ -83,7 +83,7 @@ $p = new tmdt();
                     <!-- </tbody>
                 </table> -->
                 <?php
-                    $p->xemdanhsachhoadon("select * from chitiethoadon group by maHD ");
+                    $p->xemdanhsachhoadon("select * from hoadon group by maHD ");
                 ?>
             </div>
         </div>

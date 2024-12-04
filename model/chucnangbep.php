@@ -121,11 +121,6 @@ class tmdt{
 				if($idchon==$donViTinh){
 					echo '<option value="'.$donViTinh.'" >'.$donViTinh.'</option>';
 				}
-				// if ($donViTinh == 0) {
-				// 	echo "Hết NVL";
-				// } else {
-				// 	echo "Còn hàng";
-				// }
 				else{
 					echo '<option value="'.$donViTinh.'">'.$donViTinh.'</option>';
 				}
@@ -161,16 +156,20 @@ class tmdt{
 			$dem=1;
 			while($row=mysql_fetch_array($ketqua))
 			{
-				$maHD=$row['maHD'];	
-				$tenMA=$row['tenMA'];
-				$ngayNhapDon=$row['ngayNhapDon'];
+				$maHD=$row['maHD'];
+				// $maMA=$this->laycot("select maMA from chitiethoadon");
+				$tenMA=$this->laycot("SELECT ma.tenMA
+										FROM hoadon hd
+										JOIN chitiethoadon cthd ON hd.maHD = cthd.maHD
+										JOIN monan ma ON cthd.maMA = ma.maMA where hd.maHD=$maHD ");
+				$ngayThang=$row['ngayThang'];
                 echo '<tbody>
                         <tr>
                             <td>'.$dem.'</td>
                             <td>'.$maHD.'</td>
-                            <td>'.$ngayNhapDon.' </td>
-                            <td>'.$tenMA.',..</td>
-                            <td>
+                            <td>'.$ngayThang.' </td>
+							<td>'.$tenMA.'</td>
+							<td>
                                 <button class="view-button"><a href="bep_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>
 								</td>
                         </tr>';
@@ -197,7 +196,10 @@ class tmdt{
 			$dem=1;
 			while($row=mysql_fetch_array($ketqua))
 			{
-				$tenMA=$row['tenMA'];	
+				$maMA=$row['maMA'];
+				$tenMA=$this->laycot("SELECT ma.tenMA
+										FROM chitiethoadon cthd
+										JOIN monan ma ON cthd.maMA = ma.maMA where cthd.maMA=".$maMA."");
 				$soLuong=$row['soLuong'];
                 echo '<div class="food-item">
                         <div class="soluong">'.$tenMA.' x'.$soLuong.'</div>

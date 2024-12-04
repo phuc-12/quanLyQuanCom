@@ -55,7 +55,7 @@ $p = new tmdt();
                            <div class="soluong">
                                 <p>
                                 <?php
-                                    $tonghoadon=$p->laycot("SELECT COUNT( DISTINCT maHD )FROM chitiethoadon");
+                                    $tonghoadon=$p->laycot("SELECT COUNT( DISTINCT maHD )FROM hoadon");
                                     echo $tonghoadon;
                                 ?>
                                 </p>

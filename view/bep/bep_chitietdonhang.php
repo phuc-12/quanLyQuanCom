@@ -18,7 +18,7 @@ $p = new tmdt();
 <body>
 <?php
 $layid=$_REQUEST['id'];
-$layngayNhapDon=$p->laycot("select ngayNhapDon from chitiethoadon where maHD='$layid'");
+$layngayNhapDon=$p->laycot("select ngayThang from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
@@ -74,7 +74,7 @@ $layngayNhapDon=$p->laycot("select ngayNhapDon from chitiethoadon where maHD='$l
                     <?php 
                         $p->xemdanhsachmonan_chitiethoadon("select * from chitiethoadon where maHD='$layid'")
                     ?>
-                <button type="submit" class="add-button-1" name="nut" id="nut" value="Thêm sản phẩm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa sản phẩm này không?\')>THÊM</button> 
+                <!-- <button type="submit" class="add-button-1" name="nut" id="nut" value="Thêm sản phẩm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa sản phẩm này không?\')>THÊM</button>  -->
                 </div>  
             </div>
         </div>
