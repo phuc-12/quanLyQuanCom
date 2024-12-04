@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/dangnhap.js" defer></script> 
     <title>Trang Đăng Nhập</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
         <div class="contactv1">
             <div class="contact-formv1">
                 <h2 class="form-title">ĐĂNG NHẬP</h2>
-                <form>
+                <form action="" method="POST">
                     <div class="form-group">
                         <label>UserName:</label>
                         <input type="text" name="txtTND">
@@ -45,9 +46,10 @@
                         <input type="password" name="txtMK">
                     </div>
                     <tr>
-                        <td colspan="2" class="button-row">
-                            <input type="reset" name="reset" value="Nhập lại">
-                            <input type="submit" name="btn_DangNhap" value="Đăng nhập">
+                        <td>
+                            <button type="reset" class="submit-btn">Nhập lại</button>
+                            <button type="submit" class="submit-btn" name="btn_DangNhap">Đăng Nhập</button>
+                        
                         </td>
                     </tr>
                     <tr>
@@ -108,10 +110,14 @@
 </body>
 </html>
 <?php
-    if(isset($_POST['btn_DangNhap'])){
-        include_once('controller/cNguoiDung.php');
+    if(isset($_POST["btn_DangNhap"])){
+        $tdn = $_POST["txtTND"];
+        $mk = $_POST["txtMK"];
+        include_once("../controler/cNguoiDung.php");
         $p = new cNguoiDung();
         $con = $p -> get01NguoiDung($_REQUEST['txtTND'],$_REQUEST['txtMK']);
-    }
 
+        //$con = $p->get01NguoiDung($tdn, $mk);
+
+    }
 ?>
