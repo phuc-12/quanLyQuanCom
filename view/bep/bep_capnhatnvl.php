@@ -114,7 +114,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                     
                             // Kiểm tra số lượng
                             if ($soluong == 0) {
-                                $sql = "UPDATE `quancomchipheo`.`nguyenlieu` 
+                                $sql = "UPDATE `db_chipheo`.`nguyenlieu` 
                                           SET `slTon` = '$soluong', 
                                               `ngayNhap` = '$ngayNhap', 
                                               `ngayHetHan` = '$ngayHetHan', 
@@ -123,13 +123,12 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                                           WHERE `nguyenlieu`.`maNVL` = '$layid' 
                                           LIMIT 1;";
                             } else {
-                                $sql = "UPDATE `quancomchipheo`.`nguyenlieu` 
-                                          SET `slTon` = '$soluong', 
-                                              `ngayNhap` = '$ngayNhap', 
-                                              `ngayHetHan` = '$ngayHetHan', 
-                                              `moTa` = '$mota'
-                                          WHERE `nguyenlieu`.`maNVL` = '$layid' 
-                                          LIMIT 1;";
+                                $sql = "UPDATE `db_chipheo`.`nguyenlieu` SET 
+                                        `slTon` = '$soluong',
+                                        `moTa` = '$mota',
+                                        `trangThai` = '1',
+                                        `ngayNhap` = '$ngayNhap',
+                                        `ngayHetHan` = '$ngayHetHan' WHERE `nguyenlieu`.`maNVL` = '$layid' LIMIT 1 ;";
                             }
                     
                             // Thực hiện truy vấn

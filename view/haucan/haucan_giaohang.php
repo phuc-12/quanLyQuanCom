@@ -18,16 +18,17 @@ $p = new tmdt();
 <?php
 $layid=$_REQUEST['id'];
 $laymaMA= $p->laycot("select maMA from chitiethoadon where maHD='$layid'");
-$maKH=$p->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$layid' LIMIT 1");
+$maKH=$p->laycot("SELECT maKH FROM hoadon WHERE maHD='$layid' LIMIT 1");
 $layhoTen= $p->laycot("select hoTen from khachhang where maKH=  '$maKH'");
-$sodienthoai=$p->laycot("select t.SDT FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                        WHERE c.maKH = '$maKH';");
-$diachi=$p->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                        WHERE c.maKH = '$maKH';");
-$laytongtien=$p->laycot("SELECT SUM( soLuong * donGia )FROM chitiethoadon WHERE maHD = '$layid' GROUP BY maHD;");
-$laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$layid'");
+$sodienthoai=$p->laycot("select tknd.SDT FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+$diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+$laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
+$laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
+$laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
@@ -116,8 +117,7 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
                 <?php 
                     switch($_POST['nut']){
                         case 'Giao hàng':{ 
-                            if($p->themxoasua("UPDATE `quancomchipheo`.`chitiethoadon` SET `trangThaiGH` = '1'
-                                          WHERE `chitiethoadon`.`maHD` = '$layid';")==1){
+                            if($p->themxoasua("UPDATE `db_chipheo`.`hoadon` SET `trangThaiGH` = '1' WHERE `hoadon`.`maHD` ='$layid' ;")==1){
                                 echo '<script language="javascript">alert("Chuyển sang trạng thái Đang giao hàng");
                                                                     window.location = "haucan_hoantatgiaohang.php?id='.$layid.'";</script>
                                         </script>';

@@ -68,7 +68,7 @@ $p = new tmdt();
                         if($_POST['submit']=="Tìm kiếm"){
                             $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu where tenNVL like '%$tentim%'");
                         }else{
-                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by maNVL");
+                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by trangThai");
                         }
                     ?>
                 </div>

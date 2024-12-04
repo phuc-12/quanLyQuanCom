@@ -73,12 +73,12 @@ class tmdt{
 			while($row=mysql_fetch_array($ketqua))
 			{
 				$maHD=$row['maHD'];	
-                $maKH=$this->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$maHD' LIMIT 1");
+                $maKH=$row['maKH'];
                 $hoTen=$this->laycot("select hoTen from khachhang where maKH='$maKH'");
-                $diachi=$this->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                                        WHERE c.maKH = '$maKH';");
-                $ngayNhapDon=$row['ngayNhapDon'];	
+                $diachi=$this->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+                $ngayThang=$row['ngayThang'];	
                 $trangThaiDH=$row['trangThaiDH'];
                 $trangThaiGH=$row['trangThaiGH'];
                 
@@ -96,7 +96,7 @@ class tmdt{
                             <td>'.$maHD.'</td>
                             <td>'.$hoTen.'</td>
                             <td>'.$diachi.'</td>
-                            <td>'.$ngayNhapDon.'</td>
+                            <td>'.$ngayThang.'</td>
                             <td>'.$trangThaiGHText.'</td>
                             <td>
                                 <button class="view-button"><a href="haucan_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>';
@@ -132,11 +132,11 @@ class tmdt{
 			$dem=1;
 			while($row=mysql_fetch_array($ketqua))
 			{
-				// $maHD=$row['maHD'];	
+				$maHD=$row['maHD'];	
                 $maMA=$row['maMA'];
-                $tenMA=$row['tenMA'];
-                $soLuong=$row['soLuong'];
-                $donGia=$row['donGia'];
+                $tenMA=$this->laycot("select tenMA from monan where maMA=$maMA");
+                $soLuong=$this->laycot("select soLuong from chitiethoadon where maMA=$maMA");
+                $donGia=$this->laycot("select donGia from monan where maMA=$maMA");
                 $tongtienmon= $soLuong * $donGia;
                 // $soLuong= $this->laycot("select soLuong from chitiethoadon where maHD='$maHD'");
                 // $donGia= $this->laycot("select donGia from chitiethoadon where maMA='$maMA'");
@@ -144,7 +144,7 @@ class tmdt{
 		
                 echo '<div class="food-item">
                         <div class="soluong">'.$tenMA.' x'.$soLuong.'</div>
-                        <div class="gia">'.$tongtienmon.'đ</div>  
+                        <div class="gia">'.$tongtienmon.'.000đ</div>  
                     </div>';
 				
 			}

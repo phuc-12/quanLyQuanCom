@@ -116,7 +116,7 @@ $p = new tmdt();
                         $mota = $_REQUEST['txtmota'];
                         $tenNVLdb=$p->laycot("select tenNVL from nguyenlieu where tenNVL='$tenNVL'");
                         
-                        if($p->themxoasua("INSERT INTO `quancomchipheo`.`nguyenlieu` (`tenNVL`, `slTon`, `donViTinh`, `moTa`, `trangThai`, `ngaynhap`, `ngayhethan`)
+                        if($p->themxoasua("INSERT INTO `db_chipheo`.`nguyenlieu` (`tenNVL`, `slTon`, `donViTinh`, `moTa`, `trangThai`, `ngaynhap`, `ngayhethan`)
         VALUES ('$tenNVL', '$soluong', '$donvitinh', '$mota', '1', '$ngaynhap', '$ngayhethan')")==1){
                             echo '<script language="javascript">alert("Thêm nguyên vật liệu thành công");</script>';
                         }else{
