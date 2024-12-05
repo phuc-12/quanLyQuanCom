@@ -77,18 +77,6 @@ $layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
 
                 <label>Danh sách món ăn:</label>
                 <div class="food-list">
-                    <!-- <div class="food-item">
-                        <div class="soluong"></div>
-                        <div class="gia"></div>  
-                    </div> -->
-                    <!-- <div class="food-item">
-                        <div class="soluong">Bún thêm x1 </div>
-                        <div class="gia">đ 30.000 </div>  
-                    </div>
-                    <div class="food-item">
-                        <div class="soluong">Nước ngọt x2 </div>
-                        <div class="gia">đ 25.000 </div>  
-                    </div>                  -->
                     <?php
                         $p->xemchitietmonan_donhang("SELECT *
                                                             FROM chitiethoadon

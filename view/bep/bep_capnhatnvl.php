@@ -114,7 +114,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                     
                             // Kiểm tra số lượng
                             if ($soluong == 0) {
-                                $sql = "UPDATE `db_chipheo`.`nguyenlieu` 
+                                $sqlnguyenlieu = "UPDATE `db_chipheo`.`nguyenlieu` 
                                           SET `slTon` = '$soluong', 
                                               `ngayNhap` = '$ngayNhap', 
                                               `ngayHetHan` = '$ngayHetHan', 
@@ -122,17 +122,35 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                                               `trangThai` = '0'
                                           WHERE `nguyenlieu`.`maNVL` = '$layid' 
                                           LIMIT 1;";
+                                $sqlmonan= "UPDATE monan
+                                            SET trangthai = 0
+                                            WHERE maMA IN (
+                                                SELECT maMA
+                                                FROM congthuc tg
+                                                JOIN nguyenlieu nl ON tg.maNVL = nl.maNVL
+                                                GROUP BY maMA
+                                                HAVING SUM(nl.slTon > 0) < COUNT(tg.maNVL)
+                                            );";
                             } else {
-                                $sql = "UPDATE `db_chipheo`.`nguyenlieu` SET 
+                                $sqlnguyenlieu = "UPDATE `db_chipheo`.`nguyenlieu` SET 
                                         `slTon` = '$soluong',
                                         `moTa` = '$mota',
                                         `trangThai` = '1',
                                         `ngayNhap` = '$ngayNhap',
                                         `ngayHetHan` = '$ngayHetHan' WHERE `nguyenlieu`.`maNVL` = '$layid' LIMIT 1 ;";
+                                 $sqlmonan= "UPDATE monan
+                                            SET trangthai = 1
+                                            WHERE maMA NOT IN (
+                                                SELECT maMA
+                                                FROM congthuc tg
+                                                JOIN nguyenlieu nl ON tg.maNVL = nl.maNVL
+                                                GROUP BY maMA
+                                                HAVING SUM(nl.slTon > 0) < COUNT(tg.maNVL)
+                                            );";
                             }
                     
                             // Thực hiện truy vấn
-                            if ($p->themxoasua($sql) == 1) {
+                            if ($p->themxoasua($sqlnguyenlieu) == 1 && $p->themxoasua($sqlmonan) == 1) {
                                 echo '<script language="javascript">alert("Cập nhật nguyên vật liệu thành công");</script>';
                                 echo '<script language="javascript">
                                         window.location="bep_qlynvl.php";
