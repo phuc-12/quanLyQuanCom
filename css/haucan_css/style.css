@@ -34,10 +34,16 @@
     text-decoration: none;
     color: black;
 }
+.trangChu p{
+    font-size: 20px;
+    font-weight:bold;
+    text-align: center;
+}
 .content {
     padding: 20px;
     background-color: #e0e0e0;
     min-height: calc(100vh - 70px);
+    
 }
 
 .table-container {
@@ -121,6 +127,7 @@ tbody td {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top:50px ;
 }
 
 
@@ -185,15 +192,19 @@ tbody td {
 }
 
 .view-button, .edit-button, .delete-button {
-    padding: 5px 10px;
+    padding: 10px 10px;
     border: none;
     font-size: 0.9em;
     cursor: pointer;
+    margin-left:5px;
+    border-radius: 5px;
+    
 }
 
 .view-button {
     background-color: #FFD700;
     color: #333;
+    margin-left:10px;
 }
 
 /*chuan bi don hang*/
@@ -216,6 +227,7 @@ tbody td {
     padding: 8px;
     border: 1px solid #d3d3d3;
     background-color: #e0e0e0;
+    width: 350px;
 }
 .header-row-xem {
     background-color: #d3d3d3;
@@ -234,6 +246,7 @@ tbody td {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
 }
 .food-list {
     background-color: #e8e8e8;
@@ -246,7 +259,8 @@ tbody td {
 }
 .gia{
     position: relative;
-    left: 180px;
+    left: 250px;
+    width: 50px;
 }
 
 .sub-button{
@@ -334,7 +348,7 @@ tbody td {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    width: 530px;
+    width: 500px;
     height: 250px;
     text-align: center;
   }
@@ -354,13 +368,15 @@ tbody td {
   }
   
   .popup-buttons{
-    margin-top:30px
+    margin-top:30px;
+    margin-left:55px;
+    display:flex;
   }
   .popup-buttons button {
     background-color: #D3D3D3;
     border: none;
-    padding: 10px;
-    margin: 5px 30px;
+    /* padding: 10px; */
+    /* margin: 5px 30px; */
     cursor: pointer;
   }
   .popup-buttons .back-button-huy {
@@ -372,8 +388,6 @@ tbody td {
     font-weight: bold;
     margin-top: 20px;
     width:150px;
-    /* position: relative;
-    left:10px; */
 }
 .back-button-huy {
     padding: 10px;

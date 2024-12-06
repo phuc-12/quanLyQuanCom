@@ -19,6 +19,7 @@
     </style>
 </head>
 <body>
+    
     <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
@@ -38,8 +39,9 @@
     <div class="container" style="width:100%;">
         <div class="content">
             <h2>Danh sách đơn hàng</h2>
-            <button class="button new-order">Tạo đơn mới</button>
+            <button class="button new-order"><a href="Themdonmoi.php">Tạo đơn mới</a></button>
 
+<<<<<<< HEAD
             <table class="order-table">
                 <thead>
                     <tr>
@@ -66,6 +68,78 @@
                     <!-- Thêm.. -->
                 </tbody>
             </table>
+=======
+            <?php
+                error_reporting(0);
+                include_once("../../controler/cHoaDon.php");
+                $p = new CHoaDon();
+                $tblHD = $p->getAllHD();
+                if(!$tblHD)
+                {
+                    echo 'Không kết nối được';
+                }
+                elseif($tblHD==-1)
+                {
+                    echo 'Chưa có dữ liệu món ăn';
+                }
+                else
+                {
+                    $dem=1;
+                    echo '<table class="order-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã hóa đơn</th>
+                                
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+                    while($r=$tblHD->fetch_assoc())
+                    {	 
+                        echo '<tr style="text-align: center">';
+                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
+                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
+                        
+                        
+                        // echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                        switch($r['trangThai'])
+                        {
+                            case 0: 
+
+                                {
+                                    echo '<td>Chưa thanh toán</td>';
+                                    break;
+                                }
+
+                            case 1:
+
+                                {
+                                    echo '<td>Đã thanh toán</td>';
+                                    break;
+                                }
+                        }
+
+                        // 
+
+                        echo '<td>
+                            <button class="button view"><a href="Chitietdonhang.php?id='.$r['maHD'].'">Xem</a></button>
+                            ';
+                            if($r['trangThai'] == 0)
+                            {
+                                echo'<button class="button update">Cập nhật</button>';
+                                echo '<button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> ';
+                            }
+                        echo '</td>';
+                        echo '</tr>';
+                        $dem++;
+                    }
+                    echo '</tbody>';
+                    echo '</table>';
+                }
+            ?>
+>>>>>>> main
         </div>
     </div>
     </div>

@@ -9,11 +9,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm Nhân Viên</title>
-    <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_customer.css">
+    
+    <script src="../../../js/fontawesome.js"></script>
+    <script src="../../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../../js/popper.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/themnhanvien.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_employ.css">
     <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../../js/dateTime.js" defer></script> 
+
+    
 </head>
+<style>
+    .fa-angle-left:hover
+    {
+        background-color: white;
+        border-radius: 10px;
+    }
+
+</style>
 <body>
     <div class="container-fluid p-0">
         <div id="ql_header">
@@ -24,6 +42,15 @@
             <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
+                </ul>
+            </div>
         </div>
 
         <div id="content">
@@ -36,13 +63,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../managementfood.php" style="background-color: #E5E5E5;">
+                        <a class="nav-link" href="../managementfood.php">
                             <i class="fa fa-spoon"></i>
                                 Quản lý thực đơn
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../management_employ.php">
+                        <a class="nav-link" href="../management_employ.php" style="background-color: #E5E5E5;">
                             <i class="fa fa-address-card"></i>
                             Quản lý nhân viên
                         </a>
@@ -69,20 +96,24 @@
             </div>
 
             <div class="section">
+            <a href="../management_employ.php" class="fa fa-angle-left" style="text-decoration: none; color: black;font-size: 30px;width: 40px; height:40px; text-align: center; padding-top: 5px;"></a>
                 <h3>THÊM NHÂN VIÊN</h3>
-                <form method="post" enctype="multipart/form-data" name="form1" id="form1">
+                <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width:60%;float: left;">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
                             <td><input type="input" class="form-control" size="200" id="maNV" placeholder="Nhập mã nhân viên" name="maNV"></td>
+                            <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="hoTen">Họ Tên Nhân Viên:</label></td>
                             <td><input type="input" class="form-control" size="200" id="hoTen" placeholder="Nhập tên nhân viên" name="hoTen"></td>
+                            <td style="width: 200px;"><span id="errHoTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="ngaySinh">Ngày Sinh:</label></td>
                             <td><input type="input" class="form-control" size="200" id="ngaySinh" placeholder="Nhập ngày sinh nhân viên" name="ngaySinh"></td>
+                            <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         
                         <tr>
@@ -94,6 +125,7 @@
                                     <option value="3">Hậu Cần</option>
                                 </select>
                             </td>
+                            <td style="width: 200px;"><span id="" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         
                         <tr>

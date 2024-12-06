@@ -32,7 +32,7 @@
         </nav>
         <div class="contactv1">
             <div class="contact-formv1">
-                <h2 class="form-title">ĐĂNG NHẬP</h2>
+                <h2 class="form-title">ĐĂNG KÝ</h2>
                 <form>
                     <div class="form-group">
                         <label>Username:</label>

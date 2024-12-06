@@ -317,7 +317,7 @@
 /* Footer Styles */
 .footer{
     width: 100%;
-    height: 500px;
+    height: 350px;
     background-image: url(../IMG/footer1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -325,19 +325,22 @@
 }
 .contain1{
     width: 100%px;
-    height:400px;
-    background-color: #464545b0;
+    height:350px;
+    background-color: #898989b0;
     box-sizing: border-box;
 }
 .doc1, .doc2, .doc3, .doc4{
-
     width: 25%;
     height: 350px;
     float: left;
-    margin-top: 10px;
+    margin-top: 5px;
     color: #fff;
     padding-left: 20px;
 }
+.doc2, .doc3, .doc4{
+    margin-top: 40px;
+}
+
 .doc1 img{
     max-width: 100%;
     height: 150px;

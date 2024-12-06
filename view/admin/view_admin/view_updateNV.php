@@ -9,11 +9,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Tiết Nhân Viên</title>
-    <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_customer.css">
+
+    <script src="../../../js/fontawesome.js"></script>
+    <script src="../../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../../js/popper.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/capnhatnhanvien.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_employ.css">
     <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../../js/dateTime.js" defer></script> 
+
 </head>
+<style>
+    .fa-angle-left:hover
+    {
+        background-color: white;
+        border-radius: 10px;
+    }
+
+</style>
 <body>
     <?php
         $layid = $_REQUEST['id'];
@@ -37,13 +54,22 @@
     ?>
     <div class="container-fluid p-0">
         <div id="ql_header">
-            <div class="logo">
-                <p>logo</p>
+        <div class="logo" style="padding: 0; border-radius: 100px;">
+                <a href="../../index.php"><img src="../../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
 
             <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
+                </ul>
+            </div>
         </div>
 
         <div id="content">
@@ -89,20 +115,24 @@
             </div>
 
             <div class="section">
+            <a href="../management_employ.php" class="fa fa-angle-left" style="text-decoration: none; color: black;font-size: 30px;width: 40px; height:40px; text-align: center; padding-top: 5px;"></a>
                 <h3>THÔNG TIN NHÂN VIÊN</h3>
                 <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 100%;">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
                             <td><input type="input" class="form-control" size="200" id="maNV" value="<?php echo $layid;?>" name="maNV"></td>
+                            <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="hoTen">Họ Tên Nhân Viên:</label></td>
                             <td><input type="input" class="form-control" size="200" id="hoTen" value="<?php echo $layten;?>" name="hoTen"></td>
+                            <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="ngaySinh">Ngày Sinh:</label></td>
                             <td><input type="input" class="form-control" size="200" id="ngaySinh" value="<?php echo $layngaysinh;?>" name="ngaySinh"></td>
+                            <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td>
                         </tr>
                         
                         <tr>
