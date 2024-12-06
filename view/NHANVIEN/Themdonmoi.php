@@ -27,9 +27,10 @@ if ($result && $row = $result->fetch_assoc()) {
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/hoadonn.js" defer></script> 
     <script src="../../js/dateTime.js" defer></script> 
     <script src="../../js/thongtin.js" defer></script> 
-    <script src="../../js/hoadon.js" defer></script> 
+    
     <style>
         .header h1 {
             margin-top: -40px;
@@ -135,6 +136,7 @@ if ($result && $row = $result->fetch_assoc()) {
                                 <thead>
                                     <tr>
                                         <th>STT</th>
+                                        <th>Mã Món</th>
                                         <th>Tên Sản Phẩm</th>
                                         <th>Số lượng</th>
                                         <th>Thành tiền</th>
@@ -152,8 +154,8 @@ if ($result && $row = $result->fetch_assoc()) {
 
                 <!-- Nút Hành Động -->
                 <div class="actions">
-                    <button>Xác nhận</button>
-                    <button>Hủy</button>
+                    <button class="xacnhan" onclick="confirmOrder()">Xác nhận</button>
+                    <button  class="huy" >Hủy</button>
                 </div>
             </div>
         </div>
