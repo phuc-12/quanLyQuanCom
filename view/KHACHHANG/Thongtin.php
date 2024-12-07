@@ -50,8 +50,8 @@
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
         <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="Thongtin.php">Thông tin cá nhân</a></button>
-                <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="Thongtin.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+                <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
                 <button class="menu-item">Theo dõi trạng thái đơn hàng</button>
                 <button class="menu-item">Xem ưu đãi</button>
                 <button class="menu-item">Xem lịch sử mua hàng </button>
