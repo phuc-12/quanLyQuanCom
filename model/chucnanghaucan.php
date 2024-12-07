@@ -3,7 +3,7 @@
 class tmdt{
     public function connect()
 	{
-		$con=mysql_connect("localhost","trieu","123");
+		$con=mysqli_connect("localhost","trieu","123");
 		if(!$con)
 		{
 			echo 'Khong ket noi duoc csdl';
@@ -48,7 +48,7 @@ class tmdt{
 		$trave='';
 		if($i>0)
 		{
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$gt=$row[0];
 				$trave=$gt;
@@ -76,7 +76,7 @@ class tmdt{
                         </tr>
                     </thead>';
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maHD=$row['maHD'];	
                 $maKH=$row['maKH'];
