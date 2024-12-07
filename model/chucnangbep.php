@@ -2,16 +2,16 @@
 class tmdt{
 	public function connect()
 	{
-		$con=mysql_connect("localhost","trieu","123");
+		$con=mysqli_connect("localhost","trieu","123");
 		if(!$con)
 		{
-			echo 'Khong ket noi duoc csdl';
+			echo 'Không kết nối được cơ sở dữ liệu';
 			exit();	
 		}
 		else
 		{
-			mysql_select_db("db_chipheo");
-			mysql_query("SET NAMES UTF8");
+			mysqli_select_db("db_chipheo");
+			mysqli_query("SET NAMES UTF8");
 			return $con;	
 		}
 	}
@@ -26,7 +26,7 @@ class tmdt{
 	}
 	public function themxoasua($sql){
 		$link=$this->connect();
-		if(mysql_query($sql,$link)){
+		if(mysqli_query($sql,$link)){
 			return 1;
 		}
 		else{
@@ -36,12 +36,12 @@ class tmdt{
 	public function laycot($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($sql,$link);
+		$i=mysqli_num_rows($ketqua);
 		$trave='';
 		if($i>0)
 		{
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$gt=$row[0];
 				$trave=$gt;
@@ -52,8 +52,8 @@ class tmdt{
 	public function xemdanhsachnguyenvatlieu($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($sql,$link);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
             echo '<table>
@@ -68,7 +68,7 @@ class tmdt{
                         </tr>
                     </thead>';
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maNVL=$row['maNVL'];	
 				$tenNVL=$row['tenNVL'];
@@ -103,19 +103,19 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 
 	public function chondonViTinh($sql,$idchon)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($sql,$link);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
 			echo'<select id="donViTinh" name="donViTinh">';
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$donViTinh=$row['donViTinh'];
 				if($idchon==$donViTinh){
@@ -130,7 +130,7 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 
@@ -139,8 +139,8 @@ class tmdt{
 	public function xemdanhsachhoadon($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($sql,$link);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
             echo '<table>
@@ -154,7 +154,7 @@ class tmdt{
                         </tr>
                     </thead>';
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maHD=$row['maHD'];
 				// $maMA=$this->laycot("select maMA from chitiethoadon");
@@ -182,19 +182,19 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 	
 	public function xemdanhsachmonan_chitiethoadon($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($sql,$link);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maMA=$row['maMA'];
 				$tenMA=$this->laycot("SELECT ma.tenMA
@@ -213,7 +213,7 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 }
