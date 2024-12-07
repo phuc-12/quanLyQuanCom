@@ -285,7 +285,7 @@ CREATE TABLE `taikhoannguoidung` (
   `hoTen` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `trangThai` tinyint(4) NOT NULL,
-  `loaiNguoiDung` tinyint(4) NOT NULL,
+  `loaiNguoiDung` int(4) NOT NULL,
   `diaChi` varchar(255) NOT NULL,
   `SDT` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
