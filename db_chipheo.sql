@@ -308,7 +308,7 @@ INSERT INTO `taikhoannguoidung` (`idNguoiDung`, `username`, `pass`, `hoTen`, `em
 --
 
 CREATE TABLE `vaitro` (
-  `loainguoidung` tinyint(11) NOT NULL,
+  `loainguoidung` int(4) NOT NULL,
   `tennguoidung` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
