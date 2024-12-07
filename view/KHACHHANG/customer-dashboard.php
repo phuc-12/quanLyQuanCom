@@ -11,6 +11,9 @@
     <title>Trang khách hàng</title>
 </head>
 <body>
+    <?php
+    $layid = $_REQUEST['id'];
+    ?>
     <div class="container-fluid p-0">
         <!-- Header -->
         <div id="ql_header">
@@ -54,10 +57,10 @@
             <a href="#" class="dashboard-button">
                 Xem ưu đãi
             </a>
-            <a href="#" class="dashboard-button">
+            <a href="CN_thongtin.php?id=<?php echo $layid ?>"  class="dashboard-button">
                 Cập nhật thông tin cá nhân
             </a>
-            <a href="#" class="dashboard-button logout">
+            <a href="../../index.php" class="dashboard-button logout">
                 Đăng xuất
             </a>
         </div>
