@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../js/dateTime.js" defer></script> 
     <script src="../../js/thongtin.js" defer></script>  
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/capnhatthongtin.js" defer></script>  
     <style>
         .header h1 {
     margin-top: -40px;
@@ -88,7 +90,9 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="username">UserName:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="username" value="<?php echo $layusername;?>"   name="username"  style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="username" value="<?php echo $layusername;?>"   name="username"  style="color: #999;">
+                            <span id="errTDN" class="error-msg"></span>
+                            </td>
                             <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
@@ -98,12 +102,16 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="sdt">Số Điện Thoại:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="sdt" value="<?php echo $laysdt;?>" name="sdt" style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="sdt" value="<?php echo $laysdt;?>" name="sdt" style="color: #999;">
+                            <span id="errSDT" class="error-msg"></span>  
+                            </td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="email">Email:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email" style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email" style="color: #999;">
+                            <span id="errEmail" class="error-msg"></span>
+                            </td>
                             <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
@@ -168,7 +176,7 @@
                                                 </script>';
                                             }
                                             echo'<script language="javascript">
-                                            window.location="Thongtin.php?id='.$maNV.'";
+                                            window.location="Thongtin.php?id='.$maKH.'";
                                             </script>';
                                         }
                                         else

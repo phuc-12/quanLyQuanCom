@@ -26,7 +26,7 @@
                     $maKH=$row['maKH'];
                     //$maKH=$this->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$maHD' LIMIT 1");
                     $hoTen=$this->laycot("select hoTen from khachhang where maKH='$maKH'");
-                    $diachi=$this->laycot("select t.diaChi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
+                    $diachi=$this->laycot("select t.diaChi FROM taikhoannguoidung t JOIN khachhang k ON t.idNguoiDung = k.idNguoiDung
                                             JOIN chitiethoadon c ON k.maKH = c.maKH
                                             WHERE c.maKH = '$maKH';");
     
