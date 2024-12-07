@@ -215,7 +215,6 @@ INSERT INTO `monan` (`maMA`, `maLoaiMA`, `tenMA`, `soLuong`, `donGia`, `donViTin
 (18, 3, 'Sprite lon', 1, 15.000, 'VND', '', 'sprite.png', 1, ''),
 (19, 3, 'Dừa lạnh', 1, 20.000, 'VND', '', 'dualanh.png', 1, ''),
 (20, 3, 'Nước ép táo', 1, 25.000, 'VND', '', 'eptao.png', 1, '');
-
 -- --------------------------------------------------------
 
 --

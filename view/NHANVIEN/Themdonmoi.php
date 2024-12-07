@@ -90,6 +90,10 @@ if ($result && $row = $result->fetch_assoc()) {
                             if (!empty($sanphamList)) {
                                 // Duyệt qua danh sách sản phẩm và hiển thị
                                 foreach ($sanphamList as $sanpham) {
+                                    // Ẩn sản phẩm miễn phí nếu maMA = 21
+                                    if ($sanpham['maMA'] == 21) {
+                                        continue; // Bỏ qua sản phẩm miễn phí
+                                    }
                                     echo "<tr data-id='" . $sanpham['maMA'] . "'>";
                                     echo "<td>" . $sanpham['maMA'] . "</td>";
                                     echo "<td>" . $sanpham['tenMA'] . "</td>"; // Product name

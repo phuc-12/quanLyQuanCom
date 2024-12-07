@@ -38,20 +38,20 @@ function addToCart(id) {
 
     // Tính tổng số lượng sản phẩm thực tế trong giỏ hàng
     const totalQuantity = invoiceItems.reduce((total, item) => {
-        if (item.id !== '12') {
+        if (item.id !== '21') {
             return total + item.soLuong;
         }
         return total;
     }, 0);
 
     // Kiểm tra nếu tổng số lượng món trong giỏ hàng >= 3 thì tặng món miễn phí tặng món "Rau câu" (mã 12)
-    if (totalQuantity >= 3 && !invoiceItems.some(item => item.id === '12')) {
+    if (totalQuantity >= 3 && !invoiceItems.some(item => item.id === '21')) {
         // Thêm món miễn phí vào giỏ hàng
         invoiceItems.push({
-            id: '12',
-            maMA: '12',
-            tenMA:'Rau câu truyền thống' ,
-            donGia: 0, // Giá trị của món miễn phí là 0
+            id: '21',
+            maMA: '21',
+            tenMA:'Rau câu truyền thống miễn phí' ,
+           donGia: 0, // Giá trị của món miễn phí là 0
             soLuong: 1
         });
 
@@ -74,7 +74,7 @@ function renderInvoiceTable() {
         total += totalPrice;
 
         // Kiểm tra xem món này có phải là món miễn phí không
-        const isFree = item.id === '12' ? 'Có' : 'Không';  // Hiển thị 'Có' nếu món này miễn phí
+        const isFree = item.id === '21' ? 'Có' : 'Không';  // Hiển thị 'Có' nếu món này miễn phí
 
         invoiceBody.innerHTML += `
             <tr>
@@ -108,7 +108,7 @@ function removeItemFromCart(id) {
 
         // Tính tổng số lượng sản phẩm trong giỏ hàng sau khi thay đổi
         const totalQuantity = invoiceItems.reduce((total, item) => {
-            if (item.id !== '12') {
+            if (item.id !== '21') {
                 return total + item.soLuong;
             }
             return total; // Không tính món miễn phí vào tổng số lượng
@@ -117,7 +117,7 @@ function removeItemFromCart(id) {
         // Kiểm tra nếu tổng số lượng món trong giỏ hàng < 3 thì xóa món miễn phí
         if (totalQuantity < 3) {
             // Nếu món miễn phí có trong giỏ hàng, xóa nó
-            invoiceItems = invoiceItems.filter(item => item.id !== '12');
+            invoiceItems = invoiceItems.filter(item => item.id !== '21');
         }
 
         // Lưu giỏ hàng vào localStorage và cập nhật giao diện
@@ -155,6 +155,11 @@ document.querySelector('.huy').addEventListener('click', function () {
 function confirmOrder() {
     const invoiceCode = document.getElementById('invoice-code').value;
     const employee = document.getElementById('employee').value;
+    // Kiểm tra mã nhân viên đã được nhập
+    if (!employee) {
+        alert('Vui lòng nhập mã nhân viên để tạo hóa đơn.');
+        return;
+    }
 
     let products = [];
     let rows = document.querySelectorAll("#invoiceBody tr");
@@ -185,5 +190,8 @@ function confirmOrder() {
         body: JSON.stringify(orderDetails)
     }).then(response => response.text())
        .then(result => console.log(result));
+       localStorage.removeItem('invoiceItems');
+       loadCartFromLocalStorage();  // Gọi hàm này để render lại giỏ hàng
        window.location.href = "quanlidonhang.php";
+       alert('Đơn hàng đã được thêm thàng công.');
 }
