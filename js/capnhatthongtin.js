@@ -39,6 +39,18 @@ $(document).ready(function(){
     $("#email").blur(function(){
         ktemail();
     });
+    function togglePassword() {
+        let passwordField = document.getElementById("password");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+        } else {
+            passwordField.type = "password";
+        }
+    }
+    // Gắn sự kiện cho checkbox "Hiện mật khẩu"
+    $("#showPassword").click(function() {
+        togglePassword();
+    });
     function ktPassword() {
         let pw = $("input[name='password']").val();
         if (pw == "") {
