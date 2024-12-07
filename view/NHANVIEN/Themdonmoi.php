@@ -83,7 +83,7 @@ if ($result && $row = $result->fetch_assoc()) {
                                 <th>Mã sản phẩm</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá</th>
-                                <th>Hình ảnh</th>
+                                <!-- <th>Hình ảnh</th> -->
                                 <th>Thêm</th>
                             </tr>
                         </thead>
@@ -101,7 +101,7 @@ if ($result && $row = $result->fetch_assoc()) {
                                     echo "<td>" . $sanpham['maMA'] . "</td>";
                                     echo "<td>" . $sanpham['tenMA'] . "</td>"; // Product name
                                     echo "<td>" . $sanpham['donGia'] . " VND</td>"; // Price
-                                    echo "<td><img src='" . $sanpham['hinhAnh'] . "' width='50' height='50'></td>";
+                                    // echo "<td><img src='" . $sanpham['hinhAnh'] . "' width='50' height='50'></td>";
                                     echo "<td class='add-btn'>
                                                 <button onclick='addToCart(" . $sanpham['maMA'] . ")'> + </button>
                                             </td>";
