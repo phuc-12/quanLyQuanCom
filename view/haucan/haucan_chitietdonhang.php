@@ -28,8 +28,8 @@ $diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhan
                                         WHERE hd.maKH = '$maKH';");
 $laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
 $laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
-$laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'");
-$layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
+$laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
+$layimg= $p->laycot("select img from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
@@ -88,7 +88,7 @@ $layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
                 <input type="text" id="tongtien" name="tongtien" value="<?php echo $laytongtien;?>">
 
                 <label for="soluong">Trạng thái đơn hàng</label>
-                <input type="text" id="trangthaiDH" name="trangthai" value="<?php if ($laytrangThaiDH == 0) {
+                <input type="text" id="trangthai" name="trangthai" value="<?php if ($laytrangThai == 0) {
                                                         echo "Chưa thanh toán";
                                                     } else {
                                                         echo "Đã thanh toán";
@@ -105,7 +105,7 @@ $layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
                                                         echo "Đơn hàng đã hủy";
                                                     }?>">
                 <label for="soluong">Hình ảnh giao hàng</label>
-                <img src="../../img/giaohang/<?php echo "$layimgGHTC" ?>" alt="" style="width:350px">
+                <img src="../../img/giaohang/<?php echo "$layimg" ?>" alt="" style="width:350px">
         </div>
     </div>
 
