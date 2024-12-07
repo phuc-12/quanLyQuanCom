@@ -131,7 +131,7 @@ class tmdt{
 		if($i>0)
 		{
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maHD=$row['maHD'];	
                 $maMA=$row['maMA'];
