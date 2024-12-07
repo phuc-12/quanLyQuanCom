@@ -12,7 +12,7 @@ $(document).ready(function(){
             $("#errTDN").html("Tài khoản phải chứa ít nhất 6 ký tự");
             return false;
         } else {
-            $("#errTDN").html("()");
+            $("#errTDN").html("");
             return true;
         }
     }
@@ -32,14 +32,31 @@ $(document).ready(function(){
             $("#email").focus();
             return false;
         } else {
-            $("#errEmail").html("(*)");
+            $("#errEmail").html("");
             return true;
         }
     }
     $("#email").blur(function(){
         ktemail();
     });
-
+    function ktPassword() {
+        let pw = $("input[name='password']").val();
+        if (pw == "") {
+            $("#errPW").html("Mật khẩu không được để trống");
+            return false;
+        } else if (pw.length < 6) {
+            $("#errPW").html("Mật khẩu phải chứa ít nhất 6 ký tự");
+            return false;
+        } else {
+            $("#errPW").html("");
+            return true;
+        }
+    }
+    
+    $("input[name='password']").blur(function () {
+        ktPassword();
+    });
+    
     function ktSDT() {
         let sdt = $("#sdt").val();
         let btcq = /^(03|09|08|07)[0-9]{8}$/;
@@ -58,7 +75,7 @@ $(document).ready(function(){
         ktSDT();
     });
     $("#btnsua").click(function(){
-        if(!ktSDT() || !ktemail() || !ktTDN()){
+        if(!ktSDT() || !ktemail() || !ktTDN() || !ktPassword()){
             alert("Bạn phải nhập đầy đủ thông tin")
             return false;
         }

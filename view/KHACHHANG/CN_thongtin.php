@@ -97,7 +97,10 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="password">PassWord:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;">
+                            <span id="errPW" class="error-msg"></span>
+                            </td>
+                            
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>

@@ -44,7 +44,7 @@
             <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
-            <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
+            <h1><a href="NV_quanli.php?id=<?php echo $layid ?>">Trang nhân viên</a></h1>
             <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
         </div>
@@ -110,7 +110,9 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="password">PassWord:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;">
+                            <span id="errPW" class="err text-danger"></span>
+                            </td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
@@ -203,7 +205,7 @@
                                         }
                                         break;
                                     }
-
+                                    
                                 }
                             } 
                             else 
