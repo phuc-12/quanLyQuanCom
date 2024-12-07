@@ -23,7 +23,7 @@
         <div class="logo" style="padding: 0; border-radius: 100px;">
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
-        <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
+        <h1><a href="NV_quanli.php?id=<?php echo $layid ?>">Trang nhân viên</a></h1>
         <div class="date" style="float:right; margin-right: 50px; margin-top: -25px;"><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
@@ -37,12 +37,12 @@
             <div class="nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="Quanlidonhang.php">
+                        <a class="nav-link" href="Quanlidonhang.php?id=<?php echo $layid ?>">
                             <i class="fa fa-spoon"></i>
                                 Quản lý đơn hàng
                         </a>
                     <li class="nav-item">
-                        <a class="nav-link" href="NV_theodoidonhang.php">
+                        <a class="nav-link" href="NV_theodoidonhang.php?id=<?php echo $layid ?>">
                             <i class="fa fa-shopping-cart"></i>
                             Theo dõi đơn hàng
                         </a>
@@ -53,11 +53,11 @@
             <div class="section">
 
                 <div class="mger_option">
-                    <a class="option mger_food" href="Quanlidonhang.php">
+                    <a class="option mger_food" href="Quanlidonhang.php?id=<?php echo $layid ?>">
                         <i class="fa fa-spoon" style="font-size: 60px;"></i><br>
                         <p style="font-size: 20px; margin-top: 10px;">QUẢN LÝ ĐƠN HÀNG</p>
                     </a>
-                    <a class="option mger_order" href="NV_theodoidonhang.php">
+                    <a class="option mger_order" href="NV_theodoidonhang.php?id=<?php echo $layid ?>">
                         <i class="fa fa-shopping-cart" style="font-size: 60px;"></i><br>
                         <p style="font-size: 20px; margin-top: 10px;">THEO DÕI ĐƠN HÀNG</p>
                     </a>
