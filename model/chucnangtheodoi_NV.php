@@ -23,7 +23,8 @@
                 while($row=mysqli_fetch_array($ketqua))
                 {
                     $maHD=$row['maHD'];	
-                    $maKH=$this->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$maHD' LIMIT 1");
+                    $maKH=$row['maKH'];
+                    //$maKH=$this->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$maHD' LIMIT 1");
                     $hoTen=$this->laycot("select hoTen from khachhang where maKH='$maKH'");
                     $diachi=$this->laycot("select t.diaChi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
                                             JOIN chitiethoadon c ON k.maKH = c.maKH

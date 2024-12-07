@@ -43,7 +43,7 @@ $p = new nhanvien();
                     </div>
             </div>
             <?php
-                    $p->xemdanhsachdonhang("select * from chitiethoadon group by maHD")
+                    $p->xemdanhsachdonhang("select * from hoadon group by maHD")
             ?>
                 <!-- <table>
                     <thead>

@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $maNV = $orderDetails-> employee;
 
         // Lấy thông tin đơn hàng vào bảng `hoadon`
-        $sqlOrder = "INSERT INTO hoadon(maHD, maKH, trangThai, ngayThang) VALUES ('$invoiceCode', 213, '1', CURDATE())";
+        $sqlOrder = "INSERT INTO hoadon(maHD, maKH, trangThai,trangThaiGH, ngayThang,img) VALUES ('$invoiceCode', 0, '0','0', now(),'không có')";
 
         if ($conn->query($sqlOrder)) {
             foreach ($products as $product) {
-                $sqlDetails = "INSERT INTO chitiethoadon( maMA,maHD, soLuong,moTa,uuDai,chietKhau,maKH,trangThaiGH,maNV) VALUES ('{$product->maMA}', '$invoiceCode', '{$product->quantity}', ' ', 0, 0, 213, 0, '{$maNV}')";
+                $sqlDetails = "INSERT INTO chitiethoadon( maMA,maHD, soLuong,moTa,uuDai,chietKhau,maKH,maNV) VALUES ('{$product->maMA}', '$invoiceCode', '{$product->quantity}', ' ', 0, 0, 0, '{$maNV}')";
                 if (!$conn->query($sqlDetails)) echo "Data error!"; 
             }
             echo "Order Confirmation Successful";
