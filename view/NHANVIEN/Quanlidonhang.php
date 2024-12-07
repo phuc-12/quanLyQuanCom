@@ -39,7 +39,10 @@
     <div class="container" style="width:100%;">
         <div class="content">
             <h2>Danh sách đơn hàng</h2>
-            <button class="button new-order"><a href="Themdonmoi.php">Tạo đơn mới</a></button>
+            <?php
+            $layid = $_REQUEST['id'];
+            ?>
+            <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn mới</a></button>
 
             <?php
                 error_reporting(0);

@@ -40,6 +40,9 @@ if ($result && $row = $result->fetch_assoc()) {
     </style>
 </head>
 <body>
+    <?php
+    $layid = $_REQUEST['id'];
+    ?>
 <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
@@ -128,7 +131,7 @@ if ($result && $row = $result->fetch_assoc()) {
                         </div>
                         <div class="invoice-field">
                             <label for="employee">Nhân viên</label>
-                            <input id="employee" type="text">
+                            <input id="employee" type="text" value='<?php echo $layid;?>'>
 
                             <!-- <label for="">Khuyến mãi</label>
                             <input id="employee" type="text"> -->
