@@ -37,19 +37,6 @@ $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
-                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
-                    </ul>
-                </div>
-
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
                     
             </div>
@@ -118,6 +105,7 @@ $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
             <!-- </div> -->
                 <button type="submit" class="complete-button" name="nut" id="nut" value="HTGH">Hoàn tất giao hàng</button>
                 <?php
+                if (isset($_POST['nut'])) {
                     switch($_POST['nut']){
                         case 'HTGH':{
                             $name = $_FILES['myfile']['name'];
@@ -165,6 +153,7 @@ $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
                                 }
                             }
                     }
+                }
                 ?>
             </form>                                                                    
         </div>

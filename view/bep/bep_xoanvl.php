@@ -32,19 +32,15 @@ $laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
-
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
                 
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
                         <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
                     
@@ -100,6 +96,7 @@ $laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
 
                     
                     <?php
+                    if (isset($_POST['nut'])) {
                         switch($_POST['nut']){
                             case 'Xoa':{ 
                                 if ($p->themxoasua("DELETE FROM nguyenlieu WHERE maNVL = '$laymaNVL'") == 1) {
@@ -111,7 +108,8 @@ $laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
                                     </script>';
                                 }
                             }
-                        }    
+                        } 
+                    }   
                     ?>
                 
                 </form>

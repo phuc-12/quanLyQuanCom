@@ -10,8 +10,8 @@ class tmdt{
 		}
 		else
 		{
-			mysqli_select_db("db_chipheo");
-			mysqli_query("SET NAMES UTF8");
+			mysqli_select_db($con,"db_chipheo");
+			mysqli_query($con,"SET NAMES UTF8");
 			return $con;	
 		}
 	}
@@ -26,7 +26,7 @@ class tmdt{
 	}
 	public function themxoasua($sql){
 		$link=$this->connect();
-		if(mysqli_query($sql,$link)){
+		if(mysqli_query($link,$sql)){
 			return 1;
 		}
 		else{
@@ -36,7 +36,7 @@ class tmdt{
 	public function laycot($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysqli_query($sql,$link);
+		$ketqua = mysqli_query($link,$sql);
 		$i=mysqli_num_rows($ketqua);
 		$trave='';
 		if($i>0)
@@ -52,7 +52,7 @@ class tmdt{
 	public function xemdanhsachnguyenvatlieu($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysqli_query($sql,$link);
+		$ketqua = mysqli_query($link,$sql);
 		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
@@ -110,7 +110,7 @@ class tmdt{
 	public function chondonViTinh($sql,$idchon)
 	{
 		$link=$this->connect();
-		$ketqua = mysqli_query($sql,$link);
+		$ketqua = mysqli_query($link,$sql);
 		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
@@ -139,7 +139,7 @@ class tmdt{
 	public function xemdanhsachhoadon($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysqli_query($sql,$link);
+		$ketqua = mysqli_query($link,$sql);
 		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
@@ -189,7 +189,7 @@ class tmdt{
 	public function xemdanhsachmonan_chitiethoadon($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysqli_query($sql,$link);
+		$ketqua = mysqli_query($link,$sql);
 		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
