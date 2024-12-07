@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2024 at 01:47 PM
+-- Generation Time: Dec 07, 2024 at 07:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -31,12 +31,11 @@ CREATE TABLE `chitiethoadon` (
   `maMA` int(11) NOT NULL,
   `maHD` int(11) NOT NULL,
   `maKH` varchar(10) NOT NULL,
+  `maNV` int(11) NOT NULL,
   `soLuong` int(11) NOT NULL,
-  `donGia` decimal(10,0) NOT NULL,
   `moTa` varchar(100) NOT NULL,
   `uuDai` int(11) NOT NULL,
-  `chietKhau` float NOT NULL,
-  `trangThaiGH` tinyint(4) NOT NULL
+  `chietKhau` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -74,17 +73,19 @@ CREATE TABLE `hoadon` (
   `maHD` int(11) NOT NULL,
   `maKH` varchar(10) NOT NULL,
   `ngayThang` datetime DEFAULT NULL,
-  `trangThai` tinyint(4) NOT NULL
+  `trangThai` tinyint(4) NOT NULL,
+  `trangThaiGH` tinyint(4) NOT NULL,
+  `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hoadon`
 --
 
-INSERT INTO `hoadon` (`maHD`, `maKH`, `ngayThang`, `trangThai`) VALUES
-(1, '', NULL, 1),
-(2, '', NULL, 0),
-(3, '', NULL, 0);
+INSERT INTO `hoadon` (`maHD`, `maKH`, `ngayThang`, `trangThai`, `trangThaiGH`, `img`) VALUES
+(1, '', NULL, 1, 0, ''),
+(2, '', NULL, 0, 0, ''),
+(3, '', NULL, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -228,6 +229,8 @@ CREATE TABLE `nguyenlieu` (
   `slTon` decimal(10,0) NOT NULL,
   `donViTinh` varchar(10) NOT NULL,
   `moTa` text DEFAULT NULL,
+  `ngayNhap` datetime DEFAULT NULL,
+  `ngayHetHan` datetime DEFAULT NULL,
   `trangThai` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -235,17 +238,17 @@ CREATE TABLE `nguyenlieu` (
 -- Dumping data for table `nguyenlieu`
 --
 
-INSERT INTO `nguyenlieu` (`maNVL`, `tenNVL`, `slTon`, `donViTinh`, `moTa`, `trangThai`) VALUES
-(1, 'Cà rốt', 13, 'kg', 'Nguyên vật liệu tươi', 1),
-(2, 'Hành tây', 23, 'kg', 'Nguyên vật liệu tươi', 1),
-(3, 'Cải thìa', 7, 'kg', 'Nguyên vật liệu tươi', 1),
-(4, 'Đậu hủ', 14, 'pak', 'Nguyên vật liệu tươi', 1),
-(5, 'Gạo', 40, 'kg', 'Nguyên vật liệu khô', 1),
-(6, 'Cà chua', 2, 'kg', 'Nguyên vật liệu tươi', 1),
-(7, 'Sườn non sấy khô', 12, 'pak', 'Nguyên vật liệu khô', 1),
-(8, 'Bột mì ', 3, 'pak', 'Nguyên vật liệu khô', 1),
-(9, 'Chả nấm chay', 3, 'kg', 'Hàng đóng gói', 0),
-(10, 'Đậu hủ ky khô', 10, 'pak', 'Hàng đóng gói', 0);
+INSERT INTO `nguyenlieu` (`maNVL`, `tenNVL`, `slTon`, `donViTinh`, `moTa`, `ngayNhap`, `ngayHetHan`, `trangThai`) VALUES
+(1, 'Cà rốt', 13, 'kg', 'Nguyên vật liệu tươi', NULL, NULL, 1),
+(2, 'Hành tây', 23, 'kg', 'Nguyên vật liệu tươi', NULL, NULL, 1),
+(3, 'Cải thìa', 7, 'kg', 'Nguyên vật liệu tươi', NULL, NULL, 1),
+(4, 'Đậu hủ', 14, 'pak', 'Nguyên vật liệu tươi', NULL, NULL, 1),
+(5, 'Gạo', 40, 'kg', 'Nguyên vật liệu khô', NULL, NULL, 1),
+(6, 'Cà chua', 2, 'kg', 'Nguyên vật liệu tươi', NULL, NULL, 1),
+(7, 'Sườn non sấy khô', 12, 'pak', 'Nguyên vật liệu khô', NULL, NULL, 1),
+(8, 'Bột mì ', 3, 'pak', 'Nguyên vật liệu khô', NULL, NULL, 1),
+(9, 'Chả nấm chay', 3, 'kg', 'Hàng đóng gói', NULL, NULL, 0),
+(10, 'Đậu hủ ky khô', 10, 'pak', 'Hàng đóng gói', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -282,7 +285,7 @@ CREATE TABLE `taikhoannguoidung` (
   `hoTen` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `trangThai` tinyint(4) NOT NULL,
-  `loaiNguoiDung` tinyint(4) NOT NULL,
+  `loaiNguoiDung` int(4) NOT NULL,
   `diaChi` varchar(255) NOT NULL,
   `SDT` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -305,7 +308,7 @@ INSERT INTO `taikhoannguoidung` (`idNguoiDung`, `username`, `pass`, `hoTen`, `em
 --
 
 CREATE TABLE `vaitro` (
-  `loainguoidung` tinyint(11) NOT NULL,
+  `loainguoidung` int(4) NOT NULL,
   `tennguoidung` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

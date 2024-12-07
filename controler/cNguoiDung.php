@@ -15,6 +15,7 @@
                     $_SESSION["dn"]=$r["loaiNguoiDung"];
                     $_SESSION['user_name'] = $r['hoTen'];
                     $_SESSION['id'] = $r['idNguoiDung'];
+
                 }
                 $loainguoidung = $_SESSION["dn"];
                 if($loainguoidung == 1){
@@ -24,21 +25,21 @@
                 }
                 else if($loainguoidung == 2){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Nhân viên !")</script>';
-                    echo " <script> window.location.href='NHANVIEN/NV_quanli.php' </script> ";
+                    echo " <script> window.location.href='NHANVIEN/NV_quanli.php?id=".$_SESSION['id']."' </script> ";
                 }
                 else if($loainguoidung == 3){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Hậu Cần !")</script>';
-                    echo " <script> window.location.href='haucan/haucan_giaohang.php' </script> ";
+                    echo " <script> window.location.href='haucan/haucan_danhsachdonhang.php?id=".$_SESSION['id']."' </script> ";
                 }
                 else if($loainguoidung == 4){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Nhânviên bếp !")</script>';
-                    echo " <script> window.location.href='bep/bep_trangchu.php' </script> ";
+                    echo " <script> window.location.href='bep/bep_trangchu.php?id=".$_SESSION['id']."' </script> ";
                 }
                 else{
                   
                     echo '<script>alert("Đăng nhập thành công. Xin chào khách hàng !")</script>';
                   
-                    echo " <script> window.location.href='KHACHHANG/Thongtin.php' </script> ";
+                    echo " <script> window.location.href='KHACHHANG/customer-dashboard.php?id=".$_SESSION['id']."' </script> ";
                 }
                 
             }

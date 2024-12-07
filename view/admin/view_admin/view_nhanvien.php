@@ -15,7 +15,7 @@
     }
     elseif($tblNV==-1)
     {
-        echo 'Chưa có dữ liệu món ăn';
+        echo 'Chưa có dữ liệu nhân viên';
     }
     else
     {	
