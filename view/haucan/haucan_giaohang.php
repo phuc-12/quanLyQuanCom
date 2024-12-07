@@ -37,19 +37,6 @@ $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
-                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
-                    </ul>
-                </div>
-
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
                     
             </div>
@@ -115,6 +102,7 @@ $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
             <!-- </div> -->
                 <button type="submit" class="prepare-button" name="nut" id="nut" value="Giao hàng">Giao hàng</button>
                 <?php 
+                if (isset($_POST['nut'])) {
                     switch($_POST['nut']){
                         case 'Giao hàng':{ 
                             if($p->themxoasua("UPDATE `db_chipheo`.`hoadon` SET `trangThaiGH` = '1' WHERE `hoadon`.`maHD` ='$layid' ;")==1){
@@ -128,6 +116,7 @@ $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
                                 </script>';
                             }
                         }
+                        break;
 
                         case 'Huy don hang':
                         {
@@ -140,9 +129,11 @@ $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
                                 echo '<script language="javascript">alert("Hủy đơn hàng không thành công. Vui lòng thử lại!");
                                 window.location = "haucan_giaohang.php?id='.$layid.'";
                                 </script>';
-                            }
+                            } 
                         }
+                        break;
                     }
+                }
                 ?>
             </form>
         </div>

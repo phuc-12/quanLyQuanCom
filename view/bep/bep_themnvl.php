@@ -24,18 +24,15 @@ $p = new tmdt();
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
+                
+                <!-- <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
                         <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
                     
@@ -106,6 +103,7 @@ $p = new tmdt();
                 
                 <button type="submit" class="add-button-1" name="nut" id="nut" value="Thêm sản phẩm">THÊM</button>
             <?php
+            if (isset($_POST['nut'])) {
                 switch($_POST['nut']){
                     case 'Thêm sản phẩm':{
                         $tenNVL = $_REQUEST['txttenNVL'];
@@ -132,7 +130,7 @@ $p = new tmdt();
                             </script>';
                     break;
                     }
-                
+                }
             }
             
             ?>

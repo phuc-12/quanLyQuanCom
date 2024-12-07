@@ -11,8 +11,10 @@ class tmdt{
 		}
 		else
 		{
-			mysql_select_db("db_chipheo");
-			mysql_query("SET NAMES UTF8");
+
+			mysqli_select_db($con,"db_chipheo");
+			mysqli_query($con,"SET NAMES UTF8");
+
 			return $con;	
 		}
 	}
@@ -27,7 +29,9 @@ class tmdt{
 	}
 	public function themxoasua($sql){
 		$link=$this->connect();
-		if(mysql_query($sql,$link)){
+
+		if(mysqli_query($link,$sql)){
+
 			return 1;
 		}
 		else{
@@ -37,8 +41,10 @@ class tmdt{
 	public function laycot($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
+
 		$trave='';
 		if($i>0)
 		{
@@ -53,8 +59,8 @@ class tmdt{
 	public function xemdanhsachdonhang($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
             echo '<table>
@@ -78,8 +84,7 @@ class tmdt{
                 $diachi=$this->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
                                         JOIN hoadon hd ON kh.maKH = hd.maKH
                                         WHERE hd.maKH = '$maKH';");
-                $ngayThang=$row['ngayThang'];	
-                $trangThaiDH=$row['trangThaiDH'];
+                $ngayThang=$row['ngayThang'];
                 $trangThaiGH=$row['trangThaiGH'];
                 
                 if($trangThaiGH == 0) {
@@ -127,12 +132,13 @@ class tmdt{
     public function xemchitietmonan_donhang($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
+
 		if($i>0)
 		{
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maHD=$row['maHD'];	
                 $maMA=$row['maMA'];
