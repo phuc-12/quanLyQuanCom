@@ -47,10 +47,6 @@ $(document).ready(function(){
             passwordField.type = "password";
         }
     }
-    // Gắn sự kiện cho checkbox "Hiện mật khẩu"
-    $("#showPassword").click(function() {
-        togglePassword();
-    });
     function ktPassword() {
         let pw = $("input[name='password']").val();
         if (pw == "") {
