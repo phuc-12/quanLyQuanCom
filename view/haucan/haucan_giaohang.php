@@ -18,35 +18,23 @@ $p = new tmdt();
 <?php
 $layid=$_REQUEST['id'];
 $laymaMA= $p->laycot("select maMA from chitiethoadon where maHD='$layid'");
-$maKH=$p->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$layid' LIMIT 1");
+$maKH=$p->laycot("SELECT maKH FROM hoadon WHERE maHD='$layid' LIMIT 1");
 $layhoTen= $p->laycot("select hoTen from khachhang where maKH=  '$maKH'");
-$sodienthoai=$p->laycot("select t.SDT FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                        WHERE c.maKH = '$maKH';");
-$diachi=$p->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                        WHERE c.maKH = '$maKH';");
-$laytongtien=$p->laycot("SELECT SUM( soLuong * donGia )FROM chitiethoadon WHERE maHD = '$layid' GROUP BY maHD;");
-$laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$layid'");
+$sodienthoai=$p->laycot("select tknd.SDT FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+$diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+$laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
+$laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
+$laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
-                </div>
-
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
-                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
-                    </ul>
                 </div>
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
@@ -97,27 +85,27 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
                 <label for="tongtien">Tổng tiền</label>
                 <input type="text" id="tongtien" name="tongtien" value="<?php echo $laytongtien;?>">
 
-                <label for="trangthaiDH">Trạng thái đơn hàng</label>
-                <input type="text" id="trangthaiDH" name="trangthaiDH" value="<?php if ($laytrangThaiDH == 0) {
+                <label for="trangthai">Trạng thái đơn hàng</label>
+                <input type="text" id="trangthai" name="trangthai" value="<?php if ($laytrangThai == 0) {
                                                                                         echo "Chưa thanh toán";
                                                                                     } else {
                                                                                         echo "Đã thanh toán";
                                                                                     }?>">
 
             <!-- <div class="sub-button"> -->
-                <button type="submit" class="cancel-button-1" onclick="return confirmDelete()">Hủy đơn hàng</button>
+                <button type="submit" class="cancel-button-1" name="nut" id="nut" value="Huy don hang" onclick="return confirmDelete()">Hủy đơn hàng</button>
                 <script>
-                        function confirmDelete() {
-                            return confirm("Bạn có chắc chắn muốn Hủy đơn hàng này không?");
-                        }
-                    </script>
+                    function confirmDelete() {
+                        return confirm("Bạn có chắc chắn muốn Hủy đơn hàng này không?");
+                    }
+                </script>
             <!-- </div> -->
                 <button type="submit" class="prepare-button" name="nut" id="nut" value="Giao hàng">Giao hàng</button>
                 <?php 
+                if (isset($_POST['nut'])) {
                     switch($_POST['nut']){
                         case 'Giao hàng':{ 
-                            if($p->themxoasua("UPDATE `quancomchipheo`.`chitiethoadon` SET `trangThaiGH` = '1'
-                                          WHERE `chitiethoadon`.`maHD` = '$layid';")==1){
+                            if($p->themxoasua("UPDATE `db_chipheo`.`hoadon` SET `trangThaiGH` = '1' WHERE `hoadon`.`maHD` ='$layid' ;")==1){
                                 echo '<script language="javascript">alert("Chuyển sang trạng thái Đang giao hàng");
                                                                     window.location = "haucan_hoantatgiaohang.php?id='.$layid.'";</script>
                                         </script>';
@@ -128,34 +116,27 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
                                 </script>';
                             }
                         }
+                        break;
+
+                        case 'Huy don hang':
+                        {
+                            if($p->themxoasua("UPDATE `db_chipheo`.`hoadon` SET `trangThaiGH` = '3' WHERE `hoadon`.`maHD` ='$layid' ;")==1){
+                                echo '<script language="javascript">alert("Hủy đơn hàng thành công");
+                                                                    window.location = "haucan_danhsachdonhang.php";</script>
+                                        </script>';
+
+                            }else{
+                                echo '<script language="javascript">alert("Hủy đơn hàng không thành công. Vui lòng thử lại!");
+                                window.location = "haucan_giaohang.php?id='.$layid.'";
+                                </script>';
+                            } 
+                        }
+                        break;
                     }
+                }
                 ?>
             </form>
         </div>
     </div>
-
-    <!-- Thông Báo Hủy Đơn Hàng -->
-    <!-- <div class="popup" id="cancelPopup">
-        <div class="popup-content">
-            <h3>HỦY ĐƠN HÀNG</h3>
-            <form class="form">
-                <label for="tinhtrang">Tình trạng:</label>
-                <select id="tinhtrang" name="tinhtrang" style="padding:10px; margin-left:30px;width:250px;">
-                    <option value="available">Khách không còn nhu cầu</option>
-                </select>
-                <div class="popup-buttons">
-                    <button class="back-button-huy">Hủy</button>
-                    <button class="confirm-button">Xác nhận Hủy</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function openCancelPopup() {
-            document.getElementById("cancelPopup").style.display = "flex";
-        }
-    </script> -->
-    
 </body>
  

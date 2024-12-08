@@ -85,7 +85,7 @@
             <div class="section" style="background-color: #E5E5E5;">
                 <h3 style="margin-bottom: 30px;"><b>QUẢN LÝ NHÂN VIÊN</b></h3>
 
-                <div class="thongKe_food" style="border-radius: 10px;">
+                <div class="thongKe_employ" style="border-radius: 10px;">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
                         <p style="font-size: 20px; float: left;">Thống kê số liệu</p>
                         <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a>
@@ -117,7 +117,7 @@
 
                 <div id="ds_food">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
-                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH THỰC ĐƠN</b></p> 
+                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH NHÂN VIÊN</b></p> 
                     </div>
                     <div style="width: 100%; clear: both; height: 60px; background-color: white;">
                                 <nav class="navbar navbar-expand-sm bg-white navbar-white p-0" style="width: 50%; float: left; height: 60px;">

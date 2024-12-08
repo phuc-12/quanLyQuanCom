@@ -2,16 +2,16 @@
 class tmdt{
 	public function connect()
 	{
-		$con=mysql_connect("localhost","trieu","123");
+		$con=mysqli_connect("localhost","trieu","123");
 		if(!$con)
 		{
-			echo 'Khong ket noi duoc csdl';
+			echo 'Không kết nối được cơ sở dữ liệu';
 			exit();	
 		}
 		else
 		{
-			mysql_select_db("db_chipheo");
-			mysql_query("SET NAMES UTF8");
+			mysqli_select_db($con,"db_chipheo");
+			mysqli_query($con,"SET NAMES UTF8");
 			return $con;	
 		}
 	}
@@ -26,7 +26,7 @@ class tmdt{
 	}
 	public function themxoasua($sql){
 		$link=$this->connect();
-		if(mysql_query($sql,$link)){
+		if(mysqli_query($link,$sql)){
 			return 1;
 		}
 		else{
@@ -36,12 +36,12 @@ class tmdt{
 	public function laycot($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
 		$trave='';
 		if($i>0)
 		{
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$gt=$row[0];
 				$trave=$gt;
@@ -52,8 +52,8 @@ class tmdt{
 	public function xemdanhsachnguyenvatlieu($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
             echo '<table>
@@ -68,7 +68,7 @@ class tmdt{
                         </tr>
                     </thead>';
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maNVL=$row['maNVL'];	
 				$tenNVL=$row['tenNVL'];
@@ -103,29 +103,24 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 
 	public function chondonViTinh($sql,$idchon)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
 			echo'<select id="donViTinh" name="donViTinh">';
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$donViTinh=$row['donViTinh'];
 				if($idchon==$donViTinh){
 					echo '<option value="'.$donViTinh.'" >'.$donViTinh.'</option>';
 				}
-				// if ($donViTinh == 0) {
-				// 	echo "Hết NVL";
-				// } else {
-				// 	echo "Còn hàng";
-				// }
 				else{
 					echo '<option value="'.$donViTinh.'">'.$donViTinh.'</option>';
 				}
@@ -135,7 +130,7 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 
@@ -144,8 +139,8 @@ class tmdt{
 	public function xemdanhsachhoadon($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
             echo '<table>
@@ -159,18 +154,22 @@ class tmdt{
                         </tr>
                     </thead>';
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
-				$maHD=$row['maHD'];	
-				$tenMA=$row['tenMA'];
-				$ngayNhapDon=$row['ngayNhapDon'];
+				$maHD=$row['maHD'];
+				// $maMA=$this->laycot("select maMA from chitiethoadon");
+				$tenMA=$this->laycot("SELECT ma.tenMA
+										FROM hoadon hd
+										JOIN chitiethoadon cthd ON hd.maHD = cthd.maHD
+										JOIN monan ma ON cthd.maMA = ma.maMA where hd.maHD=$maHD ");
+				$ngayThang=$row['ngayThang'];
                 echo '<tbody>
                         <tr>
                             <td>'.$dem.'</td>
                             <td>'.$maHD.'</td>
-                            <td>'.$ngayNhapDon.' </td>
-                            <td>'.$tenMA.',..</td>
-                            <td>
+                            <td>'.$ngayThang.' </td>
+							<td>'.$tenMA.'</td>
+							<td>
                                 <button class="view-button"><a href="bep_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>
 								</td>
                         </tr>';
@@ -183,21 +182,24 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 	
 	public function xemdanhsachmonan_chitiethoadon($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
-				$tenMA=$row['tenMA'];	
+				$maMA=$row['maMA'];
+				$tenMA=$this->laycot("SELECT ma.tenMA
+										FROM chitiethoadon cthd
+										JOIN monan ma ON cthd.maMA = ma.maMA where cthd.maMA=".$maMA."");
 				$soLuong=$row['soLuong'];
                 echo '<div class="food-item">
                         <div class="soluong">'.$tenMA.' x'.$soLuong.'</div>
@@ -211,7 +213,7 @@ class tmdt{
 		}
 		else
 		{
-			echo 'Khong co du lieu';
+			echo 'Không có dữ liệu';
 		}
 	}
 }

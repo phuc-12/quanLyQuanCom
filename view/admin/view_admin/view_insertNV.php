@@ -150,7 +150,7 @@
                                 $ngaySinhFormatted = date("Y-m-d", strtotime($ngaySinh));
                                 if($maNV !='' && $hoTen !='' && $ngaySinh!=''&& $maLoaiNV !='')
                                 {
-                                    $conn = new mysqli('localhost','trieu','123','db_chipheo');
+                                    $conn = new mysqli('localhost','root','','db_chipheo');
                                     if ($conn->connect_error) {
                                         die("Connection failed: " . $conn->connect_error);
                                     }

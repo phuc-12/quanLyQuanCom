@@ -8,7 +8,7 @@
             $conn->set_charset('utf8');
             if($conn){
                 // $str = "select * from hoadon";
-                $str = "SELECT hd.maHD, hd.maKH, kh.hoTen, hd.trangThai
+                $str = "SELECT hd.maHD, hd.maKH,hd.ngayThang, kh.hoTen, hd.trangThaiGH
                     FROM hoadon hd
                     JOIN khachhang kh ON hd.maKH = kh.maKH";
                 $tblHD = $conn->query($str);

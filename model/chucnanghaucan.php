@@ -3,7 +3,7 @@
 class tmdt{
     public function connect()
 	{
-		$con=mysql_connect("localhost","trieu","123");
+		$con=mysqli_connect("localhost","trieu","123");
 		if(!$con)
 		{
 			echo 'Khong ket noi duoc csdl';
@@ -11,8 +11,10 @@ class tmdt{
 		}
 		else
 		{
-			mysql_select_db("db_chipheo");
-			mysql_query("SET NAMES UTF8");
+
+			mysqli_select_db($con,"db_chipheo");
+			mysqli_query($con,"SET NAMES UTF8");
+
 			return $con;	
 		}
 	}
@@ -27,7 +29,9 @@ class tmdt{
 	}
 	public function themxoasua($sql){
 		$link=$this->connect();
-		if(mysql_query($sql,$link)){
+
+		if(mysqli_query($link,$sql)){
+
 			return 1;
 		}
 		else{
@@ -37,12 +41,14 @@ class tmdt{
 	public function laycot($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
+
 		$trave='';
 		if($i>0)
 		{
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$gt=$row[0];
 				$trave=$gt;
@@ -53,8 +59,8 @@ class tmdt{
 	public function xemdanhsachdonhang($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
 		if($i>0)
 		{
             echo '<table>
@@ -70,24 +76,25 @@ class tmdt{
                         </tr>
                     </thead>';
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
 				$maHD=$row['maHD'];	
-                $maKH=$this->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$maHD' LIMIT 1");
+                $maKH=$row['maKH'];
                 $hoTen=$this->laycot("select hoTen from khachhang where maKH='$maKH'");
-                $diachi=$this->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                                        WHERE c.maKH = '$maKH';");
-                $ngayNhapDon=$row['ngayNhapDon'];	
-                $trangThaiDH=$row['trangThaiDH'];
+                $diachi=$this->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+                $ngayThang=$row['ngayThang'];
                 $trangThaiGH=$row['trangThaiGH'];
                 
                 if($trangThaiGH == 0) {
 					$trangThaiGHText = "Chưa giao";
 				} else if($trangThaiGH == 1) {
 					$trangThaiGHText = "Đang giao";
-				}else {
+				}else if($trangThaiGH == 2) {
 					$trangThaiGHText = "Đã hoàn thành";
+				}else {
+					$trangThaiGHText = "Đơn hàng đã hủy";
 				}
 		
                 echo '<tbody>
@@ -96,7 +103,7 @@ class tmdt{
                             <td>'.$maHD.'</td>
                             <td>'.$hoTen.'</td>
                             <td>'.$diachi.'</td>
-                            <td>'.$ngayNhapDon.'</td>
+                            <td>'.$ngayThang.'</td>
                             <td>'.$trangThaiGHText.'</td>
                             <td>
                                 <button class="view-button"><a href="haucan_chitietdonhang.php?id='.$maHD.'" style="text-decoration: none;color:#000">Xem chi tiết</a></button>';
@@ -125,18 +132,19 @@ class tmdt{
     public function xemchitietmonan_donhang($sql)
 	{
 		$link=$this->connect();
-		$ketqua = mysql_query($sql,$link);
-		$i=mysql_num_rows($ketqua);
+		$ketqua = mysqli_query($link,$sql);
+		$i=mysqli_num_rows($ketqua);
+
 		if($i>0)
 		{
 			$dem=1;
-			while($row=mysql_fetch_array($ketqua))
+			while($row=mysqli_fetch_array($ketqua))
 			{
-				// $maHD=$row['maHD'];	
+				$maHD=$row['maHD'];	
                 $maMA=$row['maMA'];
-                $tenMA=$row['tenMA'];
-                $soLuong=$row['soLuong'];
-                $donGia=$row['donGia'];
+                $tenMA=$this->laycot("select tenMA from monan where maMA=$maMA");
+                $soLuong=$this->laycot("select soLuong from chitiethoadon where maMA=$maMA");
+                $donGia=$this->laycot("select donGia from monan where maMA=$maMA");
                 $tongtienmon= $soLuong * $donGia;
                 // $soLuong= $this->laycot("select soLuong from chitiethoadon where maHD='$maHD'");
                 // $donGia= $this->laycot("select donGia from chitiethoadon where maMA='$maMA'");
@@ -144,7 +152,7 @@ class tmdt{
 		
                 echo '<div class="food-item">
                         <div class="soluong">'.$tenMA.' x'.$soLuong.'</div>
-                        <div class="gia">'.$tongtienmon.'đ</div>  
+                        <div class="gia">'.$tongtienmon.'.000đ</div>  
                     </div>';
 				
 			}

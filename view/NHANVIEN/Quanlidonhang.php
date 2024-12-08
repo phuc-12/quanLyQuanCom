@@ -19,27 +19,33 @@
     </style>
 </head>
 <body>
+        <?php
+        $layid = $_REQUEST['id'];
+        ?>
     
     <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
-        <h1><a href="NV_quanli.php" style='text-decoration: none'>Trang nhân viên</a></h1>
+        <h1><a href="NV_quanli.php?id=<?php echo $layid ?>" style='text-decoration: none'>Trang nhân viên</a></h1>
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
     <div class="sidebar" id="sidebar">
-        <button class="menu-item"><a href="ThongtinNhanVien.php">Thông tin cá nhân</a></button>
-        <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
-        <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
     </div>
 
     <div class="container" style="width:100%;">
         <div class="content">
             <h2>Danh sách đơn hàng</h2>
-            <button class="button new-order"><a href="Themdonmoi.php">Tạo đơn mới</a></button>
+            <?php
+            $layid = $_REQUEST['id'];
+            ?>
+            <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn mới</a></button>
 
 <<<<<<< HEAD
             <table class="order-table">
@@ -90,7 +96,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Mã hóa đơn</th>
-                                
+                                 <th>Thời gian tạo</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -101,9 +107,7 @@
                         echo '<tr style="text-align: center">';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
-                        
-                        
-                        // echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                        echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['ngayThang'].'</a></td>';
                         switch($r['trangThai'])
                         {
                             case 0: 

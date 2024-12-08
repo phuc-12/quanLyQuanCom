@@ -40,15 +40,15 @@
          <div class="logo" style="padding: 0; border-radius: 100px;">
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
-        <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
+        <h1><a href="NV_quanli.php?id=<?php echo $layid ?>">Trang nhân viên</a></h1>
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
     <div class="sidebar" id="sidebar">
-    <button class="menu-item"><a href="ThongtinNhanVien.php">Thông tin cá nhân</a></button>
-        <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
-        <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
     </div>
     <div class="container" style="width:100%;">
         <div class="content" align="center">

@@ -18,36 +18,24 @@ $p = new tmdt();
 <?php
 $layid=$_REQUEST['id'];
 $laymaMA= $p->laycot("select maMA from chitiethoadon where maHD='$layid'");
-$maKH=$p->laycot("SELECT maKH FROM chitiethoadon WHERE maHD='$layid' LIMIT 1");
+$maKH=$p->laycot("SELECT maKH FROM hoadon WHERE maHD='$layid' LIMIT 1");
 $layhoTen= $p->laycot("select hoTen from khachhang where maKH=  '$maKH'");
-$sodienthoai=$p->laycot("select t.SDT FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                        WHERE c.maKH = '$maKH';");
-$diachi=$p->laycot("select t.diachi FROM taikhoannguoidung t JOIN khachhang k ON t.username = k.username
-                        JOIN chitiethoadon c ON k.maKH = c.maKH
-                        WHERE c.maKH = '$maKH';");
-$laytongtien=$p->laycot("SELECT SUM( soLuong * donGia )FROM chitiethoadon WHERE maHD = '$layid' GROUP BY maHD;");
-$laytrangThaiGH= $p->laycot("select trangThaiGH from chitiethoadon where maHD='$layid'");
-$laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$layid'");
+$sodienthoai=$p->laycot("select tknd.SDT FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+$diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                        JOIN hoadon hd ON kh.maKH = hd.maKH
+                                        WHERE hd.maKH = '$maKH';");
+$laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
+$laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
+$laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
+$layimg= $p->laycot("select img from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
-                </div>
-
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
-                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
-                    </ul>
                 </div>
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
@@ -76,18 +64,6 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
 
                 <label>Danh sách món ăn:</label>
                 <div class="food-list">
-                    <!-- <div class="food-item">
-                        <div class="soluong"></div>
-                        <div class="gia"></div>  
-                    </div> -->
-                    <!-- <div class="food-item">
-                        <div class="soluong">Bún thêm x1 </div>
-                        <div class="gia">đ 30.000 </div>  
-                    </div>
-                    <div class="food-item">
-                        <div class="soluong">Nước ngọt x2 </div>
-                        <div class="gia">đ 25.000 </div>  
-                    </div>                  -->
                     <?php
                         $p->xemchitietmonan_donhang("SELECT *
                                                             FROM chitiethoadon
@@ -99,7 +75,7 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
                 <input type="text" id="tongtien" name="tongtien" value="<?php echo $laytongtien;?>">
 
                 <label for="soluong">Trạng thái đơn hàng</label>
-                <input type="text" id="trangthaiDH" name="trangthai" value="<?php if ($laytrangThaiDH == 0) {
+                <input type="text" id="trangthai" name="trangthai" value="<?php if ($laytrangThai == 0) {
                                                         echo "Chưa thanh toán";
                                                     } else {
                                                         echo "Đã thanh toán";
@@ -110,9 +86,13 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from chitiethoadon where maHD='$
                                                         echo "Chưa giao";
                                                     } else if($laytrangThaiGH ==1) {
                                                         echo "Đang giao";
-                                                    }else{
+                                                    }else if($laytrangThaiGH ==2) {
                                                         echo "Đã hoàn thành";
+                                                    }else{
+                                                        echo "Đơn hàng đã hủy";
                                                     }?>">
+                <label for="soluong">Hình ảnh giao hàng</label>
+                <img src="../../img/giaohang/<?php echo "$layimg" ?>" alt="" style="width:350px">
         </div>
     </div>
 

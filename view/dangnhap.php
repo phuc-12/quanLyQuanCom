@@ -33,7 +33,7 @@
         <div class="contactv1">
             <div class="contact-formv1">
                 <h2 class="form-title">ĐĂNG NHẬP</h2>
-                <form>
+                <form action="" method="POST">
                     <div class="form-group">
                         <label>UserName:</label>
                         <input type="text" name="txtTND">
@@ -45,9 +45,10 @@
                         <input type="password" name="txtMK">
                     </div>
                     <tr>
-                        <td colspan="2" class="button-row">
-                            <input type="reset" name="reset" value="Nhập lại">
-                            <input type="submit" name="btn_DangNhap" value="Đăng nhập">
+                        <td>
+                            <button type="reset" class="submit-btn">Nhập lại</button>
+                            <button type="submit" class="submit-btn" name="btn_DangNhap">Đăng Nhập</button>
+                        
                         </td>
                     </tr>
                     <tr>
@@ -108,10 +109,12 @@
 </body>
 </html>
 <?php
-    if(isset($_POST['btn_DangNhap'])){
-        include_once('controller/cNguoiDung.php');
+    if(isset($_POST["btn_DangNhap"])){
+        $tdn = $_POST["txtTND"];
+        $mk = $_POST["txtMK"];
+        include_once("../controler/cNguoiDung.php");
         $p = new cNguoiDung();
-        $con = $p -> get01NguoiDung($_REQUEST['txtTND'],$_REQUEST['txtMK']);
-    }
+        $con = $p->get01NguoiDung($tdn, $mk);
 
+    }
 ?>

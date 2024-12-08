@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../../js/dateTime.js" defer></script> 
-    <script src="../../js/thongtin.js" defer></script> 
+    <script src="../../js/thongtin.js" defer></script>
+    <script src="../../js/capnhatthongtin.js" defer></script>  
     <style>
         .header h1 {
 <<<<<<< HEAD
@@ -48,7 +50,7 @@
             <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
-            <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
+            <h1><a href="NV_quanli.php?id=<?php echo $layid ?>">Trang nhân viên</a></h1>
             <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
         </div>
@@ -61,9 +63,10 @@
 >>>>>>> main
 
         <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="ThongtinNhanVien.php">Thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
             <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+        </div>
         </div>
         <div class="container" style="width:100%;">
             <div class="content" align="center">
@@ -113,23 +116,31 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="username">UserName:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="username" value="<?php echo $layusername;?>"   name="username"  style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="username" value="<?php echo $layusername;?>"   name="username"  style="color: #999;">
+                            <span id="errTDN" class="error-msg"></span>
+                            </td>
                             <!-- <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="password">PassWord:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;"></td>
+                            <td><input type="password" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;">
+                            <span id="errPW" class="err text-danger"></span>
+                            <input type="checkbox" id="showPassword"> Hiện mật khẩu
+                            </td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="sdt">Số Điện Thoại:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="sdt" value="<?php echo $laysdt;?>" name="sdt" style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="sdt" value="<?php echo $laysdt;?>" name="sdt" style="color: #999;">
+                            <span id="errSDT" class="error-msg"></span>  
+                            </td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="email">Email:</label></td>
                             <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email" style="color: #999;"></td>
                             <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
+                            <span id="errEmail" class="error-msg"></span>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
@@ -208,7 +219,7 @@
                                         }
                                         break;
                                     }
-
+                                    
                                 }
                             } 
                             else 

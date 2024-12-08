@@ -27,9 +27,10 @@ if ($result && $row = $result->fetch_assoc()) {
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/hoadonn.js" defer></script> 
     <script src="../../js/dateTime.js" defer></script> 
     <script src="../../js/thongtin.js" defer></script> 
-    <script src="../../js/hoadon.js" defer></script> 
+    
     <style>
         .header h1 {
             margin-top: -40px;
@@ -39,20 +40,23 @@ if ($result && $row = $result->fetch_assoc()) {
     </style>
 </head>
 <body>
+    <?php
+    $layid = $_REQUEST['id'];
+    ?>
 <div class="container-fluid p-0">
     <div class="header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
-        <h1><a href="NV_quanli.php" style='text-decoration: none'>Trang nhân viên</a></h1>
+        <h1><a href="NV_quanli.php?id=<?php echo $layid ?>" style='text-decoration: none'>Trang nhân viên</a></h1>
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
     <div class="sidebar" id="sidebar">
-        <button class="menu-item"><a href="ThongtinNhanVien.php">Thông tin cá nhân</a></button>
-        <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
-        <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
     </div>
 
         <div class="container" style="width:100%">      
@@ -79,7 +83,7 @@ if ($result && $row = $result->fetch_assoc()) {
                                 <th>Mã sản phẩm</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá</th>
-                                <th>Hình ảnh</th>
+                                <!-- <th>Hình ảnh</th> -->
                                 <th>Thêm</th>
                             </tr>
                         </thead>
@@ -89,11 +93,15 @@ if ($result && $row = $result->fetch_assoc()) {
                             if (!empty($sanphamList)) {
                                 // Duyệt qua danh sách sản phẩm và hiển thị
                                 foreach ($sanphamList as $sanpham) {
+                                    // Ẩn sản phẩm miễn phí nếu maMA = 21
+                                    if ($sanpham['maMA'] == 21) {
+                                        continue; // Bỏ qua sản phẩm miễn phí
+                                    }
                                     echo "<tr data-id='" . $sanpham['maMA'] . "'>";
                                     echo "<td>" . $sanpham['maMA'] . "</td>";
                                     echo "<td>" . $sanpham['tenMA'] . "</td>"; // Product name
                                     echo "<td>" . $sanpham['donGia'] . " VND</td>"; // Price
-                                    echo "<td><img src='" . $sanpham['hinhAnh'] . "' width='50' height='50'></td>";
+                                    // echo "<td><img src='" . $sanpham['hinhAnh'] . "' width='50' height='50'></td>";
                                     echo "<td class='add-btn'>
                                                 <button onclick='addToCart(" . $sanpham['maMA'] . ")'> + </button>
                                             </td>";
@@ -123,7 +131,7 @@ if ($result && $row = $result->fetch_assoc()) {
                         </div>
                         <div class="invoice-field">
                             <label for="employee">Nhân viên</label>
-                            <input id="employee" type="text">
+                            <input id="employee" type="text" value='<?php echo $layid;?>'>
 
                             <!-- <label for="">Khuyến mãi</label>
                             <input id="employee" type="text"> -->
@@ -135,6 +143,7 @@ if ($result && $row = $result->fetch_assoc()) {
                                 <thead>
                                     <tr>
                                         <th>STT</th>
+                                        <th>Mã Món</th>
                                         <th>Tên Sản Phẩm</th>
                                         <th>Số lượng</th>
                                         <th>Thành tiền</th>
@@ -152,8 +161,8 @@ if ($result && $row = $result->fetch_assoc()) {
 
                 <!-- Nút Hành Động -->
                 <div class="actions">
-                    <button>Xác nhận</button>
-                    <button>Hủy</button>
+                    <button class="xacnhan" onclick="confirmOrder()">Xác nhận</button>
+                    <button  class="huy" >Hủy</button>
                 </div>
             </div>
         </div>

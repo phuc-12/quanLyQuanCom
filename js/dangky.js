@@ -18,6 +18,22 @@ $(document).ready(function(){
     $("#txtHoTen").blur(function(){
         ktHoTen();
     });
+    function ktTDN () {
+        let TDN = $("#txtTND").val();
+        let btcq = /^[a-zA-Z0-9]{6,}$/;
+        if (TDN == "") {
+            $("#errTDN").html("Tài Khoản không được trống");
+            return false;
+        } else if (btcq.test(TDN)) {
+            return true;
+        } else {
+            $("#errTDN").html("Tài khoản tồn tại không tồn tại!");
+            return false;
+        }
+    }
+    $("#txtTDN").blur(function(e){
+        ktTDN();
+    });
 
     function ktemail() {
         let email = $("#txtEmail").val().trim();
@@ -118,9 +134,11 @@ function register() {
     var soDienThoai = document.getElementById('txtSDT').value;
     var diaChi = document.getElementById('txtDiaChi').value;
     var pw = document.getElementById('txtPW').value;
+    var TDN = document.getElementById('txtTDN').value;
 
     // Lưu thông tin đăng ký vào local storage
     localStorage.setItem('hoTen', hoTen);
+    localStorage.setItem('TDN', TDN);
     localStorage.setItem('email', email);
     localStorage.setItem('soDienThoai', soDienThoai);
     localStorage.setItem('diaChi', diaChi);

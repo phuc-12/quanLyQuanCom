@@ -15,6 +15,9 @@ $p = new tmdt();
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+?>
 <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
@@ -22,15 +25,11 @@ $p = new tmdt();
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/ThongtinNhanVien.php?id=<?php echo $layid?>">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/CN_thongtin.php?id=<?php echo $layid?>">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
                 </div>
@@ -44,41 +43,11 @@ $p = new tmdt();
             <div class="container">
                 <div class="header-row">
                     <h2>DANH SÁCH ĐƠN HÀNG</h2>
-                    <!-- <div class="search-add">
-                        <input type="text" placeholder="Tìm kiếm...">
-                        <button class="search-button">🔍</button>
-                    </div> -->
+                    
                 </div>
-                <!-- <table> -->
-                    <!-- <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Mã đơn hàng</th>
-                            <th>Tên người nhận</th>
-                            <th>Địa chỉ giao hàng</th>
-                            <th>Thời gian yêu cầu giao</th>
-                            <th>Trạng thái</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead> -->
-                    <!-- <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>DH01</td>
-                            <td>Nguyễn Thị Nga</td>
-                            <td>Nguyễn Văn Bảo, Gò Vấp</td>
-                            <td>20:00 05/11/2024</td>
-                            <td>Chuẩn bị đơn hàng</td>
-                            <td>
-                                <button class="view-button" onclick="window.location.href='haucan_chitietdonhang.php';">Xem chi tiết</button>
-                                <button class="view-button" onclick="window.location.href='haucan_giaohang.php';">Bắt đầu giao hàng</button>
-                            </td>
-                        </tr> -->
-                        <!-- Add more rows as needed -->
-                    <!-- </tbody>
-                </table> -->
+                
                 <?php
-                    $p->xemdanhsachdonhang("select * from chitiethoadon group by maHD")
+                    $p->xemdanhsachdonhang("select * from hoadon group by maHD")
                 ?>
             </div>
         </div>

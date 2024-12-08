@@ -7,7 +7,7 @@ $p = new tmdt();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang tổng quá</title>
+    <title>Trang tổng quan</title>
     <link rel="stylesheet" type="text/css" href="../../css/nvbep_css/bep_trangchu.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -16,21 +16,22 @@ $p = new tmdt();
     </style>
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+?>
         <div class="container-fluid p-0">
             <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
+                
 
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/ThongtinNhanVien.php?id=<?php echo $layid?>">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/CN_thongtin.php?id=<?php echo $layid?>">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
                 </div>
@@ -55,7 +56,7 @@ $p = new tmdt();
                            <div class="soluong">
                                 <p>
                                 <?php
-                                    $tonghoadon=$p->laycot("SELECT COUNT( DISTINCT maHD )FROM chitiethoadon");
+                                    $tonghoadon=$p->laycot("SELECT COUNT( DISTINCT maHD )FROM hoadon");
                                     echo $tonghoadon;
                                 ?>
                                 </p>

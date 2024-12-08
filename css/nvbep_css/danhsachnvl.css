@@ -201,6 +201,7 @@ tbody td {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+    margin: 0 auto;
 }
 
 .detail-form label {
@@ -252,6 +253,12 @@ tbody td {
     background-color: #ffc107;
 }
 /* them */
+.nut {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 .add-button-1 {
     grid-column: 1 / -1;
     padding: 10px;
@@ -261,6 +268,7 @@ tbody td {
     cursor: pointer;
     font-weight: bold;
     margin-top: 20px;
+    width:150px;
 }
 .add-button-1:hover {
     background-color: #ffc107;}

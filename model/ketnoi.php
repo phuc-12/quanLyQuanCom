@@ -2,7 +2,7 @@
     class clsKetNoi 
     {
         public function moketnoi(){
-            $con = mysqli_connect('localhost', 'trieu', '123', 'db_chipheo');
+            $con = mysqli_connect('localhost', 'root', '', 'db_chipheo');
             if (!$con) {
                 die("Kết nối thất bại: " . mysqli_connect_error());
             }
