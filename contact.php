@@ -34,19 +34,51 @@
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">Giới Thiệu</a>
-            <a href="contact.php">Liên Hệ</a>
+            <a href="contact.php">Liên Hệ - Chính sách</a>
         </nav>
-
         <!-- Category Navigation -->
         <div class="category-nav">
-            <a href="category-food.php">Món chay</a>
-            <a href="#">Món mặn</a>
-            <a href="#">Đồ uống</a>
-            <a href="#">Tráng Miệng</a>
         </div>
 
-        <div class="contact">
-            <div class="contact-form">
+        <div class="form-title">
+            <h4 style="position: absolute; padding-top: 20px; font-family:'Courier New', Courier, monospace; font-size: 20px;">Thông tin liên hệ</h4>
+            <img src="img/Vector-3-1.svg" alt="" width="250px" height="60px">
+        </div>
+
+        <div class="contact">     
+            <p id="tt">Chuỗi quán cơm bình dân Chí Phèo với sự ghi nhận và ủng hộ từ khách hàng, quán ăn hứa hẹn sẽ cố gắng cải thiện và phát triển hơn chuỗi cửa hàng để phục vụ quý khách hàng.
+               <br> 
+            Thông tin liên hệ của chuỗi của hàng đa dạng qua các kênh truyền thông.            </p>
+            <div class="ll">
+                <a href="#"><img id="fb" src="img/facee.png" alt=""></a>
+                <img id="anh" src="img/ChiPheologo.png" alt="">
+                <a href="#"><img id="map" src="img/maplogo.png" alt=""></a>
+                <a href="#"><img id="zl" src="img/zaloo.png" alt=""></a>
+            </div>
+        </div>
+        <div class="contact-info">
+            <div class="info-item">
+                <div class="info-content">
+                    <div class="ic1">
+                        <h3>Quán ăn chính</h3>
+                        <p>Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TPHCM</p>
+                    </div>
+                    <div class="ic1">
+                        <h3>Số điện thoại</h3>
+                        <p>0346.021.604</p>
+                    </div>
+                    <div class="ic1">
+                        <h3>Thời gian hoạt động</h3>
+                        <p>Thứ 2 - Chủ nhật: 6:00 - 20:00</p>
+                    </div>
+                    <div class="ic1">
+                        <h3>Email</h3>
+                        <a href="">Email: marketing@chipheoquan.com</a>
+                    </div>
+            </div>
+        </div>
+
+            <!-- <div class="contact-form">
                 <h2 class="form-title">LIÊN HỆ</h2>
                 <form>
                     <div class="form-group">
@@ -67,31 +99,8 @@
                     </div>
                     <button type="submit" class="submit-btn">GỬI</button>
                 </form>
-            </div>
-
-            <div class="contact-info">
-                <div class="info-item">
-                    <div class="info-content">
-                        <div class="ic1">
-                            <h3>Địa chỉ liên hệ</h3>
-                            <p>Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, TPHCM</p>
-                        </div>
-                        <div class="ic1">
-                            <h3>Số điện thoại</h3>
-                            <p>0346.021.604</p>
-                        </div>
-                        <div class="ic1">
-                            <h3>Thời gian hoạt động</h3>
-                            <p>Thứ 2 - Chủ nhật: 6:00 - 20:00</p>
-                        </div>
-                        <div class="ic1">
-                            <h3>Email</h3>
-                            <a href="#">quancomchipheo@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            </div> -->
+           
         </div>
         <!-- Footer -->
         <footer class="footer">

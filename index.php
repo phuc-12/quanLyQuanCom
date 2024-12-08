@@ -17,12 +17,12 @@
         <div class="top-bar">
             <div class="contact-info">
                 <span>0346021604</span>
-                <span> - </span>
-                <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
+                <span> / </span>
+                <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
                 <div class="search">
-                    <input type="search" placeholder="Bạn cần tìm gì" autocomplete="off">
+                    <input type="search" placeholder="" autocomplete="off" id="s">
                     <input type="submit" name="btn" id="btn" value="Search">
                 </div>
                 <a href="view/dangky.php">Đăng ký</a>
@@ -38,7 +38,7 @@
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">Giới Thiệu</a>
-            <a href="contact.php">Liên Hệ</a>
+            <a href="contact.php">Liên Hệ - Chính sách</a>
         </nav>
 
         <!-- Category Navigation -->
@@ -80,7 +80,7 @@
                 <h2>Thực đơn cơm văn phòng</h2>
                 <p>Thực đơn cơm văn phòng được các đầu bếp có tay nghề, uyên thâm trong lĩnh vực cơm văn phòng chế biến
                 </p>
-                <br><a href="">Chi tiết</a>
+                <!-- <br><a href="">Chi tiết</a> -->
             </div>
             <div class="services-box">
                 <img src="IMG/service2.jpg" alt="">
@@ -88,14 +88,14 @@
                 <p>Giao cơm tận nơi là trách nhiệm của chúng tôi, mọi ưu tiên về quyền lợi và sự hài lòng của khách hàng
                     là
                     tiêu chí của chúng tôi</p>
-                <br><a href="">Chi tiết</a>
+                <!-- <br><a href="">Chi tiết</a> -->
             </div>
             <div class="services-box">
                 <img src="IMG/service3.jpg" alt="">
                 <h2>Chất lương nguyên liệu tươi sống</h2>
                 <p>Chất lương nguyên liệu luôn luôn đứng đầu trong các lựa chọn để có một món ăn ngon
                     miệng, sức khỏe</p>
-                <br><a href="">Chi tiết</a>
+                <!-- <br><a href="">Chi tiết</a> -->
             </div>
         </div>
 
@@ -103,7 +103,7 @@
         <div class="image-banner">
             <div class="image-banner-grid">
                 <div class="image-banner-item"><img src="IMG/monman/cabasakho.png" alt=""></div>
-                <div class="image-banner-item"><img src="IMG/monchay/bokhochay.jpg" alt=""></div>
+                <!-- <div class="image-banner-item"><img src="IMG/monchay/bokhochay.jpg" alt=""></div> -->
                 <div class="image-banner-item"><img src="IMG/trangmieng/banhchuoihap.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/douong/epthom.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/monman/thitkho.jpg" alt=""></div>
@@ -114,7 +114,7 @@
         </div>
         <!-- Menu Section -->
         <!-- Món mặn  -->
-        <h1 class="section-title">CÁC MÓN BÁN CHẠY TẠI QUÁN</h1>
+        <h1 class="section-title">THỰC ĐƠN BÁN CHẠY</h1>
         <div class="menu">
             <h2 class="section-title">MÓN MẶN</h2>
             <div class="menu-grid">

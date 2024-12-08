@@ -34,7 +34,7 @@
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">Giới Thiệu</a>
-            <a href="contact.php">Liên Hệ</a>
+            <a href="contact.php">Liên Hệ - Chính sách</a>
         </nav>
 
         <!-- Category Navigation -->
