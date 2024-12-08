@@ -87,8 +87,10 @@ $laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
                     <label>Mô tả:</label>
                     <input type="text" value="<?php echo $laymoTa;?>" readonly>
                     
-                    <button type="submit" class="add-button-1" name="nut" id="nut" value="Xoa" onclick="return confirmDelete()";>Xóa</button>
-                    <script>
+                    <div class="nut">
+                        <button type="button" class="add-button-1" style="background-color: #656464; color:#ffff;" onclick="window.location.href='bep_qlynvl.php';">HỦY</button>
+                        <button type="submit" class="add-button-1" name="nut" id="nut" value="Xoa">Xóa</button> 
+                    </div>                    <script>
                         function confirmDelete() {
                             return confirm("Bạn có chắc chắn muốn xóa nguyên vật liệu này không?");
                         }

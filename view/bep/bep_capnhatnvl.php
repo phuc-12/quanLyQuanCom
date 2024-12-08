@@ -98,8 +98,10 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                     <label for="soluong">Mô tả:</label>
                     <input type="text" id="mota" value="<?php echo $laymota;?>" name="mota">
 
-
-                    <button type="submit" class="update-button" name="nut" id="nut" value="Sua">Cập nhật</button>
+                    <div class="nut">
+                        <button type="button" class="add-button-1" style="background-color: #656464; color:#ffff;" onclick="window.location.href='bep_qlynvl.php';">HỦY</button>
+                        <button type="submit" class="add-button-1" name="nut" id="nut" value="Sua">Cập nhật</button> 
+                    </div>
                     <?php
                     if (isset($_POST['nut'])) {
                         switch($_POST['nut']){

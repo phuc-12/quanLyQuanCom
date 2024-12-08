@@ -56,7 +56,7 @@ $p = new tmdt();
                 
                 <h2>THÊM NGUYÊN VẬT LIỆU</h2>
             </div>
-            <form class="detail-form" method="post" enctype="multipart/form-data" name="form1" id="form1">
+            <form class="detail-form" method="post" name="form1" id="form1">
 
                 <label for="ten">Tên nguyên vật liệu:</label>
                 <input type="text" id="txttenNVL" name="txttenNVL">
@@ -100,8 +100,11 @@ $p = new tmdt();
 
                 <label for="ten">Ghi chú:</label>
                 <input type="text" id="txtmota" name="txtmota">
-                
-                <button type="submit" class="add-button-1" name="nut" id="nut" value="Thêm sản phẩm">THÊM</button>
+
+                <div class="nut">
+                    <button type="button" class="add-button-1" style="background-color: #656464; color:#ffff;" onclick="window.location.href='bep_qlynvl.php';">HỦY</button>
+                    <button type="submit" class="add-button-1" name="nut" id="nut" value="Thêm sản phẩm">THÊM</button> 
+                </div>
             <?php
             if (isset($_POST['nut'])) {
                 switch($_POST['nut']){
@@ -113,6 +116,10 @@ $p = new tmdt();
                         $ngayhethan = $_REQUEST['txtngayHetHan'];
                         $mota = $_REQUEST['txtmota'];
                         $tenNVLdb=$p->laycot("select tenNVL from nguyenlieu where tenNVL='$tenNVL'");
+                        if($tenNVLdb){
+                            echo '<script language="javascript">alert("Nguyên vật liệu đã tồn tại!");window.location="bep_themnvl.php"</script>';
+                            break;  
+                        }
                         
                         if($p->themxoasua("INSERT INTO `db_chipheo`.`nguyenlieu` (`tenNVL`, `slTon`, `donViTinh`, `moTa`, `trangThai`, `ngaynhap`, `ngayhethan`)
         VALUES ('$tenNVL', '$soluong', '$donvitinh', '$mota', '1', '$ngaynhap', '$ngayhethan')")==1){
@@ -121,14 +128,10 @@ $p = new tmdt();
                             echo '<script language="javascript">alert("Thêm nguyên vật liệu không thành công. Vui lòng thử lại!");
                             </script>';
                         }
-                        if($tenNVLdb){
-                            echo '<script language="javascript">alert("Tên nguyên vật liệu đã tồn tại!");window.location="bep_themnvl.php"</script>';
-                        
-                        }
-                    echo '<script language="javascript">
-                            window.location="bep_qlynvl.php";
-                            </script>';
-                    break;
+                        echo '<script language="javascript">
+                                window.location="bep_qlynvl.php";
+                                </script>';
+                        break;
                     }
                 }
             }
