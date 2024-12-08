@@ -553,20 +553,20 @@
 .user-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 20px;
+    gap: 15px;
     padding-bottom: 20px;
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 .user-item {
-    background: #f3e331b2;
-    padding: 15px;
+    background: #fbf073b2;
+    padding: 10px;
     text-align: center;
     border-radius: 8px;
 }
 .user-item img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
 }
 .intro p {

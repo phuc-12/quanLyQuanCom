@@ -50,10 +50,10 @@
                <br> 
             Thông tin liên hệ của chuỗi của hàng đa dạng qua các kênh truyền thông.            </p>
             <div class="ll">
-                <a href="#"><img id="fb" src="img/facee.png" alt=""></a>
+                <a href="https://www.facebook.com/profile.php?id=61553590355575"><img id="fb" src="img/facee.png" alt=""></a>
                 <img id="anh" src="img/ChiPheologo.png" alt="">
-                <a href="#"><img id="map" src="img/maplogo.png" alt=""></a>
-                <a href="#"><img id="zl" src="img/zaloo.png" alt=""></a>
+                <a href="list-res.php"><img id="map" src="img/maplogo.png" alt=""></a>
+                <a href="https://zalo.me/0346021604"><img id="zl" src="img/zaloo.png" alt=""></a>
             </div>
         </div>
 

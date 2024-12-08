@@ -59,6 +59,7 @@
             </div>
         </div>
         
+        
         <!-- Footer -->
         <footer class="footer">
             <div class="contain1">
@@ -111,43 +112,44 @@
             </div>
         </footer>
 
+
         <script>
-        let slideIndex = 0; // Chỉ số ảnh hiện tại
-        showSlides(); // Gọi hàm để hiển thị slideshow đầu tiên
+            let slideIndex = 0; // Chỉ số ảnh hiện tại
+            showSlides(); // Gọi hàm để hiển thị slideshow đầu tiên
 
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
 
-            // Ẩn tất cả các ảnh
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+                // Ẩn tất cả các ảnh
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                // Tăng chỉ số ảnh
+                slideIndex++;
+                // Nếu slideIndex vượt quá số lượng ảnh, quay về ảnh đầu tiên
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+
+                // Hiển thị ảnh hiện tại
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+
+                // Tự động chuyển đến ảnh tiếp theo sau 3 giây
+                setTimeout(showSlides, 3000); // Thay đổi ảnh mỗi 3 giây
             }
 
-            // Tăng chỉ số ảnh
-            slideIndex++;
-            // Nếu slideIndex vượt quá số lượng ảnh, quay về ảnh đầu tiên
-            if (slideIndex > slides.length) {
-                slideIndex = 1
+            // Hàm để chuyển đến ảnh hiện tại khi nhấn vào dấu chấm
+            function currentSlide(n) {
+                slideIndex = n - 1; // Cập nhật chỉ số ảnh hiện tại
+                showSlides(); // Gọi lại hàm showSlides để hiển thị ảnh tương ứng
             }
-
-            // Hiển thị ảnh hiện tại
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-
-            // Tự động chuyển đến ảnh tiếp theo sau 3 giây
-            setTimeout(showSlides, 3000); // Thay đổi ảnh mỗi 3 giây
-        }
-
-        // Hàm để chuyển đến ảnh hiện tại khi nhấn vào dấu chấm
-        function currentSlide(n) {
-            slideIndex = n - 1; // Cập nhật chỉ số ảnh hiện tại
-            showSlides(); // Gọi lại hàm showSlides để hiển thị ảnh tương ứng
-        }
         </script>
     </div>
 </body>
