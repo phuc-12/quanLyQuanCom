@@ -153,6 +153,7 @@ document.querySelector('.huy').addEventListener('click', function () {
 });
 
 function confirmOrder() {
+    
     const invoiceCode = document.getElementById('invoice-code').value;
     const employee = document.getElementById('employee').value;
     // Kiểm tra mã nhân viên đã được nhập
@@ -192,6 +193,8 @@ function confirmOrder() {
        .then(result => console.log(result));
        localStorage.removeItem('invoiceItems');
        loadCartFromLocalStorage();  // Gọi hàm này để render lại giỏ hàng
-       window.location.href = "quanlidonhang.php";
        alert('Đơn hàng đã được thêm thàng công.');
+       window.location.href = "quanlidonhang.php";
+    
+       
 }

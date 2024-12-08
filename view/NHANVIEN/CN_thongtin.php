@@ -125,9 +125,10 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="email">Email:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email" style="color: #999;"></td>
+                            <td><input type="input" class="form-control" size="200" id="email" value="<?php echo $layemail;?>" name="email" style="color: #999;">
+                            <span id="errEmail" class="error-msg"></span></td>
                             <!-- <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td> -->
-                            <span id="errEmail" class="error-msg"></span>
+                            
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
