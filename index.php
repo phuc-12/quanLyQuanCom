@@ -212,8 +212,8 @@
                     <br>
                     <ul>
                         <!-- <li><a href="#" class="doc">Cách Đặt Lịch Tại Website</a></li> -->
-                        <li><a href="#csbm" class="doc">Chính sách bảo mật</a></li>
-                        <li><a href="#cstt" class="doc">Chính sách thanh toán</a></li>
+                        <li><a href="contact.php#csbm" class="doc">Chính sách bảo mật</a></li>
+                        <li><a href="contact.php#cstt" class="doc">Chính sách thanh toán</a></li>
                     </ul>
                 </div>
                 <div class="doc3">
@@ -232,7 +232,7 @@
                     <br>
                     <ul>
                         <li><a href="intro.php" class="doc">Giới Thiệu</a></li>
-                        <li><a href="#" class="doc">Bản Đồ Đường Đi</a></li>
+                        <li><a href="list-res.php" class="doc">Bản Đồ Đường Đi</a></li>
                         <!-- <li><a href="#" class="doc">Facebook</a></li> -->
                     </ul>
                 </div>
