@@ -18,7 +18,7 @@
                 return false;
             }
         }
-        //
+        
         public function SelectAllDonHang() {
             $p = new clsKetNoi();
             $conn = $p->moketnoi();
