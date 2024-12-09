@@ -1,5 +1,5 @@
 <?php
-    include_once('model/mNguoiDung.php');
+    include_once('../model/mNguoiDung.php');
     class cNguoiDung
     {
         public function get01NguoiDung($user,$pw)
@@ -12,30 +12,41 @@
                 while($r=mysqli_fetch_assoc($tbl))
                 {
                    
-                    $_SESSION["dn"]=$r["id_quyen"];
-                    $_SESSION['user_name'] = $r['HoTen'];
-                    $_SESSION['id'] = $r['IDNguoiDung'];
+                    $_SESSION["dn"]=$r["loaiNguoiDung"];
+                    $_SESSION['user_name'] = $r['hoTen'];
+                    $_SESSION['id'] = $r['idNguoiDung'];
+
                 }
-                $phanquyen = $_SESSION['dn'];
-                if($phanquyen == 1){
+                $loainguoidung = $_SESSION["dn"];
+                if($loainguoidung == 1){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Quản lý !")</script>';
                     
-                    header('refresh:0.5,url=admin.php');
+                    echo " <script> window.location.href='admin/admin.php' </script> ";
                 }
-                else if($phanquyen == 2){
+                else if($loainguoidung == 2){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Nhân viên !")</script>';
-                    header('refresh:0.5,url=admin.php');
+                    echo " <script> window.location.href='NHANVIEN/NV_quanli.php?id=".$_SESSION['id']."' </script> ";
+                }
+                else if($loainguoidung == 3){
+                    echo '<script>alert("Đăng nhập thành công. Xin chào Hậu Cần !")</script>';
+                    echo " <script> window.location.href='haucan/haucan_danhsachdonhang.php?id=".$_SESSION['id']."' </script> ";
+                }
+                else if($loainguoidung == 4){
+                    echo '<script>alert("Đăng nhập thành công. Xin chào Nhânviên bếp !")</script>';
+                    echo " <script> window.location.href='bep/bep_trangchu.php?id=".$_SESSION['id']."' </script> ";
                 }
                 else{
-                    echo '<script>alert("Đăng nhập thành công. Xin chào khách hàng  !")</script>';
-                    header('refresh:0.5,url=index.php');
+                  
+                    echo '<script>alert("Đăng nhập thành công. Xin chào khách hàng !")</script>';
+                  
+                    echo " <script> window.location.href='KHACHHANG/customer-dashboard.php?id=".$_SESSION['id']."' </script> ";
                 }
                 
             }
             else
             {
                 echo '<script>alert("Tài khoản hoặc mật khẩu không chính xác !")</script>';
-                header('refresh:0.5,url=index.php?dangnhap');
+                header("Location: index.php?dangnhap");
             }
             
         }
@@ -52,10 +63,10 @@
                 return false;
             }
         }
-        public function getInsertND($tenND, $mk, $hoTen, $diaChi, $sdt, $role)
+        public function getInsertND($id,$tenND, $mk, $hoTen, $email, $trangthai, $loaiND, $diaChi, $sdt)
         {
             $p=new mNguoiDung();
-            $tbl=$p->insertND($tenND, $mk, $hoTen, $diaChi, $sdt, $role);
+            $tbl=$p->insertND($id,$tenND, $mk, $hoTen, $email, $trangthai, $loaiND, $diaChi, $sdt);
             if($tbl>0)
             {
                 echo '<script>alert("Thêm thành công")</script>';

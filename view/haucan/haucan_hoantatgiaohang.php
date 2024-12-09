@@ -28,26 +28,13 @@ $diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhan
                                         WHERE hd.maKH = '$maKH';");
 $laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
 $laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
-$laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'");
+$laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
-                </div>
-
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
-                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
-                    </ul>
                 </div>
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
@@ -99,8 +86,8 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'"
                 <label for="soluong">Tổng tiền</label>
                 <input type="text" id="tongtien" name="tongtien" value="<?php echo $laytongtien;?>">
                 
-                <label for="trangthaiDH">Trạng thái đơn hàng</label>
-                <input type="text" id="trangthaiDH" name="trangthaiDH" value="<?php if ($laytrangThaiDH == 0) {
+                <label for="trangthai">Trạng thái đơn hàng</label>
+                <input type="text" id="trangthai" name="trangthai" value="<?php if ($laytrangThai == 0) {
                                                                                         echo "Chưa thanh toán";
                                                                                     } else {
                                                                                         echo "Đã thanh toán";
@@ -118,6 +105,7 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'"
             <!-- </div> -->
                 <button type="submit" class="complete-button" name="nut" id="nut" value="HTGH">Hoàn tất giao hàng</button>
                 <?php
+                if (isset($_POST['nut'])) {
                     switch($_POST['nut']){
                         case 'HTGH':{
                             $name = $_FILES['myfile']['name'];
@@ -125,13 +113,13 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'"
                             if($tmp_name!=''){
                                 $name = time()."_".$name;
                                 if($p->uploadfile($name,$tmp_name,"../../img/giaohang")==1){
-                                    if($p->themxoasua("UPDATE `db_chipheo`.`hoadon` SET `trangThaiGH` = '2',`trangThaiDH` = '1',`imgGHTC` = '$name' WHERE `hoadon`.`maHD` ='$layid' ;")==1){
+                                    if($p->themxoasua("UPDATE `db_chipheo`.`hoadon` SET `trangThaiGH` = '2',`trangThai` = '1',`img` = '$name' WHERE `hoadon`.`maHD` ='$layid' ;")==1){
                                         echo '<script language="javascript">alert("Giao hàng thành công");
                                                                             window.location = "haucan_danhsachdonhang.php?";</script>
                                                 </script>';
 
                                     }else{
-                                        echo '<script language="javascript">alert("Vấn đề không thành công. Vui lòng thử lại!");
+                                        echo '<script language="javascript">alert("Giao hàng không thành công. Vui lòng thử lại!");
                                         window.location = "haucan_danhsachdonhang.php";
                                         </script>';
                                     }
@@ -165,6 +153,7 @@ $laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'"
                                 }
                             }
                     }
+                }
                 ?>
             </form>                                                                    
         </div>

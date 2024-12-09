@@ -16,6 +16,9 @@ $p = new tmdt();
     <script src="../../js/dateTime.js" defer></script> 
 </head>
 <body>
+<?php
+$layid=$_REQUEST['id'];
+?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
@@ -23,18 +26,15 @@ $p = new tmdt();
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
 
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/ThongtinNhanVien.php?id=<?php echo $layid?>">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/CN_thongtin.php?id=<?php echo $layid?>">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
                     
@@ -64,11 +64,16 @@ $p = new tmdt();
                             </div>
                     </div>
                     <?php
-                        $tentim=$_REQUEST['txttim'];
-                        if($_POST['submit']=="Tìm kiếm"){
-                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu where tenNVL like '%$tentim%'");
-                        }else{
-                            $p->xemdanhsachnguyenvatlieu("select * from nguyenlieu order by trangThai");
+                        if (isset($_REQUEST['txttim'])) {
+                            $tentim = $_REQUEST['txttim'];
+                        } else {
+                            $tentim = ''; // Set a default value if it's not set
+                        }
+                    
+                        if (isset($_POST['submit']) && $_POST['submit'] == "Tìm kiếm") {
+                            $p->xemdanhsachnguyenvatlieu("SELECT * FROM nguyenlieu WHERE tenNVL LIKE '%$tentim%'");
+                        } else {
+                            $p->xemdanhsachnguyenvatlieu("SELECT * FROM nguyenlieu ORDER BY trangThai");
                         }
                     ?>
                 </div>

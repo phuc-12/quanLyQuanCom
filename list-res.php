@@ -12,15 +12,19 @@
 </head>
 
 <body>
-<div class="container-fluid p-0">
-    <!-- Top Bar -->
+    <div class="container-fluid p-0">
+        <!-- Top Bar -->
         <div class="top-bar">
             <div class="contact-info">
                 <span>0346021604</span>
-                <span> - </span>
-                <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
+                <span> / </span>
+                <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
+                <div class="search">
+                    <input type="search" placeholder="" autocomplete="off" id="s">
+                    <input type="submit" name="btn" id="btn" value="Search">
+                </div>
                 <a href="view/dangky.php">Đăng ký</a>
                 <a href="view/dangnhap.php">Đăng nhập</a>
             </div>
@@ -37,41 +41,25 @@
             <a href="contact.php">Liên Hệ - Chính sách</a>
         </nav>
 
-        <!-- Category Navigation -->
-        <div class="category-nav">
-            <a href="category-food.php">Món chay</a>
-            <a href="#">Món mặn</a>
-            <a href="#">Đồ uống</a>
-            <a href="#">Tráng Miệng</a>
-        </div>
-
-        <!-- Food detail -->
-        <div class="food-detail">
-            <div class="food-img">
-                <img src="IMG/monchay/bokhochay.jpg" alt="">
-            </div>
-
-            <div class="food-info">
-                <div class="detail-item">
-                    <div class="detail-content">
-                        <h1>Bò kho chay</h1>
-                        <hr>
-                    </div>
-                    <div class="price">
-                        <p>10.000đ</p>
-                    </div>
-                    <div class="detail-des">
-                        <h2>Chi tiết món ăn</h2>
-                        <ul>
-                            <li>Nguyên liệu:</li>
-                            <li>Mô tả:</li>
-                            <li>...</li>
-                        </ul>
-                    </div>
+        <div class="category-nav"></div>
+        
+        <div class="wrapper">
+            <div class="main">
+              <div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8581690523774!2d106.68465671472212!3d10.822164161307272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1678715881876!5m2!1svi!2s"
+                  width="100%"
+                  height="600"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
                 </div>
-
             </div>
         </div>
+        
+        
         <!-- Footer -->
         <footer class="footer">
             <div class="contain1">
@@ -123,8 +111,47 @@
                 </div>
             </div>
         </footer>
-</div>
-   
+
+
+        <script>
+            let slideIndex = 0; // Chỉ số ảnh hiện tại
+            showSlides(); // Gọi hàm để hiển thị slideshow đầu tiên
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+
+                // Ẩn tất cả các ảnh
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                // Tăng chỉ số ảnh
+                slideIndex++;
+                // Nếu slideIndex vượt quá số lượng ảnh, quay về ảnh đầu tiên
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+
+                // Hiển thị ảnh hiện tại
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+
+                // Tự động chuyển đến ảnh tiếp theo sau 3 giây
+                setTimeout(showSlides, 3000); // Thay đổi ảnh mỗi 3 giây
+            }
+
+            // Hàm để chuyển đến ảnh hiện tại khi nhấn vào dấu chấm
+            function currentSlide(n) {
+                slideIndex = n - 1; // Cập nhật chỉ số ảnh hiện tại
+                showSlides(); // Gọi lại hàm showSlides để hiển thị ảnh tương ứng
+            }
+        </script>
+    </div>
 </body>
 
 </html>

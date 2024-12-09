@@ -28,27 +28,14 @@ $diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhan
                                         WHERE hd.maKH = '$maKH';");
 $laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
 $laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
-$laytrangThaiDH= $p->laycot("select trangThaiDH from hoadon where maHD='$layid'");
-$layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
+$laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
+$layimg= $p->laycot("select img from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">
             <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
-                </div>
-
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:20px;">👤</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
-                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
-                    </ul>
                 </div>
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
@@ -77,18 +64,6 @@ $layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
 
                 <label>Danh sách món ăn:</label>
                 <div class="food-list">
-                    <!-- <div class="food-item">
-                        <div class="soluong"></div>
-                        <div class="gia"></div>  
-                    </div> -->
-                    <!-- <div class="food-item">
-                        <div class="soluong">Bún thêm x1 </div>
-                        <div class="gia">đ 30.000 </div>  
-                    </div>
-                    <div class="food-item">
-                        <div class="soluong">Nước ngọt x2 </div>
-                        <div class="gia">đ 25.000 </div>  
-                    </div>                  -->
                     <?php
                         $p->xemchitietmonan_donhang("SELECT *
                                                             FROM chitiethoadon
@@ -100,7 +75,7 @@ $layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
                 <input type="text" id="tongtien" name="tongtien" value="<?php echo $laytongtien;?>">
 
                 <label for="soluong">Trạng thái đơn hàng</label>
-                <input type="text" id="trangthaiDH" name="trangthai" value="<?php if ($laytrangThaiDH == 0) {
+                <input type="text" id="trangthai" name="trangthai" value="<?php if ($laytrangThai == 0) {
                                                         echo "Chưa thanh toán";
                                                     } else {
                                                         echo "Đã thanh toán";
@@ -117,7 +92,7 @@ $layimgGHTC= $p->laycot("select imgGHTC from hoadon where maHD='$layid'");
                                                         echo "Đơn hàng đã hủy";
                                                     }?>">
                 <label for="soluong">Hình ảnh giao hàng</label>
-                <img src="../../img/giaohang/<?php echo "$layimgGHTC" ?>" alt="" style="width:350px">
+                <img src="../../img/giaohang/<?php echo "$layimg" ?>" alt="" style="width:350px">
         </div>
     </div>
 

@@ -1,3 +1,7 @@
+<?php
+    include_once("../../model/chucnangnhanvien.php");
+    $p=new tmdt();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +24,26 @@
     </style>
 </head>
 <body>
+<?php
+// include("controller/cThanhToan.php");
+// $p = new cThanhToan();
+
+// if ($tblSP -> num_rows == 0){ // Sử dụng phương thức num_rows để kiểm tra số hàng trả về
+//     echo '0 results';
+// }
+// else {
+//     echo "<table>";
+//     echo "<tr>";
+//     while($r = $tblSP->Fetch_assoc()){
+//         echo "<td class = 'td'>";
+//         echo "Tên Khách Hàng".$r["hoTen"]."<br>";
+//         echo "Số Điện Thoại".$r["SĐT"]."<br>";
+//         echo "Địa Chỉ".$r["diaChi"]."<br>";
+//         }
+//     echo "</tr>";
+//     echo "</table>";
+// }
+?>
 <div class="container-fluid p-0">
     <!-- Header -->
     <div class="header">
@@ -31,22 +55,45 @@
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
     <div class="sidebar" id="sidebar">
-    <button class="menu-item"><a href="ThongtinNhanVien.php">Thông tin cá nhân</a></button>        
-    <button class="menu-item"><a href="CN_thongtin.php">Cập nhật thông tin cá nhân</a></button>
-        <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
     </div>
 
     <div class="container" style="width:100%;">
         <div class="content">
             <center><h1>Thông tin thanh toán</h1></center>
-            <div class="inform" style="padding-left:100px;">
+            <!-- <div class="inform" style="padding-left:100px;">
                 <p>Tên khách hàng: Nguyễn Văn A</p>
                 <p>Số điện thoại: 0949198155</p>
                 <p>Địa chỉ: 20/3 Dương Quảng Hàm, Phường 5, Gò Vấp</p>
             <h3 id="dc">Quán cơm Chí Phèo - 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp</h3>
             <p>Số hóa đơn: 001</p>
             <p>Ngày: 21 tháng 10 năm 2024</p>
-            </div>
+            </div> -->
+            <?php
+                // include("controller/cThanhToan.php");
+                // $p = new cThanhToan();
+
+                // if ($tblSP -> num_rows == 0){ // Sử dụng phương thức num_rows để kiểm tra số hàng trả về
+                //     echo '0 results';
+                // }
+                // else {
+                //     echo "<table>";
+                //     echo "<tr>";
+                //     while($r = $tblSP->Fetch_assoc()){
+                //         echo "<td class = 'td'>";
+                //         echo "Tên Khách Hàng".$r["hoTen"]."<br>";
+                //         echo "Số Điện Thoại".$r["SĐT"]."<br>";
+                //         echo "Địa Chỉ".$r["diaChi"]."<br>";
+                //         }
+                //     echo "</tr>";
+                //     echo "</table>";
+                // }
+                ?>
+            <h3 id="dc">Quán cơm Chí Phèo - 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp</h3>
+            <p>Số hóa đơn: 001</p>
+            <p>Ngày: 21 tháng 10 năm 2024</p>
             <table class="order-table">
                 <thead>
                     <tr>
@@ -94,6 +141,8 @@
                 <p>Chiết khấu: 0</p>
                 <p>Thanh toán: 40,000</p>
             <p></p>
+                <button class="button thanhtoan">Tiền Mặt</button>
+                <button class="button thanhtoan">VN Pay</button>
                 <button class="button thanhtoan"><a href="" onclick="return confirm('Xác nhận thanh toán thành công .!');">Tiền mặt</a></button>
                 <button id="thanhtoan">VN Pay</button>
                 <div id="qrcode">

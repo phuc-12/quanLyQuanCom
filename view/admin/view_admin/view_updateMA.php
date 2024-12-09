@@ -122,7 +122,7 @@
                     <table style="margin:0; height: 500px; width:60%;float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maMA">Mã Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maMA" value="<?php echo $layid;?>" name="maMA"></td>
+                            <td><input type="input" class="form-control" size="200" id="maMA" value="<?php echo $layid;?>" name="maMA" readonly></td>
                             <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td>
                         </tr>
                         <tr>

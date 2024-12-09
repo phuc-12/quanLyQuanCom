@@ -2,8 +2,8 @@
     class tmdt
 	{
 		private $host = 'localhost';
-		private $username = 'trieu';
-		private $password = '123';
+		private $username = 'root';
+		private $password = '';
 		private $database = 'db_chipheo';
 
 		public function connect()

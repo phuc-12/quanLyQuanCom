@@ -19,6 +19,7 @@ function loadCartFromLocalStorage() {
 function addToCart(id) {
     const productRow = document.querySelector(`tr[data-id="${id}"]`);
     const productName = productRow.cells[1].textContent;
+    const mamon = productRow.cells[0].textContent;
     const productPrice = parseFloat(productRow.cells[2].textContent.replace(' VND', '').replace(',', ''));
 
     const existingItem = invoiceItems.find(item => item.id === id);
@@ -28,6 +29,7 @@ function addToCart(id) {
     } else {
         invoiceItems.push({
             id,
+            maMA: mamon,
             tenMA: productName,
             donGia: productPrice,
             soLuong: 1
@@ -36,19 +38,20 @@ function addToCart(id) {
 
     // Tính tổng số lượng sản phẩm thực tế trong giỏ hàng
     const totalQuantity = invoiceItems.reduce((total, item) => {
-        if (item.id !== '12') {
+        if (item.id !== '21') {
             return total + item.soLuong;
         }
         return total;
     }, 0);
 
     // Kiểm tra nếu tổng số lượng món trong giỏ hàng >= 3 thì tặng món miễn phí tặng món "Rau câu" (mã 12)
-    if (totalQuantity >= 3 && !invoiceItems.some(item => item.id === '12')) {
+    if (totalQuantity >= 3 && !invoiceItems.some(item => item.id === '21')) {
         // Thêm món miễn phí vào giỏ hàng
         invoiceItems.push({
-            id: '12',
-            tenMA:'Rau câu truyền thống' ,
-            donGia: 0, // Giá trị của món miễn phí là 0
+            id: '21',
+            maMA: '21',
+            tenMA:'Rau câu truyền thống miễn phí' ,
+           donGia: 0, // Giá trị của món miễn phí là 0
             soLuong: 1
         });
 
@@ -71,11 +74,12 @@ function renderInvoiceTable() {
         total += totalPrice;
 
         // Kiểm tra xem món này có phải là món miễn phí không
-        const isFree = item.id === '12' ? 'Có' : 'Không';  // Hiển thị 'Có' nếu món này miễn phí
+        const isFree = item.id === '21' ? 'Có' : 'Không';  // Hiển thị 'Có' nếu món này miễn phí
 
         invoiceBody.innerHTML += `
             <tr>
                 <td>${index + 1}</td>
+                 <td>${item.maMA}</td>
                 <td>${item.tenMA}</td>
                 <td>${item.soLuong}</td>
                 <td>${totalPrice.toFixed(2)} VND</td>
@@ -84,8 +88,6 @@ function renderInvoiceTable() {
             </tr>
         `;
     });
-
-    document.getElementById('total').textContent = `Tổng cộng: ${total.toFixed(2)} VND`;
     
 }
 
@@ -106,7 +108,7 @@ function removeItemFromCart(id) {
 
         // Tính tổng số lượng sản phẩm trong giỏ hàng sau khi thay đổi
         const totalQuantity = invoiceItems.reduce((total, item) => {
-            if (item.id !== '12') {
+            if (item.id !== '21') {
                 return total + item.soLuong;
             }
             return total; // Không tính món miễn phí vào tổng số lượng
@@ -115,7 +117,7 @@ function removeItemFromCart(id) {
         // Kiểm tra nếu tổng số lượng món trong giỏ hàng < 3 thì xóa món miễn phí
         if (totalQuantity < 3) {
             // Nếu món miễn phí có trong giỏ hàng, xóa nó
-            invoiceItems = invoiceItems.filter(item => item.id !== '12');
+            invoiceItems = invoiceItems.filter(item => item.id !== '21');
         }
 
         // Lưu giỏ hàng vào localStorage và cập nhật giao diện
@@ -128,14 +130,71 @@ function removeItemFromCart(id) {
 document.addEventListener('DOMContentLoaded', function() {
     loadCartFromLocalStorage();
 });
-// Hàm hủy hóa đơn và quay lại trang quản lý đơn hàng
-function cancelInvoice() {
-    if (confirm('Bạn có chắc chắn muốn hủy hóa đơn này không?')) {
+// // Hàm hủy hóa đơn và quay lại trang quản lý đơn hàng
+// Hàm xử lý khi nhấn nút Hủy
+document.querySelector('.huy').addEventListener('click', function () {
+    // Hiển thị xác nhận trước khi hủy
+    const confirmCancel = confirm('Bạn có chắc chắn muốn hủy ko?');
+
+    if (confirmCancel) {
+        // Xóa toàn bộ sản phẩm trong hóa đơn
+        const invoiceBody = document.getElementById('invoiceBody');
+        while (invoiceBody.firstChild) {
+            invoiceBody.removeChild(invoiceBody.firstChild);
+
+        }
+
+        // Đặt lại các trường dữ liệu về mặc định
+        document.getElementById('employee').value = '';
         localStorage.removeItem('invoiceItems');
         window.location.href = "quanlidonhang.php";
+        alert('Hóa đơn đã được hủy.');
     }
-}
+});
 
-// Thêm sự kiện cho nút "Hủy"
-document.querySelector('.actions button:nth-child(2)').addEventListener('click', cancelInvoice);
-////////
+function confirmOrder() {
+    
+    const invoiceCode = document.getElementById('invoice-code').value;
+    const employee = document.getElementById('employee').value;
+    // Kiểm tra mã nhân viên đã được nhập
+    if (!employee) {
+        alert('Vui lòng nhập mã nhân viên để tạo hóa đơn.');
+        return;
+    }
+
+    let products = [];
+    let rows = document.querySelectorAll("#invoiceBody tr");
+
+    rows.forEach((row, index) => {
+        let maMA = row.querySelector("td:nth-child(2)").innerText;
+        let productName = row.querySelector("td:nth-child(3)").innerText;
+        let quantity = row.querySelector("td:nth-child(4)").innerText;
+        let total = row.querySelector("td:nth-child(5)").innerText;
+    
+        products.push({
+            maMA: parseInt(maMA),
+            productName: productName,
+            quantity: parseInt(quantity),
+            total: parseFloat(total)
+        });
+    });
+    
+    const orderDetails = {
+        invoiceCode: invoiceCode,
+        employee: parseInt(employee), // Đưa `employee` ra ngoài `products`
+        products: products
+    };
+    
+    fetch('themhoadon.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderDetails)
+    }).then(response => response.text())
+       .then(result => console.log(result));
+       localStorage.removeItem('invoiceItems');
+       loadCartFromLocalStorage();  // Gọi hàm này để render lại giỏ hàng
+       alert('Đơn hàng đã được thêm thàng công.');
+       window.location.href = "quanlidonhang.php";
+    
+       
+}

@@ -85,7 +85,7 @@
             <div class="section" style="background-color: #E5E5E5;">
                 <h3 style="margin-bottom: 30px;"><b>QUẢN LÝ NHÂN VIÊN</b></h3>
 
-                <div class="thongKe_food" style="border-radius: 10px;">
+                <div class="thongKe_employ" style="border-radius: 10px;">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
                         <p style="font-size: 20px; float: left;">Thống kê số liệu</p>
                         <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a>
@@ -212,34 +212,18 @@
                             {
                                 $maXoa = $_REQUEST['id'];
                                 // echo $maXoa."<br>";
-                                $maLoai = $k->laycot("select maLoaiNV from nhanvien where maNV = '$maXoa' limit 1");
+                                // $maLoai = $k->laycot("select maLoaiNV from nhanvien where maNV = '$maXoa' limit 1");
                                 // echo $hinh."<br>";
                                 // echo $maLoai ."<br>";
                                 // echo $thucDon ."<br>";
-                                if($maXoa!='')
-                                {
-                                    if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
-                                    {
-                                        echo'<script language="javascript">
-                                            alert("Xóa nhân viên thành công");	
-                                            </script>';
-                                    }
-                                    else 
-                                    {
-                                        if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa nhân viên thành công");	
-                                                </script>';
-                                        }
-                                    }
-                                }
-                                else
+                                
+                                if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
                                 {
                                     echo'<script language="javascript">
-                                        alert("Vui lòng chọn nhân viên cần xóa");	
+                                        alert("Xóa nhân viên thành công");	
                                         </script>';
                                 }
+                                
                                 echo'<script language="javascript">
                                         window.location="management_employ.php";
                                         </script>';

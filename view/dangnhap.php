@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="js/dangnhap.js" defer></script> 
     <title>Trang Đăng Nhập</title>
 </head>
 <body>
@@ -115,9 +114,7 @@
         $mk = $_POST["txtMK"];
         include_once("../controler/cNguoiDung.php");
         $p = new cNguoiDung();
-        $con = $p -> get01NguoiDung($_REQUEST['txtTND'],$_REQUEST['txtMK']);
-
-        //$con = $p->get01NguoiDung($tdn, $mk);
+        $con = $p->get01NguoiDung($tdn, $mk);
 
     }
 ?>

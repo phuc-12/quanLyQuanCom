@@ -35,18 +35,14 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
-                <a class="trangChu" href="../../index.php">
-                    <p>Trang Chủ</p>
-                </a>
-
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/ThongtinNhanVien.php">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/CN_thongtin.php">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
-                </div>
+                </div> -->
 
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
                     
@@ -102,48 +98,69 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                     <label for="soluong">Mô tả:</label>
                     <input type="text" id="mota" value="<?php echo $laymota;?>" name="mota">
 
-
-                    <button type="submit" class="update-button" name="nut" id="nut" value="Sua">Cập nhật</button>
+                    <div class="nut">
+                        <button type="button" class="add-button-1" style="background-color: #656464; color:#ffff;" onclick="window.location.href='bep_qlynvl.php';">HỦY</button>
+                        <button type="submit" class="add-button-1" name="nut" id="nut" value="Sua">Cập nhật</button> 
+                    </div>
                     <?php
-                    switch($_POST['nut']){
-                        case 'Sua':{
-                            $soluong = $_REQUEST['txtsoluong'];
-                            $ngayNhap = $_REQUEST['txtngayNhap'];
-                            $mota = $_REQUEST['mota'];
-                            $ngayHetHan = $_REQUEST['txtngayHetHan'];
-                    
-                            // Kiểm tra số lượng
-                            if ($soluong == 0) {
-                                $sql = "UPDATE `db_chipheo`.`nguyenlieu` 
-                                          SET `slTon` = '$soluong', 
-                                              `ngayNhap` = '$ngayNhap', 
-                                              `ngayHetHan` = '$ngayHetHan', 
-                                              `moTa` = '$mota', 
-                                              `trangThai` = '0'
-                                          WHERE `nguyenlieu`.`maNVL` = '$layid' 
-                                          LIMIT 1;";
-                            } else {
-                                $sql = "UPDATE `db_chipheo`.`nguyenlieu` SET 
-                                        `slTon` = '$soluong',
-                                        `moTa` = '$mota',
-                                        `trangThai` = '1',
-                                        `ngayNhap` = '$ngayNhap',
-                                        `ngayHetHan` = '$ngayHetHan' WHERE `nguyenlieu`.`maNVL` = '$layid' LIMIT 1 ;";
+                    if (isset($_POST['nut'])) {
+                        switch($_POST['nut']){
+                            case 'Sua':{
+                                $soluong = $_REQUEST['txtsoluong'];
+                                $ngayNhap = $_REQUEST['txtngayNhap'];
+                                $mota = $_REQUEST['mota'];
+                                $ngayHetHan = $_REQUEST['txtngayHetHan'];
+                        
+                                // Kiểm tra số lượng
+                                if ($soluong == 0) {
+                                    $sqlnguyenlieu = "UPDATE `db_chipheo`.`nguyenlieu` 
+                                            SET `slTon` = '$soluong', 
+                                                `ngayNhap` = '$ngayNhap', 
+                                                `ngayHetHan` = '$ngayHetHan', 
+                                                `moTa` = '$mota', 
+                                                `trangThai` = '0'
+                                            WHERE `nguyenlieu`.`maNVL` = '$layid' 
+                                            LIMIT 1;";
+                                    $sqlmonan= "UPDATE monan
+                                                SET trangthai = 0
+                                                WHERE maMA IN (
+                                                    SELECT maMA
+                                                    FROM congthuc tg
+                                                    JOIN nguyenlieu nl ON tg.maNVL = nl.maNVL
+                                                    GROUP BY maMA
+                                                    HAVING SUM(nl.slTon > 0) < COUNT(tg.maNVL)
+                                                );";
+                                } else {
+                                    $sqlnguyenlieu = "UPDATE `db_chipheo`.`nguyenlieu` SET 
+                                            `slTon` = '$soluong',
+                                            `moTa` = '$mota',
+                                            `trangThai` = '1',
+                                            `ngayNhap` = '$ngayNhap',
+                                            `ngayHetHan` = '$ngayHetHan' WHERE `nguyenlieu`.`maNVL` = '$layid' LIMIT 1 ;";
+                                    $sqlmonan= "UPDATE monan
+                                                SET trangthai = 1
+                                                WHERE maMA NOT IN (
+                                                    SELECT maMA
+                                                    FROM congthuc tg
+                                                    JOIN nguyenlieu nl ON tg.maNVL = nl.maNVL
+                                                    GROUP BY maMA
+                                                    HAVING SUM(nl.slTon > 0) < COUNT(tg.maNVL)
+                                                );";
+                                }
+                        
+                                // Thực hiện truy vấn
+                                if ($p->themxoasua($sqlnguyenlieu) == 1 && $p->themxoasua($sqlmonan) == 1) {
+                                    echo '<script language="javascript">alert("Cập nhật nguyên vật liệu thành công");</script>';
+                                    echo '<script language="javascript">
+                                            window.location="bep_qlynvl.php";
+                                        </script>';
+                                } else {
+                                    echo '<script language="javascript">alert("Cập nhật thất bại. Vui lòng thử lại!");</script>';
+                                }
+                                break;
                             }
-                    
-                            // Thực hiện truy vấn
-                            if ($p->themxoasua($sql) == 1) {
-                                echo '<script language="javascript">alert("Cập nhật nguyên vật liệu thành công");</script>';
-                                echo '<script language="javascript">
-                                        window.location="bep_qlynvl.php";
-                                      </script>';
-                            } else {
-                                echo '<script language="javascript">alert("Cập nhật thất bại. Vui lòng thử lại!");</script>';
-                            }
-                            break;
                         }
                     }
-
                     ?>
                 </form>
             </div>
