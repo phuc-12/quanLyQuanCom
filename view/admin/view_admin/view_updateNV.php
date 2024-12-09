@@ -121,7 +121,7 @@
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maNV" value="<?php echo $layid;?>" name="maNV"></td>
+                            <td><input type="input" class="form-control" size="200" id="maNV" value="<?php echo $layid;?>" name="maNV" readonly></td>
                             <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td>
                         </tr>
                         <tr>

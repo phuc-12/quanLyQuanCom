@@ -100,6 +100,34 @@
 			} 	
 		}
 
+		public function chonloaiKH($sql, $maChon)
+		{
+			$link = $this->connect();
+			$ketqua = $link->query($sql); // Thay mysql_query bằng $link->query
+			if($ketqua && $ketqua->num_rows > 0) // Thay mysql_num_rows bằng $ketqua->num_rows
+			{	
+				echo '<select name="maLoaiKH" id="maLoaiKH">';
+				while($row = $ketqua->fetch_array()) // Thay mysql_fetch_array bằng $ketqua->fetch_array()
+				{
+					$maLoaiKH = $row['maLoaiKH'];
+					$tenLoaiKH = $row['tenLoaiKH'];
+					if($maChon == $maLoaiKH)
+					{
+						echo '<option value="'.$maLoaiKH.'" selected>'.$tenLoaiKH.'</option>';
+					}
+					else
+					{
+						echo '<option value="'.$maLoaiKH.'">'.$tenLoaiKH.'</option>';
+					}
+				}
+				echo '</select>';
+			}
+			else
+			{
+				echo 'Đang cập nhật dữ liệu';	
+			} 	
+		}
+
 	}
 
 ?>

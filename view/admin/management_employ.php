@@ -211,34 +211,18 @@
                             {
                                 $maXoa = $_REQUEST['id'];
                                 // echo $maXoa."<br>";
-                                $maLoai = $k->laycot("select maLoaiNV from nhanvien where maNV = '$maXoa' limit 1");
+                                // $maLoai = $k->laycot("select maLoaiNV from nhanvien where maNV = '$maXoa' limit 1");
                                 // echo $hinh."<br>";
                                 // echo $maLoai ."<br>";
                                 // echo $thucDon ."<br>";
-                                if($maXoa!='')
-                                {
-                                    if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
-                                    {
-                                        echo'<script language="javascript">
-                                            alert("Xóa nhân viên thành công");	
-                                            </script>';
-                                    }
-                                    else 
-                                    {
-                                        if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa nhân viên thành công");	
-                                                </script>';
-                                        }
-                                    }
-                                }
-                                else
+                                
+                                if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
                                 {
                                     echo'<script language="javascript">
-                                        alert("Vui lòng chọn nhân viên cần xóa");	
+                                        alert("Xóa nhân viên thành công");	
                                         </script>';
                                 }
+                                
                                 echo'<script language="javascript">
                                         window.location="management_employ.php";
                                         </script>';
