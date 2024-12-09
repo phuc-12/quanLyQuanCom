@@ -15,8 +15,8 @@
         <div class="top-bar">
             <div class="contact-info">
                 <span>0346021604</span>
-                <span> - </span>
-                <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
+                <span> / </span>
+                <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
         </div>
 

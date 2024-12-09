@@ -27,7 +27,7 @@
                 
             }
             echo '<div class="menu-item" style="float: left;">';
-            echo '<a href="food-detail.php?id=?">
+            echo '<a href="food-detail.php?id='.$idsp.'">
                         <div class="sp-img">
                             <img src="img/'.$thucDon.'/'.$hinh.'" alt="">
                         </div>

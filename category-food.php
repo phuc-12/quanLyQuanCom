@@ -12,13 +12,18 @@
 </head>
 
 <body>
+    <?php
+        include_once("model/chucnangadmin.php");
+        $p = new tmdt();
+        $layid = $_REQUEST['id'];
+    ?>
     <div class="container-fluid p-0">
         <!-- Top Bar -->
         <div class="top-bar">
             <div class="contact-info">
                 <span>0346021604</span>
-                <span> - </span>
-                <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
+                <span> / </span>
+                <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
                 <input type="search" placeholder="Bạn cần tìm gì" autocomplete="off">
@@ -41,72 +46,53 @@
 
         <!-- Category Navigation -->
         <div class="category-nav">
-            <a href="category-food.php">Món chay</a>
-            <a href="#">Món mặn</a>
-            <a href="#">Đồ uống</a>
-            <a href="#">Tráng Miệng</a>
+            <a href="category-food.php?id=1">Món mặn</a>
+            <a href="category-food.php?id=2">Món chay</a>
+            <a href="category-food.php?id=3">Đồ uống</a>
+            <a href="category-food.php?id=4">Tráng Miệng</a>
         </div>
 
         <!-- Menu dish by type  -->
         <div class="menu">
-            <h2 class="section-title">MÓN CHAY</h2>
+            <h2 class="section-title">
+            <?php
+                    switch ($layid){
+                        case 1:{
+                            echo'MÓN MẶN';
+                        break;}
+                        case 2:{
+                            echo'MÓN CHAY';
+                        break;}
+                        case 3:{
+                            echo'MÓN ĐỒ UỐNG';
+                        break;}
+                        case 4:{
+                            echo'MÓN TRÁNG MIỆNG';
+                        break;}
+                    }
+                ?>
+            </h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/bokhochay.jpg" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Bò kho chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/suonnonchiengion.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Sườn non chiên giòn</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/heoquaychay.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Heo quay chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/goiduduchay.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Gỏi đu đủ chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">
-                        <div class="sp-img">
-                            <img src="IMG/monchay/dauhukhochay.png" alt="">
-                        </div>
-                        <div class="sp-info">
-                            <h3>Đậu hũ kho chay</h3>
-                            <p>10.000đ</p>
-                        </div>
-                    </a>
-                </div>
-
+                <?php
+                    switch ($layid){
+                        case 1:{
+                            error_reporting(0);
+                            include("view/view_trangchu/view_monMan.php");
+                        break;}
+                        case 2:{
+                            error_reporting(0);
+                            include("view/view_trangchu/view_monChay.php");
+                        break;}
+                        case 3:{
+                            error_reporting(0);
+                            include("view/view_trangchu/view_DoUong.php");
+                        break;}
+                        case 4:{
+                            error_reporting(0);
+                            include("view/view_trangchu/view_monTrangMieng.php");
+                        break;}
+                    }
+                ?>
             </div>
         </div>
         <!-- Footer -->
