@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div class="container-fluid p-0">
         <!-- Top Bar -->
         <div class="top-bar">
@@ -21,10 +22,10 @@
                 <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
-                <div class="search">
+                <!-- <div class="search">
                     <input type="search" placeholder="" autocomplete="off" id="s">
                     <input type="submit" name="btn" id="btn" value="Search">
-                </div>
+                </div> -->
                 <a href="view/dangky.php">Đăng ký</a>
                 <a href="view/dangnhap.php">Đăng nhập</a>
             </div>
@@ -43,10 +44,10 @@
 
         <!-- Category Navigation -->
         <div class="category-nav">
-            <a href="category-food.php">Món chay</a>
-            <a href="#">Món mặn</a>
-            <a href="#">Đồ uống</a>
-            <a href="#">Tráng Miệng</a>
+            <a href="category-food.php?id=1">Món chay</a>
+            <a href="category-food.php?id=2">Món mặn</a>
+            <a href="category-food.php?id=3">Đồ uống</a>
+            <a href="category-food.php?id=4">Tráng Miệng</a>
         </div>
 
         <!-- Banner -->
@@ -103,7 +104,7 @@
         <div class="image-banner">
             <div class="image-banner-grid">
                 <div class="image-banner-item"><img src="IMG/monman/cabasakho.png" alt=""></div>
-                <!-- <div class="image-banner-item"><img src="IMG/monchay/bokhochay.jpg" alt=""></div> -->
+                <div class="image-banner-item"><img src="IMG/monchay/bokhochay.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/trangmieng/banhchuoihap.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/douong/epthom.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/monman/thitkho.jpg" alt=""></div>
@@ -114,7 +115,7 @@
         </div>
         <!-- Menu Section -->
         <!-- Món mặn  -->
-        <h1 class="section-title">THỰC ĐƠN BÁN CHẠY</h1>
+        <h1 class="section-title">MỘT SỐ MÓN BÁN CHẠY</h1>
         <div class="menu">
             <h2 class="section-title">MÓN MẶN</h2>
             <div class="menu-grid">
@@ -136,7 +137,7 @@
         </div>
         <!-- Tráng miệng  -->
         <div class="menu">
-            <h2 class="section-title">MÓN TRÁNG MIỆN</h2>
+            <h2 class="section-title">MÓN TRÁNG MIỆNG</h2>
             <div class="menu-grid">
                 <?php
                     error_reporting(0);

@@ -54,6 +54,18 @@
                 return false;
             }
         }
-        
+        public function SelectFoodDetail() {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "select * from monan where ";
+                $tblMA = $conn->query($str);
+                $p->dongketnoi($conn);
+                return $tblMA;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

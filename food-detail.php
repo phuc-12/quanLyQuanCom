@@ -12,13 +12,33 @@
 </head>
 
 <body>
+    <?php
+    include_once("model/chucnangadmin.php");
+    $p = new tmdt();
+    $layid = $_REQUEST['id'];
+    $layten=$p->laycot("select tenMA from monan where maMA = '$layid' limit 1");
+    $laysoluong=$p->laycot("select soLuong from monan where maMA = '$layid' limit 1");
+    $laydonGia=$p->laycot("select donGia from monan where maMA = '$layid' limit 1");
+    $laymaloai=$p->laycot("select maLoaiMA from monan where maMA = '$layid' limit 1");
+    $laytrangthai=$p->laycot("select trangThai from monan where maMA = '$layid' limit 1");
+    $laymota=$p->laycot("select mota from monan where maMA = '$layid' limit 1");
+    $laynguyenlieu=$p->laycot("select nguyenLieu from monan where maMA = '$layid' limit 1");
+    $layhinhanh=$p->laycot("select hinhAnh from monan where maMA = '$layid' limit 1");
+    switch($laymaloai)
+    {
+        case 1: {$thucDon="monman";} break;
+        case 2: {$thucDon="monchay";} break;
+        case 3: {$thucDon="douong";} break;
+        case 4: {$thucDon="trangmieng";} break;
+    }
+    ?>
 <div class="container-fluid p-0">
     <!-- Top Bar -->
         <div class="top-bar">
             <div class="contact-info">
                 <span>0346021604</span>
-                <span> - </span>
-                <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
+                <span> / </span>
+                <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
                 <a href="view/dangky.php">Đăng ký</a>
@@ -48,24 +68,26 @@
         <!-- Food detail -->
         <div class="food-detail">
             <div class="food-img">
-                <img src="IMG/monchay/bokhochay.jpg" alt="">
+                <img src="img/<?php echo $thucDon;?>/<?php echo $layhinhanh;?>" alt="">
             </div>
 
             <div class="food-info">
                 <div class="detail-item">
                     <div class="detail-content">
-                        <h1>Bò kho chay</h1>
+                        <h1><?php echo $layten; ?></h1>
                         <hr>
                     </div>
                     <div class="price">
-                        <p>10.000đ</p>
+                        <p><?php echo $laydonGia.'đ'; ?></p>
                     </div>
                     <div class="detail-des">
                         <h2>Chi tiết món ăn</h2>
                         <ul>
-                            <li>Nguyên liệu:</li>
-                            <li>Mô tả:</li>
-                            <li>...</li>
+                            <li><b>Số lượng: </b><?php echo $laysoluong; ?></li>
+                            <li><b>Nguyên liệu: </b><?php echo $laynguyenlieu; ?></li>
+                            <li><b>Mô tả: </b><?php echo $laymota; ?></li>
+                            <li><b>Trạng thái: </b><?php echo $laytrangthai; ?></li>
+                            
                         </ul>
                     </div>
                 </div>
