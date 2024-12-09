@@ -125,6 +125,7 @@
                                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                                     <ul class="navbar-nav">
                                     <?php  
+                                    
                                         $idLoai = $_REQUEST['idLoai'];
                                         if($idLoai=='')
                                         {
@@ -198,7 +199,7 @@
 
                     ?>
                 </div>
-                <div>
+            <div>
                 <?php
                     // error_reporting(0);
                     include('../../model/chucnangadmin.php');
@@ -256,16 +257,12 @@
                 ?>
                 </div>
             </div>
-
-            <div>
-
-            </div>
         </div>
     </div>
 </body>
 <script>
     function confirmDelete() {
-        return confirm("Bạn có chắc chắn muốn xóa món ăn này?");
+        return confirm("Bạn có chắc chắn muốn xóa nhân viên này?");
     }
 
 </script>
