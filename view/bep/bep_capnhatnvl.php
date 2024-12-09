@@ -125,7 +125,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                                                 SET trangthai = 0
                                                 WHERE maMA IN (
                                                     SELECT maMA
-                                                    FROM congthuc tg
+                                                    FROM monan_nguyenlieu tg
                                                     JOIN nguyenlieu nl ON tg.maNVL = nl.maNVL
                                                     GROUP BY maMA
                                                     HAVING SUM(nl.slTon > 0) < COUNT(tg.maNVL)
@@ -141,7 +141,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                                                 SET trangthai = 1
                                                 WHERE maMA NOT IN (
                                                     SELECT maMA
-                                                    FROM congthuc tg
+                                                    FROM monan_nguyenlieu tg
                                                     JOIN nguyenlieu nl ON tg.maNVL = nl.maNVL
                                                     GROUP BY maMA
                                                     HAVING SUM(nl.slTon > 0) < COUNT(tg.maNVL)
