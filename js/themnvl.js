@@ -120,7 +120,7 @@ $(document).ready(function(){
 
     $("#nut").click(function(){
         if(!kiemtratenNVL() || !kiemtrasoluong() || !kiemtradonViTinh()|| !kiemtrangaynhap()|| !kiemtrangayHetHan()){
-            alert("Bạn phải nhập đầy đủ thông tin")
+            alert("Bạn phải nhập đúng và đủ thông tin")
             return false;
         }
     })

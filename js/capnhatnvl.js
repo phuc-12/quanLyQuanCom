@@ -107,7 +107,7 @@ $(document).ready(function(){
 
     $("#nut").click(function(){
         if(!kiemtrasoluong() || !kiemtradonViTinh()|| !kiemtrangaynhap()|| !kiemtrangayHetHan()){
-            alert("Bạn phải nhập đầy đủ thông tin")
+            alert("Bạn phải nhập đủ và đúng thông tin")
             return false;
         }
     })
