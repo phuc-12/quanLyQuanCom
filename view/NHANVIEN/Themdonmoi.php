@@ -124,17 +124,20 @@ if ($result && $row = $result->fetch_assoc()) {
                         <h2>HÓA ĐƠN</h2>
                         <div class="invoice-field">
                             <label for="invoice-code">Mã hóa đơn</label>
-                            <input id="invoice-code" type="text" value="<?php echo $newInvoiceCode; ?>" readonly>
-                            <!-- <label for="customer-phone">Số điện thoại</label>
-                            <input id="customer-phone" type="text">
-                            <button id="search-button" onclick="searchDiscount()">🔍</button> -->         
+                            <input id="invoice-code" type="text" value="<?php echo $newInvoiceCode; ?>" readonly>        
                         </div>
                         <div class="invoice-field">
                             <label for="employee">Nhân viên</label>
-                            <input id="employee" type="text" value='<?php echo $layid;?>'>
+                            <input id="employee" type="text" value='<?php echo $layid;?>'readonly>
 
                             <!-- <label for="">Khuyến mãi</label>
                             <input id="employee" type="text"> -->
+                        </div>
+                        <div class="invoice-field">
+                            <label for="customerCode">Khách Hàng</label>
+                            <input id="customerCode" type="text" value="111">
+                            <small style="color: gray;">Thay đổi mã nếu là thành viên</small>
+                            <!-- <button id="search-button" onclick="searchDiscount()">🔍</button> -->          
                         </div>
                     </div>
                     <div class="table-container">

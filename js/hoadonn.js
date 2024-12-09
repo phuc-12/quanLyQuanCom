@@ -147,8 +147,8 @@ document.querySelector('.huy').addEventListener('click', function () {
         // Đặt lại các trường dữ liệu về mặc định
         document.getElementById('employee').value = '';
         localStorage.removeItem('invoiceItems');
+        alert('Hóa đơn đã được hủy !');
         window.location.href = "quanlidonhang.php";
-        alert('Hóa đơn đã được hủy.');
     }
 });
 
@@ -156,13 +156,19 @@ function confirmOrder() {
     
     const invoiceCode = document.getElementById('invoice-code').value;
     const employee = document.getElementById('employee').value;
+    const customerCode = document.getElementById('customerCode').value;
     // Kiểm tra mã nhân viên đã được nhập
+    if (!customerCode) {
+        alert('Thông tin khách hàng còn thiếu. Nhập "111" nếu khách hàng chưa có mã khách hàng.');
+        return;
+    }
     if (!employee) {
-        alert('Vui lòng nhập mã nhân viên để tạo hóa đơn.');
+        alert('Bạn không có quyền tạo đơn hàng!');
         return;
     }
 
     let products = [];
+    let uudai = 0;
     let rows = document.querySelectorAll("#invoiceBody tr");
 
     rows.forEach((row, index) => {
@@ -170,7 +176,10 @@ function confirmOrder() {
         let productName = row.querySelector("td:nth-child(3)").innerText;
         let quantity = row.querySelector("td:nth-child(4)").innerText;
         let total = row.querySelector("td:nth-child(5)").innerText;
-    
+           // Kiểm tra món ưu đãi 
+           if (parseInt(maMA)=='21') {
+            uudai = 1;
+        }
         products.push({
             maMA: parseInt(maMA),
             productName: productName,
@@ -178,10 +187,16 @@ function confirmOrder() {
             total: parseFloat(total)
         });
     });
-    
+    // Kiểm tra nếu danh sách sản phẩm rỗng
+    if (products.length === 0) {
+        alert('Đơn hàng rỗng. Chưa thể tạo đơn hàng.');
+        return;
+    }
     const orderDetails = {
         invoiceCode: invoiceCode,
-        employee: parseInt(employee), // Đưa `employee` ra ngoài `products`
+        employee: parseInt(employee), 
+        customerCode: parseInt(customerCode),
+        uudai:uudai,
         products: products
     };
     
