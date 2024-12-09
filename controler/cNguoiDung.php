@@ -24,15 +24,15 @@
                     echo " <script> window.location.href='admin/admin.php' </script> ";
                 }
                 else if($loainguoidung == 2){
-                    echo '<script>alert("Đăng nhập thành công. Xin chào Nhân viên !")</script>';
+                    echo '<script>alert("Đăng nhập thành công. Xin chào Nhân Viên Bán Hàng !")</script>';
                     echo " <script> window.location.href='NHANVIEN/NV_quanli.php?id=".$_SESSION['id']."' </script> ";
                 }
                 else if($loainguoidung == 3){
-                    echo '<script>alert("Đăng nhập thành công. Xin chào Hậu Cần !")</script>';
+                    echo '<script>alert("Đăng nhập thành công. Xin chào Nhân Viên Hậu Cần !")</script>';
                     echo " <script> window.location.href='haucan/haucan_danhsachdonhang.php?id=".$_SESSION['id']."' </script> ";
                 }
                 else if($loainguoidung == 4){
-                    echo '<script>alert("Đăng nhập thành công. Xin chào Nhânviên bếp !")</script>';
+                    echo '<script>alert("Đăng nhập thành công. Xin chào Nhân viên bếp !")</script>';
                     echo " <script> window.location.href='bep/bep_trangchu.php?id=".$_SESSION['id']."' </script> ";
                 }
                 else{
@@ -63,10 +63,10 @@
                 return false;
             }
         }
-        public function getInsertND($id,$tenND, $mk, $hoTen, $email, $trangthai, $loaiND, $diaChi, $sdt)
+        public function getInsertND($id,$tenND, $mk, $hoTen, $email, $loaiND, $trangthai, $diaChi, $sdt)
         {
             $p=new mNguoiDung();
-            $tbl=$p->insertND($id,$tenND, $mk, $hoTen, $email, $trangthai, $loaiND, $diaChi, $sdt);
+            $tbl=$p->insertND($id,$tenND, $mk, $hoTen, $email, $loaiND,  $trangthai, $diaChi, $sdt);
             if($tbl>0)
             {
                 echo '<script>alert("Thêm thành công")</script>';

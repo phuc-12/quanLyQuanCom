@@ -22,8 +22,8 @@
         <div class="top-bar">
             <div class="contact-info">
                 <span>0346021604</span>
-                <span> / </span>
-                <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
+                <span> - </span>
+                <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
             </div>
         </div>
 
@@ -182,33 +182,6 @@
     } 
 
 
-    // include_once("../controler/cDangky.php");
-
-    // if (isset($_REQUEST["btndk"])) {
-    //     $mk = md5($_REQUEST["txtMK"]);
-    //     $p = new cdangky();
-    //     $con = $p->getdangky($_REQUEST["txtTND"], $mk, $_REQUEST["tenname"], $_REQUEST["email"], $_REQUEST["dc"], $_REQUEST["sdt"]);
-
-    //     if ($con == 1) {
-    //         // Đăng ký thành công, chuyển hướng sang trang đăng nhập với thông báo thành công
-    //         echo "<script>
-    //                 alert('Đăng ký thành công!');
-    //                 window.location.href = 'dangnhap.php'; // Chuyển hướng sang trang đăng nhập
-    //               </script>";
-    //     } else if ($con) {
-    //         // Nếu tài khoản đã tồn tại, thông báo và chuyển hướng về trang đăng ký
-    //         echo "<script>
-    //                 alert('Tài khoản đã tồn tại, vui lòng chọn tài khoản khác!');
-    //                 window.location.href = 'dangky.php'; // Quay lại trang đăng ký
-    //               </script>";
-    //     } else {
-    //         // Đăng ký thất bại, quay lại trang đăng nhập
-    //         echo "<script>
-    //                 alert('Đăng ký thất bại!');
-    //                 window.location.href = 'dangnhap.php'; // Quay lại trang đăng nhập
-    //               </script>";
-    //     }
-    // }
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -303,13 +276,18 @@
 
         function ktpw() {
             let pw = $("input[name='txtMK']").val();
+            let btcq = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
             if (pw == "") {
                 $("#errPW").html("Mật khẩu không được để trống");
                 return false;
-            } else if (pw.length < 6) {
-                $("#errPW").html("Mật khẩu phải chứa ít nhất 6 ký tự");
+            
+            } else if (pw.length < 8) {
+                $("#errPW").html("Mật khẩu phải chứa ít nhất 8 ký tự");
                 return false;
-            } else {
+            }else if (!btcq.test(pw)) {
+                $("#errPW").html("Mật khẩu phải gồm chữ hoa chữ thường số và kí tự đặt biệt");
+                return false;
+            }else {
                 $("#errPW").html("(*)");
                 return true;
             }
@@ -356,8 +334,8 @@
         return false;
     }
 
-    if (pw.length < 6) {
-        alert("Mật khẩu phải có ít nhất 6 ký tự!");
+    if (pw.length < 8) {
+        alert("Mật khẩu phải có ít nhất 8 ký tự!");
         return false;
     }
 
