@@ -16,22 +16,9 @@
             }
         }
 
-		public function getAllCTKMConHan($comp){
+		public function getAllTrangThaiCTKM($comp){
             $p = new MCTKM();
-            $tbl = $p->SelectAllCTKMConHan($comp);
-            if($tbl){
-                if($tbl->num_rows>0){
-                    return $tbl;
-                }else{
-                    return -1; //không có dữ liệu trong bảng
-                }
-            }else{
-                return false;
-            }
-        }
-		public function getAllCTKMHetHan($comp){
-            $p = new MCTKM();
-            $tbl = $p->SelectAllCTKMHetHan($comp);
+            $tbl = $p->SelectAllTrangThaiCTKM($comp);
             if($tbl){
                 if($tbl->num_rows>0){
                     return $tbl;

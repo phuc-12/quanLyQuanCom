@@ -3,7 +3,7 @@
     include_once("../../controler/cDonHang.php");
     $p = new CDonHang();
     if(isset($_GET["idLoai"])){
-        $tblDonHang = $p->getAllDHDaThanhToan($_GET["idLoai"]);
+        $tblDonHang = $p->getAllTrangThaiDH($_GET["idLoai"]);
     }
     else{
         $tblDonHang = $p->getAllDonHang();

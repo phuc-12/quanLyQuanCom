@@ -3,7 +3,7 @@
     include_once("../../controler/cCTKM.php");
     $p = new CCTKM();
     if(isset($_GET["idLoai"])){
-        $tblKM = $p->getAllCTKMConHan($_GET["idLoai"]);
+        $tblKM = $p->getAllTrangThaiCTKM($_GET["idLoai"]);
     }
     else{
         $tblKM = $p->getAllKM();

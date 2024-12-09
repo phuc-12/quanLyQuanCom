@@ -137,19 +137,31 @@
                                     <?php
                                     error_reporting(0);
                                     $idLoai = $_REQUEST['idLoai'];
-                                    if($idLoai=='')
-                                    {
-                                        echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
-                                    <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
-                                    </li>  ';
-                                    }
-                                    elseif ($idLoai==1||$idLoai==0)
-                                    {
-                                        echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                    <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
-                                    </li>  ';
-                                    }
-                                            //Đã thanh toán
+                                    // if($idLoai=='')
+                                    // {
+                                    //     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                    // <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
+                                    // </li>  ';
+                                    // }
+                                    // elseif ($idLoai==1||$idLoai==0)
+                                    // {
+                                    //     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                    // <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
+                                    // </li>  ';
+                                    // }
+                                            //Chưa thanh toán
+                                                if($idLoai==0 || $idLoai=='')
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;background-color: #E5E5E5;">
+                                                        <a class="nav-link" href="management_order.php?idLoai=0" style="color: black;">Chưa thanh toán</a>
+                                                        </li>';
+                                                }
+                                                else {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                                        <a class="nav-link" href="management_order.php?idLoai=0" style="color: black;">Chưa thanh toán</a>
+                                                        </li>';
+                                                }
+                                                //Đã thanh toán
                                                 if($idLoai==1)
                                                 {
                                                     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
@@ -161,19 +173,6 @@
                                                             <a class="nav-link" href="management_order.php?idLoai=1" style="color: black;">Đã thanh toán</a>
                                                         </li>';
                                                 }
-                                            //Chưa thanh toán
-                                                if($idLoai==0)
-                                                {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;background-color: #E5E5E5;">
-                                                        <a class="nav-link" href="management_order.php?idLoai=0" style="color: black;">Chưa thanh toán</a>
-                                                        </li>';
-                                                }
-                                                else {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                        <a class="nav-link" href="management_order.php?idLoai=0" style="color: black;">Chưa thanh toán</a>
-                                                        </li>';
-                                                }
-                  
                                         ?>
                                 </ul>
                             </div>
