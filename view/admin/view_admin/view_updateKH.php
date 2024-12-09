@@ -1,6 +1,7 @@
 <?php
     include_once("../../../model/chucnangadmin.php");
     $p=new tmdt();
+
 ?>
 
 <!DOCTYPE html>
@@ -8,13 +9,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Nhân Viên</title>
+    <title>Chi Tiết Khách Hàng</title>
 
     <script src="../../../js/fontawesome.js"></script>
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script src="../../../js/popper.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
-    <script src="../../../js/capnhatnhanvien.js"></script>
+    <script src="../../../js/capnhatnhaKHien.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_employ.css">
     <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
@@ -34,15 +35,16 @@
 <body>
     <?php
         $layid = $_REQUEST['id'];
-        $layten=$p->laycot("select hoTen from nhanvien where maNV = '$layid' limit 1");
-        $layngaysinh=$p->laycot("select ngaySinh from nhanvien where maNV = '$layid' limit 1");
-        $laymaloai=$p->laycot("select maLoaiNV from nhanvien where maNV = '$layid' limit 1");
-		// $laydonGia=$p->laycot("select donGia from monan where maNV = '$layid' limit 1");
-        // $laymaloai=$p->laycot("select maLoaiNV from monan where maNV = '$layid' limit 1");
-        // $laytrangthai=$p->laycot("select trangThai from monan where maNV = '$layid' limit 1");
-		// $laymota=$p->laycot("select mota from monan where maNV = '$layid' limit 1");
-		// $laynguyenlieu=$p->laycot("select nguyenLieu from monan where maNV = '$layid' limit 1");
-        // $layhinhanh=$p->laycot("select hinhAnh from monan where maNV = '$layid' limit 1");
+        $layten=$p->laycot("select hoTen from khachhang where maKH = '$layid' limit 1");
+        $laymaloai=$p->laycot("select maLoaiKH from khachhang where maKH = '$layid' limit 1");
+        $laydiemtichluy=$p->laycot("select diemTichLuy from khachhang where maKH = '$layid' limit 1");
+        $layidnguoidung=$p->laycot("select idNguoiDung from khachhang where maKH = '$layid' limit 1");
+		// $laydonGia=$p->laycot("select donGia from monan where maKH = '$layid' limit 1");
+        // $laymaloai=$p->laycot("select maLoaiKH from monan where maKH = '$layid' limit 1");
+        // $laytrangthai=$p->laycot("select trangThai from monan where maKH = '$layid' limit 1");
+		// $laymota=$p->laycot("select mota from monan where maKH = '$layid' limit 1");
+		// $laynguyenlieu=$p->laycot("select nguyenLieu from monan where maKH = '$layid' limit 1");
+        // $layhinhanh=$p->laycot("select hinhAnh from monan where maKH = '$layid' limit 1");
         // switch($laymaloai)
         // {
         //     case 1: {$thucDon="monman";} break;
@@ -88,13 +90,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../management_employ.php" style="background-color: #E5E5E5;">
+                        <a class="nav-link" href="../management_employ.php">
                             <i class="fa fa-address-card"></i>
                             Quản lý nhân viên
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../management_customer.php">
+                        <a class="nav-link" href="../management_customer.php" style="background-color: #E5E5E5;">
                             <i class="fa fa-address-card-o"></i>
                             Quản lý khách hàng
                         </a>
@@ -115,39 +117,45 @@
             </div>
 
             <div class="section">
-            <a href="../management_employ.php" class="fa fa-angle-left" style="text-decoration: none; color: black;font-size: 30px;width: 40px; height:40px; text-align: center; padding-top: 5px;"></a>
-                <h3>THÔNG TIN NHÂN VIÊN</h3>
+            <a href="../management_customer.php" class="fa fa-angle-left" style="text-decoration: none; color: black;font-size: 30px;width: 40px; height:40px; text-align: center; padding-top: 5px;"></a>
+                <h3>THÔNG TIN KHÁCH HÀNG</h3>
                 <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 100%;">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
-                            <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maNV" value="<?php echo $layid;?>" name="maNV"></td>
+                            <td style="width: 150px;"><label for="maKH">Mã Khách Hàng:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="maKH" value="<?php echo $layid;?>" name="maKH" readonly></td>
                             <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="hoTen">Họ Tên Nhân Viên:</label></td>
+                            <td style="width: 150px;"><label for="hoTen">Họ Tên Khách Hàng:</label></td>
                             <td><input type="input" class="form-control" size="200" id="hoTen" value="<?php echo $layten;?>" name="hoTen"></td>
                             <td style="width: 200px;"><span id="errHoTen" class="err text-danger"></span></td>
                         </tr>
-                        <tr>
-                            <td style="width: 150px;"><label for="ngaySinh">Ngày Sinh:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="ngaySinh" value="<?php echo $layngaysinh;?>" name="ngaySinh"></td>
-                            <td style="width: 200px;"><span id="errNgaySinh" class="err text-danger"></span></td>
-                        </tr>
                         
                         <tr>
-                            <td style="width: 150px;"><label for="maLoaiNV">Loại Nhân Viên:</label></td>
+                            <td style="width: 150px;"><label for="idNguoiDung">ID Người Dùng:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="idNguoiDung" value="<?php echo $layidnguoidung;?>" name="idNguoiDung"></td>
+                            <td style="width: 200px;"><span id="erridNguoiDung" class="err text-danger"></span></td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 150px;"><label for="maLoaiKH">Loại Khách Hàng:</label></td>
                             <td width="318" align="left">
                                 <?php
-                                    $p->chonloaiNV("select * from loainhanvien order by tenLoaiNV asc",$laymaloai);
+                                    $p->chonloaiKH("select * from loaikhachhang order by tenLoaiKH asc",$laymaloai);
                                 ?> 
                             </td>
-                        </tr>
+                        </tr>    
                         
+                        <tr>
+                            <td style="width: 150px;"><label for="diemTichLuy">Điểm Tích Lũy:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="diemTichLuy" value="<?php echo $laydiemtichluy;?>" name="diemTichLuy"></td>
+                            <td style="width: 200px;"><span id="errdiemTichLuy" class="err text-danger"></span></td>
+                        </tr>
                         <tr>
                             <td colspan=2 style="text-align:center;">
                                 <input type="submit" name="btnsua" id="btnsua" value="Cập Nhật" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0;">
-                                <a href="../management_employ.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none;">Hủy</a>
+                                <a href="../management_customer.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none;">Hủy</a>
                             </td>
 
                             
@@ -162,28 +170,28 @@
                             {
                                 case 'Cập Nhật':
                                 {
-                                    $maNV=$_REQUEST['maNV'];
+                                    $maKH=$_REQUEST['maKH'];
                                     $hoTen=$_REQUEST['hoTen'];
-                                    $ngaySinh=$_REQUEST['ngaySinh'];
-                                    $maLoaiNV=$_REQUEST['maLoaiNV'];
-                                    $ngaySinhFormatted = date("Y-m-d", strtotime($ngaySinh));
-                                    if($maNV!='')
+                                    $diemTichLuy=$_REQUEST['diemTichLuy'];
+                                    $idNguoiDung=$_REQUEST['idNguoiDung'];
+                                    $maLoaiKH=$_REQUEST['maLoaiKH'];
+                                    if($maKH!='')
                                     {
-                                        if($p->themxoasua("UPDATE nhanvien SET hoTen = '$hoTen',ngaySinh = '$ngaySinhFormatted',maLoaiNV = '$maLoaiNV' WHERE maNV = '$maNV' LIMIT 1")==1)
+                                        if($p->themxoasua("UPDATE khachhang SET hoTen = '$hoTen',idNguoiDung = '$idNguoiDung',maLoaiKH = '$maLoaiKH',diemTichLuy = '$diemTichLuy' WHERE maKH = '$maKH' LIMIT 1")==1)
                                         {
                                             echo'<script language="javascript">
                                             alert("Cập nhật thành công");	
                                             </script>';
                                         }
                                         echo'<script language="javascript">
-                                        window.location="view_updateNV.php?id='.$maNV.'";
+                                        window.location="view_updateKH.php?id='.$maKH.'";
                                         </script>';
                                         
                                     }
                                     else
                                     {
                                         echo'<script language="javascript">
-                                            alert("Vui lòng chọn nhân viên");	
+                                            alert("Vui lòng chọn khách hàng");	
                                             </script>';
                                     }
                                     break;
@@ -194,8 +202,8 @@
                         else 
                         {
                             echo'<script language="javascript">
-                            alert("Vui lòng chọn nhân viên");	
-                            window.location="../management_employ.php";
+                            alert("Vui lòng chọn khách hàng");	
+                            window.location="../management_customer.php";
                             </script>';
                         }
                     ?>
