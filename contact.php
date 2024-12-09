@@ -16,7 +16,7 @@
         <!-- Top Bar -->
         <div class="top-bar">
             <div class="contact-info">
-                <span>0346021604</span>
+            <span>0346021604</span>
                 <span> / </span>
                 <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
@@ -38,6 +38,10 @@
         </nav>
         <!-- Category Navigation -->
         <div class="category-nav">
+            <a href="category-food.php?id=1">Món chay</a>
+            <a href="category-food.php?id=2">Món mặn</a>
+            <a href="category-food.php?id=3">Đồ uống</a>
+            <a href="category-food.php?id=4">Tráng Miệng</a>
         </div>
 
         <div class="form-title">

@@ -59,10 +59,10 @@
 
         <!-- Category Navigation -->
         <div class="category-nav">
-            <a href="category-food.php">Món chay</a>
-            <a href="#">Món mặn</a>
-            <a href="#">Đồ uống</a>
-            <a href="#">Tráng Miệng</a>
+            <a href="category-food.php?id=1">Món chay</a>
+            <a href="category-food.php?id=2">Món mặn</a>
+            <a href="category-food.php?id=3">Đồ uống</a>
+            <a href="category-food.php?id=4">Tráng Miệng</a>
         </div>
 
         <!-- Food detail -->

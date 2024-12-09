@@ -13,6 +13,7 @@
 
 <body>
     <?php
+        error_reporting(0);
         include_once("model/chucnangadmin.php");
         $p = new tmdt();
         $layid = $_REQUEST['id'];

@@ -39,10 +39,10 @@
 
         <!-- Category Navigation -->
         <div class="category-nav">
-            <a href="category-food.php">Món chay</a>
-            <a href="#">Món mặn</a>
-            <a href="#">Đồ uống</a>
-            <a href="#">Tráng Miệng</a>
+            <a href="category-food.php?id=1">Món chay</a>
+            <a href="category-food.php?id=2">Món mặn</a>
+            <a href="category-food.php?id=3">Đồ uống</a>
+            <a href="category-food.php?id=4">Tráng Miệng</a>
         </div>
 
         <div class="info-menu">
@@ -72,9 +72,36 @@
             </div>
 
             <div class="menu-section">
-                <div class="menu-header">
+            <div class="menu-header">
                     <h2>MÓN CHAY</h2>
                     <span class="arrow"></span>
+                </div>
+                <div class="menu-content">
+                    <div class="daily-menu">
+                    <?php 
+                        error_reporting(0);
+                            include_once("controler/cMonAnTrangChu.php");
+                            $p = new CMonAnTrangChu();
+                            $tbl = $p->getAllTenMonAnTheoLoai(2);
+                            if(!$tbl)
+                            {
+                                echo 'Không kết nối được';
+                            }
+                            elseif($tbl==-1)
+                            {
+                                echo 'Chưa có dữ liệu món ăn';
+                            }
+                            else
+                            {	
+                                while($r=$tbl->fetch_assoc())
+                                {	 
+                                    $ten=$r['tenMA'];
+                                    echo '- '.$r['tenMA'].'<br>';
+                                }
+                            
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
 
@@ -83,33 +110,97 @@
                     <h2>MÓN MẶN</h2>
                     <span class="arrow"></span>
                 </div>
-            </div>
-
-            <div class="menu-section">
-                <div class="menu-header">
-                    <h2>MÓN KHÔ</h2>
-                    <span class="arrow"></span>
+                <div class="menu-content">
+                    <div class="daily-menu">
+                    <?php 
+                        error_reporting(0);
+                            include_once("controler/cMonAnTrangChu.php");
+                            $p = new CMonAnTrangChu();
+                            $tbl = $p->getAllTenMonAnTheoLoai(1);
+                            if(!$tbl)
+                            {
+                                echo 'Không kết nối được';
+                            }
+                            elseif($tbl==-1)
+                            {
+                                echo 'Chưa có dữ liệu món ăn';
+                            }
+                            else
+                            {	
+                                while($r=$tbl->fetch_assoc())
+                                {	 
+                                    $ten=$r['tenMA'];
+                                    echo '- '.$r['tenMA'].'<br>';
+                                }
+                            
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
-
             <div class="menu-section">
                 <div class="menu-header">
-                    <h2>MÓN NƯỚC</h2>
+                    <h2>NƯỚC GIẢI KHÁT</h2>
                     <span class="arrow"></span>
                 </div>
+                <div class="menu-content">
+                    <div class="daily-menu">
+                    <?php 
+                        error_reporting(0);
+                            include_once("controler/cMonAnTrangChu.php");
+                            $p = new CMonAnTrangChu();
+                            $tbl = $p->getAllTenMonAnTheoLoai(3);
+                            if(!$tbl)
+                            {
+                                echo 'Không kết nối được';
+                            }
+                            elseif($tbl==-1)
+                            {
+                                echo 'Chưa có dữ liệu món ăn';
+                            }
+                            else
+                            {	
+                                while($r=$tbl->fetch_assoc())
+                                {	 
+                                    $ten=$r['tenMA'];
+                                    echo '- '.$r['tenMA'].'<br>';
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
-
             <div class="menu-section">
                 <div class="menu-header">
                     <h2>TRÁNG MIỆNG</h2>
                     <span class="arrow"></span>
                 </div>
-            </div>
-
-            <div class="menu-section">
-                <div class="menu-header">
-                    <h2>NƯỚC GIẢI KHÁT</h2>
-                    <span class="arrow"></span>
+                <div class="menu-content">
+                    <div class="daily-menu">
+                    <?php 
+                        error_reporting(0);
+                            include_once("controler/cMonAnTrangChu.php");
+                            $p = new CMonAnTrangChu();
+                            $tbl = $p->getAllTenMonAnTheoLoai(4);
+                            if(!$tbl)
+                            {
+                                echo 'Không kết nối được';
+                            }
+                            elseif($tbl==-1)
+                            {
+                                echo 'Chưa có dữ liệu món ăn';
+                            }
+                            else
+                            {	
+                                while($r=$tbl->fetch_assoc())
+                                {	 
+                                    $ten=$r['tenMA'];
+                                    echo '- '.$r['tenMA'].'<br>';
+                                }
+                            
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
