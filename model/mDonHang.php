@@ -26,7 +26,7 @@
             if($conn){
                 $str = "SELECT hd.maHD, hd.maKH, kh.hoTen, hd.trangThai
                     FROM hoadon hd
-                    JOIN khachhang kh ON hd.maKH = kh.maKH";
+                    JOIN khachhang kh ON hd.maKH = kh.maKH ";
                 $tblHoaDon = $conn->query($str);
                 $p->dongketnoi($conn);
                 return $tblHoaDon;
@@ -34,20 +34,7 @@
                 return false;
             }
         }
-        public function SelectAllDHDaThanhToan($comp){
-            $p = new clsKetNoi();
-            $conn = $p->moketnoi();
-            $conn->set_charset('utf8');
-            if($conn){
-                $str = "select * from hoadon where trangThai = $comp";
-                $tblHoaDon = $conn->query($str);
-                $p->dongketnoi($conn);
-                return $tblHoaDon;
-            }else{
-                return false;
-            }
-        }
-        public function SelectAllDHChuaThanhToan($comp){
+        public function SelectAllTrangThaiDH($comp){
             $p = new clsKetNoi();
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');

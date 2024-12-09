@@ -16,20 +16,7 @@
             }
         }
 
-        public function SelectAllCTKMConHan($comp){
-            $p = new clsKetNoi();
-            $conn = $p->moketnoi();
-            $conn->set_charset('utf8');
-            if($conn){
-                $str = "select * from ctkm where trangThai = $comp";
-                $tblKM = $conn->query($str);
-                $p->dongketnoi($conn);
-                return $tblKM;
-            }else{
-                return false;
-            }
-        }
-        public function SelectAllCTKMHetHan($comp){
+        public function SelectAllTrangThaiCTKM($comp){
             $p = new clsKetNoi();
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');

@@ -16,9 +16,10 @@
             }
         }
 
-		public function getAllDHChuaThanhToan($comp){
+		
+		public function getAllTrangThaiDH($comp){
             $p = new MHoaDon();
-            $tblDonHang = $p->SelectAllDHChuaThanhToan($comp);
+            $tblDonHang = $p->SelectAllTrangThaiDH($comp);
             if($tblDonHang){
                 if($tblDonHang->num_rows>0){
                     return $tblDonHang;
@@ -29,33 +30,6 @@
                 return false;
             }
         }
-		public function getAllDHDaThanhToan($comp){
-            $p = new MHoaDon();
-            $tblDonHang = $p->SelectAllDHDaThanhToan($comp);
-            if($tblDonHang){
-                if($tblDonHang->num_rows>0){
-                    return $tblDonHang;
-                }else{
-                    return -1; //không có dữ liệu trong bảng
-                }
-            }else{
-                return false;
-            }
-        }
-
-        // public function GetCountDonHang(){
-        //     $p = new MHoaDon();
-        //     $tblDonHang = $p->SelectCountDonHang();
-        //     if($tblDonHang){ 
-        //         if($tblDonHang>0){
-        //             return $tblDonHang;
-        //         }else{
-        //             return -1; //không có dữ liệu trong bảng
-        //         }
-        //     }else{
-        //         return false;
-        //     }
-        // }
 
         public function GetCountALLDonHang(){
             $p = new MHoaDon();
