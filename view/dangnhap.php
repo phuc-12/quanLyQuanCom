@@ -42,7 +42,7 @@
                 
                     <div class="form-group">
                         <label>PassWord:</label>
-                        <input type="password" name="txtMK">
+                        <input type="pass" name="txtMK">
                     </div>
                     <tr>
                         <td>
