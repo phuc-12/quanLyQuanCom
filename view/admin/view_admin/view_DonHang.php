@@ -15,7 +15,7 @@
     }
     elseif($tblDonHang==-1)
     {
-        echo 'Chưa có dữ liệu món ăn';
+        echo 'Chưa có dữ liệu đơn hàng';
     }
     else
     {	
@@ -40,7 +40,7 @@
                 echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['ngayThang'].'</a></td>';
                 switch($r['trangThai'])
                         {
-                            case 0: 
+                            case 2: 
 
                                 {
                                     echo '<td>Chưa Thanh Toán</td>';
