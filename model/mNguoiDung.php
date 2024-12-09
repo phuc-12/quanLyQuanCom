@@ -4,7 +4,7 @@
         public function select01NguoiDung($user,$pw){
             $p = new clsKetNoi();
             $con = $p -> moKetNoi();
-            $sql = "select * from taikhoannguoidung where username = '$user' and password = '$pw'";
+            $sql = "select * from taikhoannguoidung where username = '$user' and pass = '$pw'";
             $kq = mysqli_query($con,$sql);
             $p -> dongKetNoi($con);
             return $kq;
@@ -17,11 +17,11 @@
             $p -> dongKetNoi($con);
             return $kq;
         }
-        public function insertND($user, $pw, $hoTen, $email, $trangthai, $loainguoidung, $dc, $sdt)
+        public function insertND($user, $pw, $hoTen, $email, $loainguoidung, $trangthai, $dc, $sdt)
         {
             $p=new clsKetNoi();
             $con = $p->moKetNoi();
-            $truyvan="INSERT INTO taikhoannguoidung(username,password,hoTen,email,trangThai,loaiNguoiDung,diaChi,SDT) VALUES('$user', '$pw', '$hoTen', '$email', '$trangthai', '$loainguoidung', '$dc', '$sdt')";
+            $truyvan="INSERT INTO taikhoannguoidung(username,pass,hoTen,email,loaiNguoiDung,trangThai,diaChi,SDT) VALUES('$user', '$pw', '$hoTen', '$email', '$loainguoidung', '$trangthai', '$dc', '$sdt')";
             $kq=mysqli_query($con,$truyvan);
             $p->dongKetNoi($con);
             return $kq;
