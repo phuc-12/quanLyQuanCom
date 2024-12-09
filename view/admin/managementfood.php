@@ -271,8 +271,8 @@
                                 {
                                     case 1: {$thucDon="monman";} break;
                                     case 2: {$thucDon="monchay";} break;
-                                    case 3: {$thucDon="trangmieng";} break;
-                                    case 4: {$thucDon="douong";} break;
+                                    case 3: {$thucDon="douong";} break;
+                                    case 4: {$thucDon="trangmieng";} break;
                                 }
                                 // echo $thucDon ."<br>";
                                 if($maXoa!='')

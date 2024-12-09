@@ -137,43 +137,43 @@
                                     <?php
                                     error_reporting(0);
                                     $idLoai = $_REQUEST['idLoai'];
-                                    // if($idLoai=='')
-                                    // {
-                                    //     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
-                                    // <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
-                                    // </li>  ';
-                                    // }
-                                    // elseif ($idLoai==1||$idLoai==0)
-                                    // {
-                                    //     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                    // <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
-                                    // </li>  ';
-                                    // }
-                                            //Chưa thanh toán
-                                                if($idLoai==0 || $idLoai=='')
-                                                {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;background-color: #E5E5E5;">
-                                                        <a class="nav-link" href="management_order.php?idLoai=0" style="color: black;">Chưa thanh toán</a>
-                                                        </li>';
-                                                }
-                                                else {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                        <a class="nav-link" href="management_order.php?idLoai=0" style="color: black;">Chưa thanh toán</a>
-                                                        </li>';
-                                                }
-                                                //Đã thanh toán
+                                    if($idLoai=='')
+                                    {
+                                        echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                        <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
+                                        </li>  ';
+                                    }
+                                    elseif ($idLoai==1||$idLoai==2)
+                                    {
+                                        echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                        <a class="nav-link" href="management_order.php" style="color: black;">Tất Cả Đơn Hàng</a>
+                                        </li>  ';
+                                    }
+                                            //Còn hạn
                                                 if($idLoai==1)
                                                 {
                                                     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
-                                                            <a class="nav-link" href="management_order.php?idLoai=1" style="color: black;">Đã thanh toán</a>
+                                                            <a class="nav-link" href="management_order.php?idLoai=1" style="color: black;">Đã Thanh Toán</a>
                                                         </li>';
                                                 }
                                                 else {
                                                     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                            <a class="nav-link" href="management_order.php?idLoai=1" style="color: black;">Đã thanh toán</a>
+                                                            <a class="nav-link" href="management_order.php?idLoai=1" style="color: black;">Đã Thanh Toán</a>
                                                         </li>';
                                                 }
-                                        ?>
+                                            //Hết hạn
+                                                if($idLoai==2)
+                                                {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;background-color: #E5E5E5;">
+                                                        <a class="nav-link" href="management_order.php?idLoai=2" style="color: black;">Chưa Thanh Toán</a>
+                                                        </li>';
+                                                }
+                                                else {
+                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                                        <a class="nav-link" href="management_order.php?idLoai=2" style="color: black;">Chưa Thanh Toán</a>
+                                                        </li>';
+                                                }
+                                    ?>
                                 </ul>
                             </div>
 
@@ -181,7 +181,7 @@
                         <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
                                 <!-- <a href="view_admin/view_insertCTKM.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM KHUYẾN MÃI</a> -->
                                 <input type="submit" name="btnxoa" id="btnxoa" value="XÓA" onclick="return confirmDelete(<?php echo $layid; ?>)" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
-                                <a href="../NHANVIEN/Chitietdonhang.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
+                                <a href="../NHANVIEN/Chitietdonhang.php?id=<?php echo $layid=$_REQUEST['id'];?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
                             </form>
                     </div>
                     <?php
@@ -194,7 +194,7 @@
                 <div>
                 <?php
                     // error_reporting(0);
-                    include('../../model/chucnangadmin.php');
+                    include_once('../../model/chucnangadmin.php');
                     $k=new tmdt();
                     switch ($_POST['btnxoa'])
                     {
