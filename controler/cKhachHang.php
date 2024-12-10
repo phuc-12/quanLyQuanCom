@@ -16,6 +16,20 @@
             }
         }
 
+        public function getAllKHTop5(){
+            $p = new MKhachHang();
+            $tblKH = $p->SelectAllKHTop5();
+            if($tblKH){
+                if($tblKH->num_rows>0){
+                    return $tblKH;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
+
         public function GetLKHByIDKH($txt)
 		{
 			$p = new MKhachHang();
