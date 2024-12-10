@@ -43,10 +43,10 @@ $layid=$_REQUEST['id'];
     </header>
     <div class="trangquanly">
         <div class="containerr">
-            <div class="sidebar">
-                <div class="menu-item " onclick="window.location.href='bep_trangchu.php';">Trang tổng quan</div>
-                <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php';">Xem hóa đơn</div>
-                <div class="menu-item active" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
+        <div class="sidebar">
+                <div class="menu-item " onclick="window.location.href='bep_trangchu.php?id=<?php echo $layid?>';">Trang tổng quan</div>
+                <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php?id=<?php echo $layid?>';">Xem hóa đơn</div>
+                <div class="menu-item active" onclick="window.location.href='bep_qlynvl.php?id=<?php echo $layid?>';">Quản lý nguyên vật liệu</div>
             </div>
         </div>
         <form id="form1" name="form1" method="post">
