@@ -47,6 +47,7 @@
          $layid = $_REQUEST['id'];
         $laysohd = $p->laycot("SELECT maHD FROM hoadon WHERE maHD = '$layid' LIMIT 1");
         $laytennv=$p->laycot("select n.hoTen from nhanvien n join chitiethoadon t on n.maNV = t.maNV where maHD = '$layid' limit 1");
+        $laymanv=$p->laycot("select maNV from chitiethoadon where maHD = '$layid' limit 1");
         $laytrangthai = $p->laycot("SELECT trangThai FROM hoadon WHERE maHD = '$layid' LIMIT 1");
         // $laytenkh=$p->laycot("select n.hoTen from khachhang n join chitiethoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
         $layngaythang = $p->laycot("SELECT ngayThang FROM hoadon WHERE maHD = '$layid' LIMIT 1");
@@ -58,7 +59,7 @@
         <div class="logo" style="padding: 0; border-radius: 100px;">
             <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
-        <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
+        <h1><a href="NV_quanli.php?id=<?php echo $laymanv;?>">Trang nhân viên</a></h1>
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
@@ -75,7 +76,7 @@
                 
                 <p>Số hóa đơn: <?php echo $laysohd; ?></p>
                 <p>Ngày: <?php echo $layngaythang; ?></p>
-                <p>Nhân viên: <?php echo" $laytennv"; ?></p>
+                <p>Nhân viên: <?php echo $laytennv; ?></p>
                 <p>Trạng thái: <?php 
                     switch($laytrangthai)
                         {
