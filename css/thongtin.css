@@ -94,6 +94,49 @@ h1 a:hover {
 .sidebar .menu-item a:hover {
     color: #248ef1; /* Thay đổi màu chữ khi hover */
 }
+/* Định dạng bảng */
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Định dạng các ô tiêu đề */
+.customer-table thead {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Định dạng các ô dữ liệu */
+.customer-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.customer-table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+/* Định dạng ô bảng */
+.customer-table th, .customer-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Định dạng các ô khi di chuột qua */
+.customer-table tbody tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Định dạng thông báo không có kết quả */
+.no-results {
+    color: #ff0000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
 
 /* 
 .date {

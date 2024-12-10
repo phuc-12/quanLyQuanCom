@@ -54,6 +54,19 @@
                 return false;
             }
         }
+        public function getAllTenMonAnTheoLoai($idLoai){
+            $p = new MMonAnTrangChu();
+            $tblMA = $p->SelectAllTenMonAnTheoLoai($idLoai);
+            if($tblMA){
+                if($tblMA->num_rows>0){
+                    return $tblMA;
+                }else{
+                    return -1; //không có dữ liệu trong bảng
+                }
+            }else{
+                return false;
+            }
+        }
 
     }
 
