@@ -16,6 +16,21 @@
             }
         }
 
+        public function SelectAllKHTop5() {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "select * from khachhang limit 5";
+                $tblNV = $conn->query($str);
+                $p->dongketnoi($conn);
+                return $tblNV;
+            }else{
+                return false;
+            }
+        }
+
+
         public function SelectAllLKHByIDKH($txt)
 		{
 			$p =  new clsKetNoi();

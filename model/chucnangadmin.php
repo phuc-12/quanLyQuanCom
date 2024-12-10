@@ -26,8 +26,8 @@
 			} else {
 				return 0;
 			}
-		}
-		
+		}	
+
 		public function uploadfile($name, $tmp_name, $folder, $maMA, $maLoaiMA) {
             if ($name != '') {
                 $des = $_SERVER['DOCUMENT_ROOT'] . "/" . $folder . "/" . $name;

@@ -1,6 +1,6 @@
 <?php
-    include_once('clsupload.php');
-    $p = new upload();
+    include_once('../../../model/chucnangadmin.php.php');
+    $p = new tmdt();
 ?>
 
 <!DOCTYPE html>
