@@ -68,7 +68,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Mã hóa đơn</th>
-                                 <th>Thời gian tạo</th>
+                                <th>Thời gian tạo</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -92,7 +92,7 @@
                             case 1:
 
                                 {
-                                    echo '<td>Đã thanh toán</td>';
+                                    echo '<td><a href="?id='.$r['maHD'].'>Đã thanh toán</a></td>';
                                     break;
                                 }
                         }
@@ -105,7 +105,7 @@
                             if($r['trangThai'] == 0)
                             {
                                 echo'<button class="button update">Cập nhật</button>';
-                                echo '<button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> ';
+                                echo'<button class="button thanhtoan"><a href="Thongtinthanhtoan.php?orderId=' . $r['maHD'] . '">Thanh toán</a></button>';
                             }
                         echo '</td>';
                         echo '</tr>';
