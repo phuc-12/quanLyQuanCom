@@ -14,7 +14,7 @@
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script src="../../../js/popper.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
-    <script src="../../../js/capnhatnhanvien.js"></script>
+    <script src="../../../js/CTKM.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_employ.css">
     <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
@@ -115,33 +115,33 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="tenKM">Tên Khuyến Mãi:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="tenKM" placeholder="Nhập tên chương trình khuyến mãi" name="tenKM" value="<?php echo $laytenctkm;?>"></td>
-                            <!-- <td style="width: 200px;"><span id="errTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td><input type="input" class="form-control" size="200" id="tenKM" placeholder="Nhập tên chương trình khuyến mãi" name="tenKM"></td>
+                            <td style="width: 200px;"><span id="errTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="moTa">Mô Tả</label></td>
-                            <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập mô tả" name="moTa" value="<?php echo $laymoTa;?>"></td>
-                            <!-- <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style="width: 150px;"><label for="moTa">Mô Tả:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập mô tả" name="moTa"></td>
+                            <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="trangThai" >Trạng Thái</label></td>
                             <td><input type="input" class="form-control" size="200" id="trangThai" placeholder="Nhập mô tả" name="trangThai" value="<?php echo $layTrangThai;?>"></td>
-                            <!-- <td style="width: 200px;"><span id="errTrangThai" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style="width: 200px;"><span id="errTrangThai" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="chietKhau">Chiết Khấu</label></td>
-                            <td><input type="input" class="form-control" size="200" id="chietKhau" placeholder="Nhập tên chiết khấu" name="chietKhau" value="<?php echo $layChietKhau;?>"></td>
-                            <!-- <td style="width: 200px;"><span id="errChietKhau" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style="width: 150px;"><label for="chietKhau">Chiết Khấu:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="chietKhau" placeholder="Nhập tên chiết khấu" name="chietKhau"></td>
+                            <td style="width: 200px;"><span id="errChietKhau" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="thoiGianBatDau">Thời Gian Bắt Đầu</label></td>
-                            <td><input type="date" class="form-control" size="200" id="thoiGianBatDau" placeholder="Nhập thời gian bắt đầu" name="thoiGianBatDau" value="<?php echo $layNgayBatDau;?>"></td>
-                            <!-- <td style=" hight: 400px; width: 200px;"><span id="errThoiGianBatDau" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style="width: 150px;"><label for="thoiGianBatDau">Thời Gian Bắt Đầu:</label></td>
+                            <td><input type="date" class="form-control" size="200" id="thoiGianBatDau" placeholder="Nhập thời gian bắt đầu" name="thoiGianBatDau"></td>
+                            <td style=" hight: 400px; width: 200px;"><span id="errStartDate" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
-                            <td style="width: 150px;"><label for="thoiGianKetThuc">Thời Gian Kết Thúc</label></td>
-                            <td><input type="date" class="form-control" size="200" id="thoiGianKetThuc" placeholder="Nhập thời gian kết thúc" name="thoiGianKetThuc" value="<?php echo $laytenNgayKetThuc;?>"></td>
-                            <!-- <td style=" hight: 400px; width: 200px;"><span id="errThoiGianKetThuc" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style="width: 150px;"><label for="thoiGianKetThuc">Thời Gian Kết Thúc:</label></td>
+                            <td><input type="date" class="form-control" size="200" id="thoiGianKetThuc" placeholder="Nhập thời gian kết thúc" name="thoiGianKetThuc"></td>
+                            <td style=" hight: 400px; width: 200px;"><span id="errEndDate" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         
                         
