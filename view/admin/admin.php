@@ -30,7 +30,6 @@
                 </ul>
             </div>
         </div>
-        
 
         <div id="content">
             <div class="nav">
@@ -151,8 +150,6 @@
                         echo '</tbody>';
                         echo '</table>';
                     }
-
-
                     ?>
 
                 </div>
