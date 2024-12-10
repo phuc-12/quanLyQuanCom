@@ -11,7 +11,6 @@
 </head>
 <body>
 <div class="container-fluid p-0">
-        <!-- Top Bar -->
         <div class="top-bar">
             <div class="contact-info">
                 <span>0346021604</span>
@@ -19,8 +18,6 @@
                 <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
             </div>
         </div>
-
-        <!-- Main Navigation -->
         <nav class="main-nav">
             <a href="../index.php">Trang chủ</a>
             <a href="../intro-menu.php">Thực đơn</a>

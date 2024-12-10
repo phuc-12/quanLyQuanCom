@@ -16,20 +16,20 @@ $p = new tmdt();
 </head>
 <body>
 <?php
-$layid=$_REQUEST['id'];
-$laymaMA= $p->laycot("select maMA from chitiethoadon where maHD='$layid'");
-$maKH=$p->laycot("SELECT maKH FROM hoadon WHERE maHD='$layid' LIMIT 1");
-$layhoTen= $p->laycot("select hoTen from khachhang where maKH=  '$maKH'");
-$sodienthoai=$p->laycot("select tknd.SDT FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
-                                        JOIN hoadon hd ON kh.maKH = hd.maKH
-                                        WHERE hd.maKH = '$maKH';");
-$diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
-                                        JOIN hoadon hd ON kh.maKH = hd.maKH
-                                        WHERE hd.maKH = '$maKH';");
-$laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
-$laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
-$laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
-$layimg= $p->laycot("select img from hoadon where maHD='$layid'");
+    $layid=$_REQUEST['id'];
+    $laymaMA= $p->laycot("select maMA from chitiethoadon where maHD='$layid'");
+    $maKH=$p->laycot("SELECT maKH FROM hoadon WHERE maHD='$layid' LIMIT 1");
+    $layhoTen= $p->laycot("select hoTen from khachhang where maKH=  '$maKH'");
+    $sodienthoai=$p->laycot("select tknd.SDT FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                            JOIN hoadon hd ON kh.maKH = hd.maKH
+                                            WHERE hd.maKH = '$maKH';");
+    $diachi=$p->laycot("select tknd.diachi FROM taikhoannguoidung tknd JOIN khachhang kh ON tknd.idNguoiDung = kh.idNguoiDung
+                                            JOIN hoadon hd ON kh.maKH = hd.maKH
+                                            WHERE hd.maKH = '$maKH';");
+    $laytongtien=$p->laycot("SELECT SUM( cthd.soLuong * ma.donGia )FROM chitiethoadon cthd join monan ma on cthd.maMA=ma.maMA WHERE maHD = '$layid' GROUP BY maHD;");
+    $laytrangThaiGH= $p->laycot("select trangThaiGH from hoadon where maHD='$layid'");
+    $laytrangThai= $p->laycot("select trangThai from hoadon where maHD='$layid'");
+    $layimg= $p->laycot("select img from hoadon where maHD='$layid'");
 ?>
     <header>
         <div class="container-fluid p-0">

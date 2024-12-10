@@ -47,7 +47,6 @@ $layid=$_REQUEST['id'];
                 <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php?id=<?php echo $layid?>';">Xem hóa đơn</div>
                 <div class="menu-item" onclick="window.location.href='bep_qlynvl.php?id=<?php echo $layid?>';">Quản lý nguyên vật liệu</div>
             </div>
-
             <div class="content">
                 <div class="overview">
                     <h2>TỔNG QUAN</h2>
