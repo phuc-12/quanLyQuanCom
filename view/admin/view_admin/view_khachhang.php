@@ -26,7 +26,7 @@
                             <th>STT</th>
                             <th>Mã Khách Hàng</th>
                             <th>Tên Khách Hàng</th>
-                            <th>Mã Loại Khách Hàng</th>
+                            <th>Loại Khách Hàng</th>
                             <th>Điểm Tích Lũy</th>
                             
                         </tr>
@@ -42,7 +42,7 @@
                 $rs = $p->GetLKHByIDKH($r['maKH']);
                 if($rs->num_rows > 0) {
                     while($row = $rs->fetch_assoc()) {
-                        echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiKH'].'</a></td>';
+                        echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$row['loaiKH'].'</a></td>';
                     }
                 }
                 echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$r['diemTichLuy'].'</a></td>';

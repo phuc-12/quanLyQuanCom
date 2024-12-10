@@ -231,7 +231,7 @@
 
                 </div>
 
-                <div style="width: 49%; float: left; background-color: white; padding: 20px; border-radius: 10px; margin-top: 50px;">
+                <div style="width: 49%; float: left; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10px;">
                 <?php
                     error_reporting(0);
                     include_once("../../controler/cNhanVien.php");
@@ -286,7 +286,7 @@
 
                 </div>
 
-                <div style="width: 49%; float: right; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10px;">
+                <div style="width: 49%; float: left; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10px;">
                 <?php
                     error_reporting(0);
                     include_once("../../controler/cKhachHang.php");
@@ -307,10 +307,8 @@
                                     <thead class="table-dark">
                                         <tr style="text-align:center;">
                                             <th>STT</th>
-                                            
-                                            <th>Tên Nhân Viên</th>
-                                            <th>Ngày Sinh</th>
-                                            <th>Loại Nhân Viên</th>
+                                            <th>Tên Khách Hàng</th>
+                                            <th>Loại Khách Hàng</th>
                                             
                                         </tr>
                                     </thead>
