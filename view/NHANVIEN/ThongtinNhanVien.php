@@ -25,7 +25,8 @@
 </head>
 <body>
     <?php
-        $layid = $_REQUEST['id'];
+        $layidnguoidung = $_REQUEST['id'];
+        $layid = $p->laycot("select maNV from nhanvien where idNguoiDung = '$layidnguoidung' limit 1");
         $layten=$p->laycot("select hoTen from nhanvien where maNV = '$layid' limit 1");
         $layngaysinh=$p->laycot("select ngaySinh from nhanvien where maNV = '$layid' limit 1");
         $laymaloai=$p->laycot("select maLoaiNV from nhanvien where maNV = '$layid' limit 1");

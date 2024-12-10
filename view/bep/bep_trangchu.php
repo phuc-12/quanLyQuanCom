@@ -44,15 +44,15 @@ $layid=$_REQUEST['id'];
         <div class="container">
             <div class="sidebar">
                 <div class="menu-item active">Trang tổng quan</div>
-                <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php';">Xem hóa đơn</div>
-                <div class="menu-item" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
+                <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php?id=<?php echo $layid?>';">Xem hóa đơn</div>
+                <div class="menu-item" onclick="window.location.href='bep_qlynvl.php?id=<?php echo $layid?>';">Quản lý nguyên vật liệu</div>
             </div>
 
             <div class="content">
                 <div class="overview">
                     <h2>TỔNG QUAN</h2>
                     <div class="card-container">
-                        <div class="cardd" onclick="window.location.href='bep_trangdonhang.php';">
+                    <div class="cardd" onclick="window.location.href='bep_trangdonhang.php?id=<?php echo $layid?>';">
                            <div class="soluong">
                                 <p>
                                 <?php
@@ -68,7 +68,7 @@ $layid=$_REQUEST['id'];
                            </div>
                             
                         </div>
-                        <div class="cardd" onclick="window.location.href='bep_qlynvl.php';">
+                        <div class="cardd" onclick="window.location.href='bep_qlynvl.php?id=<?php echo $layid?>';">
                             <div class="soluong">
                                 <p>
                                 <?php
