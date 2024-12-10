@@ -179,37 +179,38 @@
 
                         </nav>
                         <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
-                                <!-- <a href="view_admin/view_insertCTKM.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM KHUYẾN MÃI</a> -->
-                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA" onclick="return confirmDelete(<?php echo $layid; ?>)" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
-                                <a href="../NHANVIEN/Chitietdonhang.php?id=<?php echo $layid=$_REQUEST['id'];?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
+                            
+                            <input type="submit" name="btnxoa" id="btnxoa" value="XÓA ĐƠN HÀNG" onclick="return confirmDelete(<?php echo $layid; ?>)" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
+                            
                             </form>
                     </div>
                     <?php
 
                         error_reporting(1);
-                        include("view_admin/view_DonHang.php");
+                        include_once("view_admin/view_DonHang.php");
 
                     ?>
                 </div>
                 <div>
                 <?php
-                    // error_reporting(0);
-                    include_once('../../model/chucnangadmin.php');
-                    $k=new tmdt();
+                    
                     switch ($_POST['btnxoa'])
                     {
-                        case 'XÓA':
+                        case 'XÓA ĐƠN HÀNG':
                         {
                             if(isset($_REQUEST['id']))
                             {
+                                // error_reporting(0);
+                                include_once('../../model/chucnangadmin.php');
+                                $k=new tmdt();
                                 $maXoa = $_REQUEST['id'];  
-                                echo $maXoa;                           
-                                    if($k->themxoasua("delete from hoadon where maHD='$maXoa' limit 1")==1)
-                                    {
-                                        echo'<script language="javascript">
-                                            alert("Xóa đơn hàng thành công");	
-                                            </script>';
-                                    }
+                                
+                                if($k->themxoasua("delete from hoadon where maHD='$maXoa' limit 1")==1)
+                                {
+                                    echo'<script language="javascript">
+                                        alert("Xóa đơn hàng thành công");	
+                                        </script>';
+                                }
                                 echo'<script language="javascript">
                                         window.location="management_order.php";
                                         </script>';

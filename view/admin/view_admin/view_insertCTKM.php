@@ -1,5 +1,7 @@
 <?php
+
     include_once("../../../model/chucnangadmin.php");
+
     $p = new tmdt();
 ?>
 

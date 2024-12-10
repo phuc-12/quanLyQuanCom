@@ -159,6 +159,80 @@
 
                 <div style="width: 49%; float: right; background-color: white; padding: 20px; border-radius: 10px;">
                 <?php
+                    
+                    include_once("../../controler/cCTKM.php");
+                    $p = new CCTKM();
+                    if(isset($_GET["idLoai"])){
+                        $tblKM = $p->getAllTrangThaiCTKM($_GET["idLoai"]);
+                    }
+                    else{
+                        $tblKM = $p->getAllKM();
+                    }
+
+                    if(!$tblKM)
+                    {
+                        echo 'Không kết nối được';
+                    }
+                    elseif($tblKM==-1)
+                    {
+                        echo 'Chưa có dữ liệu món ăn';
+                    }
+                    else
+                    {	
+                        $dem=1;
+                        echo '<table class="table table-striped" style="background-color: white;">
+                                    <thead class="table-dark">
+                                        <tr style="text-align:center;">
+                                            <th>STT</th>
+                                            <th>Mã Khuyến Mãi</th>
+                                            <th>Tên Khuyến Mãi</th>
+                                            <th>Trạng Thái</th>
+                                            <th>Chiết Khấu</th>
+                                            <th>Bắt Đầu</th>
+                                            <th>Kết Thúc</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>';
+                        while($r=$tblKM->fetch_assoc())
+                        {	 
+                            echo '<tr style="text-align: center">';
+                                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
+                                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['maCTKM'].'</a></td>';
+                                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['tenKM'].'</a></td>';
+                                // echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['moTa'].'</a></td>';
+                                // echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                                switch($r['trangThai'])
+                                        {
+                                            case 2: 
+
+                                                {
+                                                    echo '<td>Hết/td>';
+                                                    break;
+                                                }
+
+                                            case 1:
+
+                                                {
+                                                    echo '<td>Còn</td>';
+                                                    break;
+                                                }
+                                        }       
+                                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['chietKhau'].'</a></td>';
+                                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['thoiGianBatDau'].'</a></td>';
+                                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['thoiGianKetThuc'].'</a></td>';
+                            echo '</tr>';
+                            $dem++;
+                        }
+                        echo '</tbody>';
+                        echo '</table>';
+                    }
+
+                ?>
+
+                </div>
+
+                <div style="width: 49%; float: left; background-color: white; padding: 20px; border-radius: 10px; margin-top: 50px;">
+                <?php
                     error_reporting(0);
                     include_once("../../controler/cNhanVien.php");
                     $p = new CNhanVien();
@@ -206,11 +280,68 @@
                         echo '</tbody>';
                         echo '</table>';
                     }
-
+                    
 
                     ?>
 
                 </div>
+
+                <div style="width: 49%; float: right; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10px;">
+                <?php
+                    error_reporting(0);
+                    include_once("../../controler/cKhachHang.php");
+                    $p = new CKhachHang();
+                    $tblKH = $p->getAllKHTop5();
+                    if(!$tblKH)
+                    {
+                        echo 'Không kết nối được';
+                    }
+                    elseif($tblKH==-1)
+                    {
+                        echo 'Chưa có dữ liệu món ăn';
+                    }
+                    else
+                    {	
+                        $dem=1;
+                        echo '<table class="table table-striped" style="background-color: white;">
+                                    <thead class="table-dark">
+                                        <tr style="text-align:center;">
+                                            <th>STT</th>
+                                            
+                                            <th>Tên Nhân Viên</th>
+                                            <th>Ngày Sinh</th>
+                                            <th>Loại Nhân Viên</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>';
+                        while($r=$tblKH->fetch_assoc())
+                        {	 
+                            echo '<tr style="text-align: center">';
+                                echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
+                                
+                                echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$r['hoTen'].'</a></td>';
+                                echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$r['diemTichLuy'].'</a></td>';
+                                $rs = $p->GetLKHByIDKH($r['maKH']);
+                                if($rs->num_rows > 0) {
+                                    while($row = $rs->fetch_assoc()) {
+                                        echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiKH'].'</a></td>';
+                                    }
+                                }
+                                
+                            echo '</tr>';
+                            $dem++;
+                        }
+                        echo '</tbody>';
+                        echo '</table>';
+                    }
+                    
+
+                    ?>
+
+                </div>
+
+                
                 
             </div>
 
