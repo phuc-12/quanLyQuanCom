@@ -29,9 +29,9 @@
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
 
-            <a class="trangChu" href="../../index.php">
+            <!-- <a class="trangChu" href="../../index.php">
                 <h4>Trang Chủ</h4>
-            </a>
+            </a> -->
             <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
