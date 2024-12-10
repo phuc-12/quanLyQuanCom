@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $invoiceCode = $orderDetails->invoiceCode;
         $products = $orderDetails->products;
         $maMA = $orderDetails->maMA;
-        $maNV = $orderDetails-> employee;
+        $maNV = $orderDetails->employee;
         $uudai = $orderDetails-> uudai;
         $maKH = $orderDetails ->customerCode;
 

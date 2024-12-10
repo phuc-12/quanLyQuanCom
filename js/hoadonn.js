@@ -209,7 +209,5 @@ function confirmOrder() {
        localStorage.removeItem('invoiceItems');
        loadCartFromLocalStorage();  // Gọi hàm này để render lại giỏ hàng
        alert('Đơn hàng đã được thêm thàng công.');
-       window.location.href = "quanlidonhang.php";
-    
-       
+       window.location.href = `Quanlidonhang.php?id=${employee}`;
 }
