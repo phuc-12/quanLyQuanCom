@@ -17,7 +17,11 @@
                     $_SESSION['id'] = $r['idNguoiDung'];
 
                 }
+                $layidND=$_SESSION['id'];
                 $loainguoidung = $_SESSION["dn"];
+                include_once("../model/chucnangadmin.php");
+                $k = new tmdt();
+                $layid = $k->laycot("select n.maNV from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where t.idNguoiDung = $layidND limit 1");
                 if($loainguoidung == 1){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Quản lý !")</script>';
                     
@@ -25,21 +29,21 @@
                 }
                 else if($loainguoidung == 2){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Nhân Viên Bán Hàng !")</script>';
-                    echo " <script> window.location.href='NHANVIEN/NV_quanli.php?id=".$_SESSION['id']."' </script> ";
+                    echo " <script> window.location.href='NHANVIEN/NV_quanli.php?id=".$layid."' </script> ";
                 }
                 else if($loainguoidung == 3){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Nhân Viên Hậu Cần !")</script>';
-                    echo " <script> window.location.href='haucan/haucan_danhsachdonhang.php?id=".$_SESSION['id']."' </script> ";
+                    echo " <script> window.location.href='haucan/haucan_danhsachdonhang.php?id=".$layid."' </script> ";
                 }
                 else if($loainguoidung == 4){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Nhân viên bếp !")</script>';
-                    echo " <script> window.location.href='bep/bep_trangchu.php?id=".$_SESSION['id']."' </script> ";
+                    echo " <script> window.location.href='bep/bep_trangchu.php?id=".$layid."' </script> ";
                 }
                 else{
                   
                     echo '<script>alert("Đăng nhập thành công. Xin chào khách hàng !")</script>';
                   
-                    echo " <script> window.location.href='KHACHHANG/customer-dashboard.php?id=".$_SESSION['id']."' </script> ";
+                    echo " <script> window.location.href='KHACHHANG/customer-dashboard.php?id=".$layid."' </script> ";
                 }
                 
             }
