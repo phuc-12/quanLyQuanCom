@@ -71,7 +71,7 @@
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">GIỚI THIỆU</a>
-            <a href="contact.php">THÔNG TIN</a>
+            <a href="#">KHUYẾN MÃI</a>
         </nav>
 
         <!-- Category Navigation -->
@@ -158,6 +158,7 @@
                     <h4>THÔNG TIN LIÊN HỆ</h4>
                     <br>
                     <ul>
+                        <li><i class="fa fa-exclamation-circle"></i><a href="contact.php" class="doc"> Thông tin chung</a></li>
                         <li><i class="fa fa-phone"></i>     <a href="https://zalo.me/0346021604" class="doc"> Zalo: 0346021604</a></li>
                         <li style="margin-left:-3px;"><i class="fa fa-envelope"></i>  Marketing@chipheoquan.com</li>
                         <li><i class="fa fa-facebook-square"></i><a href="https://www.facebook.com/profile.php?id=61553590355575" class="doc">  Facebook : ChíPhèo quán</a></li>

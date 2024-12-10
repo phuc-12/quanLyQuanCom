@@ -92,13 +92,10 @@
                             case 1:
 
                                 {
-                                    echo '<td><a href="?id='.$r['maHD'].'>Đã thanh toán</a></td>';
+                                    echo '<td>Đã thanh toán</td>';
                                     break;
                                 }
                         }
-
-                        // 
-
                         echo '<td>
                             <button class="button view"><a href="Chitietdonhang.php?id='.$r['maHD'].'">Xem</a></button>
                             ';

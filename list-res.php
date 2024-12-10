@@ -60,7 +60,7 @@
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">GIỚI THIỆU</a>
-            <a href="contact.php">THÔNG TIN</a>
+            <a href="#">KHUYẾN MÃI</a>
         </nav>
 
         <div class="category-nav">
@@ -111,7 +111,6 @@
                     <h4>CHÍNH SÁCH</h4>
                     <br>
                     <ul>
-                        <!-- <li><a href="#" class="doc">Cách Đặt Lịch Tại Website</a></li> -->
                         <li><i class="fa fa-lock"></i>  <a href="contact.php#csbm" class="doc">  Chính sách bảo mật</a></li>
                         <li style="margin-left:-6px;"><i class="fa fa-money"></i> <a href="contact.php#cstt" class="doc">  Chính sách thanh toán</a></li>
                     </ul>
@@ -120,11 +119,10 @@
                     <h4>THÔNG TIN LIÊN HỆ</h4>
                     <br>
                     <ul>
+                        <li><i class="fa fa-exclamation-circle"></i><a href="contact.php" class="doc"> Thông tin chung</a></li>
                         <li><i class="fa fa-phone"></i>     <a href="https://zalo.me/0346021604" class="doc"> Zalo: 0346021604</a></li>
                         <li style="margin-left:-3px;"><i class="fa fa-envelope"></i>  Marketing@chipheoquan.com</li>
                         <li><i class="fa fa-facebook-square"></i><a href="https://www.facebook.com/profile.php?id=61553590355575" class="doc">  Facebook : ChíPhèo quán</a></li>
-                        <!-- <li>Chí Phèo quán: F4/9C tổ 14 ấp 6C, xã Vĩnh Lộc A, huyện Bình Chánh, TP.HCM</li> -->
-                        <!-- <li>Giờ mở cửa: Thứ 2 - Chủ nhật: 6:00 - 20:00</li> -->
                     </ul>
                 </div>
                 <div class="doc4">
@@ -133,7 +131,6 @@
                     <ul>
                         <li><i class="fa fa-exclamation-circle"></i><a href="intro.php" class="doc">  Giới Thiệu</a></li>
                         <li><i class="fa fa-map-marker"></i><a href="list-res.php" class="doc">&nbsp;12 Nguyễn Văn Bảo, Phường 04, Quận Gò Vấp , Thành phố Hồ Chí Minh , Việt Nam</a></li>
-                        <!-- <li><a href="#" class="doc">Facebook</a></li> -->
                     </ul>
                 </div>
             </div>

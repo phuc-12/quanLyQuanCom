@@ -18,6 +18,7 @@
                 return false; //truy vấn thất bại
             }
         }
+
         public function getMaKhByOrderId($order_id){
             $p = new mThanhToan();
             $maKH = $p->selectMaKHByOrderId($order_id);
@@ -69,4 +70,5 @@
         }
        }
     }
+}
 ?>

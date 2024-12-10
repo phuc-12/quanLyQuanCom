@@ -1,6 +1,16 @@
 <?php
-include_once("../../model/chucnangnhanvien.php");
-$p = new tmdt();
+
+    include_once("../../model/chucnangnhanvien.php");
+    $p = new tmdt();
+
+    // session_start();
+
+    // if (!isset($_SESSION['btn_DangNhap'])) {
+    //     echo "<script>alert('Vui lòng đăng nhập và bắt đầu từ trang quản lý!')</script>";
+    //     // echo "Vui lòng đăng nhập và bắt đầu từ trang quản lý!";
+    //     header("refresh:0; url='../dangnhap.php'");
+    //     exit();
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +114,7 @@ $p = new tmdt();
                 <?php
 
                 ?>
-                <p>Số hóa đơn: <?php echo $maHD ?> </p>
+                <p >Số hóa đơn: <span id="codeOrder"><?php echo $maHD ?></span></p>
                 <p><?php echo $formattedDate ?></p>
                 <table class="order-table">
                     <thead>
@@ -179,17 +189,18 @@ $p = new tmdt();
                        <?php
                     }
                     ?>
-                    <button id="thanhtoan">VN Pay</button>
+                     <!-- Nút VN Pay -->
+                     <button id="thanhtoan">VN Pay</button>
                     <!-- Modal Popup -->
                     <div id="qrcode" class="modal">
                         <div class="modal-content">
-                            <span class="close">&times;</span>
-                           <div class="wp-center-qr">
-                           <img id="code" src="../../img/qrcode.jpg" alt="QR Code" style="margin-bottom: 10px;">
-                           <button id="done" class="thanhtoanchung" onclick="return confirmPayment(event)">
-                                <a href="#" >Hoàn tất</a>
-                            </button>
-                           </div>
+                            <span class="close">&times;</span> <!-- Nút đóng modal -->
+                            <div class="wp-center-qr">
+                                <img id="code" src="../../img/qrcode.jpg" alt="QR Code" style="margin-bottom: 10px;">
+                                <button id="done" class="thanhtoanchung" onclick="return confirmPayment(event)">
+                                    <a href="#" >Hoàn tất</a>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -203,23 +214,44 @@ $p = new tmdt();
     function confirmPayment(event) {
         event.preventDefault();
         const total_after_calculating_discounts = document.getElementById('total-after-calculating-discounts').innerText;
-        const confirmationMessage = 'Xác nhận thanh toán thành công ' + total_after_calculating_discounts + ' VND.';
+        const confirmationMessage = 'Xác nhận thanh toán thành công với số tiền ' + total_after_calculating_discounts + ' VND.';
+        const url = window.location.origin + '/quanLyQuanCom/controler/xuLyTinhTrangHoaDon.php';
+        const url_redirect = window.location.origin + '/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php';
+        const codeOrder = document.getElementById('codeOrder').innerText;
         const isConfirmed = confirm(confirmationMessage);
         if (isConfirmed) {
         // Đóng modal
         document.getElementById('qrcode').style.display = 'none';
+        $.ajax({
+            url: url,  // Thay đổi thành URL của bạn
+            method: 'POST',
+            dataType :'json',
+            data: {
+                codeOrder: codeOrder,
+            },
+            success: function(response) {
+                console.log('Thanh toán thành công:', response);
+                // Xử lý thêm sau khi thanh toán thành công
+                if(response.status === 'success'){
+                    window.location.href = url_redirect;
+                }
+            },
+            error: function(error) {
+                console.error('Lỗi khi thanh toán:', error);
+            }
+        });
         }
         return isConfirmed;
     }
-    // Hiển thị code
+    // Hiển thị modal khi nhấn nút "VN Pay"
     document.getElementById('thanhtoan').onclick = function() {
         document.getElementById('qrcode').style.display = 'block';
     }
-    
+    // Đóng modal khi nhấn nút "X"
     document.getElementsByClassName('close')[0].onclick = function() {
         document.getElementById('qrcode').style.display = 'none';
     }
-    
+    // Đảm bảo khi người dùng nhấn ra ngoài modal, nó sẽ đóng
     window.onclick = function(event) {
         var modal = document.getElementById('qrcode');
         if (event.target == modal) {
