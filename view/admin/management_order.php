@@ -204,11 +204,15 @@
                             {
                                 $maXoa = $_REQUEST['id'];
                                 
-                                if($k->themxoasua("delete from hoadon where maHD='$maXoa' limit 1")==1)
+                                if($k->themxoasua("delete from hoadon where maHD= '$maXoa' limit 1")==1)
                                 {
-                                    echo'<script language="javascript">
+                                    if($k->themxoasua("delete from chitiethoadon where maHD= '$maXoa'")==1)
+                                    {
+                                        echo'<script language="javascript">
                                         alert("Xóa đơn hàng thành công");	
                                         </script>';
+                                    } 
+                                    
                                 }
                                 
                                 echo'<script language="javascript">
