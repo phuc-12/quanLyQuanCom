@@ -193,17 +193,16 @@
                 </div>
                 <div>
                 <?php
-                    
+                    // error_reporting(0);
+                    include('../../model/chucnangadmin.php');
+                    $k=new tmdt();
                     switch ($_POST['btnxoa'])
                     {
                         case 'XÓA ĐƠN HÀNG':
                         {
                             if(isset($_REQUEST['id']))
                             {
-                                // error_reporting(0);
-                                include_once('../../model/chucnangadmin.php');
-                                $k=new tmdt();
-                                $maXoa = $_REQUEST['id'];  
+                                $maXoa = $_REQUEST['id'];
                                 
                                 if($k->themxoasua("delete from hoadon where maHD='$maXoa' limit 1")==1)
                                 {
@@ -211,6 +210,7 @@
                                         alert("Xóa đơn hàng thành công");	
                                         </script>';
                                 }
+                                
                                 echo'<script language="javascript">
                                         window.location="management_order.php";
                                         </script>';

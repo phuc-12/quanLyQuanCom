@@ -1,5 +1,5 @@
 <?php
-    include_once("chucnangnhanvien.php");
+    include_once("chucnangadmin.php");
     include_once("ketnoi.php");
     class MHoaDon extends tmdt {
         public function SelectAllHD() {
@@ -23,7 +23,7 @@
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');
             if($conn){
-                $str = "SELECT hd.maHD, hd.maKH, kh.hoTen, hd.trangThai FROM hoadon hd JOIN khachhang kh ON hd.maKH = kh.maKH ";
+                $str = "SELECT hd.maHD, hd.maKH, kh.hoTen, hd.ngayThang, hd.trangThai FROM hoadon hd JOIN khachhang kh ON hd.maKH = kh.maKH ";
                 $tblHoaDon = $conn->query($str);
                 $p->dongketnoi($conn);
                 return $tblHoaDon;
