@@ -28,7 +28,7 @@ $p = new tmdt();
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="ThongtinNhanVien.php?id=5">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="CN_thongtin.php?idập Nhật Thông Tin</a=5">C></li>
+                        <li><a class="dropdown-item" href="CN_thongtin.php?id=5">Cập Nhật Thông Tin</li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
                 </div>
