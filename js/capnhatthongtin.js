@@ -39,6 +39,7 @@ $(document).ready(function(){
     $("#email").blur(function(){
         ktemail();
     });
+
     function togglePassword() {
         let passwordField = document.getElementById("password");
         if (passwordField.type === "password") {
@@ -47,6 +48,7 @@ $(document).ready(function(){
             passwordField.type = "password";
         }
     }
+    
     function ktPassword() {
         let pw = $("input[name='password']").val();
         let btcq = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
@@ -86,11 +88,11 @@ $(document).ready(function(){
     $("#sdt").blur(function(){
         ktSDT();
     });
-    $("#btnsua").click(function(){
-        if(!ktSDT() || !ktemail() || !ktTDN() || !ktPassword()){
-            alert("Bạn phải nhập đầy đủ thông tin")
-            return false;
-        }
-    })
+    // $("#btnsua").click(function(){
+    //     if(!ktSDT() || !ktemail() || !ktTDN() || !ktPassword()){
+    //         alert("Bạn phải nhập đầy đủ thông tin")
+    //         return false;
+    //     }
+    // })
 
 });
