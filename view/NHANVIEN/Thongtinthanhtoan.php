@@ -31,6 +31,12 @@
         $formattedDate = 'Ngày' . ' ' . $date->format('j') . ' tháng ' . $date->format('n') . ' năm ' . $date->format('Y');
     }
 
+
+//     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['khuyenMaiKH'])) {
+//         if ($khuyenMai['tenKM'] == "Giảm 10%"){
+//             echo "Nút đã được nhấn!";
+//         }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -163,7 +169,7 @@
                                 <?php
                                 foreach ($listKMbyLoaiKH as $khuyenMai) {
                                 ?>
-                                    <option value="<?= $khuyenMai['tenKM'] ?>"><?= $khuyenMai['tenKM'] ?></option>
+                                    <option value="<?= $khuyenMai['tenKM'] ?>"><?= $khuyenMai['moTa'] ?></option>
                                 <?php
                                 }
                                 ?>
@@ -175,9 +181,9 @@
 
                     </div>
                     <?php $total = $total * 1000 ?>
-                    <p>Tổng cộng: <span id="totalPrice" data-value="<?php echo $total ?>"><?= number_format($total, 0, '', ',') ?></span>VND</p>
                     <p>Chiết khấu:<span id="discount">0đ</span></p>
-                    <p>Thanh toán: <span id="total-after-calculating-discounts"><?= number_format($total, 0, '', ',') ?></span>VND</p>
+                    <p>Hóa đơn tạm tính: <span id="totalPrice" data-value="<?php echo $total ?>"><?= number_format($total, 0, '', ',') ?></span>VND</p>                    
+                    <p>Tổng thanh toán: <span id="total-after-calculating-discounts"><?= number_format($total, 0, '', ',') ?></span>VND</p>
                     <p></p>
                     <!-- <button class="button thanhtoan">VN Pay</button> -->
                     <button class="button thanhtoan"><a href="#" onclick="return confirmPayment(event)">Tiền mặt</a></button>

@@ -17,6 +17,7 @@ if (isset($_POST['total_price']) && isset($_POST['makM'])) {
         }else{  
             $giamGia = 0;
             $giaSauGiam = $giaGoc;
+            $makM = "Khuyến mãi chưa đủ điều kiện áp dụng !";            
         }
     }
 
@@ -27,6 +28,7 @@ if (isset($_POST['total_price']) && isset($_POST['makM'])) {
         }else{
             $giamGia = 0;
             $giaSauGiam = $giaGoc;
+            $makM = "Khuyến mãi chưa đủ điều kiện áp dụng !";
         }
     }
 
@@ -49,6 +51,7 @@ if (isset($_POST['total_price']) && isset($_POST['makM'])) {
         }else{
             $giamGia = 0;
             $giaSauGiam = $giaGoc;
+            $makM = "Khuyến mãi chưa đủ điều kiện áp dụng !";
         }
     }
     
@@ -77,6 +80,10 @@ if (isset($_POST['total_price']) && isset($_POST['makM'])) {
         if ($giaGoc >= 150000) {
             $giamGiaMax = 50000;
             $giaSauGiam = $giaGoc - $giamGiaMax;
+        }else{
+            $giamGia = 0;
+            $giaSauGiam = $giaGoc;
+            $makM = "Khuyến mãi chưa đủ điều kiện áp dụng !";
         }
     }
     
