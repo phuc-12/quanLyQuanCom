@@ -15,7 +15,7 @@
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script src="../../../js/popper.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
-    <script src="../../../js/capnhatnhaKHien.js"></script>
+    <script src="../../../js/rangbuoc.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_employ.css">
     <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
@@ -63,15 +63,15 @@
             <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
-            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;margin-right: 15px;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
         </div>
 
         <div id="content">
@@ -134,7 +134,7 @@
                         
                         <tr>
                             <td style="width: 150px;"><label for="idNguoiDung">ID Người Dùng:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="idNguoiDung" value="<?php echo $layidnguoidung;?>" name="idNguoiDung"></td>
+                            <td><input type="input" class="form-control" size="200" id="idNguoiDung" value="<?php echo $layidnguoidung;?>" name="idNguoiDung" readonly></td>
                             <td style="width: 200px;"><span id="erridNguoiDung" class="err text-danger"></span></td>
                         </tr>
 
@@ -142,15 +142,15 @@
                             <td style="width: 150px;"><label for="maLoaiKH">Loại Khách Hàng:</label></td>
                             <td width="318" align="left">
                                 <?php
-                                    $p->chonloaiKH("select * from loaikhachhang order by tenLoaiKH asc",$laymaloai);
+                                    $p->chonloaiKH("select * from loaikhachhang order by loaiKH asc",$laymaloai);
                                 ?> 
                             </td>
                         </tr>    
                         
                         <tr>
                             <td style="width: 150px;"><label for="diemTichLuy">Điểm Tích Lũy:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="diemTichLuy" value="<?php echo $laydiemtichluy;?>" name="diemTichLuy"></td>
-                            <td style="width: 200px;"><span id="errdiemTichLuy" class="err text-danger"></span></td>
+                            <td><input type="input" class="form-control" size="200" id="diemTL" value="<?php echo $laydiemtichluy;?>" name="diemTichLuy"></td>
+                            <td style="width: 200px;"><span id="errdiemTL" class="err text-danger"></span></td>
                         </tr>
                         <tr>
                             <td colspan=2 style="text-align:center;">

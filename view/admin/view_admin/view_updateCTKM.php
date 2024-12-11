@@ -34,12 +34,12 @@
 <body>
     <?php
         $layid = $_REQUEST['id'];
-        $laytenctkm=$p->laycot("select tenKM from ctkm where maCTKM = '$layid' limit 1");
-        $laymoTa=$p->laycot("select moTa from ctkm where maCTKM = '$layid' limit 1");
-        $layTrangThai=$p->laycot("select trangThai from ctkm where maCTKM = '$layid' limit 1");
-        $layChietKhau=$p->laycot("select chietKhau from ctkm where maCTKM = '$layid' limit 1");
-        $layNgayBatDau=$p->laycot("select thoiGianBatDau from ctkm where maCTKM = '$layid' limit 1");
-        $laytenNgayKetThuc=$p->laycot("select thoiGianKetThuc from ctkm where maCTKM = '$layid' limit 1");
+        $laytenctkm=$p->laycot("select tenKM from ctkm where maKM = '$layid' limit 1");
+        $laymoTa=$p->laycot("select moTa from ctkm where maKM = '$layid' limit 1");
+        $layTrangThai=$p->laycot("select trangThai from ctkm where maKM = '$layid' limit 1");
+        $layChietKhau=$p->laycot("select chietKhau from ctkm where maKM = '$layid' limit 1");
+        $layNgayBatDau=$p->laycot("select thoiGianBatDau from ctkm where maKM = '$layid' limit 1");
+        $laytenNgayKetThuc=$p->laycot("select thoiGianKetThuc from ctkm where maKM = '$layid' limit 1");
     ?>
     <div class="container-fluid p-0">
         <div id="ql_header">
@@ -50,15 +50,15 @@
             <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
-            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;margin-right: 15px;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
         </div>
 
         <div id="content">
@@ -109,18 +109,18 @@
                 <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width:60%;float: left;">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
-                            <td style="width: 150px;"><label for="maCTKM">Mã Chương Trình Khuyến Mãi:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maCTKM" placeholder="Nhập mã chương trình khuyến mãi" name="maCTKM" value="<?php echo $layid;?>" readonly></td>
+                            <td style="width: 150px;"><label for="maKM">Mã Chương Trình Khuyến Mãi:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="maKM" placeholder="Nhập mã chương trình khuyến mãi" name="maKM" value="<?php echo $layid;?>" readonly></td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="tenKM">Tên Khuyến Mãi:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="tenKM" placeholder="Nhập tên chương trình khuyến mãi" name="tenKM"></td>
+                            <td><input type="input" class="form-control" size="200" id="tenKM" placeholder="Nhập tên chương trình khuyến mãi" name="tenKM" value="<?php echo $laytenctkm;?>"></td>
                             <td style="width: 200px;"><span id="errTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="moTa">Mô Tả:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập mô tả" name="moTa"></td>
+                            <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập mô tả" name="moTa" value="<?php echo $laymoTa;?>"></td>
                             <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
@@ -130,17 +130,17 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="chietKhau">Chiết Khấu:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="chietKhau" placeholder="Nhập tên chiết khấu" name="chietKhau"></td>
+                            <td><input type="input" class="form-control" size="200" id="chietKhau" placeholder="Nhập tên chiết khấu" name="chietKhau" value="<?php echo $layChietKhau;?>"></td>
                             <td style="width: 200px;"><span id="errChietKhau" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="thoiGianBatDau">Thời Gian Bắt Đầu:</label></td>
-                            <td><input type="date" class="form-control" size="200" id="thoiGianBatDau" placeholder="Nhập thời gian bắt đầu" name="thoiGianBatDau"></td>
+                            <td><input type="date" class="form-control" size="200" id="thoiGianBatDau" placeholder="Nhập thời gian bắt đầu" name="thoiGianBatDau" value="<?php echo $layNgayBatDau;?>"></td>
                             <td style=" hight: 400px; width: 200px;"><span id="errStartDate" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="thoiGianKetThuc">Thời Gian Kết Thúc:</label></td>
-                            <td><input type="date" class="form-control" size="200" id="thoiGianKetThuc" placeholder="Nhập thời gian kết thúc" name="thoiGianKetThuc"></td>
+                            <td><input type="date" class="form-control" size="200" id="thoiGianKetThuc" placeholder="Nhập thời gian kết thúc" name="thoiGianKetThuc" value="<?php echo $laytenNgayKetThuc;?>"></td>
                             <td style=" hight: 400px; width: 200px;"><span id="errEndDate" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         
@@ -164,7 +164,7 @@
                             {
                                 case 'Cập Nhật':
                                 {
-                                $maKM=$_REQUEST['maCTKM'];
+                                $maKM=$_REQUEST['maKM'];
                                 $tenKM=$_REQUEST['tenKM'];
                                 $moTa=$_REQUEST['moTa'];
                                 $trangThai=$_REQUEST['trangThai'];
@@ -182,7 +182,7 @@
                                             chietKhau = '$chietKhau', 
                                             thoiGianBatDau = '$ngayBatDauFormatted', 
                                             thoiGianKetThuc = '$ngayKetThucFormatted' 
-                                            WHERE maCTKM = '$maKM' LIMIT 1")==1)
+                                            WHERE maKM = '$maKM' LIMIT 1")==1)
                                         {
                                             echo'<script language="javascript">
                                             alert("Cập nhật thành công");	

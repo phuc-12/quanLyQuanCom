@@ -130,7 +130,7 @@
 					while($row = $ketqua->fetch_array()) // Thay mysql_fetch_array bằng $ketqua->fetch_array()
 					{
 						$maLoaiKH = $row['maLoaiKH'];
-						$tenLoaiKH = $row['tenLoaiKH'];
+						$tenLoaiKH = $row['loaiKH'];
 						if($maChon == $maLoaiKH)
 						{
 							echo '<option value="'.$maLoaiKH.'" selected>'.$tenLoaiKH.'</option>';
