@@ -101,7 +101,7 @@
                             ';
                             if($r['trangThai'] == 0)
                             {
-                                echo'<button class="button update">Cập nhật</button>';
+                                echo'<button class="button update"><a href="CN_chitietdonhang.php?id=' . $r['maHD'] . '">Cập nhật</a></button>';
                                 echo'<button class="button thanhtoan"><a href="Thongtinthanhtoan.php?orderId=' . $r['maHD'] . '">Thanh toán</a></button>';
                             }
                         echo '</td>';
