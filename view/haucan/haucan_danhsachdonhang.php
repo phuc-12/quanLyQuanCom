@@ -53,7 +53,7 @@ $p = new tmdt();
                 </div>
                 
                 <?php
-                    $p->xemdanhsachdonhang("select * from hoadon group by maHD")
+                    $p->xemdanhsachdonhang("select * from hoadon group by maHD order by trangThaiGH")
                 ?>
             </div>
         </div>
