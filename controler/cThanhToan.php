@@ -47,6 +47,7 @@
             } else {
                 return -1;
         }
+    }
 
         //lấy loaiKH (maKH)
         public function getLoaiKH($maKH){
