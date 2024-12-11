@@ -39,13 +39,12 @@
                 
                     <div class="form-group">
                         <label>PassWord:</label>
-                        <input type="pass" name="txtMK">
+                        <input type="password" name="txtMK">
                     </div>
                     <tr>
                         <td>
-                            <button type="reset" class="submit-btn">Nhập lại</button>
                             <button type="submit" class="submit-btn" name="btn_DangNhap">Đăng Nhập</button>
-                        
+                            <button type="reset" class="submit-btn">Nhập lại</button>
                         </td>
                     </tr>
                     <tr>

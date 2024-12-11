@@ -22,6 +22,10 @@
                 include_once("../model/chucnangadmin.php");
                 $k = new tmdt();
                 $layid = $k->laycot("select n.maNV from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where t.idNguoiDung = $layidND limit 1");
+                if($layid=='')
+                {
+                    $layid=$k->laycot("select k.maKH from khachhang k join taikhoannguoidung t on k.idNguoiDung = t.idNguoiDung where t.idNguoiDung = $layidND limit 1");
+                }
                 if($loainguoidung == 1){
                     echo '<script>alert("Đăng nhập thành công. Xin chào Quản lý !")</script>';
                     

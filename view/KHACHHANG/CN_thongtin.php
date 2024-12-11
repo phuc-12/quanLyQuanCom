@@ -29,7 +29,7 @@
         $layid = $_REQUEST['id'];
         $layten=$p->laycot("select hoTen from khachhang where maKH = '$layid' limit 1");
         $laymakh=$p->laycot("select maKH from khachhang where maKH = '$layid' limit 1");
-        $laytenloaikh=$p->laycot("select t.tenLoaiKH from khachhang n join loaikhachhang t on n.maLoaiKH = t.maLoaiKH where maKH = '$layid' limit 1");
+        $laytenloaikh=$p->laycot("select t.loaiKH from khachhang n join loaikhachhang t on n.maLoaiKH = t.maLoaiKH where maKH = '$layid' limit 1");
         $laydiemtichluy=$p->laycot("select diemTichLuy from khachhang where maKH = '$layid' limit 1");
         $layemail=$p->laycot("select t.email from khachhang n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maKH = '$layid' limit 1");
         // $layusername=$p->laycot("select username from khachhang where maKH = '$layid' limit 1");
