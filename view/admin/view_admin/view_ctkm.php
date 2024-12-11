@@ -54,7 +54,7 @@
                             case 1:
 
                                 {
-                                    echo '<td>Đang hoạt động</td>';
+                                    echo '<td>Còn hạn</td>';
                                     break;
                                 }
                         }       
