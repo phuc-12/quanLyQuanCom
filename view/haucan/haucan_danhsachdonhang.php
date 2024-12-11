@@ -30,16 +30,6 @@ $p = new tmdt();
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
                 </div>
-<!--                 
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px;">👤</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../NHANVIEN/ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="../NHANVIEN/CN_thongtin.php?id=<?php echo $layid ?>">Cập Nhật Thông Tin</a></li>
-                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
-                    </ul>
-                </div> -->
-
                 <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
                     
             </div>

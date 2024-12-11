@@ -23,6 +23,7 @@ if ($result && $row = $result->fetch_assoc()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo đơn hàng</title>
     <link rel="stylesheet" href="../../css/donhang.css">
+    <link rel="stylesheet" href="../../css/nhanVien.css">
     <link rel="stylesheet" href="../../css/thongtin.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -44,20 +45,22 @@ if ($result && $row = $result->fetch_assoc()) {
     $layid = $_REQUEST['id'];
     ?>
 <div class="container-fluid p-0">
-    <div class="header">
-        <div class="logo" style="padding: 0; border-radius: 100px;">
-                <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
-        </div>
-        <h1><a href="Quanlidonhang.php?id=<?php echo $layid ?>" style='text-decoration: none'>Danh sách đơn hàng</a></h1>
-        <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
-        <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
-    </div>
+            <div id="ql_header">
+                <div class="logo" style="padding: 0; border-radius: 100px;">
+                    <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+                </div>
 
-    <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
-    </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="ThongtinNhanVien.php?id=8">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="CN_thongtin.php?id=8">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
+                    </ul>
+                </div>
+                <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+                    
+            </div>
 
         <div class="container" style="width:100%">      
         <!-- Bảng Sản Phẩm -->
