@@ -14,7 +14,7 @@
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script src="../../../js/popper.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
-    <script src="../../../js/capnhatnhanvien.js"></script>
+    <script src="../../../js/rangbuoc.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_employ.css">
     <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
@@ -61,15 +61,15 @@
             <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
-            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;margin-right: 15px;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
         </div>
 
         <div id="content">
@@ -122,7 +122,7 @@
                         <tr>
                             <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
                             <td><input type="input" class="form-control" size="200" id="maNV" value="<?php echo $layid;?>" name="maNV" readonly></td>
-                            <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td>
+                            <!-- <td style="width: 200px;"><span id="errMaNV" class="err text-danger"></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="hoTen">Họ Tên Nhân Viên:</label></td>

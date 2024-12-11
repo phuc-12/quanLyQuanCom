@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    //kiem tra maCTKM
-    function ktmaCTKM() {
-        let maCTKM = $("#maCTKM").val();
+    //kiem tra maKM
+    function ktmaKM() {
+        let maKM = $("#maKM").val();
         let regex = /^\d+$/; //chi được điền số
-        if (maCTKM == "") {
+        if (maKM == "") {
             $("#errMa").html("Không được để trống");
             return false;
-        }else if (!regex.test(maCTKM)){
+        }else if (!regex.test(maKM)){
             $("#errMa").html("Mã không hợp lệ - chỉ được điền số");
             return false;
         }
@@ -15,8 +15,8 @@ $(document).ready(function(){
             return true;
         }
     }
-    $("#maCTKM").blur(function(e){
-        ktmaCTKM();
+    $("#maKM").blur(function(e){
+        ktmaKM();
     });
     
     //kiem tra ten

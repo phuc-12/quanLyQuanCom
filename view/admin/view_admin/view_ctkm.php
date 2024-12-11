@@ -37,11 +37,11 @@
         while($r=$tblKM->fetch_assoc())
         {	 
             echo '<tr style="text-align: center">';
-                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
-                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['maCTKM'].'</a></td>';
-                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['tenKM'].'</a></td>';
-                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['moTa'].'</a></td>';
-                // echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['maKM'].'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['tenKM'].'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['moTa'].'</a></td>';
+                // echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
                 switch($r['trangThai'])
                         {
                             case 2: 
@@ -58,9 +58,9 @@
                                     break;
                                 }
                         }       
-                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['chietKhau'].'</a></td>';
-                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['thoiGianBatDau'].'</a></td>';
-                echo '<td><a href="?id='.$r['maCTKM'].'" style="text-decoration:none; color: black;">'.$r['thoiGianKetThuc'].'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['chietKhau'].'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['thoiGianBatDau'].'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['thoiGianKetThuc'].'</a></td>';
             echo '</tr>';
             $dem++;
         }

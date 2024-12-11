@@ -44,15 +44,15 @@
             <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
-            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;margin-right: 15px;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
         </div>
 
         <div id="content">
@@ -103,8 +103,8 @@
                 <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width:60%;float: left;">
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
-                            <td style="width: 150px;"><label for="maCTKM">Mã Chương Trình Khuyến Mãi:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maCTKM" placeholder="Nhập mã chương trình khuyến mãi" name="maCTKM"></td>
+                            <td style="width: 150px;"><label for="maKM">Mã Chương Trình Khuyến Mãi:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="maKM" placeholder="Nhập mã chương trình khuyến mãi" name="maKM"></td>
                             <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
@@ -160,7 +160,7 @@
                         {
                             case 'Thêm':
                             {
-                                $maKM=$_REQUEST['maCTKM'];
+                                $maKM=$_REQUEST['maKM'];
                                 $tenKM=$_REQUEST['tenKM'];
                                 $moTa=$_REQUEST['moTa'];
                                 $trangThai=$_REQUEST['trangThai'];
@@ -180,12 +180,14 @@
                                     {
                                         // Chuyển định dạng ngày nếu cần thiết
                                         
-                                        $str = "INSERT INTO ctkm (maCTKM,tenKM,moTa,trangThai,chietKhau,thoiGianBatDau,thoiGianKetThuc) VALUES ('$maKM',N'$tenKM','$moTa','$trangThai','$chietKhau','$ngayBatDauFormatted','$ngayKetThucFormatted')";
+                                        $str = "INSERT INTO ctkm (maKM,tenKM,moTa,trangThai,chietKhau,thoiGianBatDau,thoiGianKetThuc) VALUES ('$maKM',N'$tenKM','$moTa','$trangThai','$chietKhau','$ngayBatDauFormatted','$ngayKetThucFormatted')";
                                         
                                         if ($conn->query($str) === TRUE) {
                                             if ($conn->affected_rows > 0) {
                                                 echo "<script>alert('Thêm chương trình khuyến mãi thành công!');</script>";
-                                                
+                                                echo'<script language="javascript">
+                                                            window.location="../management_gift.php";
+                                                            </script>';
                                             } else {
                                                 echo "<script>alert('không có chương trình khuyến mãi nào được thêm!');</script>";
                                             }
