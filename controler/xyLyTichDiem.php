@@ -36,12 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Chuẩn bị câu lệnh SQL
     $update_sql = "UPDATE khachhang SET diemTichLuy = ?, maLoaiKH = ? WHERE maKH = ?";
 
-    if ($stmt = $con->prepare($update_sql)) {
+    if ($truyvan = $con->prepare($update_sql)) {
         // Liên kết tham số vào câu lệnh SQL (diemTichLuy, maLoaiKH, maKH)
-        $stmt->bind_param("iii", $new_accumulated_points, $type, $maKh); 
+        $truyvan->bind_param("iii", $new_accumulated_points, $type, $maKh); 
 
         //thục thi
-        if ($stmt->execute()) {
+        if ($truyvan->execute()) {
             // trả về kết quả JSON
             $response = array(
                 'success' => true,
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             );
         }
 
-        $stmt->close();
+        $truyvan->close();
     } else {
         // báo lỗi
         $response = array(
