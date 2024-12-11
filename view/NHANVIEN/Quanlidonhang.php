@@ -47,6 +47,34 @@
             ?>
             <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn mới</a></button>
 
+<<<<<<< HEAD
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã hóa đơn</th>
+                        <th>Giờ khởi tạo</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu mẫu -->
+                    <tr>
+                        <td>1</td>
+                        <td>0001</td>
+                        <td>10:00 AM</td>
+                        <td>Đã thanh toán</td>
+                        <td>
+                            <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
+                            <button class="button update">Cập nhật</button>
+                            <button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button>
+                        </td>
+                    </tr>
+                    <!-- Thêm.. -->
+                </tbody>
+            </table>
+=======
             <?php
                 error_reporting(0);
                 include_once("../../controler/cHoaDon.php");
@@ -112,6 +140,7 @@
                     echo '</table>';
                 }
             ?>
+>>>>>>> main
         </div>
     </div>
     </div>
