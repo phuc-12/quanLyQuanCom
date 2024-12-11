@@ -80,7 +80,7 @@
         }
 
         //lấy danh sách chi tiết hóa đơn từ maHD
-        public function selectDanhSachChiTietHoaDonBoiMaHD($order_id){
+        public function selectCTHDbyMaHD($order_id){
             $p = new clsKetNoi();
             $con = $p->moKetNoi();
             $sql = "  SELECT m.tenMA, m.dongia,m.donViTinh, ctd.soLuong
