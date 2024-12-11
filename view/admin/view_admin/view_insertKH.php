@@ -1,6 +1,19 @@
 <?php
     include_once('clsupload.php');
     $p = new upload();
+
+    include_once("../../../model/chucnangadmin.php");
+    $tmdt=new tmdt();
+    $conn = $tmdt->connect();
+    // Truy vấn lấy mã hóa đơn lớn nhất hiện tại
+    $query = "SELECT MAX(idNguoiDung) as maxidNguoiDung FROM taikhoannguoidung";
+    $result = $conn->query($query);
+
+    $idNguoiDungMoi = 1; // Giá trị mặc định nếu không có hóa đơn nào trong cơ sở dữ liệu
+    if ($result && $row = $result->fetch_assoc()) {
+        $maxidNguoiDung = $row['maxidNguoiDung'];
+        $idNguoiDungMoi = $maxidNguoiDung + 1; // Tăng mã hóa đơn lên 1
+    }
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +123,11 @@
                             <td><input type="input" class="form-control" size="200" id="hoTen" placeholder="Nhập tên Khách Hàng" name="hoTen"></td>
                             <td style="width: 200px;"><span id="errHoTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
-                        
+                        <tr>
+                            <td style="width: 150px;"><label for="idNguoiDung">ID Người Dùng:</label></td>
+                            <td><input type="input" class="form-control" size="200" id="idNguoiDung" name="idNguoiDung" value="<?php echo $idNguoiDungMoi;?>" readonly></td>
+                            <td style="width: 200px;"><span id="erridNguoiDung" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
+                        </tr>
                         <tr>
                             <td style="width: 150px;"><label for="maLoaiKH">Loại Khách Hàng:</label></td>
                             <td>
@@ -147,9 +164,10 @@
                                 $maKH=$_REQUEST['maKH'];
                                 $hoTen=$_REQUEST['hoTen'];
                                 $diemTichLuy=$_REQUEST['diemTL'];
+                                $idNguoiDung=$_REQUEST['idNguoiDung'];
                                 $maLoaiKH=$_REQUEST['maLoaiKH'];
                                 
-                                if($maKH !='' && $hoTen !='' && $diemTichLuy!=''&& $maLoaiKH !='')
+                                if($maKH !='' && $hoTen !=''&& $idNguoiDung!='' && $diemTichLuy!=''&& $maLoaiKH !='')
                                 {
                                     $conn = new mysqli('localhost','root','','db_chipheo');
                                     if ($conn->connect_error) {
@@ -160,7 +178,7 @@
                                     {
                                         // Chuyển định dạng ngày nếu cần thiết
                                         
-                                        $str = "INSERT INTO khachhang (maKH,hoTen,maLoaiKH,diemTichLuy) VALUES ('$maKH',N'$hoTen','$maLoaiKH','$diemTichLuy')";
+                                        $str = "INSERT INTO khachhang (maKH,hoTen,maLoaiKH,idNguoiDung,diemTichLuy) VALUES ('$maKH',N'$hoTen','$maLoaiKH','$idNguoiDung','$diemTichLuy')";
                                         
                                         if ($conn->query($str) === TRUE) {
                                             if ($conn->affected_rows > 0) {

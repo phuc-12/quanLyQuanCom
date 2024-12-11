@@ -13,23 +13,27 @@
 </head>
 
 <body>
+    <?php
+        error_reporting(0);
+        $layid = $_REQUEST['id'];
+    ?>
     <div class="container-fluid p-0">
         <div id="ql_header">
             <div class="logo" style="padding: 0; border-radius: 100px;">
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt=""
                         style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
-            <a class="trangChu" href="../../index.php">
+            <!-- <a class="trangChu" href="../../index.php">
                 <h4>Trang Chủ</h4>
-            </a>
+            </a> -->
             <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span
                     id="currentDate"></span></div>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown"
                     style="float:right; margin-top: 20px; padding: 0;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
@@ -78,9 +82,9 @@
             </div>
 
             <div class="section" style="background-color: #E5E5E5;">
-                <h3 style="margin-bottom: 30px;"><b>QUẢN LÝ THỰC ĐƠN</b></h3>
+                <h3 style="margin-bottom: 30px;"><b>QUẢN LÝ CHƯƠNG TRÌNH KHUYẾN MÃI</b></h3>
 
-                <div class="thongKe_food" style="border-radius: 10px;">
+                <div class="thongKe_gift" style="border-radius: 10px;">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
                         <p style="font-size: 20px; float: left;">Thống kê số liệu</p>
                         <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a>
@@ -91,62 +95,38 @@
                             <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>TỔNG SỐ LƯỢNG</b>
                                 <br> <b style="color:red;">
                                     <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    if(isset($_REQUEST['idLoai']))
-                                    {
-                                        $idLoai = $_REQUEST['idLoai'];
-                                        $countMA = $p->GetCountMAByLMA($idLoai);
-                                    }
-                                    else 
-                                    {
-                                        $countMA = $p->GetCountMA();
-                                    }
-                                    echo $countMA;
+                                    include_once("../../controler/cCTKM.php");
+                                    $p = new CCTKM();
+                                    $countCTKM = $p->GetCountALLCTKM();
+                                    echo $countCTKM;
                                 ?>
-                                    MÓN
+                                    CHƯƠNG TRÌNH KHUYẾN MÃI
                                 </b></h5>
                         </div>
                         <div>
                             <i class="fa fa-smile-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN CÒN</b> <br>
-                                <b style="color:red;">
+                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>CÒN HẠN</b> <br>
+                            <b style="color:red;">
                                     <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    if(isset($_REQUEST['idLoai']))
-                                    {
-                                        $idLoai = $_REQUEST['idLoai'];
-                                        $countMA = $p->GetCountMAByLMACon($idLoai);
-                                    }
-                                    else 
-                                    {
-                                        $countMA = $p->GetCountMACon();
-                                    }
-                                    echo $countMA;
+                                    include_once("../../controler/cCTKM.php");
+                                    $p = new CCTKM();
+                                    $countCTKM = $p->GetCountCTKMCon();
+                                    echo $countCTKM;
                                 ?>
-                                    MÓN
+                                    CHƯƠNG TRÌNH KHUYẾN MÃI
                                 </b></h5>
                         </div>
                         <div>
                             <i class="fa fa-frown-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN ĐÃ HẾT</b>
-                                <br> <b style="color:red;">
+                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>ĐÃ HẾT HẠN</b>
+                            <br> <b style="color:red;">
                                     <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    if(isset($_REQUEST['idLoai']))
-                                    {
-                                        $idLoai = $_REQUEST['idLoai'];
-                                        $countMA = $p->GetCountMAByLMAHet($idLoai);
-                                    }
-                                    else 
-                                    {
-                                        $countMA = $p->GetCountMAHet();
-                                    }
-                                    echo $countMA;
+                                    include_once("../../controler/cCTKM.php");
+                                    $p = new CCTKM();
+                                    $countCTKM = $p->GetCountCTKMHet();
+                                    echo $countCTKM;
                                 ?>
-                                    MÓN
+                                    CHƯƠNG TRÌNH KHUYẾN MÃI
                                 </b></h5>
                         </div>
                     </div>
@@ -154,7 +134,7 @@
 
                 <div id="ds_food">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
-                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH THỰC ĐƠN</b></p>
+                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH CHƯƠNG TRÌNH KHUYẾN MÃI</b></p>
                     </div>
                     <div style="width: 100%; clear: both; height: 60px; background-color: white;">
                         <nav class="navbar navbar-expand-sm bg-white navbar-white p-0"
@@ -163,156 +143,90 @@
                             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                                 <ul class="navbar-nav">
                                     <?php
-                                        
-                                            
-                                                $idLoai = $_REQUEST['idLoai'];
-                                                if($idLoai=='')
-                                                {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
-                                                    <a class="nav-link" href="managementfood.php" style="color: black;">Tất Cả Món</a>
-                                                    </li>';
-                                                }
-                                                elseif ($idLoai==1||$idLoai==2||$idLoai==3||$idLoai==4)
-                                                {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                    <a class="nav-link" href="managementfood.php" style="color: black;">Tất Cả Món</a>
-                                                    </li>';
-                                                }
-                                            //MÓN MẶN
+                                    error_reporting(0);
+                                    $idLoai = $_REQUEST['idLoai'];
+                                    if($idLoai=='')
+                                    {
+                                        echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
+                                    <a class="nav-link" href="management_gift.php" style="color: black;">Tất Cả Khuyến Mãi</a>
+                                    </li>  ';
+                                    }
+                                    elseif ($idLoai==1||$idLoai==2)
+                                    {
+                                        echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
+                                    <a class="nav-link" href="management_gift.php" style="color: black;">Tất Cả Khuyến Mãi</a>
+                                    </li>  ';
+                                    }
+                                            //Còn hạn
                                                 if($idLoai==1)
                                                 {
                                                     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
-                                                            <a class="nav-link" href="managementfood.php?idLoai=1" style="color: black;">Món Mặn</a>
+                                                            <a class="nav-link" href="management_gift.php?idLoai=1" style="color: black;">Còn Hạn</a>
                                                         </li>';
                                                 }
                                                 else {
                                                     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                            <a class="nav-link" href="managementfood.php?idLoai=1" style="color: black;">Món Mặn</a>
+                                                            <a class="nav-link" href="management_gift.php?idLoai=1" style="color: black;">Còn Hạn</a>
                                                         </li>';
                                                 }
-                                            //MÓN CHAY
+                                            //Hết hạn
                                                 if($idLoai==2)
                                                 {
                                                     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;background-color: #E5E5E5;">
-                                                        <a class="nav-link" href="managementfood.php?idLoai=2" style="color: black;">Món Chay</a>
+                                                        <a class="nav-link" href="management_gift.php?idLoai=2" style="color: black;">Hết Hạn</a>
                                                         </li>';
                                                 }
                                                 else {
                                                     echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                        <a class="nav-link" href="managementfood.php?idLoai=2" style="color: black;">Món Chay</a>
+                                                        <a class="nav-link" href="management_gift.php?idLoai=2" style="color: black;">Hết Hạn</a>
                                                         </li>';
                                                 }
-                                            //ĐỒ UỐNG
-                                                if($idLoai==3)
-                                                {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
-                                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Nước Uống</a>
-                                                        </li> ';
-                                                }
-                                                else {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                        <a class="nav-link" href="managementfood.php?idLoai=3" style="color: black;">Nước Uống</a>
-                                                        </li> ';
-                                                }
-                                            //TRÁNG MIỆNG
-                                                if($idLoai==4)
-                                                {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey; background-color: #E5E5E5;">
-                                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Tráng Miệng</a>
-                                                        </li>';
-                                                }
-                                                else {
-                                                    echo '<li class="nav-item" style="height: 60px; padding-top: 10px; border-right: 1px solid grey;">
-                                                        <a class="nav-link" href="managementfood.php?idLoai=4" style="color: black;">Tráng Miệng</a>
-                                                        </li>';
-                                                }
-                            
-                                                
+                  
                                         ?>
                                 </ul>
                             </div>
 
                         </nav>
-                        <form method="post" enctype="multipart/form-data" name="form1" id="form1"
-                            style="width: 50%; float: right; background-color: white; padding-top: 10px;">
-                            <a href="view_admin/view_insertMA.php"
-                                style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM
-                                MÓN ĂN</a>
-                            <input type="submit" name="btnxoa" id="btnxoa" value="XÓA MÓN ĂN"
-                                onclick="return confirmDelete(<?php echo $layid; ?>)"
-                                style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
-                            <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>"
-                                style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI
-                                TIẾT MÓN</a>
-                        </form>
+                        <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
+                                <a href="view_admin/view_insertCTKM.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM KHUYẾN MÃI</a>
+                                <input type="submit" name="btnxoa" id="btnxoa" value="XÓA" onclick="return confirmDelete(<?php echo $layid; ?>)" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
+                                <a href="view_admin/view_updateCTKM.php?id=<?php echo $layid;?>" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI TIẾT</a>
+                            </form>
                     </div>
                     <?php
 
                         error_reporting(1);
-                        include("view_admin/view_food.php");
+                        include("view_admin/view_ctkm.php");
 
                     ?>
                 </div>
                 <div>
-                    <?php
+                <?php
                     // error_reporting(0);
                     include('../../model/chucnangadmin.php');
                     $k=new tmdt();
                     switch ($_POST['btnxoa'])
                     {
-                        case 'XÓA MÓN ĂN':
+                        case 'XÓA':
                         {
                             if(isset($_REQUEST['id']))
                             {
-                                $maXoa = $_REQUEST['id'];
-                                // echo $maXoa."<br>";
-                                $hinh = $k->laycot("select hinhAnh from monan where maMA = '$maXoa' limit 1");
-                                $maLoai = $k->laycot("select maLoaiMA from monan where maMA = '$maXoa' limit 1");
-                                // echo $hinh."<br>";
-                                // echo $maLoai ."<br>";
-                                switch($maLoai)
-                                {
-                                    case 1: {$thucDon="monman";} break;
-                                    case 2: {$thucDon="monchay";} break;
-                                    case 3: {$thucDon="trangmieng";} break;
-                                    case 4: {$thucDon="douong";} break;
-                                }
-                                // echo $thucDon ."<br>";
-                                if($maXoa!='')
-                                {
-                                    if(unlink("../../img/".$thucDon."/".$hinh))
+                                $maXoa = $_REQUEST['id'];  
+                                echo $maXoa;                           
+                                    if($k->themxoasua("delete from ctkm where maCTKM='$maXoa' limit 1")==1)
                                     {
-                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa món ăn thành công");	
-                                                </script>';
-                                        }
+                                        echo'<script language="javascript">
+                                            alert("Xóa chương trình khuyến mãi thành công");	
+                                            </script>';
                                     }
-                                    else 
-                                    {
-                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa món ăn thành công");	
-                                                </script>';
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    echo'<script language="javascript">
-                                        alert("Vui lòng chọn món ăn cần xóa");	
-                                        </script>';
-                                }
                                 echo'<script language="javascript">
-                                        window.location="managementfood.php";
+                                        window.location="management_gift.php";
                                         </script>';
                             }
                             else 
                             {
                                 echo'<script language="javascript">
-                                    alert("Vui lòng chọn món ăn cần xóa");	
+                                    alert("Vui lòng chọn chương trình khuyến mãi cần xóa");	
                                     </script>';
                             }
                             break;
@@ -321,29 +235,13 @@
 
                 ?>
                 </div>
-                <!-- Modal Xác Nhận -->
-                <div id="confirmModal"
-                    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center;">
-                    <div
-                        style="background-color: white; padding: 20px; border-radius: 8px; width: 400px; text-align: center;">
-                        <h3>Bạn có chắc chắn muốn xóa món ăn này?</h3>
-                        <div style="margin-top: 20px;">
-                            <button id="confirmDeleteBtn"
-                                style="padding: 10px 20px; background-color: #FF5733; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">Xóa</button>
-                            <button id="cancelDeleteBtn"
-                                style="padding: 10px 20px; background-color: #aaa; color: white; border: none; border-radius: 5px; cursor: pointer;">Hủy</button>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <div>
-
             </div>
         </div>
     </div>
 </body>
-
+<script>
+    function confirmDelete() {
+        return confirm("Bạn có chắc chắn muốn xóa chương trình khuyến mãi này?");
+    }
+</script>
 </html>

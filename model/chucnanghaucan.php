@@ -155,8 +155,7 @@ class tmdt{
                         <div class="gia">'.$tongtienmon.'.000đ</div>  
                     </div>';
 				
-			}
-           
+			}   
 		}
 		else
 		{

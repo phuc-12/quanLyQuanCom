@@ -16,13 +16,28 @@
             }
         }
 
+        public function SelectAllKHTop5() {
+            $p = new clsKetNoi();
+            $conn = $p->moketnoi();
+            $conn->set_charset('utf8');
+            if($conn){
+                $str = "select * from khachhang limit 5";
+                $tblNV = $conn->query($str);
+                $p->dongketnoi($conn);
+                return $tblNV;
+            }else{
+                return false;
+            }
+        }
+
+
         public function SelectAllLKHByIDKH($txt)
 		{
 			$p =  new clsKetNoi();
 			$con = $p->moketnoi();
 			if($con)
 			{
-                $str = "SELECT tenLoaiKH FROM `loaikhachhang` s JOIN khachhang t on s.maLoaiKH=t.maLoaiKH WHERE maKH = '$txt'";
+                $str = "SELECT loaiKH FROM `loaikhachhang` s JOIN khachhang t on s.maLoaiKH=t.maLoaiKH WHERE maKH = '$txt'";
 				$result = $con->query($str);
 				$p->dongketnoi($con);
 				return $result;

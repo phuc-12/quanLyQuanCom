@@ -51,7 +51,20 @@
                     }
                 }
                 
-                echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                // echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                switch($r['trangThai'])
+                {
+                    case 0: 
+                        {
+                            echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">Hết</a></td>';
+                            break;
+                        }
+                    case 1: 
+                        {
+                            echo '<td><a href="?id='.$r['maMA'].'" style="text-decoration:none; color: black;">Còn</a></td>';
+                            break;
+                        }
+                }
                 
             echo '</tr>';
             $dem++;

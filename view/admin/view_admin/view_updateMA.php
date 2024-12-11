@@ -48,8 +48,8 @@
         {
             case 1: {$thucDon="monman";} break;
             case 2: {$thucDon="monchay";} break;
-            case 3: {$thucDon="trangmieng";} break;
-            case 4: {$thucDon="douong";} break;
+            case 3: {$thucDon="douong";} break;
+            case 4: {$thucDon="trangmieng";} break;
         }
         
     ?>
@@ -122,7 +122,7 @@
                     <table style="margin:0; height: 500px; width:60%;float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maMA">Mã Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maMA" value="<?php echo $layid;?>" name="maMA"></td>
+                            <td><input type="input" class="form-control" size="200" id="maMA" value="<?php echo $layid;?>" name="maMA" readonly></td>
                             <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td>
                         </tr>
                         <tr>
@@ -179,7 +179,9 @@
                     </table>
                     <div style="width: 400px; height: 400px; position: absolute; top: 150px; right: 150px; background-color: black;">
                         <img src="../../../img/<?php echo $thucDon?>/<?php echo $layhinhanh?>" alt="" style="width: 100%; height: 100%;">
+                        <input type="file" name="myfile" id="myfile">
                     </div>
+                    
                     <?php
                         error_reporting(1);        
                         if($_REQUEST['id']!='')
@@ -199,7 +201,43 @@
                                     $moTa=$_REQUEST['moTa'];
                                     if($maMA!='')
                                     {
-                                        if($p->themxoasua("UPDATE monan SET tenMA = '$tenMA',soLuong = '$soLuong',donViTinh = '$donViTinh',donGia = '$donGia',maLoaiMA = '$maLoaiMA',trangThai = '$trangThai',nguyenLieu = '$nguyenLieu',moTa = '$moTa' WHERE maMA = '$maMA' LIMIT 1")==1)
+                                        $name=$_FILES['myfile']['name'];
+                                        $type=$_FILES['myfile']['type'];
+                                        $tmp_name=$_FILES['myfile']['tmp_name'];
+                                        switch($laymaloai)
+                                        {
+                                            case 1: {$thucDon="monman";} break;
+                                            case 2: {$thucDon="monchay";} break;
+                                            case 3: {$thucDon="douong";} break;
+                                            case 4: {$thucDon="trangmieng";} break;
+                                        }
+                                        if($name!='')
+                                        {
+                                            $hinhOld = $layhinhanh;
+                                            unlink("../../../img/".$thucDon."/".$hinhOld);
+                                            
+                                            if ($type =='image/jpeg' || $type =='image/png' || $type =='image/jpg')
+                                            {
+                                                if($p->uploadfile($name,$tmp_name,"quanLyQuanCom/img/$thucDon",$maMA,$maLoaiMA))
+                                                {
+                                                    $tenanh = $name;
+                                                    if($p->themxoasua("UPDATE monan SET tenMA = '$tenMA',soLuong = '$soLuong',donViTinh = '$donViTinh',donGia = '$donGia',maLoaiMA = '$maLoaiMA',trangThai = '$trangThai',nguyenLieu = '$nguyenLieu',moTa = '$moTa', hinhAnh = '$tenanh' WHERE maMA = '$maMA' LIMIT 1")==1)
+                                                    {
+                                                        echo'<script language="javascript">
+                                                        alert("Cập nhật thành công");	
+                                                        </script>';
+                                                    }
+                                                    echo'<script language="javascript">
+                                                    window.location="view_updateMA.php?id='.$maMA.'";
+                                                    </script>';
+                                                }
+                                            }
+                                            else
+                                            {
+                                                echo'Chỉ được upload ảnh';
+                                            }
+                                        }
+                                        elseif($p->themxoasua("UPDATE monan SET tenMA = '$tenMA',soLuong = '$soLuong',donViTinh = '$donViTinh',donGia = '$donGia',maLoaiMA = '$maLoaiMA',trangThai = '$trangThai',nguyenLieu = '$nguyenLieu',moTa = '$moTa' WHERE maMA = '$maMA' LIMIT 1")==1)
                                         {
                                             echo'<script language="javascript">
                                             alert("Cập nhật thành công");	
@@ -208,13 +246,6 @@
                                         echo'<script language="javascript">
                                         window.location="view_updateMA.php?id='.$maMA.'";
                                         </script>';
-                                        
-                                    }
-                                    else
-                                    {
-                                        echo'<script language="javascript">
-                                            alert("Vui lòng chọn món ăn");	
-                                            </script>';
                                     }
                                     break;
                                 }

@@ -26,15 +26,15 @@
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
 
-            <a class="trangChu" href="../../index.php">
+            <!-- <a class="trangChu" href="../../index.php">
                 <h4>Trang Chủ</h4>
-            </a>
+            </a> -->
             <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
@@ -125,6 +125,7 @@
                                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                                     <ul class="navbar-nav">
                                     <?php  
+                                    
                                         $idLoai = $_REQUEST['idLoai'];
                                         if($idLoai=='')
                                         {
@@ -198,7 +199,7 @@
 
                     ?>
                 </div>
-                <div>
+            <div>
                 <?php
                     // error_reporting(0);
                     include('../../model/chucnangadmin.php');
@@ -211,34 +212,18 @@
                             {
                                 $maXoa = $_REQUEST['id'];
                                 // echo $maXoa."<br>";
-                                $maLoai = $k->laycot("select maLoaiNV from nhanvien where maNV = '$maXoa' limit 1");
+                                // $maLoai = $k->laycot("select maLoaiNV from nhanvien where maNV = '$maXoa' limit 1");
                                 // echo $hinh."<br>";
                                 // echo $maLoai ."<br>";
                                 // echo $thucDon ."<br>";
-                                if($maXoa!='')
-                                {
-                                    if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
-                                    {
-                                        echo'<script language="javascript">
-                                            alert("Xóa nhân viên thành công");	
-                                            </script>';
-                                    }
-                                    else 
-                                    {
-                                        if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa nhân viên thành công");	
-                                                </script>';
-                                        }
-                                    }
-                                }
-                                else
+                                
+                                if($k->themxoasua("delete from nhanvien where maNV='$maXoa' limit 1")==1)
                                 {
                                     echo'<script language="javascript">
-                                        alert("Vui lòng chọn nhân viên cần xóa");	
+                                        alert("Xóa nhân viên thành công");	
                                         </script>';
                                 }
+                                
                                 echo'<script language="javascript">
                                         window.location="management_employ.php";
                                         </script>';
@@ -256,16 +241,12 @@
                 ?>
                 </div>
             </div>
-
-            <div>
-
-            </div>
         </div>
     </div>
 </body>
 <script>
     function confirmDelete() {
-        return confirm("Bạn có chắc chắn muốn xóa món ăn này?");
+        return confirm("Bạn có chắc chắn muốn xóa nhân viên này?");
     }
 
 </script>

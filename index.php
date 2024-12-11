@@ -11,21 +11,48 @@
 
     <title>Trang chủ</title>
 </head>
+<style>
+    span, i{
+        color : white ;
+        padding-left: 15px;
+    }
+    .contact-info a{
+        text-decoration: none;
+        color : white ;
+        margin-left: -5px ;
+    }
+    .contact-info a:hover{
+        color: #4e4202;
+    }
+    .auth-buttons a{
+        text-decoration: none;
+        color : white ;
+    }
+    .auth-buttons a:hover{
+        color: #4e4202;
+    }
+    li i{
+        padding-left: 5px;
+        color: #ffc107;
+    }
+</style>
 
 <body>
+
     <div class="container-fluid p-0">
         <!-- Top Bar -->
         <div class="top-bar">
             <div class="contact-info">
-                <span>0346021604</span>
-                <span> / </span>
-                <span>Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
+                <i class="fa fa-phone" style ="font-size: 20px;">
+                <a href="https://zalo.me/0346021604"></i>0346021604</a>
+                <i class="fa fa-clock-o" style ="font-size: 20px;"></i>
+                <span style=" margin-left: -20px ;">Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
-                <div class="search">
+                <!-- <div class="search">
                     <input type="search" placeholder="" autocomplete="off" id="s">
                     <input type="submit" name="btn" id="btn" value="Search">
-                </div>
+                </div> -->
                 <a href="view/dangky.php">Đăng ký</a>
                 <a href="view/dangnhap.php">Đăng nhập</a>
             </div>
@@ -33,21 +60,21 @@
 
         <!-- Main Navigation -->
         <nav class="main-nav">
-            <a href="index.php">Trang chủ</a>
-            <a href="intro-menu.php">Thực đơn</a>
+            <a href="index.php">TRANG CHỦ</a>
+            <a href="intro-menu.php">THỰC ĐƠN</a>
             <div class="logo">
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
-            <a href="intro.php">Giới Thiệu</a>
-            <a href="contact.php">Liên Hệ - Chính sách</a>
+            <a href="intro.php">GIỚI THIỆU</a>
+            <a href="#">KHUYẾN MÃI</a>
         </nav>
 
         <!-- Category Navigation -->
         <div class="category-nav">
-            <a href="category-food.php">Món chay</a>
-            <a href="#">Món mặn</a>
-            <a href="#">Đồ uống</a>
-            <a href="#">Tráng Miệng</a>
+            <a href="category-food.php?id=1">Món chay</a>
+            <a href="category-food.php?id=2">Món mặn</a>
+            <a href="category-food.php?id=3">Đồ uống</a>
+            <a href="category-food.php?id=4">Tráng Miệng</a>
         </div>
 
         <!-- Banner -->
@@ -104,7 +131,7 @@
         <div class="image-banner">
             <div class="image-banner-grid">
                 <div class="image-banner-item"><img src="IMG/monman/cabasakho.png" alt=""></div>
-                <!-- <div class="image-banner-item"><img src="IMG/monchay/bokhochay.jpg" alt=""></div> -->
+                <div class="image-banner-item"><img src="IMG/monchay/bokhochay.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/trangmieng/banhchuoihap.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/douong/epthom.png" alt=""></div>
                 <div class="image-banner-item"><img src="IMG/monman/thitkho.jpg" alt=""></div>
@@ -115,7 +142,7 @@
         </div>
         <!-- Menu Section -->
         <!-- Món mặn  -->
-        <h1 class="section-title">THỰC ĐƠN BÁN CHẠY</h1>
+        <h1 class="section-title">MỘT SỐ MÓN BÁN CHẠY</h1>
         <div class="menu">
             <h2 class="section-title">MÓN MẶN</h2>
             <div class="menu-grid">
@@ -137,7 +164,7 @@
         </div>
         <!-- Tráng miệng  -->
         <div class="menu">
-            <h2 class="section-title">MÓN TRÁNG MIỆN</h2>
+            <h2 class="section-title">MÓN TRÁNG MIỆNG</h2>
             <div class="menu-grid">
                 <?php
                     error_reporting(0);
@@ -191,8 +218,8 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="contain1">
-                <div class="row" style="background-color: rgb(245, 245, 245); height: 50px;">
-                    <h2 style="color: rgb(84, 81, 81); font-family:Copperplate; margin-left: 10px; margin-top: 15px; padding-top: 10px"><b>QUÁN CƠM CHÍ PHÈO</b></h2>
+                <div class="row-title">
+                    <h2><b>QUÁN CƠM CHÍ PHÈO</b></h2>
                 </div>
                 <div class="doc1">
                 <img src="img/ChiPheologo.png" alt="">
@@ -212,29 +239,26 @@
                     <h4>CHÍNH SÁCH</h4>
                     <br>
                     <ul>
-                        <li><a href="#" class="doc">Cách Đặt Lịch Tại Website</a></li>
-                        <li><a href="#" class="doc">Chính Sách Bảo Mật</a></li>
-                        <li><a href="#" class="doc">Phương Thức Thanh Toán</a></li>
+                        <li><i class="fa fa-lock"></i>  <a href="contact.php#csbm" class="doc">  Chính sách bảo mật</a></li>
+                        <li style="margin-left:-6px;"><i class="fa fa-money"></i> <a href="contact.php#cstt" class="doc">  Chính sách thanh toán</a></li>
                     </ul>
                 </div>
                 <div class="doc3">
                     <h4>THÔNG TIN LIÊN HỆ</h4>
                     <br>
                     <ul>
-                        <li><a href="https://zalo.me/0346021604" class="doc">Zalo: 0346021604</a></li>
-                        <li>Email: marketing@chipheoquan.com</li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61553590355575" class="doc">Facebook : ChíPhèo quán</a></li>
-                        <li>Chí Phèo quán: F4/9C tổ 14 ấp 6C, xã Vĩnh Lộc A, huyện Bình Chánh, TP.HCM</li>
-                        <!-- <li>Giờ mở cửa: Thứ 2 - Chủ nhật: 6:00 - 20:00</li> -->
+                        <li><i class="fa fa-exclamation-circle"></i><a href="contact.php" class="doc"> Thông tin chung</a></li>
+                        <li><i class="fa fa-phone"></i>     <a href="https://zalo.me/0346021604" class="doc"> Zalo: 0346021604</a></li>
+                        <li style="margin-left:-3px;"><i class="fa fa-envelope"></i>  Marketing@chipheoquan.com</li>
+                        <li><i class="fa fa-facebook-square"></i><a href="https://www.facebook.com/profile.php?id=61553590355575" class="doc">  Facebook : ChíPhèo quán</a></li>
                     </ul>
                 </div>
                 <div class="doc4">
                     <h4>LIÊN KẾT NHANH</h4>
                     <br>
                     <ul>
-                        <li><a href="#" class="doc">Giới Thiệu</a></li>
-                        <li><a href="#" class="doc">Liên Hệ-Bản Đồ Đường Đi</a></li>
-                        <li><a href="#" class="doc">Facebook</a></li>
+                        <li><i class="fa fa-exclamation-circle"></i><a href="intro.php" class="doc">  Giới Thiệu</a></li>
+                        <li><i class="fa fa-map-marker"></i><a href="list-res.php" class="doc">&nbsp;12 Nguyễn Văn Bảo, Phường 04, Quận Gò Vấp , Thành phố Hồ Chí Minh , Việt Nam</a></li>
                     </ul>
                 </div>
             </div>

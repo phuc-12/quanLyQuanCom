@@ -96,7 +96,7 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Mã hóa đơn</th>
-                                 <th>Thời gian tạo</th>
+                                <th>Thời gian tạo</th>
                                 <th>Trạng thái</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -124,16 +124,13 @@
                                     break;
                                 }
                         }
-
-                        // 
-
                         echo '<td>
                             <button class="button view"><a href="Chitietdonhang.php?id='.$r['maHD'].'">Xem</a></button>
                             ';
                             if($r['trangThai'] == 0)
                             {
                                 echo'<button class="button update">Cập nhật</button>';
-                                echo '<button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button> ';
+                                echo'<button class="button thanhtoan"><a href="Thongtinthanhtoan.php?orderId=' . $r['maHD'] . '">Thanh toán</a></button>';
                             }
                         echo '</td>';
                         echo '</tr>';
