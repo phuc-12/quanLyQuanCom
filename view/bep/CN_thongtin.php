@@ -20,30 +20,24 @@
     <script src="../../js/capnhatthongtin.js" defer></script>  
     <style>
         .header h1 {
-<<<<<<< HEAD
-            margin-top: -40px;
-            margin-left: 100px;
-        }
-=======
     margin-top: -40px;
     margin-left: 100px;
     }
->>>>>>> main
     </style>
 </head>
 <body>
     <?php
-            $layid = $_REQUEST['id'];
-            //$layid = $p->laycot("select maNV from nhanvien where idNguoiDung = '$layidnguoidung' limit 1");
-            $layten=$p->laycot("select hoTen from nhanvien where maNV = '$layid' limit 1");
-            $layngaysinh=$p->laycot("select ngaySinh from nhanvien where maNV = '$layid' limit 1");
-            $laymaloai=$p->laycot("select maLoaiNV from nhanvien where maNV = '$layid' limit 1");
-            $laysdt=$p->laycot("select t.SDT from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-            $layemail=$p->laycot("select t.email from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-            $layusername=$p->laycot("select t.username from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-            $laypassword=$p->laycot("select t.pass from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-            $laytrangthai=$p->laycot("select t.trangThai from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-            $laydiachi=$p->laycot("select t.diaChi from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+         $layidnguoidung = $_REQUEST['id'];
+         $layid = $p->laycot("select maNV from nhanvien where idNguoiDung = '$layidnguoidung' limit 1");
+        $layten=$p->laycot("select hoTen from nhanvien where maNV = '$layid' limit 1");
+        $layngaysinh=$p->laycot("select ngaySinh from nhanvien where maNV = '$layid' limit 1");
+        $laymaloai=$p->laycot("select maLoaiNV from nhanvien where maNV = '$layid' limit 1");
+        $laysdt=$p->laycot("select t.SDT from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+        $layemail=$p->laycot("select t.email from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+        $layusername=$p->laycot("select t.username from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+        $laypassword=$p->laycot("select t.pass from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+        $laytrangthai=$p->laycot("select t.trangThai from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+        $laydiachi=$p->laycot("select t.diaChi from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
 
     ?>
     <div class="container-fluid p-0">
@@ -51,21 +45,14 @@
             <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
-            <h1><a href="NV_quanli.php?id=<?php echo $layid ?>">Trang nhân viên</a></h1>
+            <h1><a href="bep_trangchu.php?id=5">Trang quản lý</a></h1>
             <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
         </div>
-<<<<<<< HEAD
-        <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
-        <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
-        <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
-    </div>
-=======
->>>>>>> main
 
         <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="ThongtinNhanVien.php?id=5">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="CN_thongtin.php?id=5">Cập nhật thông tin cá nhân</a></button>
             <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
         </div>
         </div>
@@ -195,6 +182,7 @@
                                 {
                                     case 'Cập Nhật':
                                     {
+                                        $id=$_REQUEST['id'];
                                         $maNV=$_REQUEST['maNV'];
                                         $username=$_REQUEST['username'];
                                         $password=$_REQUEST['password'];
@@ -210,7 +198,7 @@
                                                 </script>';
                                             }
                                             echo'<script language="javascript">
-                                            window.location="ThongtinNhanVien.php?id='.$maNV.'";
+                                            window.location="ThongtinNhanVien.php?id='.$id.'";
                                             </script>';
                                         }
                                         else

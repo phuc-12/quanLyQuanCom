@@ -47,7 +47,9 @@
         $layid = $_REQUEST['id'];
         $laysohd = $p->laycot("SELECT maHD FROM hoadon WHERE maHD = '$layid' LIMIT 1");
         $laytennv=$p->laycot("select n.hoTen from nhanvien n join chitiethoadon t on n.maNV = t.maNV where maHD = '$layid' limit 1");
-        $laymanv=$p->laycot("select n.maNV from nhanvien n join chitiethoadon t on n.maNV = t.maNV where maHD = '$layid' limit 1");
+
+        $laymanv=$p->laycot("select maNV from chitiethoadon where maHD = '$layid' limit 1");
+
         $laytrangthai = $p->laycot("SELECT trangThai FROM hoadon WHERE maHD = '$layid' LIMIT 1");
         // $laytenkh=$p->laycot("select n.hoTen from khachhang n join chitiethoadon t on n.maKH = t.maKH where maHD = '$layid' limit 1");
         $layngaythang = $p->laycot("SELECT ngayThang FROM hoadon WHERE maHD = '$layid' LIMIT 1");
@@ -77,7 +79,9 @@
                 
                 <p>Số hóa đơn: <?php echo $laysohd; ?></p>
                 <p>Ngày: <?php echo $layngaythang; ?></p>
-                <p>Nhân viên: <?php echo $laytennv; echo $laymanv;?></p>
+
+                <p>Nhân viên: <?php echo $laytennv; ?></p>
+
                 <p>Trạng thái: <?php 
                     switch($laytrangthai)
                         {

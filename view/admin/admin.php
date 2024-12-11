@@ -17,18 +17,19 @@
                 <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
 
-            <a class="trangChu" href="../../index.php">
+            <!-- <a class="trangChu" href="../../index.php">
                 <h4>Trang Chủ</h4>
-            </a>
-            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+            </a> -->
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right: 15px;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+            
         </div>
 
         <div id="content">
@@ -228,7 +229,7 @@
 
                 </div>
 
-                <div style="width: 49%; float: left; background-color: white; padding: 20px; border-radius: 10px; margin-top: 50px;">
+                <div style="width: 49%; float: left; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10px;">
                 <?php
                     error_reporting(0);
                     include_once("../../controler/cNhanVien.php");
@@ -283,7 +284,7 @@
 
                 </div>
 
-                <div style="width: 49%; float: right; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10px;">
+                <div style="width: 49%; float: left; background-color: white; padding: 20px; border-radius: 10px; margin-top: 10px;">
                 <?php
                     error_reporting(0);
                     include_once("../../controler/cKhachHang.php");
@@ -304,10 +305,9 @@
                                     <thead class="table-dark">
                                         <tr style="text-align:center;">
                                             <th>STT</th>
-                                            
-                                            <th>Tên Nhân Viên</th>
-                                            <th>Ngày Sinh</th>
-                                            <th>Loại Nhân Viên</th>
+                                            <th>Tên Khách Hàng</th>
+                                            <th>Điểm Tích Lũy</th>
+                                            <th>Loại Khách Hàng</th>
                                             
                                         </tr>
                                     </thead>
@@ -322,7 +322,7 @@
                                 $rs = $p->GetLKHByIDKH($r['maKH']);
                                 if($rs->num_rows > 0) {
                                     while($row = $rs->fetch_assoc()) {
-                                        echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$row['tenLoaiKH'].'</a></td>';
+                                        echo '<td><a href="?id='.$r['maKH'].'" style="text-decoration:none; color: black;">'.$row['loaiKH'].'</a></td>';
                                     }
                                 }
                                 

@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    //kiem tra maCTKM
-    function ktmaCTKM() {
-        let maCTKM = $("#maCTKM").val();
+    //kiem tra maKM
+    function ktmaKM() {
+        let maKM = $("#maKM").val();
         let regex = /^\d+$/; //chi được điền số
-        if (maCTKM == "") {
-            $("#errMa").html("Mã chương trình khuyến mãi không được trống");
+        if (maKM == "") {
+            $("#errMa").html("Không được để trống");
             return false;
-        }else if (!regex.test(maCTKM)){
+        }else if (!regex.test(maKM)){
             $("#errMa").html("Mã không hợp lệ - chỉ được điền số");
             return false;
         }
@@ -15,8 +15,8 @@ $(document).ready(function(){
             return true;
         }
     }
-    $("#maCTKM").blur(function(e){
-        ktmaCTKM();
+    $("#maKM").blur(function(e){
+        ktmaKM();
     });
     
     //kiem tra ten
@@ -24,7 +24,7 @@ $(document).ready(function(){
         let tenMA = $("#tenKM").val().trim();
         let btcq = /^[A-Za-zÀ-ỹà-ỹ0-9\s%]+$/; // Cho phép chữ cái có và không dấu trong tiếng Việt. [0-9]: Cho phép số (0-9). \s: Cho phép khoảng trắng. %: Cho phép dấu phần trăm (%).
         if(tenMA.length == 0) {
-            $("#errTen").html("Tên chương trình khuyến mãi không được để trống");
+            $("#errTen").html("Không được để trống");
             $("#tenKM").focus();
             return false;
         } else if (btcq.test(tenMA)==false) {
@@ -44,7 +44,7 @@ $(document).ready(function(){
     function ktMT() {
         let MT = $("#moTa").val();
         if (MT == "") {
-            $("#errMoTa").html("Mô tả không được trống");
+            $("#errMoTa").html("Không được để trống");
             return false;
         } else {
             $("#errMoTa").html("<b style='font-size: 20px;'>*</b>");
@@ -59,7 +59,7 @@ $(document).ready(function(){
     function ktTrangThai() {
         let trangThai = $("#trangThai").val();
         if (trangThai == "") {
-            $("#errTrangThai").html("Trạng thái không được để trống");
+            $("#errTrangThai").html("Không được để trống");
             return false;
         } else if (trangThai != "1" && trangThai != "2") {
             $("#errTrangThai").html("Trạng thái chỉ được nhập 1 hoặc 2");
@@ -79,7 +79,7 @@ $(document).ready(function(){
         let regex = /^\d+(\.\d+)?$/; //chỉ cho phép số nguyên hoặc số thập phân dương
     
         if (chietKhau == "") {
-            $("#errChietKhau").html("Chiết khấu không được để trống");
+            $("#errChietKhau").html("Không được để trống");
             return false;
         } else if (!regex.test(chietKhau)) {
             $("#errChietKhau").html("Chiết khấu chỉ được chứa số và không được âm");
@@ -97,7 +97,7 @@ $(document).ready(function(){
     function ktNgayBatDau() {
         let ngayBatDau = $("#thoiGianBatDau").val();
         if (ngayBatDau == "") {
-            $("#errStartDate").html("Ngày bắt đầu không được để trống");
+            $("#errStartDate").html("Không được để trống");
             return false;
         } else {
             $("#errStartDate").html("<b style='font-size: 20px;'>*</b>");
@@ -115,7 +115,7 @@ $(document).ready(function(){
         let ngayKetThuc = $("#thoiGianKetThuc").val();
     
         if (ngayKetThuc == "") {
-            $("#errEndDate").html("Ngày kết thúc không được để trống");
+            $("#errEndDate").html("Không được để trống");
             return false;
         } else if (new Date(ngayKetThuc) < new Date(ngayBatDau)) {
             $("#errEndDate").html("Ngày kết thúc không được nhỏ hơn ngày bắt đầu");

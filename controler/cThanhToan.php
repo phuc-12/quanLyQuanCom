@@ -1,5 +1,5 @@
 <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mThanhToan.php");
+include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mThanhToan.php");
 
     class cThanhToan
     {
@@ -9,23 +9,23 @@
             $tbl = $p->selectKhachHang($maKH);
             
             if ($tbl) {
+                // Kiểm tra nếu kết quả có dòng dữ liệu
                 if ($tbl->num_rows > 0) {
-                    return $tbl; // Trả về kết quả nếu có
+                    return $tbl; // Trả về kết quả nếu có dữ liệu
                 } else {
-                    return -1; // không có dữ liệu
+                    return -1; // Trả về -1 nếu không có dữ liệu
                 }
             } else {
-                return false; //truy vấn thất bại
+                return false; // Trả về false nếu truy vấn thất bại
             }
         }
-
-        public function getMaKhByOrderId($order_id){
+        public function getMaKHbyOrderId($order_id){
             $p = new mThanhToan();
             $maKH = $p->selectMaKHByOrderId($order_id);
             if ($maKH !== null) {
                 return $maKH;
             }else{
-                return -1; //không có dữ liệu
+                return -1; // Trả về -1 nếu không có dữ liệu
             }
         }
 
@@ -38,17 +38,16 @@
                 return -1;
             }
         }
-
-        public function getDanhSachChiTietHoaDonBoiMaHD($order_id){
+        public function getCTHDbyMaHD($order_id){
             $p = new mThanhToan();
-            $listDetailOrders = $p->selectDanhSachChiTietHoaDonBoiMaHD($order_id);
+            $listDetailOrders = $p->selectCTHDbyMaHD($order_id);
             if (!empty($listDetailOrders)) {
-                return $listDetailOrders;  //danh sách chi tiết hóa đơn
+                return $listDetailOrders;  // Trả về danh sách chi tiết hóa đơn
             } else {
-                return -1;
+                return -1;  // Nếu không có chi tiết hóa đơn, trả về -1
+            }
         }
-
-        //lấy loaiKH (maKH)
+        //lấy loaiKH bởi mã khách hàng
         public function getLoaiKH($maKH){
             $p = new mThanhToan();
             $loaiKH = $p->selectLoaiKH($maKH);
@@ -58,9 +57,8 @@
                 return -1;
             }
         }
-
-        //lấy khuyến mãi (loaiKH)
-       public function getDanhSachKmBoiLoaiKH($loaiKH){
+        //lấy danh sách KM bỏi loại KH
+       public function getlistKMbyLoaiKH($loaiKH){
         $p = new mThanhToan();
         $danhSachLoaiKm = $p->selectDanhSachLoaiKH($loaiKH);
         if(!empty($danhSachLoaiKm)){
@@ -70,5 +68,5 @@
         }
        }
     }
-}
+
 ?>

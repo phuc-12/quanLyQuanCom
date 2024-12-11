@@ -41,10 +41,9 @@
         <!-- Top Bar -->
        <div class="top-bar">
             <div class="contact-info">
-                <i class="fa fa-phone" style ="font-size: 20px;">
-                <a href="https://zalo.me/0346021604"></i>0346021604</a>
-                <i class="fa fa-clock-o" style ="font-size: 20px;"></i>
-                <span style=" margin-left: -20px ;">Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
+                <span>0346021604</span>
+                <span> - </span>
+                <span>Thứ 2 - Chủ nhật 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
                 <a href="view/dangky.php">Đăng ký</a>
