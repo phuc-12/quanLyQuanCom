@@ -116,7 +116,7 @@
                             <td style="width: 150px;"><label for="password">PassWord:</label></td>
                             <td><input type="password" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;">
                             <span id="errPW" class="err text-danger"></span>
-                            <input type="checkbox" id="showPassword"> Hiện mật khẩu
+                            <!-- <input type="checkbox" onclick="togglePassword()"> Hiện mật khẩu -->
                             </td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
                         </tr>
@@ -190,10 +190,10 @@
                                         $password=$_REQUEST['password'];
                                         $email=$_REQUEST['email'];
                                         $sdt=$_REQUEST['sdt'];
-
-                                        if($maNV!='')
+                                        $pass = md5($password);
+                                        if($maNV!=''&&$username!=''&&$pass!=''&&$email!=''&&$sdt!='')
                                         {
-                                            if($p->themxoasua("UPDATE taikhoannguoidung t join nhanvien n on t.idNguoiDung = n.idNguoiDung SET username = '$username', pass = '$password', email = '$email', sdt = '$sdt' WHERE maNV = '$maNV'")==1)
+                                            if($p->themxoasua("UPDATE taikhoannguoidung t join nhanvien n on t.idNguoiDung = n.idNguoiDung SET t.username = '$username', t.pass = '$pass', t.email = '$email', t.sdt = '$sdt' WHERE n.maNV = '$maNV'")==1)
                                             {
                                                 echo'<script language="javascript">
                                                 alert("Cập nhật thành công");	
@@ -206,7 +206,7 @@
                                         else
                                         {
                                             echo'<script language="javascript">
-                                                alert("Vui lòng ghi id");	
+                                                alert("Bạn phải nhập đầy đủ thông tin");	
                                                 </script>';
                                         }
                                         break;
