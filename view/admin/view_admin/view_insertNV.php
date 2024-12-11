@@ -1,6 +1,17 @@
 <?php
-    include_once('../../../model/chucnangadmin.php');
+    include_once("../../../model/chucnangadmin.php");
     $p = new tmdt();
+
+    $conn = $p->connect();
+
+    $query = "SELECT MAX(maNV) as maxMa FROM nhanvien";
+    $result = $conn->query($query);
+
+    $newInvoiceCode = 1; 
+    if ($result && $row = $result->fetch_assoc()) {
+        $maxMa = $row['maxMa'];
+        $newInvoiceCode = $maxMa + 1;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +113,7 @@
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maNV" placeholder="Nhập mã nhân viên" name="maNV"></td>
+                            <td><input type="input" class="form-control" size="200" id="maNV" placeholder="Nhập mã nhân viên" name="maNV" value="<?php echo $newInvoiceCode?>" readonly></td>
                             <td style="width: 200px;"><span id="errMaNV" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>

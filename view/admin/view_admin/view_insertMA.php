@@ -1,6 +1,17 @@
 <?php
     include_once("../../../model/chucnangadmin.php");
     $p = new tmdt();
+
+    $conn = $p->connect();
+
+    $query = "SELECT MAX(maMA) as maxMa FROM monan";
+    $result = $conn->query($query);
+
+    $newInvoiceCode = 1; 
+    if ($result && $row = $result->fetch_assoc()) {
+        $maxMa = $row['maxMa'];
+        $newInvoiceCode = $maxMa + 1; 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -101,8 +112,8 @@
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maMA">Mã Món Ăn:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maMA" placeholder="Nhập mã món ăn" name="maMA"></td>
-                            <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
+                            <td><input type="input" class="form-control" size="200" id="maMA" name="maMA" value="<?php echo $newInvoiceCode?>" readonly></td>
+                            <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="tenMA">Tên Món Ăn:</label></td>

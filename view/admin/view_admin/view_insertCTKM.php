@@ -1,8 +1,17 @@
 <?php
-
     include_once("../../../model/chucnangadmin.php");
-
     $p = new tmdt();
+
+    $conn = $p->connect();
+
+    $query = "SELECT MAX(maKM) as maxMa FROM ctkm";
+    $result = $conn->query($query);
+
+    $newInvoiceCode = 1; 
+    if ($result && $row = $result->fetch_assoc()) {
+        $maxMa = $row['maxMa'];
+        $newInvoiceCode = $maxMa + 1;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +113,7 @@
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maKM">Mã Chương Trình Khuyến Mãi:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maKM" placeholder="Nhập mã chương trình khuyến mãi" name="maKM"></td>
+                            <td><input type="input" class="form-control" size="200" id="maKM" placeholder="Nhập mã chương trình khuyến mãi" name="maKM" value="<?php echo $newInvoiceCode?>" readonly></td>
                             <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
