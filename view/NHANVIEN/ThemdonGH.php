@@ -164,7 +164,7 @@ if ($result && $row = $result->fetch_assoc()) {
 
                 <!-- Nút Hành Động -->
                 <div class="actions">
-                    <button class="xacnhan" onclick="confirmOrder()">Xác nhận</button>
+                    <button class="xacnhan" onclick="confirmOrderGH()">Xác nhận</button>
                     <button  class="huy" >Hủy</button>
                 </div>
             </div>

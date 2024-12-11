@@ -170,10 +170,10 @@
                                         $password=$_REQUEST['password'];
                                         $email=$_REQUEST['email'];
                                         $sdt=$_REQUEST['sdt'];
-
-                                        if($maKH!='')
+                                        $pass = md5($password);
+                                        if($maKH!=''&&$username!=''&&$pass!=''&&$email!=''&&$sdt!='')
                                         {
-                                            if($p->themxoasua("UPDATE taikhoannguoidung t join khachhang n on t.idNguoiDung = n.idNguoiDung SET n.username = '$username',t.username = '$username', pass = '$password', email = '$email', sdt = '$sdt' WHERE maKH = '$maKH'")==1)
+                                            if($p->themxoasua("UPDATE taikhoannguoidung t join khachhang n on t.idNguoiDung = n.idNguoiDung SET n.username = '$username',t.username = '$username', t.pass = '$pass', t.email = '$email', t.sdt = '$sdt' WHERE maKH = '$maKH'")==1)
                                             {
                                                 echo'<script language="javascript">
                                                 alert("Cập nhật thành công");	
