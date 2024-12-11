@@ -139,7 +139,7 @@
                             <?php
                                 switch($laytrangthai)
                                 {
-                                    case 0: 
+                                    case 2: 
                                         {
                                                 echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Ngừng hoạt động" name="trangThai"></td>';
     

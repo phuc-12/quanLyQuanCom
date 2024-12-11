@@ -88,11 +88,11 @@ $(document).ready(function(){
     $("#sdt").blur(function(){
         ktSDT();
     });
-    // $("#btnsua").click(function(){
-    //     if(!ktSDT() || !ktemail() || !ktTDN() || !ktPassword()){
-    //         alert("Bạn phải nhập đầy đủ thông tin")
-    //         return false;
-    //     }
-    // })
+    $("#btnsua").click(function(){
+        if(!ktSDT() || !ktemail() || !ktTDN() || !ktPassword()){
+            alert("Bạn phải nhập đầy đủ thông tin")
+            return false;
+        }
+    })
 
 });

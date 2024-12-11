@@ -211,3 +211,63 @@ function confirmOrder() {
        alert('Đơn hàng đã được thêm thàng công.');
        window.location.href = `Quanlidonhang.php?id=${employee}`;
 }
+
+function confirmOrderGH() {
+    
+    const invoiceCode = document.getElementById('invoice-code').value;
+    const employee = document.getElementById('employee').value;
+    const customerCode = document.getElementById('customerCode').value;
+    // Kiểm tra mã nhân viên đã được nhập
+    if (!customerCode) {
+        alert('Thông tin khách hàng còn thiếu. Nhập "111" nếu khách hàng chưa có mã khách hàng.');
+        return;
+    }
+    if (!employee) {
+        alert('Bạn không có quyền tạo đơn hàng!');
+        return;
+    }
+
+    let products = [];
+    let uudai = 0;
+    let rows = document.querySelectorAll("#invoiceBody tr");
+
+    rows.forEach((row, index) => {
+        let maMA = row.querySelector("td:nth-child(2)").innerText;
+        let productName = row.querySelector("td:nth-child(3)").innerText;
+        let quantity = row.querySelector("td:nth-child(4)").innerText;
+        let total = row.querySelector("td:nth-child(5)").innerText;
+           // Kiểm tra món ưu đãi 
+           if (parseInt(maMA)=='21') {
+            uudai = 1;
+        }
+        products.push({
+            maMA: parseInt(maMA),
+            productName: productName,
+            quantity: parseInt(quantity),
+            total: parseFloat(total)
+        });
+    });
+    // Kiểm tra nếu danh sách sản phẩm rỗng
+    if (products.length === 0) {
+        alert('Đơn hàng rỗng. Chưa thể tạo đơn hàng.');
+        return;
+    }
+    const orderDetails = {
+        invoiceCode: invoiceCode,
+        employee: parseInt(employee), 
+        customerCode: parseInt(customerCode),
+        uudai:uudai,
+        products: products
+    };
+    
+    fetch('themhoadonGH.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderDetails)
+    }).then(response => response.text())
+       .then(result => console.log(result));
+       localStorage.removeItem('invoiceItems');
+       loadCartFromLocalStorage();  // Gọi hàm này để render lại giỏ hàng
+       alert('Đơn hàng đã được thêm thàng công.');
+       window.location.href = `Quanlidonhang.php?id=${employee}`;
+}

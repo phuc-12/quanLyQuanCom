@@ -62,7 +62,7 @@
         <div class="logo" style="padding: 0; border-radius: 100px;">
             <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
-        <h1><a href="NV_quanli.php?id=<?php echo $laymanv;?>">Trang nhân viên</a></h1>
+        <h1><a href="Quanlidonhang.php?id=<?php echo $laymanv;?>">Quản lí đơn hàng</a></h1>
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
@@ -96,7 +96,6 @@
                                     break;
                                 }
                         } ?></p>
-                <!-- <p>Thông tin khách hàng: <?php echo" $laytenkh"; ?></p> -->
                
             </div>
 
@@ -134,30 +133,13 @@
             
                         $stt++;
                     }
-                            // $chietKhau = 0;
-                            // switch ($laymaloaikh) {
-                            //     case 1:
-                            //         $chietKhau = 0.10; // 10% chiết khấu
-                            //         break;
-                            //     case 2:
-                            //         $chietKhau = 0.20; // 20% chiết khấu
-                            //         break;
-                            //     case 3:
-                            //         $chietKhau = 0.30; // 30% chiết khấu
-                            //         break;
-                            //     default:
-                            //         $chietKhau = 0; // Không có chiết khấu nếu không thuộc loại khách hàng hợp lệ
-                            // }
-                            // $tienChietKhau = $tongTien * $chietKhau; // Tổng tiền cần tính chiết khấu
-                            // $tongTienSauCK = $tongTien - $tienChietKhau; 
+
                     ?>
                 </tbody>
             </table>
 
             <div class="summary">
                 <p><strong>Tổng cộng:</strong> <?= number_format($tongTien, 0, ',', '.') ?> VNĐ</p>
-                <!-- <p><strong>Chiết khấu:</strong> <?= number_format($tienChietKhau, 0, ',', '.') ?> VNĐ</p>
-                <p><strong>Thanh toán:</strong> <?= number_format($tongTienSauCK, 0, ',', '.') ?> VNĐ</p>  -->
             </div>
         </div>
     </div>

@@ -45,8 +45,8 @@
             <?php
             $layid = $_REQUEST['id'];
             ?>
-            <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn mới</a></button>
-            
+            <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn tại quán</a></button>
+            <button class="button new-order"><a href="ThemdonGH.php?id=<?php echo $layid ?>">Tạo đơn giao hàng</a></button>
             <?php
                 error_reporting(0);
                 include_once("../../controler/cHoaDon.php");
@@ -80,28 +80,29 @@
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$dem.'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['maHD'].'</a></td>';
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['ngayThang'].'</a></td>';
-                        switch($r['trangThai']==1)
+                        switch($r['trangThai'])
                         {
-                            case 0: 
-
-                                {
-                                    echo '<td>Chưa thanh toán</td>';
-                                    break;
-                                }
-
+                            
                             case 1:
 
                                 {
                                     echo '<td>Đã thanh toán</td>';
                                     break;
                                 }
+                            case 2: 
+
+                                {
+                                    echo '<td>Chưa thanh toán</td>';
+                                    break;
+                                }
+
                         }
                         echo '<td>
                             <button class="button view"><a href="Chitietdonhang.php?id='.$r['maHD'].'">Xem</a></button>
                             ';
                             if($r['trangThai'] == 2)
                             {
-                                echo'<button class="button update"><a href="CN_chitietdonhang.php?id=' . $r['maHD'] . '">Cập nhật</a></button>';
+                                //echo'<button class="button update"><a href="CN_chitietdonhang.php?id=' . $r['maHD'] . '">Cập nhật</a></button>';
                                 echo'<button class="button thanhtoan"><a href="Thongtinthanhtoan.php?orderId=' . $r['maHD'] . '">Thanh toán</a></button>';
                             }
                         echo '</td>';
