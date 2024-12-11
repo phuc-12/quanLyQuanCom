@@ -77,7 +77,7 @@
                     <span id="errSDT" class="error"></span>
                 </div>
                     
-                     <tr>
+                    <tr>
                         <button type="submit" id="btnDangky" class="submit-btn">Đăng Ký</button>
                         <button type="reset" class="submit-btn">Nhập lại</button>
                     </tr>

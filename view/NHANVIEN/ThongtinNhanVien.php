@@ -47,7 +47,7 @@
     </div>
 
     <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid?>">Thông tin cá nhân</a></button>
             <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
             <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
     </div>
