@@ -10,14 +10,14 @@
                     WHERE k.maKH = ?";  // ? làm placeholder cho tham số
         
             // SQL
-            if ($stmt = $con->prepare($sql)) {
+            if ($truyvan = $con->prepare($sql)) {
                 // Liên kết tham số kiểu integer
-                $stmt->bind_param("i", $maKH);
-                $stmt->execute();
+                $truyvan->bind_param("i", $maKH);
+                $truyvan->execute();
         
                 // Lấy kết quả
-                $result = $stmt->get_result();
-                $stmt->close();
+                $result = $truyvan->get_result();
+                $truyvan->close();
                 $p->dongKetNoi($con);
                 return $result;
             } 
@@ -38,10 +38,10 @@
                     FROM hoadon 
                     WHERE maHD = ?";
         
-            if ($stmt = $con->prepare($sql)) {
-                $stmt->bind_param("i", $order_id); 
-                $stmt->execute();
-                $result = $stmt->get_result();
+            if ($truyvan = $con->prepare($sql)) {
+                $truyvan->bind_param("i", $order_id); 
+                $truyvan->execute();
+                $result = $truyvan->get_result();
 
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();  // Lấy một hàng kết quả
@@ -49,7 +49,7 @@
                 } else {
                     $maKH = null;  // trả về null
                 }
-                $stmt->close();
+                $truyvan->close();
             } else {
                 // báo lỗi
                 echo "Lỗi trong câu lệnh SQL: " . $con->error;
@@ -64,11 +64,11 @@
             $p = new clsKetNoi();
             $con = $p->moKetNoi();
             $sql = "SELECT * FROM hoadon WHERE maHD = ?";
-            if ($stmt = $con->prepare($sql)) {
-                $stmt->bind_param("i", $order_id);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $stmt->close();
+            if ($truyvan = $con->prepare($sql)) {
+                $truyvan->bind_param("i", $order_id);
+                $truyvan->execute();
+                $result = $truyvan->get_result();
+                $truyvan->close();
                 $p->dongKetNoi($con);
                 return $result;
             } else {
@@ -87,15 +87,15 @@
                     FROM chitiethoadon ctd
                     JOIN monan m ON ctd.maMA = m.maMA
                     WHERE ctd.maHD = ?";
-            if ($stmt = $con->prepare($sql)) {
-                $stmt->bind_param("i", $order_id);
-                $stmt->execute();
-                $result = $stmt->get_result();
+            if ($truyvan = $con->prepare($sql)) {
+                $truyvan->bind_param("i", $order_id);
+                $truyvan->execute();
+                $result = $truyvan->get_result();
                 $data = [];
                 while ($row = $result->fetch_assoc()) {
                     $data[] = $row;  // Thêm mỗi bản ghi vào mảng $data
                 }
-                $stmt->close();
+                $truyvan->close();
                 $p->dongKetNoi($con);
                 return $data;
             } else {
@@ -114,15 +114,15 @@
                     FROM khachhang kh
                     JOIN loaikhachhang lkh  ON kh.maLoaiKH = lkh.maLoaiKH
                     WHERE kh.maKH = ?";
-             if ($stmt = $con->prepare($sql)) {
-                $stmt->bind_param("i", $maKH);
-                $stmt->execute();
-                $result = $stmt->get_result();
+             if ($truyvan = $con->prepare($sql)) {
+                $truyvan->bind_param("i", $maKH);
+                $truyvan->execute();
+                $result = $truyvan->get_result();
                 $data = [];
                 while ($row = $result->fetch_assoc()) {
                     $data[] = $row['loaiKH'];  // Thêm mỗi bản ghi vào mảng $data
                 }
-                $stmt->close();
+                $truyvan->close();
                 $p->dongKetNoi($con);
                 return $data[0];
             } else {
@@ -138,15 +138,15 @@
         $con = $p->moKetNoi();
         $sql = "SELECT * FROM ctkm WHERE loaiKH = ?";
 
-        if ($stmt = $con->prepare($sql)) {
-            $stmt->bind_param("s", $loaiKH);  // "s" chỉ ra rằng tham số là kiểu string (chuỗi)
-            $stmt->execute();
-            $result = $stmt->get_result();
+        if ($truyvan = $con->prepare($sql)) {
+            $truyvan->bind_param("s", $loaiKH);  // "s" chỉ ra rằng tham số là kiểu string (chuỗi)
+            $truyvan->execute();
+            $result = $truyvan->get_result();
             $data = [];
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;  // Thêm mỗi bản ghi vào mảng $data
             }
-            $stmt->close();
+            $truyvan->close();
             $p->dongKetNoi($con);
             return $data;
         } else {
