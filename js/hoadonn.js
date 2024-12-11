@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelector('.huy').addEventListener('click', function () {
     // Hiển thị xác nhận trước khi hủy
     const confirmCancel = confirm('Bạn có chắc chắn muốn hủy ko?');
-
+    const employee = document.getElementById('employee').value;
     if (confirmCancel) {
         // Xóa toàn bộ sản phẩm trong hóa đơn
         const invoiceBody = document.getElementById('invoiceBody');
@@ -148,7 +148,7 @@ document.querySelector('.huy').addEventListener('click', function () {
         document.getElementById('employee').value = '';
         localStorage.removeItem('invoiceItems');
         alert('Hóa đơn đã được hủy !');
-        window.location.href = "quanlidonhang.php";
+        window.location.href = `Quanlidonhang.php?id=${employee}`;
     }
 });
 

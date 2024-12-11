@@ -49,11 +49,15 @@ $(document).ready(function(){
     }
     function ktPassword() {
         let pw = $("input[name='password']").val();
+        let btcq = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
         if (pw == "") {
             $("#errPW").html("Mật khẩu không được để trống");
             return false;
-        } else if (pw.length < 6) {
-            $("#errPW").html("Mật khẩu phải chứa ít nhất 6 ký tự");
+        } else if (pw.length < 8) {
+            $("#errPW").html("Mật khẩu phải chứa ít nhất 8 ký tự");
+            return false;
+        }else if (!btcq.test(pw)) {
+            $("#errPW").html("Mật khẩu phải gồm chữ hoa chữ thường số và kí tự đặt biệt");
             return false;
         } else {
             $("#errPW").html("");
