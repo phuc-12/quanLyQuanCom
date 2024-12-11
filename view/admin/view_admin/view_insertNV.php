@@ -1,6 +1,17 @@
 <?php
-    include_once('clsupload.php');
-    $p = new upload();
+    include_once("../../../model/chucnangadmin.php");
+    $p = new tmdt();
+
+    $conn = $p->connect();
+
+    $query = "SELECT MAX(maNV) as maxMa FROM nhanvien";
+    $result = $conn->query($query);
+
+    $newInvoiceCode = 1; 
+    if ($result && $row = $result->fetch_assoc()) {
+        $maxMa = $row['maxMa'];
+        $newInvoiceCode = $maxMa + 1;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +25,7 @@
     <script src="../../../js/jquery-3.7.1.min.js"></script>
     <script src="../../../js/popper.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
-    <script src="../../../js/themnhanvien.js"></script>
+    <script src="../../../js/rangbuoc.js"></script>
     
     <link rel="stylesheet" type="text/css" href="../../../css/admin_css/admin_employ.css">
     <link rel="stylesheet" href="../../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
@@ -42,15 +53,15 @@
             <a class="trangChu" href="../../../index.php">
                 <h4>Trang Chủ</h4>
             </a>
-            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;margin-right: 15px;">👤</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
-                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
+                    <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
         </div>
 
         <div id="content">
@@ -102,8 +113,8 @@
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maNV">Mã Nhân Viên:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maNV" placeholder="Nhập mã nhân viên" name="maNV"></td>
-                            <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
+                            <td><input type="input" class="form-control" size="200" id="maNV" placeholder="Nhập mã nhân viên" name="maNV" value="<?php echo $newInvoiceCode?>" readonly></td>
+                            <td style="width: 200px;"><span id="errMaNV" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="hoTen">Họ Tên Nhân Viên:</label></td>
@@ -125,7 +136,7 @@
                                     <option value="3">Hậu Cần</option>
                                 </select>
                             </td>
-                            <td style="width: 200px;"><span id="" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
+                            <!-- <td style="width: 200px;"><span id="" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         
                         <tr>
@@ -164,7 +175,9 @@
                                         if ($conn->query($str) === TRUE) {
                                             if ($conn->affected_rows > 0) {
                                                 echo "<script>alert('Thêm nhân viên thành công!');</script>";
-                                                
+                                                echo'<script language="javascript">
+                                                            window.location="../management_employ.php";
+                                                            </script>';
                                             } else {
                                                 echo "<script>alert('không có nhân viên nào được thêm!');</script>";
                                             }

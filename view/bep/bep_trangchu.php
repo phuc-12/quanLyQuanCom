@@ -45,7 +45,6 @@ $p = new tmdt();
                 <div class="menu-item" onclick="window.location.href='bep_trangdonhang.php';">Xem hóa đơn</div>
                 <div class="menu-item" onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
             </div>
-
             <div class="content">
                 <div class="overview">
                     <h2>TỔNG QUAN</h2>

@@ -41,14 +41,15 @@
 <body>
     <div class="container-fluid p-0">
         <!-- Header -->
-        <div class="header">
-            <div class="logo" style="padding: 0; border-radius: 100px;">
-                <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+            <div id="ql_header">
+                <div class="logo" style="padding: 0; border-radius: 100px;">
+                    <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+              </div>
+                    
             </div>
             <h1><a href="Quanlidonhang.php">Trang nhân viên</a></h1>
             <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         </div>
-       
         <div class="container" style="width:100%;">
             <div class="content">
                 <center>

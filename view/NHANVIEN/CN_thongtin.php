@@ -20,54 +20,46 @@
     <script src="../../js/capnhatthongtin.js" defer></script>  
     <style>
         .header h1 {
-<<<<<<< HEAD
+
             margin-top: -40px;
             margin-left: 100px;
         }
-=======
-    margin-top: -40px;
-    margin-left: 100px;
-    }
->>>>>>> main
+
+
     </style>
 </head>
 <body>
     <?php
-         $layidnguoidung = $_REQUEST['id'];
-         $layid = $p->laycot("select maNV from nhanvien where idNguoiDung = '$layidnguoidung' limit 1");
-        $layten=$p->laycot("select hoTen from nhanvien where maNV = '$layid' limit 1");
-        $layngaysinh=$p->laycot("select ngaySinh from nhanvien where maNV = '$layid' limit 1");
-        $laymaloai=$p->laycot("select maLoaiNV from nhanvien where maNV = '$layid' limit 1");
-        $laysdt=$p->laycot("select t.SDT from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-        $layemail=$p->laycot("select t.email from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-        $layusername=$p->laycot("select t.username from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-        $laypassword=$p->laycot("select t.pass from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-        $laytrangthai=$p->laycot("select t.trangThai from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-        $laydiachi=$p->laycot("select t.diaChi from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+            $layid = $_REQUEST['id'];
+            //$layid = $p->laycot("select maNV from nhanvien where idNguoiDung = '$layidnguoidung' limit 1");
+            $layten=$p->laycot("select hoTen from nhanvien where maNV = '$layid' limit 1");
+            $layngaysinh=$p->laycot("select ngaySinh from nhanvien where maNV = '$layid' limit 1");
+            $laymaloai=$p->laycot("select maLoaiNV from nhanvien where maNV = '$layid' limit 1");
+            $laysdt=$p->laycot("select t.SDT from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+            $layemail=$p->laycot("select t.email from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+            $layusername=$p->laycot("select t.username from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+            $laypassword=$p->laycot("select t.pass from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+            $laytrangthai=$p->laycot("select t.trangThai from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
+            $laydiachi=$p->laycot("select t.diaChi from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
 
     ?>
     <div class="container-fluid p-0">
-        <div class="header">
-            <div class="logo" style="padding: 0; border-radius: 100px;">
+        <div id="ql_header">
+                <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
-            </div>
-            <h1><a href="NV_quanli.php?id=<?php echo $layid ?>">Trang nhân viên</a></h1>
-            <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
-            <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
-        </div>
-<<<<<<< HEAD
-        <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
-        <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
-        <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
-    </div>
-=======
->>>>>>> main
+                </div>
 
-        <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
-        </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="ThongtinNhanVien.php?id=8">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="CN_thongtin.php?id=8">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
+                    </ul>
+                </div>
+                <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+                    
+            </div>
         </div>
         <div class="container" style="width:100%;">
             <div class="content" align="center">
@@ -126,7 +118,7 @@
                             <td style="width: 150px;"><label for="password">PassWord:</label></td>
                             <td><input type="password" class="form-control" size="200" id="password" value="<?php echo $laypassword;?>"  name="password" style="color: #999;">
                             <span id="errPW" class="err text-danger"></span>
-                            <input type="checkbox" id="showPassword"> Hiện mật khẩu
+                            <!-- <input type="checkbox" onclick="togglePassword()"> Hiện mật khẩu -->
                             </td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"></span></td> -->
                         </tr>
@@ -149,7 +141,7 @@
                             <?php
                                 switch($laytrangthai)
                                 {
-                                    case 0: 
+                                    case 2: 
                                         {
                                                 echo '<td><input type="input" class="form-control" size="200" id="trangThai" value="Ngừng hoạt động" name="trangThai"></td>';
     
@@ -200,10 +192,10 @@
                                         $password=$_REQUEST['password'];
                                         $email=$_REQUEST['email'];
                                         $sdt=$_REQUEST['sdt'];
-
-                                        if($maNV!='')
+                                        $pass = md5($password);
+                                        if($maNV!=''&&$username!=''&&$pass!=''&&$email!=''&&$sdt!='')
                                         {
-                                            if($p->themxoasua("UPDATE taikhoannguoidung t join nhanvien n on t.idNguoiDung = n.idNguoiDung SET username = '$username', pass = '$password', email = '$email', sdt = '$sdt' WHERE maNV = '$maNV'")==1)
+                                            if($p->themxoasua("UPDATE taikhoannguoidung t join nhanvien n on t.idNguoiDung = n.idNguoiDung SET t.username = '$username', t.pass = '$pass', t.email = '$email', t.sdt = '$sdt' WHERE n.maNV = '$maNV'")==1)
                                             {
                                                 echo'<script language="javascript">
                                                 alert("Cập nhật thành công");	
@@ -216,7 +208,7 @@
                                         else
                                         {
                                             echo'<script language="javascript">
-                                                alert("Vui lòng ghi id");	
+                                                alert("Bạn phải nhập đầy đủ thông tin");	
                                                 </script>';
                                         }
                                         break;

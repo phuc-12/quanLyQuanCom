@@ -45,9 +45,11 @@ $p = new tmdt();
     <div class="trangquanly">
         <div class="containerr">
             <div class="sidebar">
+
                 <div class="menu-item " onclick="window.location.href='bep_trangchu.php';">Trang tổng quan</div>
                 <div class="menu-item active" onclick="window.location.href='bep_trangdonhang.php';">Xem hóa đơn</div>
                 <div class="menu-item " onclick="window.location.href='bep_qlynvl.php';">Quản lý nguyên vật liệu</div>
+
             </div>
         </div>
 

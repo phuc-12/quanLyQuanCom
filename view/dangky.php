@@ -1,3 +1,17 @@
+<?php
+    include_once("../model/chucnangnhanvien.php");
+    $tmdt = new tmdt();
+    $conn = $tmdt->connect();
+    $query = "SELECT MAX(idNguoiDung) as maxidNguoiDung FROM taikhoannguoidung";
+    $result = $conn->query($query);
+
+    $newInvoiceCode = 1; // Giá trị mặc định nếu không có hóa đơn nào trong cơ sở dữ liệu
+    if ($result && $row = $result->fetch_assoc()) {
+        $maxidNguoiDung = $row['maxidNguoiDung'];
+        $newInvoiceCode = $maxidNguoiDung + 1; 
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +79,12 @@
                 <h2 class="form-title">ĐĂNG KÝ</h2>
                 <form action="#" method="post" onsubmit="return validateForm();">
                 <div class="form-group">
+                    <label>ID Nguoi Dung:</label>
+                    <input type="text" value =<?php echo $newInvoiceCode ?> readonly>
+                    
+                    <!-- <span id="errTDN" class="error"></span> -->
+                </div>
+                <div class="form-group">
                     <label>Username:</label>
                     <input type="text" name="txtTND">
                     <span id="errTDN" class="error"></span>
@@ -100,9 +120,9 @@
                     <span id="errSDT" class="error"></span>
                 </div>
                     
-                    <tr>
-                        <button type="reset" class="submit-btn">Nhập lại</button>
+                     <tr>
                         <button type="submit" id="btnDangky" class="submit-btn">Đăng Ký</button>
+                        <button type="reset" class="submit-btn">Nhập lại</button>
                     </tr>
                     <tr>
                         <td>
@@ -180,29 +200,27 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Lấy dữ liệu từ form
+        $idNguoiDung = $newInvoiceCode;
         $tdn = trim($_POST['txtTND']);
         $pw = md5(trim($_POST['txtMK'])); // Mã hóa mật khẩu
         $tenname = trim($_POST['tenname']);
         $email = trim($_POST['email']);
         $dc = trim($_POST['dc']);
         $sdt = trim($_POST['sdt']);
-
+       
         // Kiểm tra dữ liệu
-        if (empty($tdn) || empty($pw) || empty($tenname) || empty($email) || empty($dc) || empty($sdt)) {
+        if (empty($idNguoiDung) || empty($tdn) || empty($pw) || empty($tenname) || empty($email) || empty($dc) || empty($sdt)) {
             echo "<script>alert('Vui lòng điền đầy đủ thông tin!'); window.location.href='dangky.php';</script>";
             exit;
         }
 
         // Khởi tạo lớp xử lý đăng ký
         $p = new cdangky();
-        $result = $p->getdangky($tdn, $pw, $tenname, $email, $dc, $sdt);
+        $result = $p->getdangky($idNguoiDung, $tdn, $pw, $tenname, $email, $dc, $sdt);
 
         if ($result == 1) {
             // Đăng ký thành công
             echo "<script>alert('Đăng ký thành công!'); window.location.href='dangnhap.php';</script>";
-        } elseif ($result == -1) {
-            // Tài khoản đã tồn tại
-            echo "<script>alert('Tài khoản đã tồn tại!'); window.location.href='dangky.php';</script>";
         } else {
             // Đăng ký thất bại
             echo "<script>alert('Đăng ký thất bại!'); window.location.href='dangky.php';</script>";

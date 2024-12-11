@@ -24,20 +24,22 @@
         ?>
     
     <div class="container-fluid p-0">
-    <div class="header">
-        <div class="logo" style="padding: 0; border-radius: 100px;">
-                <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
-        </div>
-        <h1><a href="NV_quanli.php?id=<?php echo $layid ?>" style='text-decoration: none'>Trang nhân viên</a></h1>
-        <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
-        <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
-    </div>
+            <div id="ql_header">
+                <div class="logo" style="padding: 0; border-radius: 100px;">
+                    <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+                </div>
 
-    <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
-    </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="ThongtinNhanVien.php?id=8">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="CN_thongtin.php?id=8">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
+                    </ul>
+                </div>
+                <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
+                    
+            </div>
 
     <div class="container" style="width:100%;">
         <div class="content">
@@ -45,33 +47,8 @@
             <?php
             $layid = $_REQUEST['id'];
             ?>
-            <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn mới</a></button>
-            <table class="order-table">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Mã hóa đơn</th>
-                        <th>Giờ khởi tạo</th>
-                        <th>Trạng thái</th>
-                        <th>Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dữ liệu mẫu -->
-                    <tr>
-                        <td>1</td>
-                        <td>0001</td>
-                        <td>10:00 AM</td>
-                        <td>Đã thanh toán</td>
-                        <td>
-                            <button class="button view"><a href="Chitietdonhang.php">Xem</a></button>
-                            <button class="button update">Cập nhật</button>
-                            <button class="button thanhtoan"><a href="Thongtinthanhtoan.php">Thanh toán</a></button>
-                        </td>
-                    </tr>
-                    <!-- Thêm.. -->
-                </tbody>
-            </table>
+            <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn tại quán</a></button>
+            <button class="button new-order"><a href="ThemdonGH.php?id=<?php echo $layid ?>">Tạo đơn giao hàng</a></button>
             <?php
                 error_reporting(0);
                 include_once("../../controler/cHoaDon.php");
@@ -83,7 +60,7 @@
                 }
                 elseif($tblHD==-1)
                 {
-                    echo 'Chưa có dữ liệu món ăn';
+                    echo '<br> Chưa có dữ liệu món ăn';
                 }
                 else
                 {
@@ -107,26 +84,27 @@
                         echo '<td><a href="?id='.$r['maHD'].'" style="text-decoration:none; color: black;">'.$r['ngayThang'].'</a></td>';
                         switch($r['trangThai'])
                         {
-                            case 0: 
-
-                                {
-                                    echo '<td>Chưa thanh toán</td>';
-                                    break;
-                                }
-
+                            
                             case 1:
 
                                 {
                                     echo '<td>Đã thanh toán</td>';
                                     break;
                                 }
+                            case 2: 
+
+                                {
+                                    echo '<td>Chưa thanh toán</td>';
+                                    break;
+                                }
+
                         }
                         echo '<td>
                             <button class="button view"><a href="Chitietdonhang.php?id='.$r['maHD'].'">Xem</a></button>
                             ';
-                            if($r['trangThai'] == 0)
+                            if($r['trangThai'] == 2)
                             {
-                                echo'<button class="button update">Cập nhật</button>';
+                                //echo'<button class="button update"><a href="CN_chitietdonhang.php?id=' . $r['maHD'] . '">Cập nhật</a></button>';
                                 echo'<button class="button thanhtoan"><a href="Thongtinthanhtoan.php?orderId=' . $r['maHD'] . '">Thanh toán</a></button>';
                             }
                         echo '</td>';

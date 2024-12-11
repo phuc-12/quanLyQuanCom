@@ -36,7 +36,6 @@
 </style>
 <body>
 <div class="container-fluid p-0">
-        <!-- Top Bar -->
         <div class="top-bar">
             <div class="contact-info">
                 <i class="fa fa-phone" style ="font-size: 20px;">
@@ -45,8 +44,6 @@
                 <span style=" margin-left: -20px ;">Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
         </div>
-
-        <!-- Main Navigation -->
         <nav class="main-nav">
             <a href="index.php">TRANG CHỦ</a>
             <a href="intro-menu.php">THỰC ĐƠN</a>
@@ -69,13 +66,12 @@
                 
                     <div class="form-group">
                         <label>PassWord:</label>
-                        <input type="pass" name="txtMK">
+                        <input type="password" name="txtMK">
                     </div>
                     <tr>
                         <td>
-                            <button type="reset" class="submit-btn">Nhập lại</button>
                             <button type="submit" class="submit-btn" name="btn_DangNhap">Đăng Nhập</button>
-                        
+                            <button type="reset" class="submit-btn">Nhập lại</button>
                         </td>
                     </tr>
                     <tr>

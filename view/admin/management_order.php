@@ -20,15 +20,15 @@
             <!-- <a class="trangChu" href="../../index.php">
                 <h4>Trang Chủ</h4>
             </a> -->
-            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;">👤</a>
+                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0;margin-right: 15px;">👤</a>
                 <ul class="dropdown-menu">
                     <!-- <li><a class="dropdown-item" href="#">Thông Tin Cá Nhân</a></li>
                     <li><a class="dropdown-item" href="#">Cập Nhật Thông Tin</a></li> -->
                     <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
+            <div class="date" style="float:right; margin-right: 100px; margin: 20px;"><span>📅</span><span id="currentDate"></span></div>
         </div>
 
         <div id="content">
@@ -204,11 +204,15 @@
                             {
                                 $maXoa = $_REQUEST['id'];
                                 
-                                if($k->themxoasua("delete from hoadon where maHD='$maXoa' limit 1")==1)
+                                if($k->themxoasua("delete from hoadon where maHD= '$maXoa' limit 1")==1)
                                 {
-                                    echo'<script language="javascript">
+                                    if($k->themxoasua("delete from chitiethoadon where maHD= '$maXoa'")==1)
+                                    {
+                                        echo'<script language="javascript">
                                         alert("Xóa đơn hàng thành công");	
                                         </script>';
+                                    } 
+                                    
                                 }
                                 
                                 echo'<script language="javascript">

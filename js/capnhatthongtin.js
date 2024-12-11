@@ -39,6 +39,7 @@ $(document).ready(function(){
     $("#email").blur(function(){
         ktemail();
     });
+
     function togglePassword() {
         let passwordField = document.getElementById("password");
         if (passwordField.type === "password") {
@@ -47,13 +48,18 @@ $(document).ready(function(){
             passwordField.type = "password";
         }
     }
+    
     function ktPassword() {
         let pw = $("input[name='password']").val();
+        let btcq = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
         if (pw == "") {
             $("#errPW").html("Mật khẩu không được để trống");
             return false;
-        } else if (pw.length < 6) {
-            $("#errPW").html("Mật khẩu phải chứa ít nhất 6 ký tự");
+        } else if (pw.length < 8) {
+            $("#errPW").html("Mật khẩu phải chứa ít nhất 8 ký tự");
+            return false;
+        }else if (!btcq.test(pw)) {
+            $("#errPW").html("Mật khẩu phải gồm chữ hoa chữ thường số và kí tự đặt biệt");
             return false;
         } else {
             $("#errPW").html("");

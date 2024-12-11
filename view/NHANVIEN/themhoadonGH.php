@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $maKH = $orderDetails ->customerCode;
 
         // Lấy thông tin đơn hàng vào bảng `hoadon`
-        $sqlOrder = "INSERT INTO hoadon(maHD, maKH, trangThai,trangThaiGH, ngayThang,img) VALUES ('$invoiceCode', '{$maKH}', '2','2', now(),'không có')";
+        $sqlOrder = "INSERT INTO hoadon(maHD, maKH, trangThai,trangThaiGH, ngayThang,img) VALUES ('$invoiceCode', '{$maKH}', '2','0', now(),'không có')";
 
         if ($conn->query($sqlOrder)) {
             foreach ($products as $product) {
