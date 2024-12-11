@@ -20,7 +20,7 @@
 </head>
 <body>
         <?php
-        $layid = $_REQUEST['id'];
+            $layid = $_REQUEST['id'];
         ?>
     
     <div class="container-fluid p-0">
