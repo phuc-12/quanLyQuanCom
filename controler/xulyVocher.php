@@ -57,6 +57,20 @@ if (isset($_POST['total_price']) && isset($_POST['makM'])) {
         $giamGiaMax = 20000;
         $giaSauGiam = $giaGoc - $giamGiaMax;
     }
+
+    if($makM === "Giảm 10K"){
+        $giamGiaMax = 10000;
+        $giaSauGiam = $giaGoc - $giamGiaMax;
+    }
+
+    if($makM === "Giảm 8K"){
+        $giamGiaMax = 8000;
+        $giaSauGiam = $giaGoc - $giamGiaMax;
+    }
+    if($makM === "Giảm 15K"){
+        $giamGiaMax = 15000;
+        $giaSauGiam = $giaGoc - $giamGiaMax;
+    }
     
 
     if($makM === "Giảm 50K"){
