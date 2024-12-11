@@ -46,8 +46,6 @@
             $layid = $_REQUEST['id'];
             ?>
             <button class="button new-order"><a href="Themdonmoi.php?id=<?php echo $layid ?>">Tạo đơn mới</a></button>
-
-<<<<<<< HEAD
             <table class="order-table">
                 <thead>
                     <tr>
@@ -74,7 +72,6 @@
                     <!-- Thêm.. -->
                 </tbody>
             </table>
-=======
             <?php
                 error_reporting(0);
                 include_once("../../controler/cHoaDon.php");
@@ -140,7 +137,6 @@
                     echo '</table>';
                 }
             ?>
->>>>>>> main
         </div>
     </div>
     </div>

@@ -19,7 +19,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mThanhToan.php");
                 return false; // Trả về false nếu truy vấn thất bại
             }
         }
-        public function getMaKhByOrderId($order_id){
+        public function getMaKHbyOrderId($order_id){
             $p = new mThanhToan();
             $maKH = $p->selectMaKHByOrderId($order_id);
             if ($maKH !== null) {
@@ -38,9 +38,9 @@ include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mThanhToan.php");
                 return -1;
             }
         }
-        public function getDanhSachChiTietHoaDonBoiMaHD($order_id){
+        public function getCTHDbyMaHD($order_id){
             $p = new mThanhToan();
-            $listDetailOrders = $p->selectDanhSachChiTietHoaDonBoiMaHD($order_id);
+            $listDetailOrders = $p->selectCTHDbyMaHD($order_id);
             if (!empty($listDetailOrders)) {
                 return $listDetailOrders;  // Trả về danh sách chi tiết hóa đơn
             } else {
@@ -58,7 +58,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mThanhToan.php");
             }
         }
         //lấy danh sách KM bỏi loại KH
-       public function getDanhSachKmBoiLoaiKH($loaiKH){
+       public function getlistKMbyLoaiKH($loaiKH){
         $p = new mThanhToan();
         $danhSachLoaiKm = $p->selectDanhSachLoaiKH($loaiKH);
         if(!empty($danhSachLoaiKm)){
