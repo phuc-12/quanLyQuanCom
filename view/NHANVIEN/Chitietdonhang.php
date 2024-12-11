@@ -85,7 +85,7 @@
                 <p>Trạng thái: <?php 
                     switch($laytrangthai)
                         {
-                            case 0:
+                            case 2:
                                 {
                                     echo 'Chưa thanh toán';
                                     break;

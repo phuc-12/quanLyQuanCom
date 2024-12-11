@@ -20,15 +20,12 @@
     <script src="../../js/capnhatthongtin.js" defer></script>  
     <style>
         .header h1 {
-<<<<<<< HEAD
+
             margin-top: -40px;
             margin-left: 100px;
         }
-=======
-    margin-top: -40px;
-    margin-left: 100px;
-    }
->>>>>>> main
+
+
     </style>
 </head>
 <body>
@@ -55,13 +52,6 @@
             <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
             <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
         </div>
-<<<<<<< HEAD
-        <h1><a href="NV_quanli.php">Trang nhân viên</a></h1>
-        <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
-        <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
-    </div>
-=======
->>>>>>> main
 
         <div class="sidebar" id="sidebar">
             <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
