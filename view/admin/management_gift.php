@@ -20,7 +20,7 @@
     <div class="container-fluid p-0">
         <div id="ql_header">
             <div class="logo" style="padding: 0; border-radius: 100px;">
-                <a href=""><img src="../../img/ChiPheologo.png" alt=""
+                <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt=""
                         style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
             <!-- <a class="trangChu" href="../../index.php">
@@ -38,18 +38,18 @@
         </div>
 
         <div id="content">
-        <div class="nav">
+            <div class="nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php" style="background-color: #E5E5E5;">
+                        <a class="nav-link" href="admin.php">
                             <i class="fa fa-tachometer"></i>
-                                Tổng quát
+                            Tổng quát
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="managementfood.php">
                             <i class="fa fa-spoon"></i>
-                                Quản lý thực đơn
+                            Quản lý thực đơn
                         </a>
                     </li>
                     <li class="nav-item">
@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="management_gift.php">
+                        <a class="nav-link" href="management_gift.php" style="background-color: #E5E5E5;">
                             <i class="fa fa-gift"></i>
                             Quản lý chương trình khuyến mãi
                         </a>
@@ -74,12 +74,6 @@
                         <a class="nav-link" href="management_order.php">
                             <i class="fa fa-shopping-cart"></i>
                             Quản lý đơn hàng
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="management_materials.php">
-                            <i class="fa fa-cubes"></i>
-                            Quản lý nguyên liệu
                         </a>
                     </li>
                 </ul>
