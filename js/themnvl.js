@@ -37,6 +37,10 @@ $(document).ready(function(){
             tbsoluong.html("Vui lòng nhập số");
             return false;
         }
+        if (txtsoluong.val()== "0") {
+            tbsoluong.html("Vui lòng nhập số lượng lớn hơn 0");
+            return false;
+        }
         if(!rg.test(txtsoluong.val())){
             tbsoluong.html("Giá trị âm không hợp lệ. Hãy nhập số lớn hơn 0.");
             return false;
