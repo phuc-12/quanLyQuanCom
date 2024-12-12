@@ -107,13 +107,13 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
 
         <!-- Main Navigation -->
         <nav class="main-nav">
-            <a href="index.php">TRANG CHỦ</a>
-            <a href="intro-menu.php">THỰC ĐƠN</a>
+            <a href="../../index.php">TRANG CHỦ</a>
+            <a href="../../intro-menu.php">THỰC ĐƠN</a>
             <div class="logo">
-                <img src="IMG/ChiPheologo.png" alt="">
+                <img src="../../IMG/ChiPheologo.png" alt="">
             </div>
-            <a href="intro.php">GIỚI THIỆU</a>
-            <a href="#">KHUYẾN MÃI</a>
+            <a href="../../intro.php">GIỚI THIỆU</a>
+            <a href="xemkm.php">KHUYẾN MÃI</a>
         </nav>
 
         <!-- Category Navigation -->
