@@ -138,6 +138,17 @@
                             <!-- <td style="width: 200px;"><span id="" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
+                            <td style="width: 150px;"><label for="loaiKH">Loại Khách Hàng:</label></td>
+                            <td>
+                                <select name="layloaiKH" id="layloaiKH" >
+                                    <option value="1">Bạc</option>
+                                    <option value="2">Vàng</option>
+                                    <option value="3">Kim Cương</option>
+                                    <option value="4">Khách Thường</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
                             <td style="width: 150px;"><label for="chietKhau">Chiết Khấu:</label></td>
                             <td><input type="input" class="form-control" size="200" id="chietKhau" placeholder="Nhập tên chiết khấu" name="chietKhau"></td>
                             <td style="width: 200px;"><span id="errChietKhau" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
@@ -173,13 +184,20 @@
                                 $maKM=$_REQUEST['maKM'];
                                 $tenKM=$_REQUEST['tenKM'];
                                 $moTa=$_REQUEST['moTa'];
+                                $laymaloaiKH=$_REQUEST['layloaiKH'];
+                                switch($laymaloaiKH){
+                                    case 1:{$layloaiKH='Bạc'; break;}
+                                    case 2:{$layloaiKH='Vàng'; break;}
+                                    case 3:{$layloaiKH='Kim Cương'; break;}
+                                    case 4:{$layloaiKH='Khách Thường'; break;}
+                                }
                                 $trangThai=$_REQUEST['trangThai'];
                                 $chietKhau=$_REQUEST['chietKhau'];
                                 $thoiGianBatDau= $_REQUEST['thoiGianBatDau'];
                                 $thoiGianKetThuc=$_REQUEST['thoiGianKetThuc'];
                                 $ngayBatDauFormatted = date("Y-m-d", strtotime($thoiGianBatDau));
                                 $ngayKetThucFormatted = date("Y-m-d", strtotime($thoiGianKetThuc));
-                                if($maKM !='' && $tenKM !='' && $moTa!=''&& $trangThai !=''&& $chietKhau !='' && $ngayBatDauFormatted!=''&& $ngayKetThucFormatted !='')
+                                if($maKM !='' && $tenKM !='' && $moTa!='' && $layloaiKH!='' && $trangThai !=''&& $chietKhau !='' && $ngayBatDauFormatted!=''&& $ngayKetThucFormatted !='')
                                 {
                                     $conn = new mysqli('localhost','root','','db_chipheo');
                                     if ($conn->connect_error) {
@@ -190,7 +208,7 @@
                                     {
                                         // Chuyển định dạng ngày nếu cần thiết
                                         
-                                        $str = "INSERT INTO ctkm (maKM,tenKM,moTa,trangThai,chietKhau,thoiGianBatDau,thoiGianKetThuc) VALUES ('$maKM',N'$tenKM','$moTa','$trangThai','$chietKhau','$ngayBatDauFormatted','$ngayKetThucFormatted')";
+                                        $str = "INSERT INTO ctkm (maKM,tenKM,moTa,loaiKH,trangThai,chietKhau,thoiGianBatDau,thoiGianKetThuc) VALUES ('$maKM',N'$tenKM','$moTa','$layloaiKH','$trangThai','$chietKhau','$ngayBatDauFormatted','$ngayKetThucFormatted')";
                                         
                                         if ($conn->query($str) === TRUE) {
                                             if ($conn->affected_rows > 0) {
