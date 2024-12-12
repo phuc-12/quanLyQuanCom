@@ -118,7 +118,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                                                 `ngayNhap` = '$ngayNhap', 
                                                 `ngayHetHan` = '$ngayHetHan', 
                                                 `moTa` = '$mota', 
-                                                `trangThai` = '0'
+                                                `trangThai` = '2'
                                             WHERE `nguyenlieu`.`maNVL` = '$layid' 
                                             LIMIT 1;";
                                     $sqlmonan= "UPDATE monan

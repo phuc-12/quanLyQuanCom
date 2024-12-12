@@ -46,12 +46,12 @@
         </div>
         <nav class="main-nav">
             <a href="../index.php">TRANG CHỦ</a>
-            <a href="intro-menu.php">THỰC ĐƠN</a>
+            <a href="../intro-menu.php">THỰC ĐƠN</a>
             <div class="logo">
-                <img src="IMG/ChiPheologo.png" alt="">
+                <img src="../IMG/ChiPheologo.png" alt="">
             </div>
-            <a href="intro.php">GIỚI THIỆU</a>
-            <a href="#">KHUYẾN MÃI</a>
+            <a href="../intro.php">GIỚI THIỆU</a>
+            <a href="../view/KHACHHANG/xemkm.php">KHUYẾN MÃI</a>
         </nav>
         
         <div class="contactv1">

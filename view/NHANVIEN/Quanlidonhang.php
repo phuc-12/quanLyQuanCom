@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    // error_reporting(0);
     $_SESSION['ma_nhan_vien'] = $_REQUEST['id'];
 ?>
 

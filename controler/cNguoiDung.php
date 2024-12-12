@@ -47,7 +47,7 @@
                   
                     echo '<script>alert("Đăng nhập thành công. Xin chào khách hàng !")</script>';
                   
-                    echo " <script> window.location.href='KHACHHANG/CN_thongtin.php?id=".$layid."' </script> ";
+                    echo " <script> window.location.href='KHACHHANG/Thongtin.php?id=".$layid."' </script> ";
                 }
                 
             }
