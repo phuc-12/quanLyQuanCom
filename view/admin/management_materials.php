@@ -26,7 +26,7 @@
     <div class="container-fluid p-0">
         <div id="ql_header">
             <div class="logo" style="padding: 0; border-radius: 100px;">
-                <a href=""><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+                <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
             </div>
 
             <!-- <a class="trangChu" href="../../index.php">
@@ -92,7 +92,7 @@
             </div>
 
             <div class="section" style="background-color: #E5E5E5;">
-                <h3 style="margin-bottom: 30px;"><b>QUẢN LÝ THỰC ĐƠN</b></h3>
+                <h3 style="margin-bottom: 30px;"><b>QUẢN LÝ NGUYÊN LIỆU</b></h3>
 
                 <div class="thongKe_food" style="border-radius: 10px;">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
@@ -104,68 +104,21 @@
                             <i class="fa fa-spoon"></i>
                             <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>TỔNG SỐ LƯỢNG</b> <br> <b style="color:red;">
                                 <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    if(isset($_REQUEST['idLoai']))
-                                    {
-                                        $idLoai = $_REQUEST['idLoai'];
-                                        $countMA = $p->GetCountMAByLMA($idLoai);
-                                    }
-                                    else 
-                                    {
-                                        $countMA = $p->GetCountMA();
-                                    }
-                                    echo $countMA;
+                                    include_once("../../controler/cNVL.php");
+                                    $p = new CNVL();
+                                    $countNVL = $p->getAllNVL();
+                                    echo $countNVL;
                                 ?>
-                                MÓN
+                                NGUYÊN VẬT LIỆU
                             </b></h5>
                         </div>
-                        <div>
-                            <i class="fa fa-smile-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN CÒN</b> <br> <b style="color:red;">
-                                <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    if(isset($_REQUEST['idLoai']))
-                                    {
-                                        $idLoai = $_REQUEST['idLoai'];
-                                        $countMA = $p->GetCountMAByLMACon($idLoai);
-                                    }
-                                    else 
-                                    {
-                                        $countMA = $p->GetCountMACon();
-                                    }
-                                    echo $countMA;
-                                ?>
-                                MÓN
-                            </b></h5>
-                        </div>
-                        <div>
-                            <i class="fa fa-frown-o"></i>
-                            <h5 style="width: 250px; height: 30px; float: left; margin-left: 10px;"><b>MÓN ĐÃ HẾT</b> <br> <b style="color:red;">
-                                <?php
-                                    include_once("../../controler/cMonAn.php");
-                                    $p = new CMonAn();
-                                    if(isset($_REQUEST['idLoai']))
-                                    {
-                                        $idLoai = $_REQUEST['idLoai'];
-                                        $countMA = $p->GetCountMAByLMAHet($idLoai);
-                                    }
-                                    else 
-                                    {
-                                        $countMA = $p->GetCountMAHet();
-                                    }
-                                    echo $countMA;
-                                ?>
-                                MÓN
-                            </b></h5>
-                        </div>
+                        
                     </div>
                 </div>
 
                 <div id="ds_food">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
-                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH THỰC ĐƠN</b></p> 
+                        <p style="font-size: 20px; float: left;"><b>DANH SÁCH NGUYÊN VẬT LIỆU</b></p> 
                     </div>
                     <div style="width: 100%; clear: both; height: 60px; background-color: white;">
                                 <nav class="navbar navbar-expand-sm bg-white navbar-white p-0" style="width: 50%; float: left; height: 60px;">
