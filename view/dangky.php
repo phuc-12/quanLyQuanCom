@@ -69,7 +69,7 @@
             <a href="../index.php">TRANG CHỦ</a>
             <a href="intro-menu.php">THỰC ĐƠN</a>
             <div class="logo">
-                <img src="IMG/ChiPheologo.png" alt="">
+                <img src="../IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">GIỚI THIỆU</a>
             <a href="#">KHUYẾN MÃI</a>

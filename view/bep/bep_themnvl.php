@@ -76,7 +76,7 @@ $p = new tmdt();
                     <!-- $laytrangThai=$p->laycot("select donViTinh from nguyenlieu ");
                 	$p->chondonViTinh("select * from nguyenlieu group by donViTinh",$laydonViTinh); -->
 		        
-
+                
                 <label for="ngaynhap">Ngày nhập:</label>
                 <input type="date" id="txtngayNhap" name="txtngayNhap" placeholder="DD/MM/YY" class="form-control">
                 <span class="text-danger" id="tbngayNhap"></span>

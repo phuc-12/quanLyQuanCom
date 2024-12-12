@@ -95,6 +95,7 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
     </div>
 
     <?php
+        error_reporting(0);
         $layid = $_REQUEST['id'];
     ?>
 
@@ -113,7 +114,7 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
         <!-- Main Navigation -->
 
         <nav class="main-nav">
-            <a href="../../index.php">TRANG CHỦ</a>
+            <a href="#">TRANG CHỦ</a>
             <a href="../../intro-menu.php">THỰC ĐƠN</a>
 
             <div class="logo">

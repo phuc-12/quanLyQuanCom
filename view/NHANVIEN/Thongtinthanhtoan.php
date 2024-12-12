@@ -68,7 +68,7 @@
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href=""><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
               </div>
-              <h1><a href="Quanlidonhang.php">Trang nhân viên</a></h1>
+              <h1><a class="trangChu" href="Quanlidonhang.php?id=<?php echo $ma_nhan_vien; ?>">Quản lý đơn hàng</a></h1>
               <div class="date" style="float:right; margin-right: 50px; margin-top: -30px; "><span>📅</span><span id="currentDate"></span></div> 
             </div>
            
@@ -81,7 +81,7 @@
                     <br>
                     <h3 id="ten">Phiếu thanh toán</h3>
                     <p style="    font-size: 19px;
-    color:#822c2c;">Number_invoice : <span id="codeOrder"><?php echo $maHD ?></span></p>
+                    color:#822c2c;">Number_invoice : <span id="codeOrder"><?php echo $maHD ?></span></p>
                     <?php ?>
                 </center>
                 <p id="in4"><?php echo $formattedDate ?></p>
