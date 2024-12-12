@@ -54,8 +54,13 @@ if (isset($_POST['total_price']) && isset($_POST['makM'])) {
             $makM = "Khuyến mãi chưa đủ điều kiện áp dụng !";
         }
     }
-    
 
+    if($makM === "Giảm 6%"){
+        $phanTramGiamGia = 6;
+        $giamGia = $giaGoc * ($phanTramGiamGia / 100);
+        $giaSauGiam = $giaGoc - $giamGia;
+    }
+    
     if($makM === "Giảm 20K"){
         $giamGiaMax = 20000;
         $giaSauGiam = $giaGoc - $giamGiaMax;
