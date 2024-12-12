@@ -36,7 +36,6 @@
         color : white ;
         margin-left: -5px ;
     }
-    /////
     .contact-info a:hover{
         color: #4e4202;
     }
@@ -80,9 +79,14 @@
                 <h2 class="form-title">ĐĂNG KÝ</h2>
                 <form action="#" method="post" onsubmit="return validateForm();">
                 <div class="form-group">
-                    <label>ID Nguoi Dung:</label>
-                    <input type="text" value =<?php echo $newInvoiceCode ?> readonly>
+                    <!-- <label>ID Nguoi Dung:</label> -->
+                    <input type="text" value =<?php echo $newInvoiceCode ?> style="display: none;">
                     
+                    <!-- <span id="errTDN" class="error"></span> -->
+                </div>
+                <div class="form-group">
+                    <label>Mã Khách Hàng:</label>
+                    <input type="text" name="txtmaKH">
                     <!-- <span id="errTDN" class="error"></span> -->
                 </div>
                 <div class="form-group">
@@ -208,9 +212,9 @@
         $email = trim($_POST['email']);
         $dc = trim($_POST['dc']);
         $sdt = trim($_POST['sdt']);
-       
+        $maKH = trim($_POST['txtmaKH']);
         // Kiểm tra dữ liệu
-        if (empty($idNguoiDung) || empty($tdn) || empty($pw) || empty($tenname) || empty($email) || empty($dc) || empty($sdt)) {
+        if (empty($maKH) || empty($idNguoiDung) || empty($tdn) || empty($pw) || empty($tenname) || empty($email) || empty($dc) || empty($sdt)) {
             echo "<script>alert('Vui lòng điền đầy đủ thông tin!'); window.location.href='dangky.php';</script>";
             exit;
         }
@@ -218,10 +222,30 @@
         // Khởi tạo lớp xử lý đăng ký
         $p = new cdangky();
         $result = $p->getdangky($idNguoiDung, $tdn, $pw, $tenname, $email, $dc, $sdt);
-
         if ($result == 1) {
-            // Đăng ký thành công
-            echo "<script>alert('Đăng ký thành công!'); window.location.href='dangnhap.php';</script>";
+            // echo "<script>alert('Đăng ký thành công!'); window.location.href='dangnhap.php';</script>";
+
+                $conn = new mysqli('localhost','root','','db_chipheo');
+                    
+                if($conn)
+                {
+                    
+                    $str = "INSERT INTO khachhang (maKH,hoTen,username,maLoaiKH,idNguoiDung,diemTichLuy) VALUES ('$maKH','$tenname','$tdn','4','$idNguoiDung','0')";
+                    
+                    if ($conn->query($str) === TRUE) {
+                        // echo "<script>alert('Đăng ký thành công!'); window.location.href='dangnhap.php';</script>";
+                        if ($conn->affected_rows > 0) {
+                            echo "<script>alert('Đăng ký thành công!'); window.location.href='dangnhap.php';</script>";
+                        } else {
+                            echo "<script>alert('không có Khách Hàng nào được thêm!');</script>";
+                        }
+                    } 
+                    else 
+                    {
+                        echo "Lỗi khi thêm Khách Hàng" . $conn->error;
+                    }
+                    $conn->close();
+                }
         } else {
             // Đăng ký thất bại
             echo "<script>alert('Đăng ký thất bại!'); window.location.href='dangky.php';</script>";
