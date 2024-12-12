@@ -190,14 +190,15 @@
                                     case 'Cập Nhật':
                                     {
                                         $maNV=$_REQUEST['maNV'];
+                                        $hoTen=$_REQUEST['hoTen'];
                                         $username=$_REQUEST['username'];
                                         $password=$_REQUEST['password'];
                                         $email=$_REQUEST['email'];
                                         $sdt=$_REQUEST['sdt'];
                                         $pass = md5($password);
-                                        if($maNV!=''&&$username!=''&&$pass!=''&&$email!=''&&$sdt!='')
+                                        if($maNV!=''&&$hoTen!=''&&$username!=''&&$pass!=''&&$email!=''&&$sdt!='')
                                         {
-                                            if($p->themxoasua("UPDATE taikhoannguoidung t join nhanvien n on t.idNguoiDung = n.idNguoiDung SET t.username = '$username', t.pass = '$pass', t.email = '$email', t.sdt = '$sdt' WHERE n.maNV = '$maNV'")==1)
+                                            if($p->themxoasua("UPDATE taikhoannguoidung t join nhanvien n on t.idNguoiDung = n.idNguoiDung SET t.username = '$username', t.pass = '$pass', t.email = '$email', t.sdt = '$sdt', t.hoTen = '$hoTen', n.hoTen = '$hoTen' WHERE n.maNV = '$maNV'")==1)
                                             {
                                                 echo'<script language="javascript">
                                                 alert("Cập nhật thành công");	
