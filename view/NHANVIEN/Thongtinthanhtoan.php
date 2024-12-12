@@ -1,8 +1,6 @@
 <?php
     include_once("../../model/chucnangnhanvien.php");
     $p = new tmdt();
-    session_start();
-    $ma_nhan_vien = $_SESSION['ma_nhan_vien'];
 
     // xử lý thông tin 
     include("../../controler/cThanhToan.php");
@@ -65,21 +63,12 @@
         <!-- Header -->
             <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
-                    <a href=""><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+                    <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
               </div>
               <h1><a href="Quanlidonhang.php">Trang nhân viên</a></h1>
               <div class="date" style="float:right; margin-right: 50px; margin-top: -30px; "><span>📅</span><span id="currentDate"></span></div> 
             </div>
-
-            <h1><a href="Quanlidonhang.php" style='text-decoration: none'>Danh sách đơn hàng</a></h1>
-            <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
-            <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div>
-        </div>
-        <div class="sidebar" id="sidebar">
-            <button class="menu-item"><a href="ThongtinNhanVien.php?id=<?php echo $ma_nhan_vien ?>">Thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $ma_nhan_vien ?>">Cập nhật thông tin cá nhân</a></button>
-            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
-
+           
         </div>
         <div class="container" style="width:100%;">
             <div class="content-thanhtoan">
@@ -194,11 +183,10 @@
 <script>
     function confirmPayment(event) {
         event.preventDefault();
-
         const total_after_calculating_discounts = document.getElementById('total-after-calculating-discounts').innerText;
         const confirmationMessage = 'Xác nhận thanh toán thành công với số tiền ' + total_after_calculating_discounts + ' VND.';
         const url = window.location.origin + '/quanLyQuanCom/controler/xuLyTinhTrangHoaDon.php';
-        // const url_redirect = window.location.origin + '/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php';
+        const url_redirect = window.location.origin + '/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php';
         const codeOrder = document.getElementById('codeOrder').innerText;
         const isConfirmed = confirm(confirmationMessage);
         if (isConfirmed) {
@@ -213,10 +201,9 @@
             },
             success: function(response) {
                 console.log('Thanh toán thành công:', response);
-                var employee = <?php echo $ma_nhan_vien; ?>;
                 // Xử lý thêm sau khi thanh toán thành công
                 if(response.status === 'success'){
-                    window.location.href = `Quanlidonhang.php?id=${employee}`;
+                    window.location.href = url_redirect;
                 }
             },
             error: function(error) {
