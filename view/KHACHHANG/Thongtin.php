@@ -41,9 +41,9 @@
 
     ?>
 <div class="container-fluid p-0">
-    <div class="header">
+    <div id="ql_header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
-                <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+        <a href=""><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
         </div>
         <!-- <h1><a href="../../index.php">Trang Chủ</a></h1> -->
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
