@@ -104,7 +104,7 @@
                         <i class="fa fa-shopping-cart" style="font-size: 60px;"></i><br>
                         <p style="font-size: 20px; margin-top: 10px;">QUẢN LÝ ĐƠN HÀNG</p>
                     </a>
-                    <a class="option mger_order" href="management_materials.php">
+                    <a class="option mger_employ" href="management_materials.php">
                         <i class="fa fa-cubes" style="font-size: 60px;"></i><br>
                         <p style="font-size: 20px; margin-top: 10px;">QUẢN LÝ NGUYÊN LIỆU</p>
                     </a>

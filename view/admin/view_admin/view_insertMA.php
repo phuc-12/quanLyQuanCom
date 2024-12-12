@@ -102,6 +102,12 @@
                             Quản lý đơn hàng
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="management_materials.php">
+                            <i class="fa fa-cubes"></i>
+                            Quản lý nguyên liệu
+                        </a>
+                    </li>
                 </ul>
             </div>
 

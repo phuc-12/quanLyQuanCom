@@ -129,4 +129,121 @@ $(document).ready(function(){
         }
     })
     
+    // rang buoc them nvl cua quan ly //
+
+    //kiem tra ten
+    function ktTenNVL() {
+        let tenNVL = $("#tenNVL").val().trim();
+        let btcq = /^[^\d]*$/;
+        if(tenNVL.length == 0) {
+            $("#errTen").html("Không được để trống");
+            $("#tenNVL").focus();
+            return false;
+        } else if (btcq.test(tenNVL)==false) {
+            $("#errTen").html("Không được chứa số");
+            $("#tenNVL").focus();
+            return false;
+        } else {
+            $("#errTen").html("<b style='font-size: 20px;'>*</b>");
+            return true;
+        } 
+    }
+    $("#tenNVL").blur(function(){
+        ktTenNVL();
+    });
+
+    //kiem tra mo ta
+    function ktMT() {
+        let MT = $("#moTa").val();
+        if (MT == "") {
+            $("#errMoTa").html("Không được để trống");
+            return false;
+        } else {
+            $("#errMoTa").html("<b style='font-size: 20px;'>*</b>");
+            return true;
+        }
+    }
+    $("#moTa").blur(function(e){
+        ktMT();
+    });
+
+    //kiem tra trang thai
+    function ktTrangThai() {
+        let trangThai = $("#trangThai").val();
+        if (trangThai == "") {
+            $("#errTrangThai").html("Không được để trống");
+            return false;
+        } else if (trangThai != "1" && trangThai != "2") {
+            $("#errTrangThai").html("Trạng thái chỉ được nhập 1 hoặc 2");
+            return false;
+        } else {
+            $("#errTrangThai").html("<b style='font-size: 20px;'>*</b>");
+            return true;
+        }
+    }
+    $("#trangThai").blur(function () {
+        ktTrangThai();
+    });
+
+    //kiem tra so luong
+    function ktslTon() {
+        let slTon = $("#slTon").val();
+        let regex = /^[0-9]\d*$/; //chỉ cho phép nhập số >=0 
+    
+        if (slTon == "") {
+            $("#errSLTon").html("Không được để trống");
+            return false;
+        } else if (!regex.test(slTon)) {
+            $("#errSLTon").html("Số lượng chỉ được chứa số và không được âm");
+            return false;
+        } else {
+            $("#errSLTon").html("<b style='font-size: 20px;'>*</b>");
+            return true;
+        }
+    }
+    $("#slTon").blur(function () {
+        ktslTon();
+    });
+
+    //kiem tra đơn vị tính
+    function ktDonViTinh() {
+        let donViTinh = $("#donViTinh").val();
+        let regex = /^[A-Za-zÀ-ỹà-ỹ\s]+$/; //chỉ cho phép nhập chữ và khoảng trắng
+    
+        if (donViTinh == "") {
+            $("#errDVT").html("Không được để trống");
+            return false;
+        } else if (!regex.test(donViTinh)) {
+            $("#errDVT").html("Không chứa số");
+            return false;
+        } else {
+            $("#errDVT").html("<b style='font-size: 20px;'>*</b>");
+            return true;
+        }
+    }
+    $("#donViTinh").blur(function () {
+        ktDonViTinh();
+    });
+
+    //kiem tra ngay het han
+    function ktNgayHetHan() {
+        let ngayNhap = $("#ngayNhap").val();
+        let ngayHetHan = $("#ngayHetHan").val();
+        var today = new Date(); // Lấy ngày hiện tại
+        today.setHours(0, 0, 0, 0);
+    
+        if (ngayHetHan == "") {
+            $("#errNgayHetHan").html("Không được để trống");
+            return false;
+        } else if (new Date(ngayHetHan) <= new Date(ngayNhap)) {
+            $("#errNgayHetHan").html("Ngày hết hạn phải lớn hơn ngày nhập");
+            return false;
+        }  else {
+            $("#errNgayHetHan").html("<b style='font-size: 20px;'>*</b>");
+            return true;
+        }
+    }
+    $("#ngayHetHan").blur(function (e) {
+        ktNgayHetHan();
+    });
 })
