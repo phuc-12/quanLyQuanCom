@@ -49,14 +49,17 @@
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px;"><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
-        <div class="sidebar" id="sidebar">
+    <?php
+        $layid = $_REQUEST['id'];
+    ?>
+    <div class="sidebar" id="sidebar">
             <button class="menu-item"><a href="Thongtin.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
-                <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
-                <button class="menu-item">Theo dõi trạng thái đơn hàng</button>
-                <button class="menu-item">Xem ưu đãi</button>
-                <button class="menu-item">Xem lịch sử mua hàng </button>
-                <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
-        </div>
+            <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="xemdonhang.php?id=<?php echo $layid; ?>">Theo dõi trạng thái đơn hàng</a></button>
+            <button class="menu-item"><a href="xemkm.php?id=<?php echo $layid; ?>">Xem ưu đãi</a></button>
+            <!-- <button class="menu-item">Xem lịch sử mua hàng </button> -->
+            <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
+    </div>
      <div class="container" style="width:100%;">
         <div class="content" align="center">
             <h2 >Thông tin cá nhân</h2>

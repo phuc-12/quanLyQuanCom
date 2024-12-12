@@ -14,7 +14,8 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../CSS/style.css">
-    <link rel="stylesheet" href="../../css/thongtin.css">   
+    <link rel="stylesheet" href="../../css/thongtin.css">
+    <link rel="stylesheet" href="../css/nhanVien.css"> 
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -93,12 +94,16 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
+    <?php
+        $layid = $_REQUEST['id'];
+    ?>
+
     <div class="sidebar" id="sidebar">
-            <!-- <button class="menu-item"><a href="Thongtin.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
+            <button class="menu-item"><a href="Thongtin.php?id=<?php echo $layid ?>">Thông tin cá nhân</a></button>
             <button class="menu-item"><a href="CN_thongtin.php?id=<?php echo $layid ?>">Cập nhật thông tin cá nhân</a></button>
-            <button class="menu-item">Theo dõi trạng thái đơn hàng</button>
-            <button class="menu-item">Xem ưu đãi</button>
-            <button class="menu-item">Xem lịch sử mua hàng </button> -->
+            <button class="menu-item"><a href="xemdonhang.php?id=<?php echo $layid; ?>">Theo dõi trạng thái đơn hàng</a></button>
+            <button class="menu-item"><a href="xemkm.php?id=<?php echo $layid; ?>">Xem ưu đãi</a></button>
+            <!-- <button class="menu-item">Xem lịch sử mua hàng </button> -->
             <button class="menu-item"><a href="../../index.php">Đăng xuất</a></button>
     </div>
 
@@ -106,7 +111,7 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
         </div>
 
         <!-- Main Navigation -->
-        <nav class="main-nav">
+        <!-- <nav class="main-nav">
             <a href="index.php">TRANG CHỦ</a>
             <a href="intro-menu.php">THỰC ĐƠN</a>
             <div class="logo">
@@ -114,15 +119,15 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
             </div>
             <a href="intro.php">GIỚI THIỆU</a>
             <a href="#">KHUYẾN MÃI</a>
-        </nav>
+        </nav> -->
 
         <!-- Category Navigation -->
-        <div class="category-nav">
+        <!-- <div class="category-nav">
             <a href="category-food.php?id=1">Món chay</a>
             <a href="category-food.php?id=2">Món mặn</a>
             <a href="category-food.php?id=3">Đồ uống</a>
             <a href="category-food.php?id=4">Tráng Miệng</a>
-        </div>
+        </div> -->
         <?php
 
 include_once("../../controler/cNguoiDung.php");
