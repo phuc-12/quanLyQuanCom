@@ -71,7 +71,7 @@
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">GIỚI THIỆU</a>
-            <a href="#">KHUYẾN MÃI</a>
+            <a href="view/KHACHHANG/xemkm.php">KHUYẾN MÃI</a>
         </nav>
 
         <!-- Category Navigation -->
