@@ -131,27 +131,27 @@
                         <tr>
                             <td style="width: 150px;"><label for="tenNVL">Tên Nguyên Vật Liệu:</label></td>
                             <td><input type="input" class="form-control" size="200" id="tenNVL" placeholder="Nhập tên nguyên vật liệu" name="tenNVL" value="<?php echo $tenNVL;?>"></td>
-                            <!-- <td style="width: 200px;"><span id="errTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style="width: 200px;"><span id="errTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="slTon">Số Lượng:</label></td>
                             <td><input type="input" class="form-control" size="200" id="slTon" placeholder="Nhập số lượng" name="slTon" value="<?php echo $slTon;?>"></td>
-                            <!-- <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style=" hight: 400px; width: 200px;"><span id="errSLTon" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="donViTinh">Đơn Vị Tính:</label></td>
                             <td><input type="input" class="form-control" size="200" id="donViTinh" placeholder="Nhập đơn vị tính" name="donViTinh" value="<?php echo $donViTinh;?>"></td>
-                            <!-- <td><span id="errDVT" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td><span id="errDVT" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="moTa">Mô Tả:</label></td>
                             <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập mô tả" name="moTa" value="<?php echo $moTa;?>"></td>
-                            <!-- <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="ngayNhap">Ngày Nhập: </label></td>
                             <td>
-                                <input type="date" id="ngayNhap" name="ngayNhap" placeholder="DD/MM/YY" class="form-control" value="<?php echo $ngayNhap;?>">
+                                <input type="date" id="ngayNhap" name="ngayNhap" placeholder="DD/MM/YY" class="form-control" value="<?php echo $ngayNhap;?>" readonly>
                                 <span class="text-danger" id="tbngayNhap"></span>
                                 <script>
                                     // Lấy input element
@@ -171,12 +171,12 @@
                         <tr>
                             <td style="width: 150px;"><label for="ngayHetHan">Ngày Hết Hạn: </label></td>
                             <td><input type="date" class="form-control" size="200" id="ngayHetHan"name="ngayHetHan" value="<?php echo $ngayHetHan;?>"></td>
-                            <!-- <td style=" hight: 400px; width: 200px;"><span id="errEndDate" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style=" hight: 400px; width: 200px;"><span id="errNgayHetHan" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
                             <td><input type="input" class="form-control" size="200" id="trangThai"  name="trangThai" value="<?php echo $trangThai;?>"></td>
-                            <!-- <td style="width: 200px;"><span id="" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
+                            <td style="width: 200px;"><span id="errTrangThai" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         
                         
