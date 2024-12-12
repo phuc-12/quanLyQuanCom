@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 12, 2024 lúc 04:04 AM
--- Phiên bản máy phục vụ: 10.4.32-MariaDB
--- Phiên bản PHP: 8.0.30
+-- Host: 127.0.0.1
+-- Generation Time: Dec 11, 2024 at 02:09 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `db_chipheo`
+-- Database: `db_chipheo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitiethoadon`
+-- Table structure for table `chitiethoadon`
 --
 
 CREATE TABLE `chitiethoadon` (
@@ -38,23 +38,10 @@ CREATE TABLE `chitiethoadon` (
   `chietKhau` float NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `chitiethoadon`
---
-
-INSERT INTO `chitiethoadon` (`maMA`, `maHD`, `maKH`, `maNV`, `soLuong`, `moTa`, `uuDai`, `chietKhau`) VALUES
-(1, 6, 12, 2, 1, 'Không có ', 0, 0),
-(2, 6, 12, 2, 1, 'Không có ', 0, 0),
-(1, 5, 111, 3, 1, 'Không có ', 0, 0),
-(2, 4, 111, 2, 1, 'Không có ', 0, 0),
-(3, 3, 111, 2, 1, 'Không có ', 0, 0),
-(2, 2, 111, 2, 1, 'Không có ', 0, 0),
-(1, 1, 12, 4, 1, 'Không có ', 0, 0);
-
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `ctkm`
+-- Table structure for table `ctkm`
 --
 
 CREATE TABLE `ctkm` (
@@ -69,7 +56,7 @@ CREATE TABLE `ctkm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `ctkm`
+-- Dumping data for table `ctkm`
 --
 
 INSERT INTO `ctkm` (`maKM`, `tenKM`, `moTa`, `loaiKH`, `trangThai`, `chietKhau`, `thoiGianBatDau`, `thoiGianKetThuc`) VALUES
@@ -87,7 +74,7 @@ INSERT INTO `ctkm` (`maKM`, `tenKM`, `moTa`, `loaiKH`, `trangThai`, `chietKhau`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hoadon`
+-- Table structure for table `hoadon`
 --
 
 CREATE TABLE `hoadon` (
@@ -99,22 +86,10 @@ CREATE TABLE `hoadon` (
   `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `hoadon`
---
-
-INSERT INTO `hoadon` (`maHD`, `maKH`, `ngayThang`, `trangThai`, `trangThaiGH`, `img`) VALUES
-(1, '12', '2024-12-11 20:25:46', 1, 0, 'không có'),
-(2, '111', '2024-12-11 20:44:26', 0, 0, 'không có'),
-(3, '111', '2024-12-11 22:51:42', 1, 2, 'không có'),
-(4, '111', '2024-12-11 22:55:27', 2, 2, 'không có'),
-(5, '111', '2024-12-11 23:01:49', 2, 2, 'không có'),
-(6, '12', '2024-12-12 01:15:49', 2, 2, 'không có');
-
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `khachhang`
+-- Table structure for table `khachhang`
 --
 
 CREATE TABLE `khachhang` (
@@ -127,18 +102,18 @@ CREATE TABLE `khachhang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `khachhang`
+-- Dumping data for table `khachhang`
 --
 
 INSERT INTO `khachhang` (`maKH`, `hoTen`, `username`, `idNguoiDung`, `maLoaiKH`, `diemTichLuy`) VALUES
-('111', 'Khách hàng', 'khachhang', 6, 4, 20),
-('12', 'Lê Văn Vinh', 'vinh123', 3, 2, 485),
+('111', 'Khách hàng', 'khachhang', 6, 4, 18),
+('12', 'Lê Văn Vinh', 'vinh123', 3, 2, 482),
 ('34', 'Nguyễn Thị Nga', 'nga123', 2, 1, 201);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `loaikhachhang`
+-- Table structure for table `loaikhachhang`
 --
 
 CREATE TABLE `loaikhachhang` (
@@ -148,7 +123,7 @@ CREATE TABLE `loaikhachhang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `loaikhachhang`
+-- Dumping data for table `loaikhachhang`
 --
 
 INSERT INTO `loaikhachhang` (`maLoaiKH`, `loaiKH`, `nguongDiem`) VALUES
@@ -160,7 +135,7 @@ INSERT INTO `loaikhachhang` (`maLoaiKH`, `loaiKH`, `nguongDiem`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `loaimonan`
+-- Table structure for table `loaimonan`
 --
 
 CREATE TABLE `loaimonan` (
@@ -169,7 +144,7 @@ CREATE TABLE `loaimonan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `loaimonan`
+-- Dumping data for table `loaimonan`
 --
 
 INSERT INTO `loaimonan` (`maLoaiMA`, `tenLoaiMA`) VALUES
@@ -182,7 +157,7 @@ INSERT INTO `loaimonan` (`maLoaiMA`, `tenLoaiMA`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `loainhanvien`
+-- Table structure for table `loainhanvien`
 --
 
 CREATE TABLE `loainhanvien` (
@@ -191,7 +166,7 @@ CREATE TABLE `loainhanvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `loainhanvien`
+-- Dumping data for table `loainhanvien`
 --
 
 INSERT INTO `loainhanvien` (`maLoaiNV`, `tenLoaiNV`) VALUES
@@ -202,7 +177,7 @@ INSERT INTO `loainhanvien` (`maLoaiNV`, `tenLoaiNV`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `monan`
+-- Table structure for table `monan`
 --
 
 CREATE TABLE `monan` (
@@ -219,35 +194,35 @@ CREATE TABLE `monan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `monan`
+-- Dumping data for table `monan`
 --
 
 INSERT INTO `monan` (`maMA`, `maLoaiMA`, `tenMA`, `soLuong`, `donGia`, `donViTinh`, `nguyenLieu`, `hinhAnh`, `trangThai`, `mota`) VALUES
-(1, 1, 'Cơm - ba chỉ kho tiêu', 1, 37.000, 'Dĩa', 'Thịt ba chỉ khối', 'bachikhotieu.png', 1, 'Món ngon Chí Phèo quán'),
-(2, 1, 'Cơm - bò xào bông cải', 1, 40.000, 'Dĩa', 'Thịt bò tươi', 'boxaobongcai.png', 1, 'Món ngon Chí Phèo quán'),
-(3, 1, 'Cơm - thịt kho đậu hủ', 1, 35.000, 'Dĩa', 'Đậu hủ', 'thitkhodauhu.png', 1, 'Món ngon Chí Phèo quán'),
-(4, 1, 'Cơm - mực xào chua ngọt', 1, 40.000, 'Dĩa', 'Mực ống tươi', 'mucxaochuangot.png', 1, 'Món ngon Chí Phèo quán'),
-(5, 1, 'Cơm - trứng cuộn thịt băm', 1, 32.000, 'Dĩa', 'Trứng gà hộp', 'trungcuonthitbam.png', 1, 'Món ngon Chí Phèo quán'),
-(6, 1, 'Cơm - mực xào thập cẩm', 1, 40.000, 'Dĩa', 'Mực ống tươi', 'mucxaothapcam.png', 1, 'Món ngon Chí Phèo quán'),
-(7, 2, 'Cơm - đậu hủ kho tiêu', 1, 30.000, 'Dĩa', 'Đậu hủ', 'dauhukhotieu.png', 1, 'Món ngon Chí Phèo quán'),
-(8, 2, 'Cơm - đậu hủ cuộn rong biển', 1, 35.000, 'Dĩa', 'Rong biển', 'dauhucuonrongbien.png', 1, 'Món ngon Chí Phèo quán'),
-(9, 2, 'Cơm - chả trứng chay', 1, 35.000, 'Dĩa', 'Trứng gà hộp', 'chatrungchay.png', 1, 'Món ngon Chí Phèo quán'),
-(10, 2, 'Cơm - sườn non ram', 1, 30.000, 'Dĩa', 'Sườn non sấy khô', 'suonchayram.png', 1, 'Món ngon Chí Phèo quán'),
-(11, 4, 'YogurtOreo', 1, 35.000, 'Ly', 'Yogurt', 'yogurtoreo.png', 1, 'Món ngon Chí Phèo quán'),
-(12, 4, 'Rau câu truyền thống', 1, 25.000, 'Hũ', 'Bột rau câu', 'raucauduatruyenthong.png', 1, 'Món ngon Chí Phèo quán'),
-(13, 4, 'Bánh chuối hấp', 1, 30.000, 'Chén', 'Chuối quả tươi', 'banhchuoihap.png', 1, 'Món ngon Chí Phèo quán'),
-(14, 4, 'Sữa chua trái cây', 1, 25.000, 'Ly', 'Táo', 'suachuatraicay.png', 1, 'Món ngon Chí Phèo quán'),
-(15, 4, 'Chè vải hạt sen', 1, 30.000, 'Ly', 'Hạt sen', 'chevaihatsen.png', 1, 'Món ngon Chí Phèo quán'),
-(16, 3, 'Pepsi lon', 1, 15.000, 'Lon', 'Pepsi', 'pepsi.png', 1, 'Món ngon Chí Phèo quán'),
-(17, 3, 'Sting lon', 1, 15.000, 'Lon', 'Sting', 'sting.png', 1, 'Món ngon Chí Phèo quán'),
-(18, 3, 'Sprite lon', 1, 15.000, 'Lon', 'Sprite', 'sprite.png', 1, 'Món ngon Chí Phèo quán'),
-(19, 3, 'Dừa lạnh', 1, 20.000, 'Trái', 'Dừa tươi', 'dualanh.png', 1, 'Món ngon Chí Phèo quán'),
-(20, 3, 'Nước ép táo', 1, 25.000, 'Ly', 'Táo', 'eptao.png', 1, 'Món ngon Chí Phèo quán'),
-(21, 5, 'Rau câu truyền thống miễn phí', 1, 0.000, 'Hũ', 'Bột rau câu', 'raucauduatruyenthong.png\r\n', 1, 'Món tặng'),
-(22, 1, 'Bò xào xã ớt', 1, 30.000, 'Dĩa', 'Thịt bò tươi', 'boxaoxaot.png', 1, 'Món ngon Chí Phèo quán'),
-(23, 1, 'Cơm chiên', 1, 30.000, 'Dĩa', 'Gạo', 'comchien.jpg', 1, 'Món ngon Chí Phèo quán'),
-(24, 1, 'Khổ qua xào trứng', 1, 30.000, 'Dĩa', 'Trứng gà hộp', 'khoquaxaotrung.png', 1, 'Món ngon Chí Phèo quán'),
-(25, 1, 'Thịt kho đậu hủ', 1, 30.000, 'Dĩa', 'Đậu hủ', 'thitkhodauhu.png', 1, 'Món ngon Chí Phèo quán'),
+(1, 1, 'Cơm - ba chỉ kho tiêu', 1, 37.000, 'VND', 'Thịt ba chỉ khối', 'bachikhotieu.png', 1, 'Món ngon Chí Phèo quán'),
+(2, 1, 'Cơm - bò xào bông cải', 1, 40.000, 'VND', 'Thịt bò tươi', 'boxaobongcai.png', 1, 'Món ngon Chí Phèo quán'),
+(3, 1, 'Cơm - thịt kho đậu hủ', 1, 35.000, 'VND', 'Đậu hủ', 'thitkhodauhu.png', 1, 'Món ngon Chí Phèo quán'),
+(4, 1, 'Cơm - mực xào chua ngọt', 1, 40.000, 'VND', 'Mực ống tươi', 'mucxaochuangot.png', 1, 'Món ngon Chí Phèo quán'),
+(5, 1, 'Cơm - trứng cuộn thịt băm', 1, 32.000, 'VND', 'Trứng gà hộp', 'trungcuonthitbam.png', 1, 'Món ngon Chí Phèo quán'),
+(6, 1, 'Cơm - mực xào thập cẩm', 1, 40.000, 'VND', 'Mực ống tươi', 'mucxaothapcam.png', 1, 'Món ngon Chí Phèo quán'),
+(7, 2, 'Cơm - đậu hủ kho tiêu', 1, 30.000, 'VND', 'Đậu hủ', 'dauhukhotieu.png', 1, 'Món ngon Chí Phèo quán'),
+(8, 2, 'Cơm - đậu hủ cuộn rong biển', 1, 35.000, 'VND', 'Rong biển', 'dauhucuonrongbien.png', 1, 'Món ngon Chí Phèo quán'),
+(9, 2, 'Cơm - chả trứng chay', 1, 35.000, 'VND', 'Trứng gà hộp', 'chatrungchay.png', 1, 'Món ngon Chí Phèo quán'),
+(10, 2, 'Cơm - sườn non ram', 1, 30.000, 'VND', 'Sườn non sấy khô', 'suonchayram.png', 1, 'Món ngon Chí Phèo quán'),
+(11, 4, 'YogurtOreo', 1, 35.000, 'VND', 'Yogurt', 'yogurtoreo.png', 1, 'Món ngon Chí Phèo quán'),
+(12, 4, 'Rau câu truyền thống', 1, 25.000, 'VND', 'Bột rau câu', 'raucauduatruyenthong.png', 1, 'Món ngon Chí Phèo quán'),
+(13, 4, 'Bánh chuối hấp', 1, 30.000, 'VND', 'Chuối quả tươi', 'banhchuoihap.png', 1, 'Món ngon Chí Phèo quán'),
+(14, 4, 'Sữa chua trái cây', 1, 25.000, 'VND', 'Táo', 'suachuatraicay.png', 1, 'Món ngon Chí Phèo quán'),
+(15, 4, 'Chè vải hạt sen', 1, 30.000, 'VND', 'Hạt sen', 'chevaihatsen.png', 1, 'Món ngon Chí Phèo quán'),
+(16, 3, 'Pepsi lon', 1, 15.000, 'VND', 'Pepsi', 'pepsi.png', 1, 'Món ngon Chí Phèo quán'),
+(17, 3, 'Sting lon', 1, 15.000, 'VND', 'Sting', 'sting.png', 1, 'Món ngon Chí Phèo quán'),
+(18, 3, 'Sprite lon', 1, 15.000, 'VND', 'Sprite', 'sprite.png', 1, 'Món ngon Chí Phèo quán'),
+(19, 3, 'Dừa lạnh', 1, 20.000, 'VND', 'Dừa tươi', 'dualanh.png', 1, 'Món ngon Chí Phèo quán'),
+(20, 3, 'Nước ép táo', 1, 25.000, 'VND', 'Táo', 'eptao.png', 1, 'Món ngon Chí Phèo quán'),
+(21, 5, 'Rau câu truyền thống miễn phí', 1, 0.000, 'Cái', 'Bột rau câu', 'raucauduatruyenthong.png\r\n', 1, 'Món tặng'),
+(22, 1, 'Bò xào xã ớt', 1, 30.000, 'VNĐ', 'Thịt bò tươi', 'boxaoxaot.png', 1, 'Món ngon Chí Phèo quán'),
+(23, 1, 'Cơm chiên', 1, 30.000, 'VNĐ', 'Gạo', 'comchien.jpg', 1, 'Món ngon Chí Phèo quán'),
+(24, 1, 'Khổ qua xào trứng', 1, 30.000, 'VNĐ', 'Trứng gà hộp', 'khoquaxaotrung.png', 1, 'Món ngon Chí Phèo quán'),
+(25, 1, 'Thịt kho đậu hủ', 1, 30.000, 'VNĐ', 'Đậu hủ', 'thitkhodauhu.png', 1, 'Món ngon Chí Phèo quán'),
 (26, 1, 'Heo xào đậu que', 1, 30.000, 'VNĐ', 'Thịt ba chỉ khối', 'heoxaodauque.png', 1, 'Món ngon Chí Phèo quán'),
 (27, 2, 'Bò kho chay', 1, 30.000, 'VNĐ', 'Đậu hủ', 'bokhochay.png', 1, 'Món ngon Chí Phèo quán'),
 (28, 2, 'Đậu hủ kho chay', 1, 30.000, 'VNĐ', 'Đậu hủ', 'dauhukhochay.png', 1, 'Món ngon Chí Phèo quán'),
@@ -265,7 +240,7 @@ INSERT INTO `monan` (`maMA`, `maLoaiMA`, `tenMA`, `soLuong`, `donGia`, `donViTin
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `monan_nguyenlieu`
+-- Table structure for table `monan_nguyenlieu`
 --
 
 CREATE TABLE `monan_nguyenlieu` (
@@ -274,7 +249,7 @@ CREATE TABLE `monan_nguyenlieu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `monan_nguyenlieu`
+-- Dumping data for table `monan_nguyenlieu`
 --
 
 INSERT INTO `monan_nguyenlieu` (`maMA`, `maNVL`) VALUES
@@ -328,7 +303,7 @@ INSERT INTO `monan_nguyenlieu` (`maMA`, `maNVL`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nguyenlieu`
+-- Table structure for table `nguyenlieu`
 --
 
 CREATE TABLE `nguyenlieu` (
@@ -343,7 +318,7 @@ CREATE TABLE `nguyenlieu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `nguyenlieu`
+-- Dumping data for table `nguyenlieu`
 --
 
 INSERT INTO `nguyenlieu` (`maNVL`, `tenNVL`, `slTon`, `donViTinh`, `moTa`, `ngayNhap`, `ngayHetHan`, `trangThai`) VALUES
@@ -386,7 +361,7 @@ INSERT INTO `nguyenlieu` (`maNVL`, `tenNVL`, `slTon`, `donViTinh`, `moTa`, `ngay
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nhanvien`
+-- Table structure for table `nhanvien`
 --
 
 CREATE TABLE `nhanvien` (
@@ -399,7 +374,7 @@ CREATE TABLE `nhanvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `nhanvien`
+-- Dumping data for table `nhanvien`
 --
 
 INSERT INTO `nhanvien` (`maNV`, `hoTen`, `idNguoiDung`, `maLoaiNV`, `ngayVaoLam`, `ngaySinh`) VALUES
@@ -411,7 +386,7 @@ INSERT INTO `nhanvien` (`maNV`, `hoTen`, `idNguoiDung`, `maLoaiNV`, `ngayVaoLam`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `taikhoannguoidung`
+-- Table structure for table `taikhoannguoidung`
 --
 
 CREATE TABLE `taikhoannguoidung` (
@@ -427,7 +402,7 @@ CREATE TABLE `taikhoannguoidung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `taikhoannguoidung`
+-- Dumping data for table `taikhoannguoidung`
 --
 
 INSERT INTO `taikhoannguoidung` (`idNguoiDung`, `username`, `pass`, `hoTen`, `email`, `loaiNguoiDung`, `trangThai`, `diaChi`, `SDT`) VALUES
@@ -443,7 +418,7 @@ INSERT INTO `taikhoannguoidung` (`idNguoiDung`, `username`, `pass`, `hoTen`, `em
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `vaitro`
+-- Table structure for table `vaitro`
 --
 
 CREATE TABLE `vaitro` (
@@ -452,7 +427,7 @@ CREATE TABLE `vaitro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `vaitro`
+-- Dumping data for table `vaitro`
 --
 
 INSERT INTO `vaitro` (`loaiNguoiDung`, `tenNguoiDung`) VALUES
@@ -464,23 +439,23 @@ INSERT INTO `vaitro` (`loaiNguoiDung`, `tenNguoiDung`) VALUES
 (6, 'Khách vãng lai');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `ctkm`
+-- Indexes for table `ctkm`
 --
 ALTER TABLE `ctkm`
   ADD PRIMARY KEY (`maKM`);
 
 --
--- Chỉ mục cho bảng `hoadon`
+-- Indexes for table `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`maHD`);
 
 --
--- Chỉ mục cho bảng `khachhang`
+-- Indexes for table `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`maKH`),
@@ -488,127 +463,127 @@ ALTER TABLE `khachhang`
   ADD KEY `FK_idnguoidung` (`idNguoiDung`);
 
 --
--- Chỉ mục cho bảng `loaikhachhang`
+-- Indexes for table `loaikhachhang`
 --
 ALTER TABLE `loaikhachhang`
   ADD PRIMARY KEY (`maLoaiKH`);
 
 --
--- Chỉ mục cho bảng `loaimonan`
+-- Indexes for table `loaimonan`
 --
 ALTER TABLE `loaimonan`
   ADD PRIMARY KEY (`maLoaiMA`);
 
 --
--- Chỉ mục cho bảng `loainhanvien`
+-- Indexes for table `loainhanvien`
 --
 ALTER TABLE `loainhanvien`
   ADD PRIMARY KEY (`maLoaiNV`),
   ADD UNIQUE KEY `tenLoaiNV` (`tenLoaiNV`);
 
 --
--- Chỉ mục cho bảng `monan`
+-- Indexes for table `monan`
 --
 ALTER TABLE `monan`
   ADD PRIMARY KEY (`maMA`);
 
 --
--- Chỉ mục cho bảng `monan_nguyenlieu`
+-- Indexes for table `monan_nguyenlieu`
 --
 ALTER TABLE `monan_nguyenlieu`
   ADD KEY `maMA` (`maMA`),
   ADD KEY `maNVL` (`maNVL`);
 
 --
--- Chỉ mục cho bảng `nguyenlieu`
+-- Indexes for table `nguyenlieu`
 --
 ALTER TABLE `nguyenlieu`
   ADD PRIMARY KEY (`maNVL`),
   ADD UNIQUE KEY `tenNVL` (`tenNVL`);
 
 --
--- Chỉ mục cho bảng `nhanvien`
+-- Indexes for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
   ADD PRIMARY KEY (`maNV`),
   ADD KEY `maLoaiNV` (`maLoaiNV`);
 
 --
--- Chỉ mục cho bảng `taikhoannguoidung`
+-- Indexes for table `taikhoannguoidung`
 --
 ALTER TABLE `taikhoannguoidung`
   ADD PRIMARY KEY (`idNguoiDung`);
 
 --
--- Chỉ mục cho bảng `vaitro`
+-- Indexes for table `vaitro`
 --
 ALTER TABLE `vaitro`
   ADD PRIMARY KEY (`loaiNguoiDung`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `ctkm`
+-- AUTO_INCREMENT for table `ctkm`
 --
 ALTER TABLE `ctkm`
   MODIFY `maKM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `hoadon`
+-- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
   MODIFY `maHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `loaimonan`
+-- AUTO_INCREMENT for table `loaimonan`
 --
 ALTER TABLE `loaimonan`
   MODIFY `maLoaiMA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `loainhanvien`
+-- AUTO_INCREMENT for table `loainhanvien`
 --
 ALTER TABLE `loainhanvien`
   MODIFY `maLoaiNV` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `monan`
+-- AUTO_INCREMENT for table `monan`
 --
 ALTER TABLE `monan`
   MODIFY `maMA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT cho bảng `nguyenlieu`
+-- AUTO_INCREMENT for table `nguyenlieu`
 --
 ALTER TABLE `nguyenlieu`
   MODIFY `maNVL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT cho bảng `nhanvien`
+-- AUTO_INCREMENT for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
   MODIFY `maNV` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `vaitro`
+-- AUTO_INCREMENT for table `vaitro`
 --
 ALTER TABLE `vaitro`
   MODIFY `loaiNguoiDung` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `khachhang`
+-- Constraints for table `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD CONSTRAINT `khachhang_ibfk_1` FOREIGN KEY (`maLoaiKH`) REFERENCES `loaikhachhang` (`maLoaiKH`);
 
 --
--- Các ràng buộc cho bảng `monan_nguyenlieu`
+-- Constraints for table `monan_nguyenlieu`
 --
 ALTER TABLE `monan_nguyenlieu`
   ADD CONSTRAINT `monan_nguyenlieu_ibfk_2` FOREIGN KEY (`maNVL`) REFERENCES `nguyenlieu` (`maNVL`);
