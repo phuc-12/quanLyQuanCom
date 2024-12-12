@@ -77,7 +77,8 @@
                     <img src="../../img/ChiPheologo.png" alt="" style="width: 150px; height: 150px; border-radius: 100px;">
                     <br>
                     <h3 id="ten">Phiếu thanh toán</h3>
-                    <p id="codeOrder">Number_invoice : <span id="codeOrder"><?php echo $maHD ?></span></p>
+                    <p style="    font-size: 19px;
+    color:#822c2c;">Number_invoice : <span id="codeOrder"><?php echo $maHD ?></span></p>
                     <?php ?>
                 </center>
                 <p id="in4"><?php echo $formattedDate ?></p>
@@ -161,7 +162,7 @@
                         }
                     ?>
                      <!-- Nút VN Pay -->
-                     <button id="thanhtoan"><b>VN Pay</b></button>
+                    <button id="thanhtoan"><b>VN Pay</b></button>
                     <!-- Modal Popup -->
                     <div id="qrcode" class="modal">
                         <div class="modal-content">
