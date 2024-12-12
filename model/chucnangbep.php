@@ -2,7 +2,7 @@
 class tmdt{
 	public function connect()
 	{
-		$con=mysqli_connect("localhost","trieu","123");
+		$con=mysqli_connect("localhost","root","");
 		if(!$con)
 		{
 			echo 'Không kết nối được cơ sở dữ liệu';
