@@ -3,7 +3,7 @@
 class tmdt{
     public function connect()
 	{
-		$con=mysqli_connect("localhost","trieu","123");
+		$con=mysqli_connect("localhost","root","","db_chipheo");
 		if(!$con)
 		{
 			echo 'Khong ket noi duoc csdl';
