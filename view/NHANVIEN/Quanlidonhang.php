@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    $_SESSION['ma_nhan_vien'] = $_REQUEST['id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

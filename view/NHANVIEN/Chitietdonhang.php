@@ -1,6 +1,8 @@
 <?php
     include_once("../../model/chucnangnhanvien.php");
     $p=new tmdt();
+    session_start();
+    $ma_nhan_vien = $_SESSION['ma_nhan_vien'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,8 +68,8 @@
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="ThongtinNhanVien.php?id=8">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="CN_thongtin.php?id=8">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="ThongtinNhanVien.php?id=<?php echo $ma_nhan_vien; ?>">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="CN_thongtin.php?id=<?php echo $ma_nhan_vien; ?>">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
                 </div>
