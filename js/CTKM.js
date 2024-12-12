@@ -1,23 +1,23 @@
 $(document).ready(function(){
     //kiem tra maKM
-    function ktmaKM() {
-        let maKM = $("#maKM").val();
-        let regex = /^\d+$/; //chi được điền số
-        if (maKM == "") {
-            $("#errMa").html("Không được để trống");
-            return false;
-        }else if (!regex.test(maKM)){
-            $("#errMa").html("Mã không hợp lệ - chỉ được điền số");
-            return false;
-        }
-        else {
-            $("#errMa").html("<b style='font-size: 20px;'>*</b>");
-            return true;
-        }
-    }
-    $("#maKM").blur(function(e){
-        ktmaKM();
-    });
+    // function ktmaKM() {
+    //     let maKM = $("#maKM").val();
+    //     let regex = /^\d+$/; //chi được điền số
+    //     if (maKM == "") {
+    //         $("#errMa").html("Không được để trống");
+    //         return false;
+    //     }else if (!regex.test(maKM)){
+    //         $("#errMa").html("Mã không hợp lệ - chỉ được điền số");
+    //         return false;
+    //     }
+    //     else {
+    //         $("#errMa").html("<b style='font-size: 20px;'>*</b>");
+    //         return true;
+    //     }
+    // }
+    // $("#maKM").blur(function(e){
+    //     ktmaKM();
+    // });
     
     //kiem tra ten
     function ktTenCTKM() {

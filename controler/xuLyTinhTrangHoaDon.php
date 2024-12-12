@@ -1,6 +1,5 @@
 <?php
 include_once('../model/ketnoi.php');
-// Bắt đầu session (nếu cần thiết)
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['codeOrder'])) {
@@ -10,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $con = $p->moKetNoi();  
 
         $update_sql = "UPDATE hoadon SET trangThai = ? WHERE maHD = ?";
-        $stmt = $con->prepare($update_sql);
-        $stmt->bind_param("si", $trangThai, $codeOrder); 
+        $truyvan = $con->prepare($update_sql);
+        $truyvan->bind_param("si", $trangThai, $codeOrder); 
 
-        if ($stmt->execute()) {
+        if ($truyvan->execute()) {
             echo json_encode([
                 'status' => 'success',
                 'message' => 'Thanh toán thành công cho mã hóa đơn ' . $codeOrder
@@ -21,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo json_encode([
                 'status' => 'error',
-                'message' => 'Lỗi khi thực thi câu lệnh SQL: ' . $stmt->error
+                'message' => 'Lỗi khi thực thi câu lệnh SQL: ' . $truyvan->error
             ]);
         }
 
-        $stmt->close();
+        $truyvan->close();
         $con->close();
 
     } else {

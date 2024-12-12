@@ -45,7 +45,7 @@
             </div>
         </div>
         <nav class="main-nav">
-            <a href="index.php">TRANG CHỦ</a>
+            <a href="../index.php">TRANG CHỦ</a>
             <a href="intro-menu.php">THỰC ĐƠN</a>
             <div class="logo">
                 <img src="IMG/ChiPheologo.png" alt="">
