@@ -49,13 +49,10 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="button-container">
-            <a href="#" class="dashboard-button">
-                Theo dõi tình trạng đơn hàng
-            </a>
-            <a href="#" class="dashboard-button">
+            <a href="xemdonhang.php?id=<?php echo $layid; ?>" class="dashboard-button">
                 Xem lịch sử đơn hàng
             </a>
-            <a href="#" class="dashboard-button">
+            <a href="xemkm.php?id=<?php echo $layid; ?>" class="dashboard-button">
                 Xem ưu đãi
             </a>
             <a href="CN_thongtin.php?id=<?php echo $layid ?>"  class="dashboard-button">

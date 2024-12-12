@@ -80,5 +80,28 @@
                 return false;
             }
         }
+
+        public function searchMonAn($searchTerm)
+    {
+        // Create a new database connection object
+        $p = new clsKetNoi();
+        $conn = $p->moketnoi();
+        $conn->set_charset('utf8'); // Set the charset for the connection
+
+        // If the connection is established
+        if ($conn) {
+            // Create a SQL query to search for dishes with the given search term
+            $str = "SELECT * FROM monan WHERE tenMA LIKE '%$searchTerm%'";
+
+            $result = $conn->query($str);
+            // Close the connection
+            $p->dongketnoi($conn);
+
+            // Return the result as an associative array
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return false; // Return false if connection fails
+        }
+    }
     }
 ?>

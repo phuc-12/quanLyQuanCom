@@ -26,6 +26,34 @@
             $p->dongKetNoi($con);
             return $kq;
         }
+
+        public function xemdonhang($id)
+    {
+        $p = new clsKetNoi();
+        $con = $p->moKetNoi();
+
+        // Query to get all promotions
+        $sql = "SELECT * FROM hoadon WHERE maKH = $id";
+        $kq = mysqli_query($con, $sql);
+
+        $p->dongKetNoi($con);
+
+        return $kq;  // Returns the query result
+    }
+
+    public function selectAllKM()
+    {
+        $p = new clsKetNoi();
+        $con = $p->moKetNoi();
+
+        // Query to get all promotions
+        $sql = "SELECT * FROM ctkm WHERE 1";
+        $kq = mysqli_query($con, $sql);
+
+        $p->dongKetNoi($con);
+
+        return $kq;  // Returns the query result
+    }
     }
 
 ?>
