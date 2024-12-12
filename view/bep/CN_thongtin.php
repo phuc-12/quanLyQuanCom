@@ -43,7 +43,7 @@
     <div class="container-fluid p-0">
         <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
-                    <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+                <a href=""><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
 
                 <div class="nav-item dropdown">
