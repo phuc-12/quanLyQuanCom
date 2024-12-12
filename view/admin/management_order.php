@@ -179,7 +179,7 @@
 
                         </nav>
                         <form method="post" enctype="multipart/form-data" name="form1" id="form1" style="width: 50%; float: right; background-color: white; padding-top: 10px;">
-                            
+                        <a href="../NHANVIEN/Themdonmoi.php?id=21008921" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM ĐƠN HÀNG</a>
                             <input type="submit" name="btnxoa" id="btnxoa" value="XÓA ĐƠN HÀNG" onclick="return confirmDelete(<?php echo $layid; ?>)" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
                             
                             </form>

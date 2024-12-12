@@ -2,6 +2,9 @@
     include_once("../../model/chucnangnhanvien.php");
     $p = new tmdt();
 
+    session_start();
+    $ma_nhan_vien = $_SESSION['ma_nhan_vien'];
+
     // xử lý thông tin 
     include("../../controler/cThanhToan.php");
     if (isset($_GET['orderId'])) {
@@ -169,7 +172,7 @@
                             <div class="wp-center-qr">
                                 <img id="code" src="../../img/qrcode.jpg" alt="QR Code" style="margin-bottom: 10px;">
                                 <button id="done" class="thanhtoanchung" onclick="return confirmPayment(event)">
-                                    <a href="#" >Hoàn tất</a>
+                                    <a href="../NHANVIEN/Quanlidonhang.php?id=<?php echo $ma_nhan_vien; ?>" >Hoàn tất</a>
                                 </button>
                             </div>
                         </div>
@@ -186,7 +189,7 @@
         const total_after_calculating_discounts = document.getElementById('total-after-calculating-discounts').innerText;
         const confirmationMessage = 'Xác nhận thanh toán thành công với số tiền ' + total_after_calculating_discounts + ' VND.';
         const url = window.location.origin + '/quanLyQuanCom/controler/xuLyTinhTrangHoaDon.php';
-        const url_redirect = window.location.origin + '/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php';
+        // const url_redirect = window.location.origin + '/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php';
         const codeOrder = document.getElementById('codeOrder').innerText;
         const isConfirmed = confirm(confirmationMessage);
         if (isConfirmed) {
@@ -201,9 +204,11 @@
             },
             success: function(response) {
                 console.log('Thanh toán thành công:', response);
+                const employee = <?php echo $ma_nhan_vien; ?>
                 // Xử lý thêm sau khi thanh toán thành công
                 if(response.status === 'success'){
-                    window.location.href = url_redirect;
+                    
+                    window.location.href = `Quanlidonhang.php?id=${employee}`;
                 }
             },
             error: function(error) {
