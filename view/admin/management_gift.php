@@ -76,6 +76,12 @@
                             Quản lý đơn hàng
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="management_materials.php">
+                            <i class="fa fa-cubes"></i>
+                            Quản lý nguyên liệu
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -85,7 +91,7 @@
                 <div class="thongKe_gift" style="border-radius: 10px;">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
                         <p style="font-size: 20px; float: left;">Thống kê số liệu</p>
-                        <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a>
+                        <!-- <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a> -->
                     </div>
                     <div style="padding: 50px; width: 100%; height: 150px; border-bottom: 1px solid #E5E5E5;">
                         <div>

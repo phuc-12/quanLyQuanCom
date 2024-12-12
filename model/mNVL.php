@@ -30,15 +30,15 @@
             }
         }
 
-        public function SelectCountCTKM()
+        public function SelectCountNVL()
         {
             $p = new clsKetNoi();
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');
             if($conn){
-                $str = "SELECT COUNT(*) as total FROM ctkm";
-                $tblKM = $conn->query($str);
-                $result = $tblKM->fetch_assoc(); // Lấy kết quả đếm
+                $str = "SELECT COUNT(*) as total FROM nguyenlieu";
+                $tblNVL = $conn->query($str);
+                $result = $tblNVL->fetch_assoc(); // Lấy kết quả đếm
                 $p->dongketnoi($conn);
                 return $result['total']; // Trả về số lượng
             } else {
@@ -46,15 +46,15 @@
             }
         }
 
-        public function SelectCountALLCTKM()
+        public function SelectCountALLNVL()
         {
             $p = new clsKetNoi();
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');
             if($conn){
-                $str = "SELECT COUNT(*) as total FROM ctkm ";
-                $tblKM = $conn->query($str);
-                $result = $tblKM->fetch_assoc(); // Lấy kết quả đếm
+                $str = "SELECT COUNT(*) as total FROM nguyenlieu ";
+                $tblNVL = $conn->query($str);
+                $result = $tblNVL->fetch_assoc(); // Lấy kết quả đếm
                 $p->dongketnoi($conn);
                 return $result['total']; // Trả về số lượng
             } else {
@@ -62,15 +62,15 @@
             }
         }
         
-        public function SelectCountCTKMCon()
+        public function SelectCountNVLCon()
         {
             $p = new clsKetNoi();
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');
             if($conn){
-                $str = "SELECT COUNT(*) as total FROM ctkm WHERE trangThai = 1";
-                $tblKM = $conn->query($str);
-                $result = $tblKM->fetch_assoc(); // Lấy kết quả đếm
+                $str = "SELECT COUNT(*) as total FROM nguyenlieu WHERE trangThai = 1";
+                $tblNVL = $conn->query($str);
+                $result = $tblNVL->fetch_assoc(); // Lấy kết quả đếm
                 $p->dongketnoi($conn);
                 return $result['total']; // Trả về số lượng
             } else {
@@ -78,15 +78,15 @@
             }
         }
 
-        public function SelectCountCTKMHet()
+        public function SelectCountNVLHet()
         {
             $p = new clsKetNoi();
             $conn = $p->moketnoi();
             $conn->set_charset('utf8');
             if($conn){
-                $str = "SELECT COUNT(*) as total FROM ctkm WHERE trangThai = 2";
-                $tblKM = $conn->query($str);
-                $result = $tblKM->fetch_assoc(); // Lấy kết quả đếm
+                $str = "SELECT COUNT(*) as total FROM nguyenlieu WHERE trangThai = 2";
+                $tblNVL = $conn->query($str);
+                $result = $tblNVL->fetch_assoc(); // Lấy kết quả đếm
                 $p->dongketnoi($conn);
                 return $result['total']; // Trả về số lượng
             } else {
