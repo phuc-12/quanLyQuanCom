@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $('button.thanhtoan , button.thanhtoanchung').on('click',function(){
-      var accumulated_points = $('.accumulated-points').text();
-      var total_after_calculating_discounts = $('#total-after-calculating-discounts').text();
-      var maKh = $('.code-customer').text();
+      var diemTichLuy = $('.diemTL').text();
+      var tongTienSauGiam = $('#total-sau-giamgia').text();
+      var maKh = $('.maKhHang').text();
       var url = window.location.origin + '/quanLyQuanCom/controler/xyLyTichDiem.php';
       // thông báo alert(url);
       $.ajax({
@@ -10,8 +10,8 @@ $(document).ready(function(){
         type: 'POST', 
         data: {
             maKh : maKh,
-            accumulated_points: accumulated_points, 
-            total_after_calculating_discounts: total_after_calculating_discounts
+            diemTichLuy: diemTichLuy, 
+            tongTienSauGiam: tongTienSauGiam
         },
          dataType: 'json',  
         success: function(response) {

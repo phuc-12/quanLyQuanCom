@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($truyvan->execute()) {
             echo json_encode([
                 'status' => 'success',
-                'message' => 'Thanh toán thành công cho mã hóa đơn ' . $codeOrder
+                // 'message' => 'Thanh toán thành công cho mã hóa đơn ' . $codeOrder
             ]);
         } else {
             echo json_encode([
                 'status' => 'error',
-                'message' => 'Lỗi khi thực thi câu lệnh SQL: ' . $truyvan->error
+                // 'message' => 'Lỗi khi thực thi câu lệnh SQL: ' . $truyvan->error
             ]);
         }
 
@@ -30,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo json_encode([
             'status' => 'error',
-            'message' => 'Không tìm thấy mã đơn hàng'
+            // 'message' => 'Không tìm thấy mã đơn hàng'
         ]);
     }
 } else {
     echo json_encode([
         'status' => 'error',
-        'message' => 'Yêu cầu không hợp lệ'
+        // 'message' => 'Yêu cầu không hợp lệ'
     ]);
 }
 ?>

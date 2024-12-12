@@ -7,7 +7,7 @@
             $sql = "SELECT k.hoTen, t.diaChi, t.sdt ,k.diemTichLuy
                     FROM khachhang k
                     JOIN taikhoannguoidung t ON k.idNguoiDung = t.idNguoiDung
-                    WHERE k.maKH = ?";  // ? làm placeholder cho tham số
+                    WHERE k.maKH = ?"; 
         
             // SQL
             if ($truyvan = $con->prepare($sql)) {
@@ -120,13 +120,13 @@
                 $result = $truyvan->get_result();
                 $data = [];
                 while ($row = $result->fetch_assoc()) {
-                    $data[] = $row['loaiKH'];  // Thêm mỗi bản ghi vào mảng $data
+                    $data[] = $row['loaiKH']; 
                 }
                 $truyvan->close();
                 $p->dongKetNoi($con);
                 return $data[0];
             } else {
-                // Nếu không thể chuẩn bị câu lệnh SQL, in lỗi
+                // báo lỗi
                 echo "Lỗi trong câu lệnh SQL: " . $con->error;
                 $p->dongKetNoi($con);
                 return false;
@@ -139,12 +139,12 @@
         $sql = "SELECT * FROM ctkm WHERE loaiKH = ?";
 
         if ($truyvan = $con->prepare($sql)) {
-            $truyvan->bind_param("s", $loaiKH);  // "s" chỉ ra rằng tham số là kiểu string (chuỗi)
+            $truyvan->bind_param("s", $loaiKH);
             $truyvan->execute();
             $result = $truyvan->get_result();
             $data = [];
             while ($row = $result->fetch_assoc()) {
-                $data[] = $row;  // Thêm mỗi bản ghi vào mảng $data
+                $data[] = $row; 
             }
             $truyvan->close();
             $p->dongKetNoi($con);
