@@ -77,7 +77,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../management_employ.php" style="background-color: #E5E5E5;">
+                        <a class="nav-link" href="../management_employ.php" >
                             <i class="fa fa-address-card"></i>
                             Quản lý nhân viên
                         </a>
@@ -89,7 +89,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../management_gift.php">
+                        <a class="nav-link" href="../management_gift.php" style="background-color: #E5E5E5;">
                             <i class="fa fa-gift"></i>
                             Quản lý chương trình khuyến mãi
                         </a>
@@ -98,6 +98,12 @@
                         <a class="nav-link" href="../management_order.php">
                             <i class="fa fa-shopping-cart"></i>
                             Quản lý đơn hàng
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="management_materials.php">
+                            <i class="fa fa-cubes"></i>
+                            Quản lý nguyên liệu
                         </a>
                     </li>
                 </ul>
@@ -186,13 +192,9 @@
                                         {
                                             echo'<script language="javascript">
                                             alert("Cập nhật thành công");	
-                                            window.location="../management_gift.php";
+                                            window.location="view_updateCTKM.php?id='.$maKM.'";
                                             </script>';
                                         }
-                                        echo'<script language="javascript">
-                                        window.location="view_updateCTKM.php?id='.$maKM.'";
-                                        </script>';
-                                        
                                     }
                                     else
                                     {

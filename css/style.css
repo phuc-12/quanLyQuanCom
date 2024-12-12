@@ -609,6 +609,8 @@
 }
 .food-img img {
     border-radius: 20px;
+    height: 700px;
+    width: 700px;
     box-shadow: 10px 5px 30px;
 }
 

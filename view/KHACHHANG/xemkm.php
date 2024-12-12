@@ -111,15 +111,19 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
         </div>
 
         <!-- Main Navigation -->
-        <!-- <nav class="main-nav">
-            <a href="index.php">TRANG CHỦ</a>
-            <a href="intro-menu.php">THỰC ĐƠN</a>
+
+        <nav class="main-nav">
+            <a href="../../index.php">TRANG CHỦ</a>
+            <a href="../../intro-menu.php">THỰC ĐƠN</a>
+
             <div class="logo">
-                <img src="IMG/ChiPheologo.png" alt="">
+                <img src="../../IMG/ChiPheologo.png" alt="">
             </div>
-            <a href="intro.php">GIỚI THIỆU</a>
-            <a href="#">KHUYẾN MÃI</a>
-        </nav> -->
+
+            <a href="../../intro.php">GIỚI THIỆU</a>
+            <a href="xemkm.php">KHUYẾN MÃI</a>
+        </nav>
+
 
         <!-- Category Navigation -->
         <!-- <div class="category-nav">
@@ -153,7 +157,7 @@ $promotions = $ccontrollerKM->getAllKM();  // Pass the search term to the contro
                             <p class="card-text"><?= htmlspecialchars($promotion['moTa']) ?></p>
                             <p><strong>Chiết khấu: </strong><?= htmlspecialchars($promotion['chietKhau']) ?>%</p>
                             <p><strong>Thời gian: </strong><?= htmlspecialchars($promotion['thoiGianBatDau']) ?> đến <?= htmlspecialchars($promotion['thoiGianKetThuc']) ?></p>
-                            <p><strong>Trạng thái: </strong><?= htmlspecialchars($promotion['trangThai']) == 1 ? 'Active' : 'Inactive' ?></p>
+                            <p><strong>Trạng thái: </strong><?= htmlspecialchars($promotion['trangThai']) == 1 ? 'Còn hạn' : 'Hết hạn' ?></p>
                         </div>
                     </div>
                 </div>

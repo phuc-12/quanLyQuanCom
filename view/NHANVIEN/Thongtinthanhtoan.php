@@ -153,14 +153,14 @@
                 <?php $total = $total * 1000 ?>
                 <p id="in4">Chiết khấu : <span id="discount">0đ</span></p>
                 <p id="in4">Hóa đơn tạm tính : <span id="totalPrice" data-value="<?php echo $total ?>"><?= number_format($total, 0, '', '.') ?></span> VND</p>
-                <p style=" font-size: 19px;color: rgb(172, 8, 8);">Tổng thanh toán &nbsp; : <span id="total-after-calculating-discounts"><?= number_format($total, 0, '', '.') ?></span> VND</p>
+                <p style=" font-size: 19px;color: rgb(172, 8, 8);">Tổng thanh toán &nbsp; : <span id="total-sau-giamgia"><?= number_format($total, 0, '', '.') ?></span> VND</p>
                 <p></p>
                 <button class="button thanhtoan"><a href="#" onclick="return confirmPayment(event)"><b>Tiền mặt</b></a></button>
                     <?php 
                         foreach ($result as $r) {
                         ?>
-                        <p class="accumulated-points" hidden><?= $r['diemTichLuy']?></p>
-                        <p class="code-customer" hidden><?= $maKH?></p>
+                        <p class="diemTL" hidden><?= $r['diemTichLuy']?></p>
+                        <p class="maKhHang" hidden><?= $maKH?></p>
                         <?php
                         }
                     ?>
@@ -187,17 +187,17 @@
 <script>
     function confirmPayment(event) {
         event.preventDefault();
-        const total_after_calculating_discounts = document.getElementById('total-after-calculating-discounts').innerText;
-        const confirmationMessage = 'Xác nhận thanh toán thành công với số tiền ' + total_after_calculating_discounts + ' VND.';
+        const tongTienSauGiam = document.getElementById('total-sau-giamgia').innerText;
+        const thongBaoXacNhan = 'Xác nhận thanh toán thành công với số tiền ' + tongTienSauGiam + ' VND.';
         const url = window.location.origin + '/quanLyQuanCom/controler/xuLyTinhTrangHoaDon.php';
         // const url_redirect = window.location.origin + '/quanLyQuanCom/view/NHANVIEN/Quanlidonhang.php';
         const codeOrder = document.getElementById('codeOrder').innerText;
-        const isConfirmed = confirm(confirmationMessage);
+        const isConfirmed = confirm(thongBaoXacNhan);
         if (isConfirmed) {
         // Đóng modal
         document.getElementById('qrcode').style.display = 'none';
         $.ajax({
-            url: url,  // Thay đổi thành URL của bạn
+            url: url,
             method: 'POST',
             dataType :'json',
             data: {
@@ -209,7 +209,7 @@
                 // Xử lý thêm sau khi thanh toán thành công
                 if(response.status === 'success'){
                     
-                    window.location.href = `Quanlidonhang.php?id=${employee}`;
+                    window.location.href = `Quanlidonhang.php?id=${employee}`; // quay ve trang qli
                 }
             },
             error: function(error) {

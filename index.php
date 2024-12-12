@@ -49,10 +49,12 @@
                 <span style=" margin-left: -20px ;">Thứ 2 - Chủ nhật / 7:00 - 18:00</span>
             </div>
             <div class="auth-buttons">
-                <!-- <div class="search">
-                    <input type="search" placeholder="" autocomplete="off" id="s">
-                    <input type="submit" name="btn" id="btn" value="Search">
-                </div> -->
+            <div class="search">
+                    <form action="view/KHACHHANG/searchResults.php" method="GET">
+                        <input type="search" name="query" placeholder="Bạn cần tìm gì" autocomplete="off" required>
+                        <input type="submit" name="btn" id="btn" value="Search">
+                    </form>
+                </div>
                 <a href="view/dangky.php">Đăng ký</a>
                 <a href="view/dangnhap.php">Đăng nhập</a>
             </div>
@@ -66,7 +68,7 @@
                 <img src="IMG/ChiPheologo.png" alt="">
             </div>
             <a href="intro.php">GIỚI THIỆU</a>
-            <a href="#">KHUYẾN MÃI</a>
+            <a href="view/KHACHHANG/xemkm.php">KHUYẾN MÃI</a>
         </nav>
 
         <!-- Category Navigation -->

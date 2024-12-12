@@ -89,8 +89,8 @@ if (isset($_GET['dangxuat'])) {
                         <input type="submit" name="btn" id="btn" value="Search">
                     </form>
                 </div>
-                <div class="date" style="float:right; margin-right: 50px; margin-top: 10px;"><span>📅</span><span id="currentDate"></span></div>
-        <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
+            <div class="date" style="float:right; margin-right: 50px; margin-top: 10px;"><span>📅</span><span id="currentDate"></span></div>
+            <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
 
     <div class="sidebar" id="sidebar">
@@ -107,13 +107,13 @@ if (isset($_GET['dangxuat'])) {
 
         <!-- Main Navigation -->
         <nav class="main-nav">
-            <a href="index.php">TRANG CHỦ</a>
-            <a href="intro-menu.php">THỰC ĐƠN</a>
+            <a href="../../index.php">TRANG CHỦ</a>
+            <a href="../../intro-menu.php">THỰC ĐƠN</a>
             <div class="logo">
-                <img src="IMG/ChiPheologo.png" alt="">
+                <img src="../../IMG/ChiPheologo.png" alt="">
             </div>
-            <a href="intro.php">GIỚI THIỆU</a>
-            <a href="#">KHUYẾN MÃI</a>
+            <a href="../../intro.php">GIỚI THIỆU</a>
+            <a href="xemkm.php">KHUYẾN MÃI</a>
         </nav>
 
         <!-- Category Navigation -->
@@ -147,7 +147,6 @@ if (!empty($timMon)) { ?>
                 <div class="sp-img" style="width: 200px; height: 200px;">
                     <?php
                     $mon = $row['maLoaiMA'];
-                    echo $row['hinhAnh'];
                     if ($mon == 1) {
                         // For 'monman' category
                         echo '<img src="../../img/monman/' . $row['hinhAnh'] . '" class="card-img-top" alt="' . $row['tenMA'] . '"style="width: 200px; height: 200px;">';
