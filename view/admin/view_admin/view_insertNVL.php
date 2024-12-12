@@ -140,7 +140,7 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="ngayNhap">Ngày Nhập: </label></td>
-                            <td><label for="ngaynhap">Ngày nhập:</label>
+                            <td>
                                 <input type="date" id="ngayNhap" name="ngayNhap" placeholder="DD/MM/YY" class="form-control">
                                 <span class="text-danger" id="tbngayNhap"></span>
                                 <script>
