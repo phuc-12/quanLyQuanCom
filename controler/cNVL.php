@@ -1,6 +1,5 @@
 <?php
-
-    include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mCTKM.php");
+    include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mNVL.php");
     class CNVL{
         public function getAllNVL(){
             $p = new MNVL();
@@ -17,11 +16,11 @@
         }
 
 		public function getAllTrangThaiNVL($comp){
-            $p = new MCTKM();
-            $tbl = $p->SelectAllTrangThaiNVL($comp);
-            if($tbl){
-                if($tbl->num_rows>0){
-                    return $tbl;
+            $p = new MNVL();
+            $tblNVL = $p->SelectAllTrangThaiNVL($comp);
+            if($tblNVL){
+                if($tblNVL->num_rows>0){
+                    return $tblNVL;
                 }else{
                     return -1; //không có dữ liệu trong bảng
                 }
@@ -30,12 +29,12 @@
             }
         }
 
-        public function GetCountCTKM(){
-            $p = new MCTKM();
-            $tblMA = $p->SelectCountCTKM();
-            if($tblMA){ 
-                if($tblMA>0){
-                    return $tblMA;
+        public function GetCountNVL(){
+            $p = new MNVL();
+            $tblNVL = $p->SelectCountNVL();
+            if($tblNVL){ 
+                if($tblNVL>0){
+                    return $tblNVL;
                 }else{
                     return -1; //không có dữ liệu trong bảng
                 }
@@ -44,12 +43,12 @@
             }
         }
 
-        public function GetCountALLCTKM(){
-            $p = new MCTKM();
-            $tblCTKM = $p->SelectCountALLCTKM();
-            if($tblCTKM){ 
-                if($tblCTKM>0){
-                    return $tblCTKM;
+        public function GetCountALLNVL(){
+            $p = new MNVL();
+            $tblNVL = $p->SelectCountALLNVL();
+            if($tblNVL){ 
+                if($tblNVL>0){
+                    return $tblNVL;
                 }else{
                     return -1; //không có dữ liệu trong bảng
                 }
@@ -58,12 +57,12 @@
             }
         }
 
-        public function GetCountCTKMCon(){
-            $p = new MCTKM();
-            $tblCTKM = $p->SelectCountCTKMCon();
-            if($tblCTKM){ 
-                if($tblCTKM>0){
-                    return $tblCTKM;
+        public function GetCountNVLCon(){
+            $p = new MNVL();
+            $tblNVL = $p->SelectCountNVLCon();
+            if($tblNVL){ 
+                if($tblNVL>0){
+                    return $tblNVL;
                 }else{
                     return -1; //không có dữ liệu trong bảng
                 }
@@ -72,12 +71,12 @@
             }
         }
 
-        public function GetCountCTKMHet(){
-            $p = new MCTKM();
-            $tblCTKM = $p->SelectCountCTKMHet();
-            if($tblCTKM){ 
-                if($tblCTKM>0){
-                    return $tblCTKM;
+        public function GetCountNVLHet(){
+            $p = new MNVL();
+            $tblNVL = $p->SelectCountNVLHet();
+            if($tblNVL){ 
+                if($tblNVL>0){
+                    return $tblNVL;
                 }else{
                     return -1; //không có dữ liệu trong bảng
                 }

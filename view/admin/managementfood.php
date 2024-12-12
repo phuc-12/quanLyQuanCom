@@ -47,13 +47,13 @@
         <div class="nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php" style="background-color: #E5E5E5;">
+                        <a class="nav-link" href="admin.php">
                             <i class="fa fa-tachometer"></i>
                                 Tổng quát
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="managementfood.php">
+                        <a class="nav-link" href="managementfood.php" style="background-color: #E5E5E5;">
                             <i class="fa fa-spoon"></i>
                                 Quản lý thực đơn
                         </a>
@@ -97,7 +97,7 @@
                 <div class="thongKe_food" style="border-radius: 10px;">
                     <div style="width: 100%; height: 60px; padding: 10px; border-bottom: 0.5px solid #E5E5E5;">
                         <p style="font-size: 20px; float: left;">Thống kê số liệu</p>
-                        <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a>
+                        <!-- <a href="#ds_food" class="btn btn-outline-secondary" style="float:right;">Tất cả</a> -->
                     </div>
                     <div style="padding: 50px; width: 100%; height: 150px; border-bottom: 1px solid #E5E5E5;">
                         <div>

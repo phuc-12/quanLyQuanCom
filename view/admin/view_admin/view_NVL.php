@@ -30,7 +30,7 @@
                             <th>Đơn Vị Tính</th>
                             <th>Mô Tả</th>
                             <th>Ngày Nhập</th>
-                            <th>Ngày Hết hạn</th>
+                            <th>Ngày Hết Hạn</th>
                             <th>Trạng Thái</th>
                         </tr>
                     </thead>
@@ -51,7 +51,7 @@
                             case 1: 
 
                                 {
-                                    echo '<td>Còn</td>';
+                                    echo '<td>Còn Hàng</td>';
                                     break;
                                 }
 
