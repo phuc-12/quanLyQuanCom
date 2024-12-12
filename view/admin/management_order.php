@@ -32,10 +32,10 @@
         </div>
 
         <div id="content">
-            <div class="nav">
+        <div class="nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php">
+                        <a class="nav-link" href="admin.php" style="background-color: #E5E5E5;">
                             <i class="fa fa-tachometer"></i>
                                 Tổng quát
                         </a>
@@ -65,9 +65,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="management_order.php" style="background-color: #E5E5E5;">
+                        <a class="nav-link" href="management_order.php">
                             <i class="fa fa-shopping-cart"></i>
                             Quản lý đơn hàng
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="management_materials.php">
+                            <i class="fa fa-cubes"></i>
+                            Quản lý nguyên liệu
                         </a>
                     </li>
                 </ul>
