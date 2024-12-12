@@ -1,5 +1,5 @@
 <?php
-    include_once('../model/mNguoiDung.php');
+    include($_SERVER['DOCUMENT_ROOT'] . "/quanLyQuanCom/model/mNguoiDung.php");
     class cNguoiDung
     {
         public function get01NguoiDung($user,$pw)
@@ -83,6 +83,28 @@
             else
             {
                 echo '<script>alert("Thêm Thất bại")</script>';
+            }
+        }
+
+        public function xemhoadon($id)
+        {
+            $p = new mNguoiDung();
+            $kq = $p->xemdonhang($id);
+            if (mysqli_num_rows($kq) > 0) {
+                return $kq;
+            } else {
+                return false;
+            }
+        }
+
+        public function getAllKM()
+        {
+            $p = new mNguoiDung();
+            $kq = $p->selectAllKM();
+            if (mysqli_num_rows($kq) > 0) {
+                return $kq;
+            } else {
+                return false;
             }
         }
         

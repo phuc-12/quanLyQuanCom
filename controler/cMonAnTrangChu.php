@@ -68,6 +68,16 @@
             }
         }
 
+        public function searchAction($searchTerm)
+    {
+        // Create an instance of the MMonAnTrangChu model
+        $p = new MMonAnTrangChu();
+
+        // Call the model's search function and get the results
+        return $p->searchMonAn($searchTerm); // Call the method directly on $p
+    }
+
+
     }
 
 ?>
