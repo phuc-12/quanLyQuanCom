@@ -73,11 +73,14 @@ $laymoTa= $p->laycot("select moTa from nguyenlieu where maNVL='$layid'");
                     <input type="text" value="<?php echo $layslTon;?>" readonly>
 
                     <label>Tình trạng:</label>
-                    <input type="text" value="<?php if ($laytrangThai == 2) {
-                                                        echo "Hết NVL";
-                                                    } else if($laytrangThai == 1) {
-                                                        echo "Còn hàng";
-                                                    }?>" readonly>
+                    <?php
+                        if($laytrangThai == 2) {
+                            echo "<input type='text' value='Hết' readonly>";
+                        } else if($laytrangThai == 1) {
+                            echo "<input type='text' value='Còn hàng' readonly>";
+                        }
+                    ?>
+                    
                     <label>Ngày nhập:</label>
                     <input type="text" value="<?php echo $layngayNhap;?>" readonly>
 

@@ -35,16 +35,27 @@
             $layemail=$p->laycot("select t.email from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
             $laytrangthai=$p->laycot("select t.trangThai from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
             $laydiachi=$p->laycot("select t.diaChi from nhanvien n join taikhoannguoidung t on n.idNguoiDung = t.idNguoiDung where maNV = '$layid' limit 1");
-
     ?>
     <div class="container-fluid p-0">
             <div id="ql_header">
                 <div class="logo" style="padding: 0; border-radius: 100px;">
                     <a href=""><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
                 </div>
-                <a class="trangChu" href="NV_quanli.php?id=<?php echo $layid; ?>">
-                     <h4>Trang nhân viên</h4>
-                </a>
+                <?php
+                    if($layid == 1)
+                    {
+                        echo '<a class="trangChu" href="../bep/bep_trangchu.php?id='.$layid.'">
+                                <h4>Trang bếp</h4>
+                            </a>';
+                    }
+                    else
+                    {
+                        echo '<a class="trangChu" href="NV_quanli.php?id='.$layid.'">
+                                <h4>Trang nhân viên</h4>
+                            </a>';
+                    }
+                ?>
+                
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
                     <ul class="dropdown-menu">

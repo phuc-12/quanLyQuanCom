@@ -76,7 +76,7 @@ class tmdt{
 				$donViTinh=$row['donViTinh'];
                 $trangThai=$row['trangThai'];
 			
-				if ($trangThai == 0) {
+				if ($trangThai == 2) {
 					$trangThaiText = "Hết hàng";
 				} else {
 					$trangThaiText = "Còn hàng";
