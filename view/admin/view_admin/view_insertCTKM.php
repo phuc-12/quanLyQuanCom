@@ -103,6 +103,12 @@
                             Quản lý đơn hàng
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="management_materials.php" style="background-color: #E5E5E5;">
+                            <i class="fa fa-cubes"></i>
+                            Quản lý nguyên liệu
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -114,7 +120,7 @@
                         <tr>
                             <td style="width: 150px;"><label for="maKM">Mã Chương Trình Khuyến Mãi:</label></td>
                             <td><input type="input" class="form-control" size="200" id="maKM" placeholder="Nhập mã chương trình khuyến mãi" name="maKM" value="<?php echo $newInvoiceCode?>" readonly></td>
-                            <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
+                            <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="tenKM">Tên Khuyến Mãi:</label></td>
@@ -128,12 +134,7 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
-                            <td>
-                                <select name="trangThai" id="trangThai">
-                                    <option value="1">Còn hạn</option>
-                                    <option value="2">Hết hạn</option>
-                                </select>
-                            </td>
+                            <td><input type="input" class="form-control" size="200" id="trangThai"  name="trangThai" value="<?php echo $trangThai=1?>" readonly></td>
                             <!-- <td style="width: 200px;"><span id="" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>

@@ -46,6 +46,16 @@
 
 </style>
 <body>
+    <?php 
+    $layid = $_REQUEST['id'];
+    $tenNVL=$p->laycot("select tenNVL from nguyenlieu where maNVL = '$layid' limit 1");
+    $slTon=$p->laycot("select slTon from nguyenlieu where maNVL = '$layid' limit 1");
+    $donViTinh=$p->laycot("select donViTinh from nguyenlieu where maNVL = '$layid' limit 1");
+    $moTa=$p->laycot("select moTa from nguyenlieu where maNVL = '$layid' limit 1");
+    $trangThai=$p->laycot("select trangThai from nguyenlieu where maNVL = '$layid' limit 1");
+    $ngayNhap= $p->laycot("select ngayNhap from nguyenlieu where maNVL = '$layid' limit 1");
+    $ngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL = '$layid' limit 1");
+    ?>
     <div class="container-fluid p-0">
         <div id="ql_header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
@@ -115,33 +125,33 @@
                     <table style="margin:0; height: 500px;" style="width: 50%; float:left;">
                         <tr>
                             <td style="width: 150px;"><label for="maNVL">Mã Nguyên Vật Liệu:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="maNVL" placeholder="Nhập mã nguyên vật liệu" name="maNVL" value="<?php echo $newInvoiceCode?>" readonly></td>
+                            <td><input type="input" class="form-control" size="200" id="maNVL" placeholder="Nhập mã nguyên vật liệu" name="maNVL" value="<?php echo $layid?>" readonly></td>
                             <!-- <td style="width: 200px;"><span id="errMa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="tenNVL">Tên Nguyên Vật Liệu:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="tenNVL" placeholder="Nhập tên nguyên vật liệu" name="tenNVL"></td>
+                            <td><input type="input" class="form-control" size="200" id="tenNVL" placeholder="Nhập tên nguyên vật liệu" name="tenNVL" value="<?php echo $tenNVL;?>"></td>
                             <!-- <td style="width: 200px;"><span id="errTen" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="slTon">Số Lượng:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập số lượng" name="slTon"></td>
+                            <td><input type="input" class="form-control" size="200" id="slTon" placeholder="Nhập số lượng" name="slTon" value="<?php echo $slTon;?>"></td>
                             <!-- <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="donViTinh">Đơn Vị Tính:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="donViTinh" placeholder="Nhập đơn vị tính" name="donViTinh"></td>
+                            <td><input type="input" class="form-control" size="200" id="donViTinh" placeholder="Nhập đơn vị tính" name="donViTinh" value="<?php echo $donViTinh;?>"></td>
                             <!-- <td><span id="errDVT" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="moTa">Mô Tả:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập mô tả" name="moTa"></td>
+                            <td><input type="input" class="form-control" size="200" id="moTa" placeholder="Nhập mô tả" name="moTa" value="<?php echo $moTa;?>"></td>
                             <!-- <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="ngayNhap">Ngày Nhập: </label></td>
                             <td><label for="ngaynhap">Ngày nhập:</label>
-                                <input type="date" id="ngayNhap" name="ngayNhap" placeholder="DD/MM/YY" class="form-control">
+                                <input type="date" id="ngayNhap" name="ngayNhap" placeholder="DD/MM/YY" class="form-control" value="<?php echo $ngayNhap;?>">
                                 <span class="text-danger" id="tbngayNhap"></span>
                                 <script>
                                     // Lấy input element
@@ -160,19 +170,19 @@
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="ngayHetHan">Ngày Hết Hạn: </label></td>
-                            <td><input type="date" class="form-control" size="200" id="ngayHetHan"name="ngayHetHan"></td>
+                            <td><input type="date" class="form-control" size="200" id="ngayHetHan"name="ngayHetHan" value="<?php echo $ngayHetHan;?>"></td>
                             <!-- <td style=" hight: 400px; width: 200px;"><span id="errEndDate" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         <tr>
                             <td style="width: 150px;"><label for="trangThai">Trạng Thái:</label></td>
-                            <td><input type="input" class="form-control" size="200" id="trangThai"  name="trangThai" value="<?php echo $trangThai=1?>" readonly></td>
+                            <td><input type="input" class="form-control" size="200" id="trangThai"  name="trangThai" value="<?php echo $trangThai;?>"></td>
                             <!-- <td style="width: 200px;"><span id="" class="err text-danger"><b style="font-size: 20px;">*</b></span></td> -->
                         </tr>
                         
                         
                         <tr>
                             <td colspan=2 style="text-align:center;">
-                                <input type="submit" name="btnthem" id="btnthem" value="Thêm" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0;">
+                            <input type="submit" name="btnsua" id="btnsua" value="Cập Nhật" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0;">
                                 <a href="../management_materials.php" style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none;">Hủy</a>
                             </td>
 
@@ -181,58 +191,58 @@
                     </table>
                     <?php
                         error_reporting(1);        
-                        switch($_REQUEST['btnthem'])
+                        if($_REQUEST['id']!='')
                         {
-                            case 'Thêm':
+                            switch($_REQUEST['btnsua'])
                             {
-                                $maNVL= $newInvoiceCode;
-                                $tenNVL=$_REQUEST['tenNVL'];
-                                $slTon=$_REQUEST['slTon'];
-                                $donViTinh=$_REQUEST['donViTinh'];
-                                $moTa=$_REQUEST['moTa'];
-                                $trangThai=$_REQUEST['trangThai'];
-                                $ngayNhap= $_REQUEST['ngayNhap'];
-                                $ngayHetHan=$_REQUEST['ngayHetHan'];
-                                $ngayNhapFormatted = date("Y-m-d", strtotime($ngayNhap));
-                                $ngayHetHanFormatted = date("Y-m-d", strtotime($ngayHetHan));
-                                if($maNVL !='' && $tenNVL !='' && $slTon !=''&& $donViTinh !='' && $moTa!=''&& $trangThai !='' && $ngayNhapFormatted!=''&& $ngayHetHanFormatted !='')
+                                case 'Cập Nhật':
                                 {
-                                    $conn = new mysqli('localhost','root','','db_chipheo');
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    }
-                                        
-                                    if($conn)
+                                    $maNVL= $_REQUEST['maNVL'];
+                                    $tenNVL=$_REQUEST['tenNVL'];
+                                    $slTon=$_REQUEST['slTon'];
+                                    $donViTinh=$_REQUEST['donViTinh'];
+                                    $moTa=$_REQUEST['moTa'];
+                                    $trangThai=$_REQUEST['trangThai'];
+                                    $ngayNhap= $_REQUEST['ngayNhap'];
+                                    $ngayHetHan=$_REQUEST['ngayHetHan'];
+                                    $ngayNhapFormatted = date("Y-m-d", strtotime($ngayNhap));
+                                    $ngayHetHanFormatted = date("Y-m-d", strtotime($ngayHetHan));
+                                    if($maNVL!='')
                                     {
-                                        // Chuyển định dạng ngày nếu cần thiết
-                                        
-                                        $str = "INSERT INTO nguyenlieu (maNVL,tenNVL,slTon,donViTinh,moTa,ngayNhap,ngayHetHan,trangThai) VALUES ('$maNVL',N'$tenNVL','$slTon','$donViTinh','$moTa','$ngayNhapFormatted','$ngayHetHanFormatted','$trangThai')";
-                                        
-                                        if ($conn->query($str) === TRUE) {
-                                            if ($conn->affected_rows > 0) {
-                                                echo "<script>alert('Thêm nguyên vật liệu thành công!');</script>";
-                                                echo'<script language="javascript">
-                                                            window.location="../management_materials.php";
-                                                            </script>';
-                                            } else {
-                                                echo "<script>alert('không có nguyên vật liệu nào được thêm!');</script>";
-                                            }
-                                        } 
-                                        else 
+                                        if($p->themxoasua("UPDATE nguyenlieu SET 
+                                            tenNVL = '$tenNVL', 
+                                            slTon = '$slTon', 
+                                            donViTinh = '$donViTinh', 
+                                            moTa = '$moTa', 
+                                            trangThai = '$trangThai',  
+                                            ngayNhap = '$ngayBatDauFormatted', 
+                                            ngayHetHan = '$ngayKetThucFormatted' 
+                                            WHERE maNVL = '$maNVL' LIMIT 1")==1)
                                         {
-                                            echo "Lỗi khi thêm nguyên vật liệu" . $conn->error;
-                                        }
-                                        $conn->close();
-                                    }
-                                }
-                                else
-                                {
-                                    echo"Vui lòng nhập đủ thông tin!!!";
-                                    
-                                }
-                                break;
-                            }
+                                            echo'<script language="javascript">
+                                            alert("Cập nhật thành công");	
+                                            window.location="view_updateNVL.php?id='.$maNVL.'";
+                                            </script>';
 
+                                        }   
+                                    }
+                                    else
+                                    {
+                                        echo'<script language="javascript">
+                                            alert("Vui lòng chọn nguyên vật liệu");	
+                                            </script>';
+                                    }
+                                    break;
+                                }
+
+                            }
+                        } 
+                        else 
+                        {
+                            echo'<script language="javascript">
+                            alert("Vui lòng chọn nguyên vật liệu");	
+                            window.location="../management_materials.php";
+                            </script>';
                         }
                     ?>
                 </form>

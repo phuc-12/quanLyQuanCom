@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Thực Đơn</title>
+    <title>Quản Lý Nguyên Vật Liệu</title>
     <link rel="stylesheet" href="../../css/admin_css/adminfood.css">
     <link rel="stylesheet" href="../../css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -205,13 +205,13 @@
                         </nav>
                         <form method="post" enctype="multipart/form-data" name="form1" id="form1"
                             style="width: 50%; float: right; background-color: white; padding-top: 10px;">
-                            <a href="view_admin/view_insertMA.php"
+                            <a href="view_admin/view_insertNVL.php"
                                 style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">THÊM
                                 NGUYÊN VẬT LIỆU</a>
                             <input type="submit" name="btnxoa" id="btnxoa" value="XÓA"
                                 onclick="return confirmDelete(<?php echo $layid; ?>)"
                                 style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; border: 0; float: right; margin-right: 10px; font-weight: 700;">
-                            <a href="view_admin/view_updateMA.php?id=<?php echo $layid;?>"
+                            <a href="view_admin/view_updateNVL.php?id=<?php echo $layid;?>"
                                 style="display: inline-block;padding: 10px 20px;background-color: #FFCD29;color: white;text-align: center;border-radius: 5px;text-decoration: none; float: right; margin-right: 10px; font-weight: 700;">CHI
                                 TIẾT</a>
                         </form>
@@ -234,55 +234,22 @@
                         {
                             if(isset($_REQUEST['id']))
                             {
-                                $maXoa = $_REQUEST['id'];
-                                // echo $maXoa."<br>";
-                                $hinh = $k->laycot("select hinhAnh from monan where maMA = '$maXoa' limit 1");
-                                $maLoai = $k->laycot("select maLoaiMA from monan where maMA = '$maXoa' limit 1");
-                                // echo $hinh."<br>";
-                                // echo $maLoai ."<br>";
-                                switch($maLoai)
-                                {
-                                    case 1: {$thucDon="monman";} break;
-                                    case 2: {$thucDon="monchay";} break;
-                                    case 3: {$thucDon="douong";} break;
-                                    case 4: {$thucDon="trangmieng";} break;
-                                }
-                                // echo $thucDon ."<br>";
-                                if($maXoa!='')
-                                {
-                                    if(unlink("../../img/".$thucDon."/".$hinh))
+                                $maXoa = $_REQUEST['id'];  
+                                echo $maXoa;                           
+                                    if($k->themxoasua("delete from nguyenlieu where maNVL='$maXoa' limit 1")==1)
                                     {
-                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa món ăn thành công");	
-                                                </script>';
-                                        }
+                                        echo'<script language="javascript">
+                                            alert("Xóa nguyên vật liệu thành công");	
+                                            </script>';
                                     }
-                                    else 
-                                    {
-                                        if($k->themxoasua("delete from monan where maMA='$maXoa' limit 1")==1)
-                                        {
-                                            echo'<script language="javascript">
-                                                alert("Xóa món ăn thành công");	
-                                                </script>';
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    echo'<script language="javascript">
-                                        alert("Vui lòng chọn món ăn cần xóa");	
-                                        </script>';
-                                }
                                 echo'<script language="javascript">
-                                        window.location="managementfood.php";
+                                        window.location="management_materials.php";
                                         </script>';
                             }
                             else 
                             {
                                 echo'<script language="javascript">
-                                    alert("Vui lòng chọn món ăn cần xóa");	
+                                    alert("Vui lòng chọn nguyên vật liệu cần xóa");	
                                     </script>';
                             }
                             break;
@@ -317,7 +284,7 @@
 </body>
 <script>
 function confirmDelete() {
-    return confirm("Bạn có chắc chắn muốn xóa món ăn này?");
+    return confirm("Bạn có chắc chắn muốn xóa nguyên vật liệu này?");
 }
 </script>
 

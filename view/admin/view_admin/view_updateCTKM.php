@@ -186,13 +186,9 @@
                                         {
                                             echo'<script language="javascript">
                                             alert("Cập nhật thành công");	
-                                            window.location="../management_gift.php";
+                                            window.location="view_updateCTKM.php?id='.$maKM.'";
                                             </script>';
                                         }
-                                        echo'<script language="javascript">
-                                        window.location="view_updateCTKM.php?id='.$maKM.'";
-                                        </script>';
-                                        
                                     }
                                     else
                                     {
