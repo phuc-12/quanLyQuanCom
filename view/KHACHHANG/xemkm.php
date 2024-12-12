@@ -23,7 +23,7 @@ include_once("../../controler/cMonAnTrangChu.php");  // Include the controller
     <script src="../../js/thongtin.js" defer></script>  
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../../js/capnhatthongtin.js" defer></script>  
-
+    <title> Xem Khuyến Mãi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Thêm vào phần <head> của HTML -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">

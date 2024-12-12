@@ -36,6 +36,7 @@
         $layid = $_REQUEST['id'];
         $laytenctkm=$p->laycot("select tenKM from ctkm where maKM = '$layid' limit 1");
         $laymoTa=$p->laycot("select moTa from ctkm where maKM = '$layid' limit 1");
+        $layloaiKH=$p->laycot("select l.maLoaiKH from ctkm c join loaikhachhang l on c.loaiKH = l.loaiKH where c.maKM = '$layid' limit 1");
         $layTrangThai=$p->laycot("select trangThai from ctkm where maKM = '$layid' limit 1");
         $layChietKhau=$p->laycot("select chietKhau from ctkm where maKM = '$layid' limit 1");
         $layNgayBatDau=$p->laycot("select thoiGianBatDau from ctkm where maKM = '$layid' limit 1");
@@ -130,6 +131,14 @@
                             <td style=" hight: 400px; width: 200px;"><span id="errMoTa" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
                         </tr>
                         <tr>
+                            <td style="width: 150px;"><label for="loaiKH" >Loại Khách Hàng:</label></td>
+                            <td width="318" align="left">
+                                <?php
+                                    $p->chonloaiKH("select * from loaikhachhang order by maLoaiKH asc",$layloaiKH);
+                                ?> 
+                            </td>
+                        </tr>
+                        <tr>
                             <td style="width: 150px;"><label for="trangThai" >Trạng Thái</label></td>
                             <td><input type="input" class="form-control" size="200" id="trangThai" placeholder="Nhập mô tả" name="trangThai" value="<?php echo $layTrangThai;?>"></td>
                             <td style="width: 200px;"><span id="errTrangThai" class="err text-danger"><b style="font-size: 20px;">*</b></span></td>
@@ -173,6 +182,13 @@
                                 $maKM=$_REQUEST['maKM'];
                                 $tenKM=$_REQUEST['tenKM'];
                                 $moTa=$_REQUEST['moTa'];
+                                $laymaloaiKH=$_REQUEST['maLoaiKH'];
+                                switch($laymaloaiKH){
+                                    case 1:{$layloaiKH='Bạc'; break;}
+                                    case 2:{$layloaiKH='Vàng'; break;}
+                                    case 3:{$layloaiKH='Kim Cương'; break;}
+                                    case 4:{$layloaiKH='Khách Thường'; break;}
+                                }
                                 $trangThai=$_REQUEST['trangThai'];
                                 $chietKhau=$_REQUEST['chietKhau'];
                                 $thoiGianBatDau= $_REQUEST['thoiGianBatDau'];
@@ -184,6 +200,7 @@
                                         if($p->themxoasua("UPDATE ctkm SET 
                                             tenKM = '$tenKM', 
                                             moTa = '$moTa', 
+                                            loaiKH = '$layloaiKH',
                                             trangThai = '$trangThai', 
                                             chietKhau = '$chietKhau', 
                                             thoiGianBatDau = '$ngayBatDauFormatted', 

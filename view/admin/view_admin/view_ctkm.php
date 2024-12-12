@@ -27,6 +27,7 @@
                             <th>Mã Khuyến Mãi</th>
                             <th>Tên Khuyến Mãi</th>
                             <th>Mô Tả</th>
+                            <th>Loại Khách Hàng</th>
                             <th>Trạng Thái</th>
                             <th>Chiết Khấu</th>
                             <th>Bắt Đầu</th>
@@ -41,7 +42,8 @@
                 echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['maKM'].'</a></td>';
                 echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['tenKM'].'</a></td>';
                 echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['moTa'].'</a></td>';
-                // echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['trangThai'].'</a></td>';
+                echo '<td><a href="?id='.$r['maKM'].'" style="text-decoration:none; color: black;">'.$r['loaiKH'].'</a></td>';
+                
                 switch($r['trangThai'])
                         {
                             case 2: 
