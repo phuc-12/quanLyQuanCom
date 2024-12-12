@@ -36,6 +36,7 @@
         color : white ;
         margin-left: -5px ;
     }
+    /////
     .contact-info a:hover{
         color: #4e4202;
     }
