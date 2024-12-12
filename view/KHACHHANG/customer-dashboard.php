@@ -1,12 +1,4 @@
-<?php 
-    session_start();
-    if (!isset($_SESSION['btn_DangNhap'])) {
-        echo "<script>alert('Vui lòng đăng nhập và bắt đầu từ trang quản lý!')</script>";
-         echo "Vui lòng đăng nhập và bắt đầu từ trang quản lý!";
-        header("refresh:0; url='../dangnhap.php'");
-        exit();
-   }
-?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
