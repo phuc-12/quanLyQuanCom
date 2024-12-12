@@ -26,8 +26,8 @@
 </head>
 <body>
 <?php
-        $layid = isset($_GET['id']) ? $_GET['id'] : null;
-
+        // $layid = isset($_GET['id']) ? $_GET['id'] : null;
+        $layid = $_REQUEST['id'];
         // Nếu $layid vẫn chưa được gán, thông báo lỗi và dừng chương trình
         if (empty($layid)) {
             die('Không tìm thấy mã hóa đơn. Vui lòng kiểm tra lại.');
@@ -35,7 +35,6 @@
         $layThongTinDonHang = $p->laydanhsach("
         SELECT 
             hd.maHD, 
-            nv.hoTen AS tenNhanVien, 
             n.tenMA, 
             t.soLuong, 
             n.donViTinh, 
@@ -43,7 +42,6 @@
         FROM hoadon hd
         JOIN chitiethoadon t ON hd.maHD = t.maHD
         JOIN monan n ON t.maMA = n.maMA
-        JOIN nhanvien nv ON t.maNV = nv.maNV
         WHERE hd.maHD = '$layid'
         ");
         $layid = $_REQUEST['id'];
@@ -84,7 +82,17 @@
                 <p>Số hóa đơn: <?php echo $laysohd; ?></p>
                 <p>Ngày: <?php echo $layngaythang; ?></p>
 
-                <p>Nhân viên: <?php echo $laytennv; ?></p>
+                <p>Nhân viên: 
+                    <?php 
+                        if($laytennv)
+                        {
+                            echo $laytennv; 
+                        } 
+                        else
+                        {
+                            echo 'Quản Lý';
+                        }
+                    ?></p>
 
                 <p>Trạng thái: <?php 
                     switch($laytrangthai)
@@ -123,7 +131,7 @@
                     $tongTien = 0; 
             
                     foreach ($layThongTinDonHang as $dong) {
-                        $thanhTien = $dong['soLuong'] * $dong['donGia'] * 1000; // Thành tiền
+                        $thanhTien = $dong['soLuong'] * $dong['donGia'] * 1000; // Thành tiề<n></n>
                         $dongia = $dong['donGia'] * 1000;
                         $tongTien += $thanhTien;
                         echo "<tr>";
