@@ -15,7 +15,7 @@ $(document).ready(function() {
             success: function(response) {
                 console.log(response); 
                 $('#discount').text(response.discount);
-                $('#total-after-calculating-discounts').text(response.total_after_calculating_discounts);
+                $('#total-sau-giamgia').text(response.tongTienSauGiam);
             },
             // thông báo lỗi
             error: function(xhr, status, error) {

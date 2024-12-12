@@ -96,7 +96,7 @@ if (isset($_POST['total_price']) && isset($_POST['makM'])) {
     
 
     $response = array(
-        'total_after_calculating_discounts' => number_format($giaSauGiam, 0, '.', ','),
+        'tongTienSauGiam' => number_format($giaSauGiam, 0, '.', ','),
         'discount' => $makM
     );
 
