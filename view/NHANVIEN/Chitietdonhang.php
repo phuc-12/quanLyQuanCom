@@ -63,6 +63,12 @@
 
     ?>
 <div class="container-fluid p-0">
+<<<<<<< HEAD
+            <div id="ql_header">
+                <div class="logo" style="padding: 0; border-radius: 100px;">
+                    <a href=""><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
+                </div>
+=======
     <div class="ql_header">
         <div class="logo" style="padding: 0; border-radius: 100px;">
             <a href="../../index.php"><img src="../../img/ChiPheologo.png" alt="" style="width: 100%; height: 100%; border-radius: 100px;"></a>
@@ -71,6 +77,7 @@
         <div class="date" style="float:right; margin-right: 50px; margin-top: -20px; "><span>📅</span><span id="currentDate"></span></div>
         <div class="menu-icon" style="float:right;" onclick="toggleSidebar()">👤</div> 
     </div>
+>>>>>>> 7cbbca2e5a8514a4bb7e1b70f944033b0befc01b
 
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
