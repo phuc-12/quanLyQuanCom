@@ -40,8 +40,8 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" style="float:right; margin-top: 20px; padding: 0; margin-right:70px; ">👤</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="ThongtinNhanVien.php?id=5">Thông Tin Cá Nhân</a></li>
-                        <li><a class="dropdown-item" href="CN_thongtin.php?id=5">Cập Nhật Thông Tin</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/ThongtinNhanVien.php?id=<?php echo $ma_nhan_vien; ?>">Thông Tin Cá Nhân</a></li>
+                        <li><a class="dropdown-item" href="../NHANVIEN/CN_thongtin.php?id=<?php echo $ma_nhan_vien; ?>">Cập Nhật Thông Tin</a></li>
                         <li><a class="dropdown-item" href="../../index.php">Đăng Xuất</a></li>
                     </ul>
                 </div>
@@ -101,7 +101,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                     <input type="text" id="mota" value="<?php echo $laymota;?>" name="mota">
 
                     <div class="nut">
-                        <button type="button" class="add-button-1" style="background-color: #656464; color:#ffff;" onclick="window.location.href='bep_qlynvl.php';">HỦY</button>
+                        <button type="button" class="add-button-1" style="background-color: #656464; color:#ffff;" onclick="window.location.href='bep_qlynvl.php?id=<?php echo $ma_nhan_vien; ?>';">HỦY</button>
                         <button type="submit" class="add-button-1" name="nut" id="nut" value="Sua">Cập nhật</button> 
                     </div>
                     <?php
