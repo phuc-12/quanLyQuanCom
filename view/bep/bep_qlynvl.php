@@ -1,6 +1,9 @@
 <?php
 include ("../../model/chucnangbep.php");
 $p = new tmdt();
+
+session_start();
+$_SESSION['ma_nhan_vien'] = $_REQUEST['id'];
 ?>
 
 
