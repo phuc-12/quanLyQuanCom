@@ -18,6 +18,7 @@ $p = new tmdt();
 </head>
 <body>
     <?php
+        error_reporting(0);
         $layid = $_REQUEST['id'];
     ?>
     <header>

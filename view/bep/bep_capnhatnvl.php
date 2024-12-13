@@ -1,6 +1,9 @@
 <?php
 include ("../../model/chucnangbep.php");
 $p = new tmdt();
+session_start();
+$_SESSION['ma_nhan_vien']=$_REQUEST['id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,7 +155,7 @@ $layngayHetHan=$p->laycot("select ngayHetHan from nguyenlieu where maNVL='$layid
                                 if ($p->themxoasua($sqlnguyenlieu) == 1 && $p->themxoasua($sqlmonan) == 1) {
                                     echo '<script language="javascript">alert("Cập nhật nguyên vật liệu thành công");</script>';
                                     echo '<script language="javascript">
-                                            window.location="bep_qlynvl.php";
+                                            window.location="bep_qlynvl.php?id="'.$ma_nhan_vien.';
                                         </script>';
                                 } else {
                                     echo '<script language="javascript">alert("Cập nhật thất bại. Vui lòng thử lại!");</script>';
